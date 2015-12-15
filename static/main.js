@@ -1,3 +1,6 @@
-/**
- * Created by Laxika on 2015.12.15..
- */
+var $ = require('jquery');
+window.jQuery = $;
+window.$ = $;
+
+require('bootstrap');
+require('bootstrap/dist/css/bootstrap.min.css');
