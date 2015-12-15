@@ -1,0 +1,179 @@
+html,
+body {
+    height: 100%;
+    background-color: #000;
+    color: wheat;
+}
+
+input.form-control {
+    border: 10px;
+    border-image-source: url(../image/text_input.png);
+    border-image-slice: 22 fill;
+    background: transparent;
+    height: 38px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+input.form-control:focus {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(245,222,179,0.3);
+}
+
+button.button-default {
+    border: 25px;
+    border-image-slice: 20 fill;
+    border-image-source: url(../image/button_gray.png);
+
+    background-color: transparent;
+
+    color: wheat;
+
+    height: 54px;
+    line-height: 0;
+
+    outline: none;
+}
+
+button.button-default:hover {
+    border-image-source: url(../image/button_gray-HOVER.png);
+}
+
+.registration-button {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.login-button {
+    margin-top: 5px;
+}
+
+.header-menu {
+    background-image: url(../image/btts_frame.png);
+    min-height: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 100;
+}
+
+@media (min-width: 768px) {
+    .header-menu {
+        margin-bottom: -60px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .header-menu {
+        margin-bottom: -120px;
+    }
+}
+
+.footer-menu {
+    background-image: url(../image/container_actions_bar_frame.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 12px;
+    height: 60px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.panel {
+    background-color: #000;
+
+    border: 30px;
+    border-top: 70px;
+    border-image-source: url(../image/c_full_header.png);
+    border-image-slice: 100 30 30 30 fill;
+    border-image-repeat: repeat;
+
+    margin-bottom: 0;
+}
+
+.panel > .panel-heading {
+    color: wheat;
+    margin-top: -56px;
+    padding-top: 5px;
+    background: transparent;
+    padding-left: 0;
+    border: 0;
+}
+
+.panel > .panel-heading > .panel-title {
+    font-family: "Candara";
+    font-size: 20px;
+}
+
+.panel > .panel-body {
+    padding: 20px 0 0;
+    font-family: "Candara";
+    font-size: 16px;
+}
+
+@media (min-width: 992px) {
+    .content-middle {
+        padding-right: 0;
+    }
+
+    .content-right {
+        padding-left: 0;
+    }
+}
+
+/* Wrapper for page content to push down footer */
+#page-wrap {
+    min-height: 100%;
+    height: auto;
+    /* Negative indent footer by its height */
+    margin: 0 auto -60px;
+    /* Pad bottom by footer height */
+    padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+    height: 60px;
+}
+
+.news-title {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.news-date {
+    margin-bottom: 10px;
+}
+
+.news-icon {
+    float: left;
+    margin-right: 8px;
+    margin-left: 3px;
+}
+
+.news-icon img {
+    width: 36px;
+}
+
+.news-entry-separator img {
+    width: 100%;
+}
+
+.news-entry {
+    margin-top: 5px;
+}
+
+.news-body {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.panel-heading-icon {
+    float: left;
+    margin-left: -6px;
+    margin-right: 6px;
+    margin-top: -3px;
+}
+
+.panel-heading-icon img {
+    width: 32px;
+}
