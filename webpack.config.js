@@ -4,8 +4,7 @@ module.exports = {
     entry: './static/main.js',
     resolve: {
         root: [
-            path.resolve('./static'),
-            path.resolve('./node_modules')
+            path.resolve('./static')
         ]
     },
     output: {
