@@ -6,49 +6,20 @@
         <h3 class="panel-title">News</h3>
     </div>
     <div class="panel-body">
-        <div class="news-entry">
-            <div class="news-header">
-                <div class="news-icon">
-                    <img src="../../image/header_icon_settings.png"/>
-                </div>
-                <h4 class="news-title">This is some news header</h4>
+        <div ng-repeat="news in newslist">
+            <div class="news-entry">
+                <div class="news-header">
+                    <div class="news-icon">
+                        <img src="../../image/header_icon_settings.png"/>
+                    </div>
+                    <h4 class="news-title" ng-bind="::news.title"></h4>
 
-                <div class="news-date">19. 08. 2014</div>
-            </div>
-            <div class="news-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt sem quis sapien efficitur tristique. Pellentesque ullamcorper, enim at bibendum consectetur, felis erat euismod arcu, nec vehicula tellus libero facilisis metus. Sed in velit quis mauris gravida accumsan eu congue felis. Pellentesque enim elit, tincidunt in pellentesque at, tempus nec risus. Cras tempor accumsan diam, a volutpat enim rutrum sit amet. Pellentesque condimentum lectus a dolor rhoncus, at semper purus tincidunt. Morbi eget ultricies nibh, ut vehicula ligula. Suspendisse potenti. Aenean faucibus eros eros, ut efficitur nulla rhoncus vitae. Nulla pretium, risus at placerat auctor, erat mi laoreet orci, et elementum dui lorem et diam. Etiam non magna vitae magna vehicula volutpat vitae sit amet lorem. Ut tristique id justo sed tristique. Aliquam ante nulla, congue at tellus ultricies, tempor fermentum justo. Morbi dictum eleifend ligula, accumsan elementum sem euismod eget. Donec cursus est ultrices diam venenatis euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
-            </div>
-        </div>
-        <div class="news-entry-separator">
-            <img src="../../image/seperator_2.png"/>
-        </div>
-        <div class="news-entry">
-            <div class="news-header">
-                <div class="news-icon">
-                    <img src="../../image/header_icon_settings.png"/>
+                    <div class="news-date" ng-bind="::news.releaseDate"></div>
                 </div>
-                <h4 class="news-title">This is some news header</h4>
-
-                <div class="news-date">19. 08. 2014</div>
+                <div class="news-body" ng-bind="::news.message"></div>
             </div>
-            <div class="news-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt sem quis sapien efficitur tristique. Pellentesque ullamcorper, enim at bibendum consectetur, felis erat euismod arcu, nec vehicula tellus libero facilisis metus. Sed in velit quis mauris gravida accumsan eu congue felis. Pellentesque enim elit, tincidunt in pellentesque at, tempus nec risus. Cras tempor accumsan diam, a volutpat enim rutrum sit amet. Pellentesque condimentum lectus a dolor rhoncus, at semper purus tincidunt. Morbi eget ultricies nibh, ut vehicula ligula. Suspendisse potenti. Aenean faucibus eros eros, ut efficitur nulla rhoncus vitae. Nulla pretium, risus at placerat auctor, erat mi laoreet orci, et elementum dui lorem et diam. Etiam non magna vitae magna vehicula volutpat vitae sit amet lorem. Ut tristique id justo sed tristique. Aliquam ante nulla, congue at tellus ultricies, tempor fermentum justo. Morbi dictum eleifend ligula, accumsan elementum sem euismod eget. Donec cursus est ultrices diam venenatis euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
-            </div>
-        </div>
-        <div class="news-entry-separator">
-            <img src="../../image/seperator_2.png"/>
-        </div>
-        <div class="news-entry">
-            <div class="news-header">
-                <div class="news-icon">
-                    <img src="../../image/header_icon_settings.png"/>
-                </div>
-                <h4 class="news-title">This is some news header</h4>
-
-                <div class="news-date">19. 08. 2014</div>
-            </div>
-            <div class="news-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt sem quis sapien efficitur tristique. Pellentesque ullamcorper, enim at bibendum consectetur, felis erat euismod arcu, nec vehicula tellus libero facilisis metus. Sed in velit quis mauris gravida accumsan eu congue felis. Pellentesque enim elit, tincidunt in pellentesque at, tempus nec risus. Cras tempor accumsan diam, a volutpat enim rutrum sit amet. Pellentesque condimentum lectus a dolor rhoncus, at semper purus tincidunt. Morbi eget ultricies nibh, ut vehicula ligula. Suspendisse potenti. Aenean faucibus eros eros, ut efficitur nulla rhoncus vitae. Nulla pretium, risus at placerat auctor, erat mi laoreet orci, et elementum dui lorem et diam. Etiam non magna vitae magna vehicula volutpat vitae sit amet lorem. Ut tristique id justo sed tristique. Aliquam ante nulla, congue at tellus ultricies, tempor fermentum justo. Morbi dictum eleifend ligula, accumsan elementum sem euismod eget. Donec cursus est ultrices diam venenatis euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
+            <div class="news-entry-separator" ng-if="!$last">
+                <img src="../../image/seperator_2.png"/>
             </div>
         </div>
     </div>
