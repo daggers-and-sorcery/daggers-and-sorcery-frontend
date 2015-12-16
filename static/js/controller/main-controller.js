@@ -1,15 +1,15 @@
 'use strict';
 
-module.exports = require('js/app.js').controller('MainController', function ($scope, $sce/*, $rootScope, $state, $http, $timeout*/) {
+module.exports = require('js/app.js').controller('MainController', function ($scope, $sce, $rootScope, $state, $http, $timeout) {
     $scope.loadContent = function() {
         return $sce.trustAsHtml(require('html/main-content.html'));
     };
 
-    /*$rootScope.user = {
+    $rootScope.user = {
         loggedIn: false
     };
 
-    $http.get('/user/info').success(function (data, status, headers, config) {
+    $http.get('http://api.daggersandsorcery.com/user/info').success(function (data, status, headers, config) {
         $rootScope.user = data.data;
         $state.go('home');
     });
@@ -62,9 +62,9 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
             }
         };
 
-        $http.post('/user/login', $.param($scope.user), requestConfig).success(function (data, status, headers, config) {
+        $http.post('http://api.daggersandsorcery.com/user/login', $.param($scope.user), requestConfig).success(function (data, status, headers, config) {
             if (data.success === 'true') {
-                $http.get('/user/info').success(function (data, status, headers, config) {
+                $http.get('http://api.daggersandsorcery.com/user/info').success(function (data, status, headers, config) {
                     $rootScope.user = data.data;
                     $state.go('home');
                 });
@@ -72,5 +72,5 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
                 $scope.error = data.error;
             }
         });
-    };*/
+    };
 });

@@ -1,67 +1,10 @@
-
 <div id="page-wrap">
     <div class="container" role="main">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header-menu"></div>
         </div>
         <div class="row">
-            <div class="col-md-9 col-lg-9 content-middle">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-heading-icon">
-                            <img src="../image/swords.png"/>
-                        </div>
-                        <h3 class="panel-title">News</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="news-entry">
-                            <div class="news-header">
-                                <div class="news-icon">
-                                    <img src="../image/header_icon_settings.png"/>
-                                </div>
-                                <h4 class="news-title">This is some news header</h4>
-
-                                <div class="news-date">19. 08. 2014</div>
-                            </div>
-                            <div class="news-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt sem quis sapien efficitur tristique. Pellentesque ullamcorper, enim at bibendum consectetur, felis erat euismod arcu, nec vehicula tellus libero facilisis metus. Sed in velit quis mauris gravida accumsan eu congue felis. Pellentesque enim elit, tincidunt in pellentesque at, tempus nec risus. Cras tempor accumsan diam, a volutpat enim rutrum sit amet. Pellentesque condimentum lectus a dolor rhoncus, at semper purus tincidunt. Morbi eget ultricies nibh, ut vehicula ligula. Suspendisse potenti. Aenean faucibus eros eros, ut efficitur nulla rhoncus vitae. Nulla pretium, risus at placerat auctor, erat mi laoreet orci, et elementum dui lorem et diam. Etiam non magna vitae magna vehicula volutpat vitae sit amet lorem. Ut tristique id justo sed tristique. Aliquam ante nulla, congue at tellus ultricies, tempor fermentum justo. Morbi dictum eleifend ligula, accumsan elementum sem euismod eget. Donec cursus est ultrices diam venenatis euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
-                            </div>
-                        </div>
-                        <div class="news-entry-separator">
-                            <img src="../image/seperator_2.png"/>
-                        </div>
-                        <div class="news-entry">
-                            <div class="news-header">
-                                <div class="news-icon">
-                                    <img src="../image/header_icon_settings.png"/>
-                                </div>
-                                <h4 class="news-title">This is some news header</h4>
-
-                                <div class="news-date">19. 08. 2014</div>
-                            </div>
-                            <div class="news-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt sem quis sapien efficitur tristique. Pellentesque ullamcorper, enim at bibendum consectetur, felis erat euismod arcu, nec vehicula tellus libero facilisis metus. Sed in velit quis mauris gravida accumsan eu congue felis. Pellentesque enim elit, tincidunt in pellentesque at, tempus nec risus. Cras tempor accumsan diam, a volutpat enim rutrum sit amet. Pellentesque condimentum lectus a dolor rhoncus, at semper purus tincidunt. Morbi eget ultricies nibh, ut vehicula ligula. Suspendisse potenti. Aenean faucibus eros eros, ut efficitur nulla rhoncus vitae. Nulla pretium, risus at placerat auctor, erat mi laoreet orci, et elementum dui lorem et diam. Etiam non magna vitae magna vehicula volutpat vitae sit amet lorem. Ut tristique id justo sed tristique. Aliquam ante nulla, congue at tellus ultricies, tempor fermentum justo. Morbi dictum eleifend ligula, accumsan elementum sem euismod eget. Donec cursus est ultrices diam venenatis euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
-                            </div>
-                        </div>
-                        <div class="news-entry-separator">
-                            <img src="../image/seperator_2.png"/>
-                        </div>
-                        <div class="news-entry">
-                            <div class="news-header">
-                                <div class="news-icon">
-                                    <img src="../image/header_icon_settings.png"/>
-                                </div>
-                                <h4 class="news-title">This is some news header</h4>
-
-                                <div class="news-date">19. 08. 2014</div>
-                            </div>
-                            <div class="news-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt sem quis sapien efficitur tristique. Pellentesque ullamcorper, enim at bibendum consectetur, felis erat euismod arcu, nec vehicula tellus libero facilisis metus. Sed in velit quis mauris gravida accumsan eu congue felis. Pellentesque enim elit, tincidunt in pellentesque at, tempus nec risus. Cras tempor accumsan diam, a volutpat enim rutrum sit amet. Pellentesque condimentum lectus a dolor rhoncus, at semper purus tincidunt. Morbi eget ultricies nibh, ut vehicula ligula. Suspendisse potenti. Aenean faucibus eros eros, ut efficitur nulla rhoncus vitae. Nulla pretium, risus at placerat auctor, erat mi laoreet orci, et elementum dui lorem et diam. Etiam non magna vitae magna vehicula volutpat vitae sit amet lorem. Ut tristique id justo sed tristique. Aliquam ante nulla, congue at tellus ultricies, tempor fermentum justo. Morbi dictum eleifend ligula, accumsan elementum sem euismod eget. Donec cursus est ultrices diam venenatis euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="col-md-9 col-lg-9 content-middle" ui-view></div>
             <div class="col-md-3 col-lg-3 content-right">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -69,8 +12,7 @@
                     </div>
                     <div class="panel-body">
                         <button class="button-default registration-button" ui-sref="registration" href="#/registration/">Create an account</button>
-                        <!-- this is the error response box, hidden for now! -->
-                        <div class="alert alert-danger ng-binding ng-hide" role="alert" ng-bind="error" ng-show="error" style="margin-bottom: 15px; display: none;"></div>
+                        <div class="alert alert-danger ng-binding ng-hide" role="alert" ng-bind="error" ng-show="error" style="margin-bottom: 15px;"></div>
                         <form ng-submit="submit()" class="ng-pristine ng-valid">
                             <div class="form-group">
                                 <label for="username">Username</label> <input type="text" class="form-control ng-pristine ng-valid ng-touched" id="username" placeholder="Username" ng-model="user.username" autocomplete="off">
@@ -92,7 +34,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer-menu">
-                This website and its contents are copyright © 2016 More Than Heroic Studios
+                This website and its contents are copyright &copy; 2016 More Than Heroic Studios
             </div>
         </div>
     </div>

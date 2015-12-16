@@ -5,11 +5,16 @@ window.$ = $;
 
 require('vendor/angular/js/angular.min.js');
 
+require('vendor/angular-ui-router/js/angular-ui-router.min.js');
+
 require('vendor/bootstrap/css/bootstrap.min.css');
 require('vendor/bootstrap/css/bootstrap-theme.min.css');
 
 // Controllers
 require('js/controller/main-controller.js');
+
+// Router
+require('js/router/router.js');
 
 // SASS
 require('sass/partial/news/news.scss');
