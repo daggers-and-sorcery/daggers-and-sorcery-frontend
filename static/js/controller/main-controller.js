@@ -1,8 +1,8 @@
 'use strict';
 
-module.exports = require('js/app.js').controller('MainController', function ($scope, $sce, $rootScope, $state, $http, $timeout) {
+module.exports = require('js/app.js').controller('MainController', function ($scope, $rootScope, $state, $http, $timeout) {
     $scope.loadContent = function() {
-        return $sce.trustAsHtml(require('html/main-content.html'));
+        return require('html/main-content.html');
     };
 
     $rootScope.user = {
