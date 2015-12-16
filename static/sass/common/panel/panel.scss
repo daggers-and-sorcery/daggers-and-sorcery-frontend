@@ -1,0 +1,42 @@
+.panel {
+  background-color: #000;
+
+  border: 30px;
+  border-top: 70px;
+  border-image-source: url(../../../image/c_full_header.png);
+  border-image-slice: 100 30 30 30 fill;
+  border-image-repeat: repeat;
+
+  margin-bottom: 0;
+
+  > .panel-heading {
+    color: wheat;
+    margin-top: -56px;
+    padding-top: 5px;
+    background: transparent;
+    padding-left: 0;
+    border: 0;
+  }
+
+  > .panel-heading > .panel-title {
+    font-family: "Candara";
+    font-size: 20px;
+  }
+
+  > .panel-body {
+    padding: 20px 0 0;
+    font-family: "Candara";
+    font-size: 16px;
+  }
+
+  .panel-heading-icon {
+    float: left;
+    margin-left: -6px;
+    margin-right: 6px;
+    margin-top: -3px;
+  }
+
+  .panel-heading-icon img {
+    width: 32px;
+  }
+}

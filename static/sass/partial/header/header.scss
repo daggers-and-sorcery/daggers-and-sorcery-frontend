@@ -1,0 +1,18 @@
+.header-menu {
+  background: url(../../../image/btts_frame.png) no-repeat;
+  background-size: contain;
+  min-height: 180px;
+  z-index: 100;
+}
+
+@media (min-width: 768px) {
+  .header-menu {
+    margin-bottom: -60px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .header-menu {
+    margin-bottom: -120px;
+  }
+}

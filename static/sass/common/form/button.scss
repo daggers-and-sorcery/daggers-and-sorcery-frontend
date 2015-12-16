@@ -1,0 +1,18 @@
+button.button-default {
+  border: 25px;
+  border-image-slice: 20 fill;
+  border-image-source: url(../../../image/button_gray.png);
+
+  background-color: transparent;
+
+  color: wheat;
+
+  height: 54px;
+  line-height: 0;
+
+  outline: none;
+}
+
+button.button-default:hover {
+  border-image-source: url(../../../image/button_gray-HOVER.png);
+}

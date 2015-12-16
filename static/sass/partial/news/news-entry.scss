@@ -1,0 +1,31 @@
+.news-entry {
+  margin-top: 5px;
+
+  .news-title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .news-date {
+    margin-bottom: 10px;
+  }
+
+  .news-icon {
+    float: left;
+    margin-right: 8px;
+    margin-left: 3px;
+  }
+
+  .news-icon img {
+    width: 36px;
+  }
+
+  .news-entry-separator img {
+    width: 100%;
+  }
+
+  .news-body {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}

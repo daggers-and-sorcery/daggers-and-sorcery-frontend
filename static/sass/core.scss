@@ -1,0 +1,16 @@
+html,
+body {
+  height: 100%;
+  background-color: #000;
+  color: wheat;
+}
+
+@media (min-width: 992px) {
+  .content-middle {
+    padding-right: 0;
+  }
+
+  .content-right {
+    padding-left: 0;
+  }
+}
