@@ -6,13 +6,13 @@
         <div class="row">
             <div class="col-md-9 col-lg-9 content-middle" ui-view></div>
             <div class="col-md-3 col-lg-3 content-right">
-                <div class="panel panel-default">
+                <div ng-hide="$root.user.loggedIn" class="panel panel-default login-panel">
                     <div class="panel-heading">
                         <h3 class="panel-title">Login</h3>
                     </div>
                     <div class="panel-body">
                         <button class="button-default registration-button" ui-sref="registration" href="#/registration/">Create an account</button>
-                        <div class="alert alert-danger ng-binding ng-hide" role="alert" ng-bind="error" ng-show="error" style="margin-bottom: 15px;"></div>
+                        <div class="alert alert-danger login-error ng-binding ng-hide" role="alert" ng-bind="error" ng-show="error" style="margin-bottom: 15px;"></div>
                         <form ng-submit="submit()" class="ng-pristine ng-valid">
                             <div class="form-group">
                                 <label for="username">Username</label> <input type="text" class="form-control ng-pristine ng-valid ng-touched" id="username" placeholder="Username" ng-model="user.username" autocomplete="off">
@@ -25,6 +25,12 @@
                             </div>
                         </form>
                     </div>
+                </div>
+                <div ng-show="$root.user.loggedIn" class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Menu</h3>
+                    </div>
+                    <div class="panel-body">Soon</div>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
 module.exports = {
     name: 'home',
     url: '/home/',
-    templateUrl: "/partial/main/index.html",
+    templateUrl: require('partial/main/index.html'),
     resolve: {
         newslist: function ($http) {
             return $http({method: 'GET', url: '/news/last'});
