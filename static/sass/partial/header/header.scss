@@ -16,3 +16,43 @@
     margin-bottom: -120px;
   }
 }
+
+.top-attribute-bar {
+  width: 250px;
+  margin-bottom: 8px;
+
+  .progress {
+    height: 15px;
+    margin-bottom: 0;
+  }
+}
+
+.top-attribute-bar:first-of-type {
+  margin-top: 30px;
+}
+
+.top-health-bar {
+  margin-left: 40px;
+}
+
+.top-mana-bar {
+  margin-left: 20px;
+}
+
+.top-movement-bar {
+  margin-left: 0px;
+}
+
+.top-attribute-text {
+  float: left;
+  margin-top: -3px;
+  margin-right: 5px;
+}
+
+.progress-info {
+  position: absolute;
+  font-size: 12px;
+  width: 220px;
+  text-align: center;
+  color: black;
+}
