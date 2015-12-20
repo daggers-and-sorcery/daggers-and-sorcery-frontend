@@ -31,7 +31,7 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         //Logout the user
         if (toState.name === 'logout') {
-            $http.get('/user/logout').success(function (data, status, headers, config) {
+            $http.get('http://api.daggersandsorcery.com/user/logout').success(function (data, status, headers, config) {
                 $rootScope.user.loggedIn = false;
                 $state.go('index');
             });

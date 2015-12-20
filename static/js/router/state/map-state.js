@@ -3,10 +3,10 @@
 module.exports = {
     name: 'map',
     url: '/map/',
-    templateUrl: "/partial/main/map.html",
+    templateUrl: require('partial/main/map.html'),
     resolve: {
         position: function ($http) {
-            return $http.get('/character/position').then(function(response) {
+            return $http.get('http://api.daggersandsorcery.com/character/position').then(function(response) {
                 return response.data.data;
             });
         }
@@ -20,7 +20,7 @@ module.exports = {
                 'direction': direction
             };
 
-            $http.post('/character/move', directionData).success(function (data, status, headers, config) {
+            $http.post('http://api.daggersandsorcery.com/character/move', directionData).success(function (data, status, headers, config) {
                 if(data.data.success) {
                     $scope.$broadcast('position', data.data);
                 }
@@ -30,7 +30,7 @@ module.exports = {
         };
 
         $scope.attack = function(target) {
-            $http.get('/map/combat/'+target).success(function (data, status, headers, config) {
+            $http.get('http://api.daggersandsorcery.com/map/combat/'+target).success(function (data, status, headers, config) {
                 if(!data.error) {
                     $state.go('combat', {'combatMessages': data.combatMessages});
                 }
