@@ -30,7 +30,6 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
     };
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-        console.log("State change start.");
         //Logout the user
         if (toState.name === 'logout') {
             $http.get('http://api.daggersandsorcery.com/user/logout').success(function (data, status, headers, config) {
@@ -42,18 +41,15 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
 
         //Always redirect to index if not logged in
         if (!(toState.hasOwnProperty('data') && toState.data.hasOwnProperty('visibleWhenNotLoggedIn') && toState.data.visibleWhenNotLoggedIn) && !$rootScope.user.loggedIn && toState.name !== 'index') {
-            console.log("Redirect to index.");
             event.preventDefault();
             $state.go('index');
         }
 
         //If logged in redirect index to home
         if (toState.name === 'index' && $rootScope.user.loggedIn) {
-            console.log("Redirect to home.");
             event.preventDefault();
             $state.go('home');
         }
-        console.log("State change end.");
     });
 
     //MERGED FROM RIGHT MENU
