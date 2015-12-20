@@ -13,6 +13,9 @@ require('vendor/bootstrap/css/bootstrap-theme.min.css');
 // Controllers
 require('js/controller/main-controller.js');
 
+// Service
+require('js/service/character-data-formatter.js');
+
 // Router
 require('js/router/router.js');
 
