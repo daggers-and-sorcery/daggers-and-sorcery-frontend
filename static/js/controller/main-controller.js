@@ -5,6 +5,19 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
         return require('html/main-content.html');
     };
 
+    //TODO: move this to server side
+    $scope.getHealthPercent = function() {
+        return $rootScope.user.life / ($rootScope.user.max_life / 100);
+    };
+
+    $scope.getManaPercent = function() {
+        return $rootScope.user.mana / ($rootScope.user.max_mana / 100);
+    };
+
+    $scope.getMovementPercent = function() {
+        return $rootScope.user.movement / ($rootScope.user.max_movement / 100);
+    };
+
     $rootScope.user = {
         loggedIn: false
     };
