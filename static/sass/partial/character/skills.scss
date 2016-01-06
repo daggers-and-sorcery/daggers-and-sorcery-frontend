@@ -4,7 +4,7 @@
     border-image-slice: 30 fill;
     border-image-repeat: repeat;
 
-    height: 200px;
+    height: 220px;
 
     margin-top: 30px;
     margin-bottom: 30px;
@@ -57,7 +57,11 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            margin-top: -10px;
+            //margin-top: -10px;
+            position: absolute;
+            bottom: 6px;
+            left: 0;
+            right: 0;
         }
 
         .skill-entry-info-down-arrow {
@@ -67,6 +71,7 @@
             margin-left: auto;
             margin-right: auto;
             bottom: 40px;
+            z-index: 1;
         }
     }
 }

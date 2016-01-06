@@ -7,6 +7,10 @@ module.exports = function ($scope, $http, ATTRIBUTE_BONUS_MAP, characterData, $r
     $scope.scavengingSlider = 0;
     $scope.maxScavengingPointsToConvert = Math.floor((50 - $scope.user.scavengingPoints) / 5) * 5;
 
+    //Skill images for webpack
+    $scope.image = {};
+    $scope.image['Two Handed Axes'] = require('../../image/icon/skill/Two_Handed_Axes.png');
+
     $scope.calculateMaxScavengingPointsToConvert = function () {
         var pountsUntilMax = Math.floor((50 - $scope.user.scavengingPoints) / 5) * 5;
 

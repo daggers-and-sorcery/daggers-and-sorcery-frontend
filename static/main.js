@@ -33,6 +33,7 @@ require('sass/partial/footer/footer.scss');
 require('sass/partial/footer/sticky-footer.scss');
 require('sass/partial/login/login-form.scss');
 require('sass/partial/character/skills.scss');
+require('sass/partial/character/character.scss');
 
 require('sass/common/form/input.scss');
 require('sass/common/form/button.scss');

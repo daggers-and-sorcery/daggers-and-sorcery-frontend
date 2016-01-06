@@ -6,6 +6,7 @@
         <h3 class="panel-title">Character</h3>
     </div>
     <div class="panel-body">
+        <h3><img class="character-list-header" src="../../image/btts_stats_button.png"> Skills</h3>
         <div class="row">
             <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="(attributeName, attributeValue) in user.attribute.SKILL">
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
@@ -14,7 +15,7 @@
                     <div class="skill-entry-header">
                         <div class="skill-entry-icon-holder">
                             <div class="skill-entry-icon-inner-holder">
-                                <img class="skill-entry-icon img-responsive img-circle" src="../../image/tgb_menu_button_settings.png">
+                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{::image[attributeName]}}">
                             </div>
                         </div>
                     </div>
@@ -27,7 +28,7 @@
                             <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;"></div>
                         </div>
                         <img class="skill-entry-info-down-arrow" src="../../image/fw_char_status_arrow.png">
-                        <img class="skill-entry-info-link" src="../../image/cc_small_window_bot_arrow.png">
+                        <a href="/go/to/skill"><img class="skill-entry-info-link" src="../../image/cc_small_window_bot_arrow.png"></a>
                     </div>
                 </div>
             </div>
