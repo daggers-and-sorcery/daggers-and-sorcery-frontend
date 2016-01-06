@@ -1,0 +1,72 @@
+.skill-entry {
+    border: 30px;
+    border-image-source: url(../../../image/c_full.png);
+    border-image-slice: 30 fill;
+    border-image-repeat: repeat;
+
+    height: 200px;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    .skill-entry-header {
+        width: 120px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+
+        .skill-entry-icon-holder {
+            background: url(../../../image/m_action_frame.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 126px;
+
+            .skill-entry-icon-inner-holder {
+                padding-top: 24px;
+
+                img.skill-entry-icon {
+                    margin: auto;
+                    width: 68px;
+                }
+            }
+        }
+    }
+
+    .skill-entry-body {
+
+        .skill-entry-title {
+            text-align: center;
+            margin-bottom: 5px;
+            margin-top: 65px;
+        }
+
+        .skill-entry-level {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .progress-info {
+            width: 188px;
+        }
+
+        .skill-entry-info-link {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: -10px;
+        }
+
+        .skill-entry-info-down-arrow {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            bottom: 40px;
+        }
+    }
+}
