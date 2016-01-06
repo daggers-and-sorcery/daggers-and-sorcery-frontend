@@ -7,7 +7,8 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="(attributeName, attributeValue) in user.attribute.SKILL">
+                <div class="clearfix" ng-if="$index % 3 == 0"></div>
                 <!-- Remove the panel and add a normal border without header -->
                 <div class="skill-entry">
                     <div class="skill-entry-header">
@@ -18,12 +19,12 @@
                         </div>
                     </div>
                     <div class="skill-entry-body">
-                        <h4 class="skill-entry-title">Attack</h4>
-                        <h5 class="skill-entry-level">Level: 11</h5>
+                        <h4 class="skill-entry-title">{{attributeName}}</h4>
+                        <h5 class="skill-entry-level">Level: {{attributeValue.actual}}</h5>
                         <div class="progress">
-                            <span class="progress-info ng-binding">216 / 2200</span>
+                            <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>
 
-                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 72%;"></div>
+                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;"></div>
                         </div>
                         <img class="skill-entry-info-down-arrow" src="../../image/fw_char_status_arrow.png">
                         <img class="skill-entry-info-link" src="../../image/cc_small_window_bot_arrow.png">

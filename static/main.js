@@ -22,6 +22,9 @@ require('js/router/router.js');
 // Directive
 require('js/directive/bind-html-compile.js');
 
+// Constants
+require('js/constant/attribute-bonus-map.js');
+
 // SASS
 require('sass/partial/news/news.scss');
 require('sass/partial/news/news-entry.scss');
