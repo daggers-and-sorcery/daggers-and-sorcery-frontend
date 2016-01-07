@@ -24,7 +24,7 @@
                             <span class="inventory-entry-item-amount badge attribute-badge pull-left" ng-bind="item.item.amount"></span>
                             <span class="inventory-entry-item-name" ng-bind="item.definition.name"></span>
                             <span class="inventory-entry-equip-icon-holder inventory-entry-icon-holder" ng-click="equip(item.definition.id)" ng-if="item.definition.equipment"><img style="margin-top: -8px;" src="/icon/equip.svg"></span>
-                            <span class="inventory-entry-use-icon-holder inventory-entry-icon-holder" ng-click="use(item.definition.id)" style="width: 26px;height: 26px;margin-top: -3.5px;cursor: pointer;" ng-if="item.definition.usable"><img style="margin-top: -8px;width: 14px;height: 14px;" src="/icon/use.svg"></span>
+                            <span class="inventory-entry-use-icon-holder inventory-entry-icon-holder" ng-click="use(item.definition.id)" ng-if="item.definition.usable"><img style="margin-top: -8px;width: 14px;height: 14px;" src="/icon/use.svg"></span>
                             <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
                         </div>
                     </div>
