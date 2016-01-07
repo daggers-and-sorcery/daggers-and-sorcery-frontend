@@ -6,28 +6,56 @@
         <h3 class="panel-title">Character</h3>
     </div>
     <div class="panel-body">
+        <h3><img class="character-list-header" src="../../image/btts_stats_button.png"> Inventory</h3>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="inventory-player-model">
+                    <img class="inventory-player-model-image" src="../../image/inventory/character_example.png"> <img class="inventory-player-model-background" src="../../image/inventory/cw_character_bg.png">
+                </div>
+            </div>
+        </div>
+        <div class="row inventory-entry-list">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="item in user.inventory" style="padding: 0;">
+                        <div class="clearfix" ng-if="$index % 3 == 0"></div>
+                        <div class="inventory-entry">
+                            <span class="inventory-entry-item-amount badge attribute-badge pull-left" ng-bind="item.item.amount"></span>
+                            <span class="inventory-entry-item-name" ng-bind="item.definition.name"></span>
+                            <span class="inventory-entry-equip-icon-holder inventory-entry-icon-holder" ng-click="equip(item.definition.id)" ng-if="item.definition.equipment"><img style="margin-top: -8px;" src="/icon/equip.svg"></span>
+                            <span class="inventory-entry-use-icon-holder inventory-entry-icon-holder" ng-click="use(item.definition.id)" style="width: 26px;height: 26px;margin-top: -3.5px;cursor: pointer;" ng-if="item.definition.usable"><img style="margin-top: -8px;width: 14px;height: 14px;" src="/icon/use.svg"></span>
+                            <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <h3><img class="character-list-header" src="../../image/btts_stats_button.png"> Skills</h3>
+
         <div class="row">
             <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="(attributeName, attributeValue) in user.attribute.SKILL">
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
-                <!-- Remove the panel and add a normal border without header -->
                 <div class="skill-entry">
                     <div class="skill-entry-header">
                         <div class="skill-entry-icon-holder">
                             <div class="skill-entry-icon-inner-holder">
-                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{::image[attributeName]}}">
+                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{getSkillImage(attributeName)}}">
                             </div>
                         </div>
                     </div>
                     <div class="skill-entry-body">
                         <h4 class="skill-entry-title">{{attributeName}}</h4>
                         <h5 class="skill-entry-level">Level: {{attributeValue.actual}}</h5>
+
                         <div class="progress">
                             <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>
 
                             <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;"></div>
                         </div>
                         <img class="skill-entry-info-down-arrow" src="../../image/fw_char_status_arrow.png">
+                        <!-- todo: only show this if the skill has its own page -->
                         <a href="/go/to/skill"><img class="skill-entry-info-link" src="../../image/cc_small_window_bot_arrow.png"></a>
                     </div>
                 </div>

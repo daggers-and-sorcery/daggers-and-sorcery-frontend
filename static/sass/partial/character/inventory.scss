@@ -1,0 +1,53 @@
+.inventory-player-model {
+    height: 450px;
+
+    .inventory-player-model-image {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        z-index: 1;
+    }
+
+    .inventory-player-model-background {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+}
+
+.inventory-entry-list {
+    border: 30px;
+    border-image-source: url(../../../image/c_full.png);
+    border-image-slice: 30 fill;
+    border-image-repeat: repeat;
+    height: 220px;
+    margin: 0;
+
+    .inventory-entry {
+        padding: 5px;
+
+        .inventory-entry-equip-icon-holder {
+            width: 26px;
+            height: 26px;
+            margin-top: -3.5px;
+            cursor: pointer;
+        }
+
+        .inventory-entry-use-icon-holder {
+
+        }
+
+        .inventory-entry-popup-icon, .inventory-entry-icon-holder {
+            float: right;
+            padding-right: 10px;
+        }
+
+        .inventory-entry-item-name {
+            padding-left: 5px;
+        }
+    }
+}

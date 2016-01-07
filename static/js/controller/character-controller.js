@@ -7,24 +7,11 @@ module.exports = function ($scope, $http, ATTRIBUTE_BONUS_MAP, characterData, $r
     $scope.scavengingSlider = 0;
     $scope.maxScavengingPointsToConvert = Math.floor((50 - $scope.user.scavengingPoints) / 5) * 5;
 
-    //Skill images for webpack
-    $scope.image = {};
-    $scope.image['Two Handed Axes'] = require('../../image/icon/skill/Two_Handed_Axes.png');
-    $scope.image['Longbows'] = require('../../image/icon/skill/Longbows.png');
-    $scope.image['Shortbows'] = require('../../image/icon/skill/Shortbows.png');
-    $scope.image['Staff'] = require('../../image/icon/skill/Staff.png');
-    $scope.image['Shortswords'] = require('../../image/icon/skill/Shortswords.png');
-    $scope.image['Longswords'] = require('../../image/icon/skill/Longswords.png');
-    $scope.image['One Handed Axes'] = require('../../image/icon/skill/One_Handed_Axes.png');
-    $scope.image['Crossbows'] = require('../../image/icon/skill/Crossbows.png');
-    $scope.image['Daggers'] = require('../../image/icon/skill/Daggers.png');
-    $scope.image['Polearms'] = require('../../image/icon/skill/Polearms.png');
-    $scope.image['Two Handed Crushing Weapons'] = require('../../image/icon/skill/Two_Handed_Crushing_Weapons.png');
-    $scope.image['One Handed Crushing Weapons'] = require('../../image/icon/skill/One_Handed_Crushing_Weapons.png');
-    $scope.image['Robe Armor'] = require('../../image/icon/skill/Robe_Armor.png');
-    $scope.image['Heavy Armor'] = require('../../image/icon/skill/Heavy_Armor.png');
-    $scope.image['Shield Defense'] = require('../../image/icon/skill/Shield_Defense.png');
-    $scope.image['Light Armor'] = require('../../image/icon/skill/Light_Armor.png');
+    $scope.inventoryPopover = require('html/popover/inventory-popover.html');
+
+    $scope.getSkillImage = function (skill) {
+        return require('image/icon/skill/' + skill.replace(new RegExp('\\s', 'g'), '_') + '.png');
+    };
 
     $scope.calculateMaxScavengingPointsToConvert = function () {
         var pountsUntilMax = Math.floor((50 - $scope.user.scavengingPoints) / 5) * 5;
