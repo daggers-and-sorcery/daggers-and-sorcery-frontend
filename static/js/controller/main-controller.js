@@ -77,13 +77,13 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
         };
 
         $http.post('http://api.daggersandsorcery.com/user/login', $.param($scope.user), requestConfig).success(function (data, status, headers, config) {
-            if (data.success === 'true') {
+            if (data.data.success === 'true') {
                 $http.get('http://api.daggersandsorcery.com/user/info').success(function (data, status, headers, config) {
                     $rootScope.user = data.data;
                     $state.go('home');
                 });
             } else {
-                $scope.error = data.error;
+                $scope.error = data.data.error;
             }
         });
     };
