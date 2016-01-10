@@ -1,0 +1,7 @@
+.popover, .popover-inner {
+    border-image-source: url(../../../image/chat_text_input.png);
+    border-image-slice: 30 fill;
+    border-image-repeat: repeat;
+
+    width: 200px;
+}

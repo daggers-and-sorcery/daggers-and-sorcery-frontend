@@ -41,9 +41,13 @@ require('sass/partial/login/login-form.scss');
 require('sass/partial/character/skills.scss');
 require('sass/partial/character/inventory.scss');
 require('sass/partial/character/character.scss');
+require('sass/partial/character/attribute.scss');
 
 require('sass/common/form/input.scss');
 require('sass/common/form/button.scss');
+
 require('sass/common/panel/panel.scss');
+
+require('sass/common/component/popover.scss');
 
 require('sass/core.scss');
