@@ -47,7 +47,9 @@
                     </div>
                     <div class="skill-entry-body">
                         <h4 class="skill-entry-title">{{attributeName}}</h4>
-                        <h5 class="skill-entry-level">Level: {{attributeValue.actual.value}}</h5>
+                        <h5 class="skill-entry-level">
+                            <span popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">Level: {{attributeValue.baseValue}} <span class="skill-entry-level-bonus" ng-if="attributeValue.bonusValue > 0">+ ({{attributeValue.bonusValue}})</span></span>
+                        </h5>
 
                         <div class="progress">
                             <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>

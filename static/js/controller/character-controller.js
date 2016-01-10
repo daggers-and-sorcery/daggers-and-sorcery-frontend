@@ -8,6 +8,7 @@ module.exports = function ($scope, $http, ATTRIBUTE_BONUS_MAP, characterData, $r
     $scope.maxScavengingPointsToConvert = Math.floor((50 - $scope.user.scavengingPoints) / 5) * 5;
 
     $scope.inventoryPopover = require('html/popover/inventory-popover.html');
+    $scope.attributePopover = require('html/popover/attribute-popover.html');
 
     $scope.getSkillImage = function (skill) {
         return require('image/icon/skill/' + skill.replace(new RegExp('\\s', 'g'), '_') + '.png');
