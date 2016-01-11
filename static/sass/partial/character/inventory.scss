@@ -19,6 +19,10 @@
     }
 }
 
+.inventory-popup-definition-list {
+    margin-bottom: 0;
+}
+
 .inventory-entry-list {
     border: 30px;
     border-image-source: url(../../../image/c_full.png);
@@ -29,17 +33,12 @@
     .inventory-entry {
         padding: 5px;
 
-        .inventory-entry-equip-icon-holder {
-            width: 26px;
-            height: 26px;
-            margin-top: -3.5px;
-            cursor: pointer;
+        .tooltip {
+            margin-left: -5px;
         }
 
-        .inventory-entry-use-icon-holder {
+        .inventory-entry-equip-icon-holder, .inventory-entry-use-icon-holder {
             width: 26px;
-            height: 26px;
-            margin-top: -3.5px;
             cursor: pointer;
         }
 
