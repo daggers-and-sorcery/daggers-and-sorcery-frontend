@@ -14,7 +14,7 @@
                     </div>
                     <h4 class="news-title" ng-bind="::news.title"></h4>
 
-                    <div class="news-date" ng-bind="::news.releaseDate"></div>
+                    <div class="news-date">{{::news.releaseDate.dayOfMonth}}. {{::news.releaseDate.monthValue}}. {{news.releaseDate.year}}.</div>
                 </div>
                 <div class="news-body" ng-bind="::news.message"></div>
             </div>

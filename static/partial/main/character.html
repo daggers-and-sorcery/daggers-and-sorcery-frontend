@@ -56,9 +56,11 @@
 
                             <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;"></div>
                         </div>
-                        <img class="skill-entry-info-down-arrow" src="../../image/fw_char_status_arrow.png">
-                        <!-- todo: only show this if the skill has its own page -->
-                        <a href="/go/to/skill"><img class="skill-entry-info-link" src="../../image/cc_small_window_bot_arrow.png"></a>
+                        <div ng-if="attributeValue.attribute.hasPage">
+                            <img class="skill-entry-info-down-arrow" src="../../image/fw_char_status_arrow.png">
+                            <!-- todo: only show this if the skill has its own page -->
+                            <a href="/go/to/skill"><img class="skill-entry-info-link" src="../../image/cc_small_window_bot_arrow.png"></a>
+                        </div>
                     </div>
                 </div>
             </div>
