@@ -9,6 +9,6 @@
         <dt ng-if="data.item.definition.requirements.length > 0">Requirements:</dt>
         <dd ng-repeat="requirement in data.item.definition.requirements" ng-bind="::requirement.value + ' - ' + requirement.attribute"></dd>
         <dt ng-if="data.item.definition.modifiers.length > 0">Modifiers:</dt>
-        <dd ng-repeat="modifier in item.definition.modifiers" ng-bind="::modifier.value + ' - ' + modifier.attribute"></dd>
+        <dd ng-repeat="modifier in data.item.definition.modifiers" ng-bind="::modifier.value + ' - ' + modifier.attribute"></dd>
     </dl>
 </div>

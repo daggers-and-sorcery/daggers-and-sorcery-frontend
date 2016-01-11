@@ -42,6 +42,7 @@ require('sass/partial/character/skills.scss');
 require('sass/partial/character/inventory.scss');
 require('sass/partial/character/character.scss');
 require('sass/partial/character/attribute.scss');
+require('sass/partial/character/equipment.scss');
 
 require('sass/common/form/input.scss');
 require('sass/common/form/button.scss');

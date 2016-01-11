@@ -1,0 +1,75 @@
+.equipment-slot {
+    position: absolute;
+    z-index: 2;
+}
+
+.equipment-slot-image-overlay {
+    position: absolute;
+    width: 70px;
+    top: 25px;
+    left: 25px;
+}
+
+.equipment-slot-image {
+    width: 120px;
+}
+
+.equipment-slot-boots {
+    bottom: -10px;
+    left: 140px;
+}
+
+.equipment-slot-legs {
+    bottom: 85px;
+    left: 140px;
+}
+
+.equipment-slot-belt {
+    bottom: 180px;
+    left: 140px;
+}
+
+.equipment-slot-weapon {
+    bottom: 85px;
+    left: 45px;
+}
+
+.equipment-slot-offhand {
+    bottom: 85px;
+    left: 235px;
+}
+
+.equipment-slot-body {
+    bottom: 275px;
+    left: 140px;
+}
+
+.equipment-slot-helm {
+    bottom: 370px;
+    left: 140px;
+}
+
+.equipment-slot-gloves {
+    bottom: 180px;
+    left: 45px;
+}
+
+.equipment-slot-bracer {
+    bottom: 180px;
+    left: 235px;
+}
+
+.equipment-slot-left-ring {
+    bottom: -10px;
+    left: 45px;
+}
+
+.equipment-slot-right-ring {
+    bottom: -10px;
+    left: 235px;
+}
+
+.equipment-slot-amulet {
+    bottom: 370px;
+    left: 235px;
+}

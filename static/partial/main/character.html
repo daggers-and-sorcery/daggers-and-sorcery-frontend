@@ -9,8 +9,44 @@
         <h3><img class="character-list-header" src="../../image/btts_stats_button.png"> Inventory</h3>
 
         <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6">
+            <div class="col-sm-6 col-md-6 col-lg-6" style="margin-bottom: 15px;">
                 <div class="inventory-player-model">
+                    <div class="equipment-slot equipment-slot-amulet">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_neck.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-right-ring">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_finger.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-left-ring">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_finger.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-bracer">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_bracer.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-gloves">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_gloves.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-helm">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_helmet.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-body">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_chest.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-offhand">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_offhand.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-weapon">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_mainhand.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-belt">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_belt.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-legs">
+                        <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-boots">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_boots.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
                     <img class="inventory-player-model-image" src="../../image/inventory/character_example.png"> <img class="inventory-player-model-background" src="../../image/inventory/cw_character_bg.png">
                 </div>
             </div>
@@ -21,8 +57,7 @@
                     <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="item in user.inventory" style="padding: 0;">
                         <div class="clearfix" ng-if="$index % 3 == 0"></div>
                         <div class="inventory-entry">
-                            <span class="inventory-entry-item-amount badge attribute-badge pull-left" ng-bind="item.item.amount"></span>
-                            <span class="inventory-entry-item-name" ng-bind="item.definition.name"></span>
+                            <span class="inventory-entry-item-amount badge attribute-badge pull-left" ng-bind="item.item.amount"></span> <span class="inventory-entry-item-name" ng-bind="item.definition.name"></span>
                             <span class="glyphicon glyphicon-circle-arrow-up inventory-entry-equip-icon-holder inventory-entry-icon-holder" ng-click="equip(item.definition.id)" ng-if="item.definition.equipment" uib-tooltip="Equip" tooltip-placement="right"></span>
                             <span class="glyphicon glyphicon-tint inventory-entry-use-icon-holder inventory-entry-icon-holder" ng-click="use(item.definition.id)" ng-if="item.definition.usable" uib-tooltip="Usable" tooltip-placement="right"></span>
                             <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
