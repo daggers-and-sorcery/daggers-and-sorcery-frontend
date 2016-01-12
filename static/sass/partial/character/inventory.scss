@@ -1,14 +1,15 @@
+/* TODO: this should moved to equipment */
 .inventory-player-model {
     height: 450px;
-    margin-top: 30px;
+    margin-top: 40px;
 
     .inventory-player-model-image {
         position: absolute;
-        margin-left: auto;
-        margin-right: auto;
         left: 0;
         right: 0;
         z-index: 1;
+
+        margin-left: 80px;
     }
 
     .inventory-player-model-background {
