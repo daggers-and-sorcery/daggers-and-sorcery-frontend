@@ -11,43 +11,65 @@
         <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-6" style="margin-bottom: 15px;">
                 <div class="inventory-player-model">
-                    <div class="equipment-slot equipment-slot-amulet">
-                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_neck.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
-                    </div>
-                    <div class="equipment-slot equipment-slot-right-ring">
-                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_finger.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
-                    </div>
-                    <div class="equipment-slot equipment-slot-left-ring">
-                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_finger.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
-                    </div>
-                    <div class="equipment-slot equipment-slot-bracer">
-                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_bracer.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
-                    </div>
-                    <div class="equipment-slot equipment-slot-gloves">
-                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_gloves.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
-                    </div>
-                    <div class="equipment-slot equipment-slot-helm">
-                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_helmet.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
-                    </div>
-                    <div class="equipment-slot equipment-slot-body">
-                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_chest.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
-                    </div>
-                    <div class="equipment-slot equipment-slot-offhand">
-                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_offhand.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
-                    </div>
-                    <div class="equipment-slot equipment-slot-weapon">
-                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_mainhand.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
-                    </div>
-                    <div class="equipment-slot equipment-slot-belt">
-                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_belt.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
-                    </div>
-                    <div class="equipment-slot equipment-slot-legs">
+                    <div class="equipment-slot equipment-slot-amulet" ng-click="unequip('AMULET')" ng-mouseenter="setType('AMULET')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_neck.png"/>
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
-                    <div class="equipment-slot equipment-slot-boots">
-                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_boots.png"/> <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    <div class="equipment-slot equipment-slot-right-ring" ng-click="unequip('RING')" ng-mouseenter="setType('RING')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_finger.png"/>
+                        <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
-                    <img class="inventory-player-model-image" src="../../image/inventory/character_example.png"> <img class="inventory-player-model-background" src="../../image/inventory/cw_character_bg.png">
+                    <div class="equipment-slot equipment-slot-left-ring" ng-click="unequip('LEFT_RING')" ng-mouseenter="setType('LEFT_RING')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_finger.png"/>
+                        <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-bracer" ng-click="unequip('BRACER')" ng-mouseenter="setType('BRACER')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <img ng-if="!user.equipment.BRACER.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_bracer.png"/>
+                        <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-gloves" ng-click="unequip('GLOVES')" ng-mouseenter="setType('GLOVES')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <img ng-if="!user.equipment.GLOVES.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_gloves.png"/>
+                        <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-helm" ng-click="unequip('HELM')" ng-mouseenter="setType('HELM')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <img ng-if="!user.equipment.HELM.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_helmet.png"/>
+                        <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-body" ng-click="unequip('CHEST')" ng-mouseenter="setType('CHEST')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <img ng-if="!user.equipment.CHEST.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_chest.png"/>
+                        <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-offhand" ng-click="unequip('OFFHAND')" ng-mouseenter="setType('OFFHAND')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <img ng-if="!user.equipment.OFFHAND.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_offhand.png"/>
+                        <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-weapon" ng-click="unequip('WEAPON')" ng-mouseenter="setType('WEAPON')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <img ng-if="!user.equipment.WEAPON.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_mainhand.png"/>
+                        <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <!-- Belt is not supported atm! -->
+                    <div class="equipment-slot equipment-slot-belt" ng-click="unequip('BELT')" ng-mouseenter="setType('BELT')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <!--<img ng-if="!user.equipment.BELT.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>-->
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_belt.png"/>
+                        <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-legs" ng-click="unequip('LEGS')" ng-mouseenter="setType('LEGS')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <img ng-if="!user.equipment.LEGS.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <div class="equipment-slot equipment-slot-boots" ng-click="unequip('BOOTS')" ng-mouseenter="setType('BOOTS')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <img ng-if="!user.equipment.BOOTS.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_boots.png"/>
+                        <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
+                    <img class="inventory-player-model-image" src="../../image/inventory/character_example.png">
+                    <img class="inventory-player-model-background" src="../../image/inventory/cw_character_bg.png">
                 </div>
             </div>
         </div>

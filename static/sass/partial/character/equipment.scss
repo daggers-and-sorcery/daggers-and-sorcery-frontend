@@ -1,6 +1,19 @@
 .equipment-slot {
     position: absolute;
+    cursor: pointer;
     z-index: 2;
+
+    + .popover {
+        margin-left: -10px;
+    }
+}
+
+.equipment-slot-image-icon {
+    position: absolute;
+    z-index: 3;
+    width: 70px;
+    top: 25px;
+    left: 25px;
 }
 
 .equipment-slot-image-overlay {
@@ -30,12 +43,12 @@
 }
 
 .equipment-slot-weapon {
-    bottom: 85px;
+    bottom: 180px;
     left: 45px;
 }
 
 .equipment-slot-offhand {
-    bottom: 85px;
+    bottom: 180px;
     left: 235px;
 }
 
@@ -50,12 +63,12 @@
 }
 
 .equipment-slot-gloves {
-    bottom: 180px;
+    bottom: 275px;
     left: 45px;
 }
 
 .equipment-slot-bracer {
-    bottom: 180px;
+    bottom: 275px;
     left: 235px;
 }
 

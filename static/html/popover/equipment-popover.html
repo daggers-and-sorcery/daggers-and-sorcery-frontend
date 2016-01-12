@@ -1,0 +1,17 @@
+<div ng-if="!data.user.equipment[data.type].empty && data.user.equipment[data.type].description.name !== undefined">
+    <dl class="inventory-popup-definition-list">
+        <dt>Name:</dt>
+        <dd ng-bind="::data.user.equipment[data.type].description.name"></dd>
+        <dt>Type:</dt>
+        <dd ng-bind="::data.user.equipment[data.type].description.type"></dd>
+        <dt>Weight:</dt>
+        <dd ng-bind="::data.user.equipment[data.type].description.weight + ' kg'"></dd>
+        <dt ng-if="data.user.equipment[data.type].description.requirements.length > 0">Requirements:</dt>
+        <dd ng-repeat="requirement in data.user.equipment[data.type].description.requirements" ng-bind="::requirement.value + ' - ' + requirement.attribute"></dd>
+        <dt ng-if="data.user.equipment[data.type].description.modifiers.length > 0">Modifiers:</dt>
+        <dd ng-repeat="modifier in data.user.equipment[data.type].description.modifiers" ng-bind="::modifier.value + ' - ' + modifier.attribute"></dd>
+    </dl>
+</div>
+<div ng-if="data.user.equipment[data.type].empty || data.user.equipment[data.type].description.name === undefined">
+    Nothing is equiped.
+</div>

@@ -9,6 +9,12 @@ module.exports = function ($scope, $http, ATTRIBUTE_BONUS_MAP, characterData, $r
 
     $scope.inventoryPopover = require('html/popover/inventory-popover.html');
     $scope.attributePopover = require('html/popover/attribute-popover.html');
+    $scope.equipmentPopover = require('html/popover/equipment-popover.html');
+
+    $scope.type = 'empty';
+    $scope.setType = function(newType) {
+        $scope.type = newType;
+    };
 
     $scope.getSkillImage = function (skill) {
         return require('image/icon/skill/' + skill.replace(new RegExp('\\s', 'g'), '_') + '.png');
