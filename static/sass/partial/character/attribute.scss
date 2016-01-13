@@ -3,3 +3,22 @@
     margin: 0;
     list-style-type: none;
 }
+
+.attribute-icon {
+    width: 67px;
+    margin-right: -20px;
+}
+
+.attribute-progress-bar {
+    width: 130px;
+    height: 12px;
+    position: absolute;
+    left: 66px;
+    top: 40px;
+}
+
+.attribute-value-holder {
+    float: right;
+    margin-top: 14px;
+    font-size: 18px;
+}
