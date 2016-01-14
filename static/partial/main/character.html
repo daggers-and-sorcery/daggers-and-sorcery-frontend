@@ -79,7 +79,8 @@
                     <div class="row">
                         <div class="col-sm-6 col-md-6 col-lg-6" ng-repeat="(attributeName, attributeValue) in user.attribute.GENERAL_PHYSICAL">
                             <div class="clearfix" ng-if="$index % 2 == 0"></div>
-                            <img class="attribute-icon" src="../../image/attribute/ab2_potion_frame_right.png"> <span>{{attributeName}}</span>
+                            <img class="img-circle attribute-icon" ng-src="{{getAttributeImage(attributeValue.attribute.id)}}">
+                            <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png"> <span>{{attributeName}}</span>
                             <div class="progress attribute-progress-bar">
                                 <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>
 
@@ -92,7 +93,8 @@
                     <div class="row">
                         <div class="col-sm-6 col-md-6 col-lg-6" ng-repeat="(attributeName, attributeValue) in user.attribute.GENERAL_MENTAL">
                             <div class="clearfix" ng-if="$index % 2 == 0"></div>
-                            <img class="attribute-icon" src="../../image/attribute/ab2_potion_frame_right.png"> {{attributeName}}
+                            <img class="img-circle attribute-icon" ng-src="{{getAttributeImage(attributeValue.attribute.id)}}">
+                            <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png"> {{attributeName}}
                             <div class="progress attribute-progress-bar">
                                 <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>
 

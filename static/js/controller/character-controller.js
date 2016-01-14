@@ -20,6 +20,10 @@ module.exports = function ($scope, $http, ATTRIBUTE_BONUS_MAP, characterData, $r
         return require('image/icon/skill/' + skill.replace(new RegExp('\\s', 'g'), '_') + '.png');
     };
 
+    $scope.getAttributeImage = function (attribute) {
+        return require('image/attribute/icon/' + attribute + '.png');
+    };
+
     $scope.calculateMaxScavengingPointsToConvert = function () {
         var pountsUntilMax = Math.floor((50 - $scope.user.scavengingPoints) / 5) * 5;
 
