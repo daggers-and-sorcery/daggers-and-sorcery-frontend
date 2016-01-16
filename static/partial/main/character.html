@@ -75,12 +75,12 @@
             <div class="col-sm-7 col-md-7 col-lg-7" style="margin-bottom: 15px;">
                 <h3><img class="character-list-header" src="../../image/btts_stats_button.png" style="margin-top: 0;"> Attributes</h3>
                 <div class="inventory-entry-list">
-                    <h4>Physical Attributes</h4>
+                    <h4 style="margin-top: 0;margin-bottom: 0;">Physical Attributes</h4>
                     <div class="row">
                         <div class="col-sm-6 col-md-6 col-lg-6" ng-repeat="(attributeName, attributeValue) in user.attribute.GENERAL_PHYSICAL">
                             <div class="clearfix" ng-if="$index % 2 == 0"></div>
                             <img class="img-circle attribute-icon" ng-src="{{getAttributeImage(attributeValue.attribute.id)}}">
-                            <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png"> <span>{{attributeName}}</span>
+                            <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png"> <span class="attribute-name">{{attributeName}}</span>
                             <div class="progress attribute-progress-bar">
                                 <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>
 
@@ -89,12 +89,12 @@
                             <span class="attribute-value-holder">{{attributeValue.actual.value}}</span>
                         </div>
                     </div>
-                    <h4>Mental Attributes</h4>
+                    <h4 style="margin-bottom: 0px;">Mental Attributes</h4>
                     <div class="row">
                         <div class="col-sm-6 col-md-6 col-lg-6" ng-repeat="(attributeName, attributeValue) in user.attribute.GENERAL_MENTAL">
                             <div class="clearfix" ng-if="$index % 2 == 0"></div>
                             <img class="img-circle attribute-icon" ng-src="{{getAttributeImage(attributeValue.attribute.id)}}">
-                            <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png"> {{attributeName}}
+                            <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png"> <span class="attribute-name">{{attributeName}}</span>
                             <div class="progress attribute-progress-bar">
                                 <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>
 
