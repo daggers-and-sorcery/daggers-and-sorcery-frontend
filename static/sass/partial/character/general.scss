@@ -1,0 +1,13 @@
+.general-information-panel {
+  border: 30px;
+  border-image-source: url(../../../image/c_full.png);
+  border-image-slice: 30 fill;
+  border-image-repeat: repeat;
+  border-style:solid;
+}
+
+.general-information-value {
+  position: absolute;
+  right: 0;
+  padding-right: 20px;
+}
