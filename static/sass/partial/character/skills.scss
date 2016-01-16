@@ -76,5 +76,23 @@
             bottom: 40px;
             z-index: 1;
         }
+
+        .skill-entry-incremented-attribute {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+        }
+
+        .skill-entry-incremented-attribute-icon {
+            position: absolute;
+            width: 30px;
+            top: 22px;
+            left: 12px;
+        }
+
+        .skill-entry-incremented-attribute-icon-holder {
+            width: 72px;
+            margin-right: -20px;
+        }
     }
 }

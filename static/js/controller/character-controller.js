@@ -9,6 +9,8 @@ module.exports = function ($scope, $http, ATTRIBUTE_BONUS_MAP, characterData, $r
 
     $scope.inventoryPopover = require('html/popover/inventory-popover.html');
     $scope.attributePopover = require('html/popover/attribute-popover.html');
+    $scope.attributeDescriptionPopover = require('html/popover/attribute-description-popover.html');
+    $scope.incrementedAttributePopover = require('html/popover/incremented-attribute-popover.html');
     $scope.equipmentPopover = require('html/popover/equipment-popover.html');
 
     $scope.type = 'empty';

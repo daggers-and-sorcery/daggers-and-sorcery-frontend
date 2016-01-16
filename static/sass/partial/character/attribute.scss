@@ -18,10 +18,15 @@
 
 .attribute-progress-bar {
     width: 130px;
-    height: 12px;
+    height: 14px;
     position: absolute;
     left: 66px;
     top: 40px;
+}
+
+.attribute-progress-bar .progress-info {
+    width: 130px;
+    top: -2px;
 }
 
 .attribute-value-holder {
@@ -32,4 +37,10 @@
 
 .attribute-name {
     font-size: 17px;
+}
+
+.incremented-attribute-popup-title {
+    margin: 0 0 5px;
+    font-weight: 700;
+    font-size: 16px;
 }
