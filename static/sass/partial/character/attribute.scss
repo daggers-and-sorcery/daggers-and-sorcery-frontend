@@ -44,3 +44,37 @@
     font-weight: 700;
     font-size: 16px;
 }
+
+.combat-attribute-list {
+    border: 30px;
+    border-image-source: url(../../../image/c_full.png);
+    border-image-slice: 30 fill;
+    border-image-repeat: repeat;
+    border-style:solid;
+}
+
+.combat-attribute-name {
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+}
+
+.combat-attribute-value {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -10px;
+    margin-right: 10px;
+}
+
+.combat-attribute-icon {
+    position: absolute;
+    width: 48px;
+    top: 34px;
+    left: 33px;
+}
+
+.combat-attribute-icon-holder {
+    width: 112px;
+    margin-right: -30px;
+}
