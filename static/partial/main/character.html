@@ -129,7 +129,7 @@
 
                 <img class="img-circle combat-attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getCombatImage(attributeValue.attribute.id)}}">
                 <img class="combat-attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png"> <span class="combat-attribute-name">{{attributeName}}</span>
-                <span class="combat-attribute-value">{{attributeValue.actual.value}}</span>
+                <span class="combat-attribute-value" popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">{{attributeValue.actual.value}}</span>
             </div>
         </div>
 
