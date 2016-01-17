@@ -3,7 +3,7 @@
 module.exports = {
     name: 'map',
     url: '/map/',
-    templateUrl: require('partial/main/map.html'),
+    template: require('partial/main/map.html'),
     resolve: {
         position: function ($http) {
             return $http.get('http://api.daggersandsorcery.com/character/position').then(function(response) {

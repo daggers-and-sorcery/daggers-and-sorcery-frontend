@@ -25,6 +25,7 @@ require('js/router/router.js');
 // Directive
 require('js/directive/bind-html-compile.js');
 require('js/directive/unsafe-html-popover.js');
+require('js/directive/game-map-directive.js');
 
 // Constants
 require('js/constant/attribute-bonus-map.js');
