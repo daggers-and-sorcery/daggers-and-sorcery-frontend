@@ -46,6 +46,9 @@ require('sass/partial/character/attribute.scss');
 require('sass/partial/character/equipment.scss');
 require('sass/partial/character/general.scss');
 
+// Map
+require('sass/partial/map/map.scss');
+
 require('sass/common/form/input.scss');
 require('sass/common/form/button.scss');
 

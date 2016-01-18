@@ -1,0 +1,26 @@
+.map-event-holder {
+    background: url(../../../image/map/papper_container.png) no-repeat;
+    background-size: contain;
+    min-height: 350px;
+    padding: 25px;
+
+    a {
+        cursor: pointer;
+    }
+
+    table td {
+        border-top: none;
+    }
+
+    table > thead > tr > th {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+.map-holder {
+    border: 10px;
+    border-image-source: url(../../../image/map/select_dropdown_container.png);
+    border-image-slice: 30 fill;
+    border-image-repeat: repeat;
+    border-style: solid;
+}
