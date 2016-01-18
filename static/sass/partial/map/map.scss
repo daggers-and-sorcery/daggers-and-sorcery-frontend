@@ -24,3 +24,11 @@
     border-image-repeat: repeat;
     border-style: solid;
 }
+
+.map-text-holder {
+    border: 10px;
+    border-image-source: url(../../../image/map/select_dropdown_container.png);
+    border-image-slice: 30 fill;
+    border-image-repeat: repeat;
+    border-style: solid;
+}

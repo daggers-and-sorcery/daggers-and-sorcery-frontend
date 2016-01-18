@@ -18,9 +18,6 @@ module.exports = require('js/app.js').directive('gameMap', function ($injector) 
                 game.load.tilemap('map_'+scope.position.map, require('map/' + scope.position.map + '.json'), null, Phaser.Tilemap.TILED_JSON);
                 game.load.image('tiles', require('image/map/tileset/base.png'));
                 game.load.image('player', require('image/player.png'));
-                //game.cache.addTilemap('map_'+scope.position.map, null, require('map/' + scope.position.map + '.json'), Phaser.Tilemap.TILED_JSON);
-                //game.cache.addImage('tiles', null, require('image/map/tileset/base.png'));
-                //game.cache.addImage('player', null, require('image/player.png'));
             }
 
             var map;
