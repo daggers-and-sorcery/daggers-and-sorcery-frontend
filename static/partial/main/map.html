@@ -9,26 +9,20 @@
                     <game-map position="position"></game-map>
                     <div style="position: absolute;
   bottom: 10px;
-  right: 10px;background-color: #F2E9D0;
+  right: 10px;
   border-radius: 4px;
   padding: 10px;">
-                        <table style="margin-left: auto;margin-right: auto;">
-                            <tr>
-                                <td></td>
-                                <td><a class="btn btn-default" ng-click="move('UP')"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><a class="btn btn-default" ng-click="move('LEFT')"><span class="glyphicon glyphicon-chevron-left"></span></a></td>
-                                <td></td>
-                                <td><a class="btn btn-default" ng-click="move('RIGHT')"><span class="glyphicon glyphicon-chevron-right"></span></a></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><a class="btn btn-default" ng-click="move('DOWN')"><span class="glyphicon glyphicon-chevron-down"></span></a></td>
-                                <td></td>
-                            </tr>
-                        </table>
+                        <img src="../../image/map/m_controller_inner.png" style="width: 100px;-moz-user-select: none;
+-webkit-user-select: none;
+user-select: none;" usemap="#image-maps-2016-01-19-163615"/>
+                        <!--<img id="Image-Maps-Com-image-maps-2016-01-19-163615" src="http://www.image-maps.com/m/private/0/ck2fng5nl6em6o0ch9fiaq68b4_m_controller_inner.png" border="0" width="238" height="238" orgWidth="238" orgHeight="238" usemap="#image-maps-2016-01-19-163615" alt="" />-->
+                        <map name="image-maps-2016-01-19-163615">
+                            <area shape="rect" coords="98,98,100,100" alt="Image Map" style="outline:none;" title="Image Map" href="http://www.image-maps.com/index.php?aff=mapped_users_0" />
+                            <area ng-click="move('UP')" shape="poly" coords="50,48,82,16,49,2,16,16" style="outline:none;"/>
+                            <area ng-click="move('RIGHT')" shape="poly" coords="49,48,84,82,98,50,83,14" style="outline:none;"/>
+                            <area ng-click="move('DOWN')" shape="poly" coords="50,49,84,82,50,98,15,82" style="outline:none;"/>
+                            <area ng-click="move('LEFT')" shape="poly" coords="50,48,15,15,2,51,15,83" style="outline:none;"/>
+                        </map>
                     </div>
                 </div>
             </div>

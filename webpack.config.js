@@ -31,7 +31,7 @@ module.exports = {
             { test: /\.woff2$/,   loader: "url?limit=10000&mimetype=application/font-woff" },
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=application/octet-stream" },
             { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    loader: "file" },
-            { test: /\/map\/\d+.json$/,    loader: "url" },
+            { test: /map.\d+\.json$/,    loader: "url" },
             { test: /\/image\/map\/tileset\/.*?\.png$/,    loader: "url" },
             { test: /\/image\/player\.png$/,    loader: "url" },
             { test: /\.png$/,    loader: "file" },

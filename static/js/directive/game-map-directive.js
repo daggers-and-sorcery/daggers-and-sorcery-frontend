@@ -48,8 +48,9 @@ module.exports = require('js/app.js').directive('gameMap', function ($injector) 
             }
 
             function render() {
-                game.debug.text('Tile X: ' + layer.getTileX(sprite.x), 32, 48, 'rgb(0,0,0)');
-                game.debug.text('Tile Y: ' + layer.getTileY(sprite.y), 32, 64, 'rgb(0,0,0)');
+                //Debug
+                //game.debug.text('Tile X: ' + layer.getTileX(sprite.x), 32, 48, 'rgb(0,0,0)');
+                //game.debug.text('Tile Y: ' + layer.getTileY(sprite.y), 32, 64, 'rgb(0,0,0)');
             }
 
             scope.$on('$destroy', function () {
