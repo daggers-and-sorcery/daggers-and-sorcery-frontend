@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.4/phaser.js"></script>
+</head>
+<body>
+<script>
+    var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {preload: preload, create: create, render: render});
+
+    var env = {
+        debug: true
+    };
+
+    var tile = {
+        width: 85,
+        height: 128,
+        height_offset: 43
+    };
+
+    var map = [
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2]
+    ];
+
+    function preload() {
+        game.load.image('map_img_1', 'image/1.png');
+        game.load.image('map_img_2', 'image/2.png');
+    }
+
+    function create() {
+        renderMap();
+    }
+
+    function render() {
+        if(env.debug) {
+            // Input debug info
+            game.debug.inputInfo(32, 32);
+
+            if (Math.round(game.input.mousePointer.y / (tile.height / 2)) % 2 == 0) {
+                game.debug.text("Pos: " + Math.round(game.input.mousePointer.x / (tile.width)) + "/" + Math.round(game.input.mousePointer.y / (tile.height / 2)), 10, 10);
+            } else {
+                game.debug.text("Pos: " + (Math.round((game.input.mousePointer.x - tile.width / 2) / (tile.width))) + "/" + Math.round(game.input.mousePointer.y / (tile.height / 2)), 10, 10);
+            }
+        }
+    }
+
+    function renderMap() {
+        var height_offset = (tile.height - tile.height_offset);
+
+        console.log("Creating map with height: " + Math.ceil((game.height + height_offset) / tile.height * 2) + " width: " + Math.ceil(game.width / tile.width));
+        for (var y = 0; y < Math.ceil((game.height + height_offset) / tile.height * 2); y++) {
+            var width_offset = 0;
+
+            if (y % 2 == 0) {
+                width_offset = tile.width / 2;
+            }
+
+            for (var x = 0; x < Math.ceil(game.width / tile.width); x++) {
+                var x_pos = x * tile.width - width_offset;
+                var y_pos = y * tile.height - y * (tile.height_offset + (tile.height / 3) / 2) - height_offset;
+                //Drawing the tile
+                game.add.sprite(x_pos, y_pos, 'map_img_' + map[y][x]);
+
+                //Drawing on a tile
+                if (env.debug) {
+                    game.add.text(x_pos + (tile.width / 2), y_pos + (tile.height / 2), "x: " + x + " y: " + y + " img: " + map[y][x], {font: "12px Arial", fill: "#ff0044", align: "center"});
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
