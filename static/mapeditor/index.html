@@ -5,38 +5,45 @@
     <title></title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.4/phaser.js"></script>
 </head>
-<body>
+<body style="background-color: black;">
 <script>
     var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {preload: preload, create: create, render: render});
 
     var env = {
-        debug: true
+        debug: false
     };
 
     var tile = {
         width: 85,
         height: 128,
-        height_offset: 43
+        height_offset: 43,
+
+        icon_width: 26,
+        icon_x_offset: 2,
+        icon_y_offset: 80
     };
 
     var map = [
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2, 2, 2]
+        [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}],
+        [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: [1]}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}],
+        [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: [2]}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}],
+        [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: [1]}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}],
+        [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}],
+        [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: [2, 1]}, {type: 2, objects: [1]}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}],
+        [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}],
+        [{type: 1, objects: []}, {type: 2, objects: [1, 2, 2]}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}],
+        [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}],
+        [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}],
+        [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}],
+        [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}, {type: 2, objects: []}]
     ];
 
     function preload() {
         game.load.image('map_img_1', 'image/1.png');
         game.load.image('map_img_2', 'image/2.png');
+
+        game.load.image('map_icon_1', 'image/icon/1.png');
+        game.load.image('map_icon_2', 'image/icon/2.png');
     }
 
     function create() {
@@ -44,7 +51,7 @@
     }
 
     function render() {
-        if(env.debug) {
+        if (env.debug) {
             // Input debug info
             game.debug.inputInfo(32, 32);
 
@@ -71,9 +78,15 @@
                 var x_pos = x * tile.width - width_offset;
                 var y_pos = y * tile.height - y * (tile.height_offset + (tile.height / 3) / 2) - height_offset;
                 //Drawing the tile
-                game.add.sprite(x_pos, y_pos, 'map_img_' + map[y][x]);
+                game.add.sprite(x_pos, y_pos, 'map_img_' + map[y][x].type);
 
-                //Drawing on a tile
+                //Drawing objects
+                for (var objId = 0; objId < map[y][x].objects.length; objId++) {
+                    //game.add.sprite(x_pos + objId * (tile.icon_width + 2) + tile.icon_x_offset, y_pos + tile.icon_y_offset, 'map_icon_' + map[y][x].objects[objId]);
+                    game.add.sprite(x_pos + tile.width - objId * (tile.icon_width + 2) - tile.icon_x_offset - tile.icon_width, y_pos + tile.icon_y_offset, 'map_icon_' + map[y][x].objects[objId]);
+                }
+
+                //Drawing the tile pos
                 if (env.debug) {
                     game.add.text(x_pos + (tile.width / 2), y_pos + (tile.height / 2), "x: " + x + " y: " + y + " img: " + map[y][x], {font: "12px Arial", fill: "#ff0044", align: "center"});
                 }
