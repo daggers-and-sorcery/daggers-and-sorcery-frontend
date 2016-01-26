@@ -24,19 +24,13 @@ module.exports = require('js/app.js').directive('gameMap', function ($injector) 
                 icon_y_offset: 80
             };
 
-            var map = [
-                [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 1, objects: []}],
-                [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 1, objects: []}],
-                [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 1, objects: []}],
-                [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 1, objects: []}],
-                [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 1, objects: []}],
-                [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 1, objects: []}],
-                [{type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 2, objects: []}, {type: 1, objects: []}, {type: 1, objects: []}]
-            ];
-
             function preload() {
                 game.load.image('map_img_1', require('image/map/1.png'));
-                game.load.image('map_img_2', require('image/map/2.png'));
+                game.load.image('map_img_6', require('image/map/6.png'));
+                game.load.image('map_img_7', require('image/map/7.png'));
+                game.load.image('map_img_15', require('image/map/15.png'));
+                game.load.image('map_img_16', require('image/map/16.png'));
+                game.load.image('map_img_17', require('image/map/17.png'));
 
                 game.load.image('map_icon_1', require('image/map/icon/1.png'));
                 game.load.image('map_icon_2', require('image/map/icon/2.png'));
@@ -45,6 +39,8 @@ module.exports = require('js/app.js').directive('gameMap', function ($injector) 
             }
 
             function create() {
+                console.log(scope.position);
+
                 renderMap();
             }
 
@@ -76,17 +72,17 @@ module.exports = require('js/app.js').directive('gameMap', function ($injector) 
                         var x_pos = x * tile.width - width_offset;
                         var y_pos = y * tile.height - y * (tile.height_offset + (tile.height / 3) / 2) - height_offset - 60;
                         //Drawing the tile
-                        game.add.sprite(x_pos, y_pos, 'map_img_' + map[y][x].type);
+                        game.add.sprite(x_pos, y_pos, 'map_img_' + scope.position.map[y][x].background);
 
                         //Drawing objects
-                        for (var objId = 0; objId < map[y][x].objects.length; objId++) {
+                        for (var objId = 0; objId < scope.position.map[y][x].objects.length; objId++) {
                             //game.add.sprite(x_pos + objId * (tile.icon_width + 2) + tile.icon_x_offset, y_pos + tile.icon_y_offset, 'map_icon_' + map[y][x].objects[objId]);
-                            game.add.sprite(x_pos + tile.width - objId * (tile.icon_width + 2) - tile.icon_x_offset - tile.icon_width, y_pos + tile.icon_y_offset, 'map_icon_' + map[y][x].objects[objId]);
+                            game.add.sprite(x_pos + tile.width - objId * (tile.icon_width + 2) - tile.icon_x_offset - tile.icon_width, y_pos + tile.icon_y_offset, 'map_icon_' + scope.position.map[y][x].objects[objId]);
                         }
 
                         //Drawing the tile pos
                         if (env.debug) {
-                            game.add.text(x_pos + (tile.width / 2) - 24, y_pos + (tile.height / 2) - 24, "x: " + x + " y: " + y + " img: " + map[y][x], {font: "12px Arial", fill: "#ff0044", align: "center"});
+                            game.add.text(x_pos + (tile.width / 2) - 24, y_pos + (tile.height / 2) - 24, "x: " + x + " y: " + y + " img: " + scope.position.map[y][x], {font: "12px Arial", fill: "#ff0044", align: "center"});
                         }
 
                         if (x == 3 && y == 3) {
@@ -103,6 +99,9 @@ module.exports = require('js/app.js').directive('gameMap', function ($injector) 
             scope.$on('position', function (event, position) {
                 //sprite.x = position.x * 48;
                 //sprite.y = position.y * 48;
+                console.log(position);
+                scope.position = position;
+                renderMap();
 
                 //TODO: add map changing
             });
