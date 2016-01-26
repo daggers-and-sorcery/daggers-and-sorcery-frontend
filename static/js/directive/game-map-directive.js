@@ -65,7 +65,12 @@ module.exports = require('js/app.js').directive('gameMap', function ($injector) 
                     var width_offset = 0;
 
                     if (y % 2 == 0) {
-                        width_offset = tile.width / 2;
+                        //Dirty fix for everíy second row jump on every second down/up move
+                        if(scope.position.map[3][3].y % 2 == 0) {
+                            width_offset = -(tile.width / 2);
+                        } else {
+                            width_offset = tile.width / 2;
+                        }
                     }
 
                     for (var x = 0; x < Math.ceil(game.width / tile.width) + 1; x++) {
@@ -97,72 +102,10 @@ module.exports = require('js/app.js').directive('gameMap', function ($injector) 
             });
 
             scope.$on('position', function (event, position) {
-                //sprite.x = position.x * 48;
-                //sprite.y = position.y * 48;
-                console.log(position);
                 scope.position = position;
+
                 renderMap();
-
-                //TODO: add map changing
             });
-
-
-            /*var game = new Phaser.Game(520, 400, Phaser.AUTO, 'game-map', {
-             preload: preload,
-             create: create,
-             update: update,
-             render: render
-             });
-
-             function preload() {
-             game.load.tilemap('map_'+scope.position.map, require('map/' + scope.position.map + '.json'), null, Phaser.Tilemap.TILED_JSON);
-             game.load.image('tiles', require('image/map/tileset/base.png'));
-             game.load.image('player', require('image/player.png'));
-             }
-
-             var map;
-             var layer;
-
-             var cursors;
-             var sprite;
-
-             function create() {
-             map = game.add.tilemap('map_'+scope.position.map);
-             map.addTilesetImage('tileset', 'tiles');
-
-             layer = map.createLayer('Ground');
-
-             layer.resizeWorld();
-
-             sprite = game.add.sprite(48, 48, 'player');
-             sprite.anchor.setTo(0, 0);
-             sprite.x = scope.position.x * 48;
-             sprite.y = scope.position.y * 48;
-
-             game.camera.follow(sprite);
-
-             cursors = game.input.keyboard.createCursorKeys();
-             }
-
-             function update() {
-             }
-
-             function render() {
-             //Debug
-             //game.debug.text('Tile X: ' + layer.getTileX(sprite.x), 32, 48, 'rgb(0,0,0)');
-             //game.debug.text('Tile Y: ' + layer.getTileY(sprite.y), 32, 64, 'rgb(0,0,0)');
-             }
-
-             scope.$on('$destroy', function () {
-             game.destroy();
-             });
-
-             scope.$on('position', function (event, position) {
-             sprite.x = position.x * 48;
-             sprite.y = position.y * 48;
-
-             //TODO: add map changing
-             });*/
         }
     }
 });
