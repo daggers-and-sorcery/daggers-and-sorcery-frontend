@@ -22,7 +22,7 @@ module.exports = {
             };
 
             if (value.messageData.icon != undefined) {
-                finalMessages[key].icon = require('image/icon/' + value.messageData['icon'] + '.svg');
+                finalMessages[key].icon = require('image/icon/' + value.messageData['icon'] + '.png');
 
                 console.log(finalMessages[key].icon);
             }
