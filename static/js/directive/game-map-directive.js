@@ -8,7 +8,7 @@ module.exports = require('js/app.js').directive('gameMap', function ($injector) 
         },
         link: function (scope, ele, attrs) {
 
-            var game = new Phaser.Game(590, 400, Phaser.AUTO, 'game-map', {preload: preload, create: create, render: render});
+            var game = new Phaser.Game(510, 400, Phaser.AUTO, 'game-map', {preload: preload, create: create, render: render});
 
             var env = {
                 debug: false
@@ -65,7 +65,7 @@ module.exports = require('js/app.js').directive('gameMap', function ($injector) 
                     var width_offset = 0;
 
                     if (y % 2 == 0) {
-                        //Dirty fix for everíy second row jump on every second down/up move
+                        //Dirty fix for everï¿½y second row jump on every second down/up move
                         if(scope.position.map[3][3].y % 2 == 0) {
                             width_offset = -(tile.width / 2);
                         } else {
@@ -74,7 +74,7 @@ module.exports = require('js/app.js').directive('gameMap', function ($injector) 
                     }
 
                     for (var x = 0; x < Math.ceil(game.width / tile.width) + 1; x++) {
-                        var x_pos = x * tile.width - width_offset;
+                        var x_pos = x * tile.width - width_offset - tile.width/2;
                         var y_pos = y * tile.height - y * (tile.height_offset + (tile.height / 3) / 2) - height_offset - 60;
                         //Drawing the tile
                         game.add.sprite(x_pos, y_pos, 'map_img_' + scope.position.map[y][x].background);
