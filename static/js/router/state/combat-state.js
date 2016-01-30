@@ -6,27 +6,29 @@ module.exports = {
     params: {
         'combatMessages': null
     },
-    templateUrl: "/partial/main/combat.html",
+    template: require('partial/main/combat.html'),
     controller: function ($scope, $stateParams, $sce) {
         var finalMessages = {};
 
-        angular.forEach($stateParams.combatMessages, function(value, key) {
+        angular.forEach($stateParams.combatMessages, function (value, key) {
             var message = value.messageData.message;
 
-            angular.forEach(value.messageData, function(value, key) {
-                message = message.replace("${"+key+"}", '<b>'+value+'</b>');
+            angular.forEach(value.messageData, function (value, key) {
+                message = message.replace("${" + key + "}", '<b>' + value + '</b>');
             });
 
             finalMessages[key] = {
                 'message': $sce.trustAsHtml(message)
             };
 
-            if(value.messageData.icon != undefined) {
-                finalMessages[key].icon = '/icon/'+value.messageData['icon']+'.svg';
+            if (value.messageData.icon != undefined) {
+                finalMessages[key].icon = require('image/icon/' + value.messageData['icon'] + '.svg');
+
+                console.log(finalMessages[key].icon);
             }
 
-            if(value.messageData.icon_color != undefined) {
-                finalMessages[key].icon_color = value.messageData['icon_color']+'-icon-color';
+            if (value.messageData.icon_color != undefined) {
+                finalMessages[key].icon_color = value.messageData['icon_color'] + '-icon-color';
             }
         });
 
