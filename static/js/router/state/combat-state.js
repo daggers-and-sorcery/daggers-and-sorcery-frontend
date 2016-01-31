@@ -22,13 +22,9 @@ module.exports = {
             };
 
             if (value.messageData.icon != undefined) {
-                finalMessages[key].icon = require('image/icon/' + value.messageData['icon'] + '.png');
+                finalMessages[key].icon = require('image/icon/' + value.messageData['icon'] + '_' + value.messageData['icon_color'] + '.png');
 
                 console.log(finalMessages[key].icon);
-            }
-
-            if (value.messageData.icon_color != undefined) {
-                finalMessages[key].icon_color = value.messageData['icon_color'] + '-icon-color';
             }
         });
 

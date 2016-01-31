@@ -27,6 +27,10 @@ require('js/directive/bind-html-compile.js');
 require('js/directive/unsafe-html-popover.js');
 require('js/directive/game-map-directive.js');
 
+// Interceptors
+require('js/interceptor/combat-update-interceptor.js');
+require('js/interceptor/combat-update-interceptor-config.js');
+
 // Constants
 require('js/constant/attribute-bonus-map.js');
 
