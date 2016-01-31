@@ -7,6 +7,7 @@ module.exports = require('js/app.js').config(function ($stateProvider, $urlRoute
         .state(require('js/router/state/index-state.js'))
         .state(require('js/router/state/character-state.js'))
         .state(require('js/router/state/journal-state.js'))
+        .state(require('js/router/state/journal-entry-state.js'))
         .state(require('js/router/state/map-state.js'))
         .state(require('js/router/state/logout-state.js'))
         .state(require('js/router/state/combat-state.js'))
@@ -15,7 +16,6 @@ module.exports = require('js/app.js').config(function ($stateProvider, $urlRoute
 
     /*
      .state(require('js/router/state/knowledge-state.js'))
-     .state(require('js/router/state/journal-entry-state.js'))
      .state(require('js/router/state/settings-state.js'))
      .state(require('js/router/state/spellpage-state.js'))
      .state(require('js/router/state/shop-state.js'));*/

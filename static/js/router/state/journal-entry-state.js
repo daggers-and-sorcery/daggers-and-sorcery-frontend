@@ -3,10 +3,10 @@
 module.exports = {
     name: 'journal_entry',
     url: '/journal/:type/:entryId',
-    templateUrl: "/partial/main/journal_entry.html",
+    template: require('partial/main/journal_entry.html'),
     resolve: {
-        journalEntryInfo: function($http, $stateParams) {
-            return $http({method: 'GET', url: '/journal/entry/'+$stateParams.type+'/'+$stateParams.entryId});
+        journalEntryInfo: function ($http, $stateParams) {
+            return $http({method: 'GET', url: 'http://api.daggersandsorcery.com/journal/entry/' + $stateParams.type + '/' + $stateParams.entryId});
         }
     },
     controller: require('js/controller/journal-entry-controller.js')

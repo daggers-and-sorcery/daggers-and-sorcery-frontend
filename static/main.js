@@ -23,6 +23,9 @@ require('js/service/character-data-formatter.js');
 // Router
 require('js/router/router.js');
 
+// Filter
+require('js/filter/capitalize-filter.js');
+
 // Directive
 require('js/directive/bind-html-compile.js');
 require('js/directive/unsafe-html-popover.js');
@@ -56,6 +59,9 @@ require('sass/partial/register/register.scss');
 
 // Map
 require('sass/partial/map/map.scss');
+
+// Journal
+require('sass/partial/journal/journal.scss');
 
 require('sass/common/form/input.scss');
 require('sass/common/form/button.scss');
