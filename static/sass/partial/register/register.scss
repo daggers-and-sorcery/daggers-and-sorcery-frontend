@@ -1,0 +1,13 @@
+.register {
+
+    .alert {
+        color: wheat;
+        margin-bottom: 0;
+        border: 10px;
+        border-image-source: url(../../../image/select_dropdown_container.png);
+        border-image-slice: 5 fill;
+        border-image-repeat: repeat;
+        border-style: solid;
+        background: transparent;
+    }
+}

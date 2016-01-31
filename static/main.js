@@ -5,6 +5,7 @@ window.jQuery = $;
 window.$ = $;
 
 require('vendor/angular/js/angular.min.js');
+require('vendor/angular-messages/js/angular-messages.min.js');
 
 require('vendor/angular-ui-router/js/angular-ui-router.min.js');
 require('vendor/angular-ui-bootstrap/js/angular-ui-bootstrap.min.js');
@@ -49,6 +50,9 @@ require('sass/partial/character/character.scss');
 require('sass/partial/character/attribute.scss');
 require('sass/partial/character/equipment.scss');
 require('sass/partial/character/general.scss');
+
+// Register scss
+require('sass/partial/register/register.scss');
 
 // Map
 require('sass/partial/map/map.scss');
