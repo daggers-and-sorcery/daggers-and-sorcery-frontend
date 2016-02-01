@@ -57,6 +57,9 @@ require('sass/partial/character/general.scss');
 // Register scss
 require('sass/partial/register/register.scss');
 
+// Shop scss
+require('sass/partial/shop/shop.scss');
+
 // Map
 require('sass/partial/map/map.scss');
 
