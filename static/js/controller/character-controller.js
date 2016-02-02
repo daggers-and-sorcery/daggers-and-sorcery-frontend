@@ -1,7 +1,6 @@
 'use strict';
 
-module.exports = function ($scope, $http, ATTRIBUTE_BONUS_MAP, characterData, $rootScope, characterDataFormatter) {
-    $scope.attributePopoverUrl = '/partial/popover/attribute.html';
+module.exports = function ($scope, $http, $state, ATTRIBUTE_BONUS_MAP, characterData, $rootScope, characterDataFormatter) {
     $scope.user = characterData;
     $scope.attributeBonusNameMap = ATTRIBUTE_BONUS_MAP;
     $scope.scavengingSlider = 0;
@@ -12,6 +11,7 @@ module.exports = function ($scope, $http, ATTRIBUTE_BONUS_MAP, characterData, $r
     $scope.attributeDescriptionPopover = require('html/popover/attribute-description-popover.html');
     $scope.incrementedAttributePopover = require('html/popover/incremented-attribute-popover.html');
     $scope.equipmentPopover = require('html/popover/equipment-popover.html');
+    $scope.spellPopover = require('html/popover/spell-popover.html');
 
     $scope.type = 'empty';
     $scope.setType = function(newType) {
@@ -98,5 +98,17 @@ module.exports = function ($scope, $http, ATTRIBUTE_BONUS_MAP, characterData, $r
                 $rootScope.$broadcast('profile-update-needed');
             }
         });
+    };
+
+    $scope.cast = function (spell) {
+        $http.get('http://api.daggersandsorcery.com/spell/cast/' + spell).then(function (response) {
+            if (response.data.data.success) {
+                $rootScope.$broadcast('profile-update-needed');
+            }
+        });
+    };
+
+    $scope.openPage = function (spell) {
+        $state.go("spellpage", {'spell': spell});
     };
 };
