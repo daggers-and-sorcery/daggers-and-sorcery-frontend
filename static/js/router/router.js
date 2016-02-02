@@ -16,7 +16,6 @@ module.exports = require('js/app.js').config(function ($stateProvider, $urlRoute
         .state(require('js/router/state/home-state.js'));
 
     /*
-     .state(require('js/router/state/knowledge-state.js'))
      .state(require('js/router/state/settings-state.js'))
      .state(require('js/router/state/spellpage-state.js'))*/
 });
