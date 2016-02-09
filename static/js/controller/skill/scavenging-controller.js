@@ -3,23 +3,11 @@
 module.exports = function ($scope, $http, $rootScope) {
     //TODO: get this form the scavenging controller
     $scope.user = {
-        scavengingPoints: 10
+        scavengingPoints: 0
     };
-    console.log("SCAV:"+$scope.user.scavengingPoints);
+
     $scope.scavengingSlider = 0;
     $scope.maxScavengingPointsToConvert = Math.floor((50 - $scope.user.scavengingPoints) / 5) * 5;
-
-    $scope.calculateMaxScavengingPointsToConvert = function () {
-        var pountsUntilMax = Math.floor((50 - $scope.user.scavengingPoints) / 5) * 5;
-
-        console.log("Pountsuntil: "+pountsUntilMax);
-
-        if (pountsUntilMax / 5 > $rootScope.user.movement) {
-            pountsUntilMax = $rootScope.user.movement * 5;
-        }
-
-        return pountsUntilMax;
-    };
 
     $scope.convertScavengingPoints = function () {
         if ($scope.scavengingSlider == 0) {
@@ -37,8 +25,7 @@ module.exports = function ($scope, $http, $rootScope) {
         };
 
         $http.post('http://api.daggersandsorcery.com/skill/scavenging/convert', $.param(requestData), requestConfig).success(function (data, status, headers, config) {
-            //TODO: update the scavenging points here!
-            //$rootScope.$broadcast('profile-update-needed');
+            $scope.refreshPoints();
         });
     };
 
@@ -51,7 +38,23 @@ module.exports = function ($scope, $http, $rootScope) {
         options: {
             floor: 0,
             step: 5,
-            ceil: $scope.calculateMaxScavengingPointsToConvert()
+            ceil: 0
         }
     };
+
+    $scope.refreshPoints = function () {
+        $http.get('http://api.daggersandsorcery.com/skill/scavenging/info').success(function (data, status, headers, config) {
+            $scope.user.scavengingPoints = data.data.scavengingInfo.scavengingPoints;
+
+            var pountsUntilMax = Math.floor((50 - $scope.user.scavengingPoints) / 5) * 5;
+
+            if (pountsUntilMax / 5 > $rootScope.user.movement) {
+                $scope.slider.options.ceil = $rootScope.user.movement * 5;
+            } else {
+                $scope.slider.options.ceil = pountsUntilMax;
+            }
+        });
+    };
+
+    $scope.refreshPoints();
 };
