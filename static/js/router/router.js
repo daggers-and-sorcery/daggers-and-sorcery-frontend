@@ -16,5 +16,6 @@ module.exports = require('js/app.js').config(function ($stateProvider, $urlRoute
         .state(require('js/router/state/settings-state.js'))
         .state(require('js/router/state/spellpage-state.js'))
         .state(require('js/router/state/skill/scavenging-state.js'))
+        .state(require('js/router/state/skill/cooking-state.js'))
         .state(require('js/router/state/home-state.js'));
 });

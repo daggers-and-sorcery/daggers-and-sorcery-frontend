@@ -171,7 +171,7 @@
                             <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;"></div>
                         </div>
                         <div ng-if="attributeValue.attribute.hasPage">
-                            <a ui-sref="skill-{{attributeValue.attribute.id}}">
+                            <a ui-sref="skill-{{attributeValue.attribute.id | lowercase}}">
                                 <img class="skill-entry-info-down-arrow" src="../../image/fw_char_status_arrow.png">
                                 <img class="skill-entry-info-link" src="../../image/cc_small_window_bot_arrow.png">
                             </a>
