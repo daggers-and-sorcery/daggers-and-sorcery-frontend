@@ -16,9 +16,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
+                    <tr ng-repeat="recipe in cookingInfo.recipes">
+                        <td ng-bind="::recipe.name"></td>
+                        <td>
+                            <ul>
+                                <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} - {{ingredient.id}}</li>
+                            </ul>
+                        </td>
                         <td></td>
                         <td class="text-center"></td>
                     </tr>
