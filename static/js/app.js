@@ -2,4 +2,5 @@
 
 module.exports = angular.module('swordssorcery', ['ui.router', 'ui.bootstrap', 'ngMessages', 'rzModule']).config(function ($httpProvider) {
     $httpProvider.defaults.withCredentials = true;
+    //$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 });
