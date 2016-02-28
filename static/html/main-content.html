@@ -58,7 +58,9 @@
                     </div>
                     <div class="panel-body">
                         <button class="button-default registration-button" ui-sref="registration" href="#/registration/">Create an account</button>
-                        <div class="alert alert-danger login-error ng-binding ng-hide" role="alert" ng-bind="error" ng-show="error" style="margin-bottom: 15px;"></div>
+                        <div class="alert alert-danger login-error ng-binding ng-hide text-center" role="alert" ng-show="error" style="margin-bottom: 15px;">
+                            User not found with the provided username and password.
+                        </div>
                         <form ng-submit="submit()" class="ng-pristine ng-valid">
                             <div class="form-group">
                                 <label for="username">Username</label> <input type="text" class="form-control ng-pristine ng-valid ng-touched" id="username" placeholder="Username" ng-model="user.username" autocomplete="off">

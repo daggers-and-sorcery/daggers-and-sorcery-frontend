@@ -70,20 +70,16 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
     $scope.error = '';
 
     $scope.submit = function () {
-        var requestConfig = {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            }
-        };
+        $http.post('http://api.daggersandsorcery.com/user/login', $scope.user).success(function (data, status, headers, config) {
+            if (data.data.login.successful == true) {
+                $scope.error = false;
 
-        $http.post('http://api.daggersandsorcery.com/user/login', $.param($scope.user), requestConfig).success(function (data, status, headers, config) {
-            if (data.data.success === 'true') {
                 $http.get('http://api.daggersandsorcery.com/user/info').success(function (data, status, headers, config) {
                     $rootScope.user = data.data;
                     $state.go('home');
                 });
             } else {
-                $scope.error = data.data.error;
+                $scope.error = true;
             }
         });
     };
