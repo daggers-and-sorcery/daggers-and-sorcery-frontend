@@ -4,15 +4,15 @@ module.exports = {
     name: 'map',
     url: '/map/',
     template: require('partial/main/map.html'),
-    resolve: {
+    /*resolve: {
         position: function ($http) {
             return $http.get('http://api.daggersandsorcery.com/character/position').then(function(response) {
                 return response.data.data;
             });
         }
-    },
-    controller: function ($scope, $http, $state, position) {
-        $scope.position = position;
+    },*/
+    controller: function ($scope, $http, $state) {
+        /*$scope.position = position;
         $scope.objects = position.spawnList;
 
         $scope.move = function(direction) {
@@ -35,6 +35,6 @@ module.exports = {
                     $state.go('combat', {'combatMessages': data.combatMessages});
                 }
             });
-        }
+        }*/
     }
 };
