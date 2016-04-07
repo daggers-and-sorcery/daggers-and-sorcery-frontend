@@ -1,5 +1,7 @@
 <div class="panel panel-default panel-shadow register">
-    <div class="panel-heading">Registration</div>
+    <div class="panel-heading">
+				<h3 class="panel-title">Registration</h3>
+		</div>
     <div class="panel-body">
         <div class="alert alert-danger" role="alert" ng-show="errorList.length > 0">
             <div ng-repeat="error in errorList" ng-bind="error"></div>
@@ -96,10 +98,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <span class="italic race-info-text" ng-if="raceAttributeModifierCount(visibleRace) == 0">Humans doesn't have any advantages nor disadvantages.</span>
                         </div>
+											<div class="text-center">
+												<span class="italic" style="font-weight:700;" ng-if="raceAttributeModifierCount(visibleRace) == 0">Humans doesn't have any advantages nor disadvantages.</span>
+											</div>
                         <div class="bold italic race-info-header">Description:</div>
-                        <div class="race-info-text" ng-bind="race[visibleRace].description"></div>
+                        <div class="race-info-text" marked="race[visibleRace].description"></div>
                     </div>
                 </div>
             </div>
