@@ -1,0 +1,26 @@
+<div class="panel panel-default map-page">
+	<div class="panel-heading">
+		<h3 class="panel-title">Explore</h3>
+	</div>
+	<div class="panel-body" style="padding: 10px; padding-top: 15px;">
+		<div ng-repeat="explorationEntry in explorationResult.events">
+			<!-- COMBAT -->
+			<div class="race-info-text" ng-if="explorationEntry.eventType == 'COMBAT'">
+				<div class="media" ng-repeat="message in explorationEntry.combatMessages">
+					<div class="media-left" ng-if="message.messageData.icon">
+						<img class="icon media-object" style="width: 40px;margin-left: 4px;margin-top: 4px;position: absolute;"
+								 ng-src="{{getCombatIcon(message.messageData)}}"/>
+						<img class="icon media-object" style="width: 48px;" src="../../image/icon/tgb_avatar_frame.png"/>
+					</div>
+					<div class="media-left" ng-if="!message.messageData.icon" style="min-width: 42px;"></div>
+					<div class="media-body" style="vertical-align: middle;" ng-bind-html="convertCombatMessage(message.messageData)"></div>
+				</div>
+			</div>
+
+			<!-- TEXT -->
+			<div ng-if="explorationEntry.eventType == 'TEXT'">
+				<p ng-bind="explorationEntry.content"></p>
+			</div>
+		</div>
+	</div>
+</div>
