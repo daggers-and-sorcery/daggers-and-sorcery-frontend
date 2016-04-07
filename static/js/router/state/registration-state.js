@@ -16,7 +16,8 @@ module.exports = {
             {
                 id: 'HUMAN',
                 name: 'Human',
-                attributeBonus: []
+                attributeBonus: [],
+                description: ''
             },
             {
                 id: 'ORC',
@@ -52,7 +53,8 @@ module.exports = {
                         attribute: 'Willpower',
                         value: '-10'
                     }
-                ]
+                ],
+                description: ''
             },
             {
                 id: 'DWARF',
@@ -93,7 +95,8 @@ module.exports = {
                         attribute: 'Beauty',
                         value: '-10'
                     }
-                ]
+                ],
+                 description: ''
             },
             {
                 id: 'ELF',
@@ -129,7 +132,8 @@ module.exports = {
                         attribute: 'Vitality',
                         value: '-10'
                     }
-                ]
+                ],
+                 description: ''
             },
             {
                 id: 'DARK_ELF',
@@ -165,7 +169,8 @@ module.exports = {
                         attribute: 'Charisma',
                         value: '-10'
                     }
-                ]
+                ],
+                 description: ''
             },
             {
                 id: 'LIZARDMEN',
@@ -196,7 +201,8 @@ module.exports = {
                         attribute: 'Vitality',
                         value: '-10'
                     }
-                ]
+                ],
+                description: ''
             },
             {
                 id: 'GNOME',
@@ -227,7 +233,8 @@ module.exports = {
                         attribute: 'Dexterity',
                         value: '-10'
                     }
-                ]
+                ],
+                 description: ''
             },
             {
                 id: 'DRACONIC',
@@ -258,7 +265,8 @@ module.exports = {
                         attribute: 'Perception',
                         value: '-10'
                     }
-                ]
+                ],
+                description: ''
             }
         ];
 

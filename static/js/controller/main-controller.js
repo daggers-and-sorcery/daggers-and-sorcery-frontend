@@ -71,7 +71,7 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
 
     $scope.submit = function () {
         $http.post('http://api.daggersandsorcery.com/user/login', $scope.user).success(function (data, status, headers, config) {
-            if (data.data.login.successful == true) {
+            if (data.data.success === "true") {
                 $scope.error = false;
 
                 $http.get('http://api.daggersandsorcery.com/user/info').success(function (data, status, headers, config) {

@@ -99,9 +99,7 @@
                             <span class="italic race-info-text" ng-if="raceAttributeModifierCount(visibleRace) == 0">Humans doesn't have any advantages nor disadvantages.</span>
                         </div>
                         <div class="bold italic race-info-header">Description:</div>
-                        <div class="race-info-text">
-                            [[ - PLACEHOLDER - ]]
-                        </div>
+                        <div class="race-info-text" ng-bind="race[visibleRace].description"></div>
                     </div>
                 </div>
             </div>
