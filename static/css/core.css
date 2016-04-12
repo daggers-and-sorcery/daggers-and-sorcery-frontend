@@ -67,17 +67,6 @@ button.button-default:hover {
     }
 }
 
-.footer-menu {
-    background-image: url(../image/container_actions_bar_frame.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    font-size: 12px;
-    height: 60px;
-    padding-top: 16px;
-    text-align: center;
-}
-
 .panel {
     background-color: #000;
 

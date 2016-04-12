@@ -74,9 +74,14 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
             if (data.data.success === "true") {
                 $scope.error = false;
 
-                $http.get('http://api.daggersandsorcery.com/user/info').success(function (data, status, headers, config) {
-                    $rootScope.user = data.data;
-                    $state.go('home');
+                $http.get('http://api.daggersandsorcery.com/user/info').success(function (data2, status, headers, config) {
+                    $rootScope.user = data2.data;
+
+                    if(data.data.prelude) {
+                        $state.go('prelude');
+                    } else {
+                        $state.go('home');
+                    }
                 });
             } else {
                 $scope.error = true;
