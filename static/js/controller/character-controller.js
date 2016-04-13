@@ -49,6 +49,10 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
         return require('image/icon/skill/' + skill.replace(new RegExp('\\s', 'g'), '_') + '.png');
     };
 
+    $scope.getEquipmentImage = function (item) {
+        return require('image/inventory/item/' + item + '.png');
+    };
+
     $scope.getAttributeImage = function (attribute) {
         return require('image/attribute/icon/' + attribute + '.png');
     };
