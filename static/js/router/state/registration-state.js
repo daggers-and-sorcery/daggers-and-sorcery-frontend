@@ -6,7 +6,7 @@ module.exports = {
     data: {
         visibleWhenNotLoggedIn: true
     },
-    template: require('partial/main/register.html'),
+    template: require('partial/main/registration.html'),
     controller: function ($scope, $http) {
         $scope.user = {};
         $scope.visibleRace = 0;

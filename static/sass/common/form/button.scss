@@ -1,5 +1,5 @@
 button.button-default {
-  border: 25px;
+  border: 20px;
   border-image-slice: 20 fill;
   border-image-source: url(../../../image/button_gray.png);
   border-style:solid;
@@ -9,7 +9,7 @@ button.button-default {
   color: wheat;
 
   height: 54px;
-  line-height: 0;
+  line-height: 12px;
 
   outline: none;
 }
