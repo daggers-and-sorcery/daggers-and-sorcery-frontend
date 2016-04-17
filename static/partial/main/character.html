@@ -82,9 +82,9 @@
                             <img class="img-circle attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.id)}}">
                             <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png"> <span class="attribute-name">{{attributeName}}</span>
                             <div class="progress attribute-progress-bar">
-                                <span class="progress-info ng-binding">{{attributeValue.pointsToNextLevel}} / 10</span>
-
-                                <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (10 - attributeValue.pointsToNextLevel) / (10 / 100)}}%;"></div>
+                                <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (10 - attributeValue.pointsToNextLevel) / (10 / 100)}}%;">
+                                    <span class="progress-info ng-binding">{{attributeValue.pointsToNextLevel}} / 10</span>
+                                </div>
                             </div>
                             <span class="attribute-value-holder" popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">{{attributeValue.actual.value}}</span>
                         </div>
@@ -96,9 +96,9 @@
                             <img class="img-circle attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.id)}}">
                             <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png"> <span class="attribute-name">{{attributeName}}</span>
                             <div class="progress attribute-progress-bar">
-                                <span class="progress-info ng-binding">{{attributeValue.pointsToNextLevel}} / 10</span>
-
-                                <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (10 - attributeValue.pointsToNextLevel) / (10 / 100)}}%;"></div>
+                                <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (10 - attributeValue.pointsToNextLevel) / (10 / 100)}}%;">
+                                    <span class="progress-info ng-binding">{{attributeValue.pointsToNextLevel}} / 10</span>
+                                </div>
                             </div>
                             <span class="attribute-value-holder" popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">{{attributeValue.actual.value}}</span>
                         </div>
@@ -164,11 +164,10 @@
                             <img class="img-circle skill-entry-incremented-attribute-icon" popover-html-unsafe="{{incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
                             <img class="skill-entry-incremented-attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png">
                         </div>
-
                         <div class="progress">
-                            <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>
-
-                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;"></div>
+                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;">
+                                <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>
+                            </div>
                         </div>
                         <div ng-if="attributeValue.attribute.hasPage">
                             <a ui-sref="skill-{{attributeValue.attribute.id | lowercase}}">

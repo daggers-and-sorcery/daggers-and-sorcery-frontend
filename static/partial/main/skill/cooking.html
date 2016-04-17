@@ -26,7 +26,10 @@
                         <td ng-bind="::recipe.name"></td>
                         <td>
                             <ul style="list-style-type: none;">
-                                <li ng-repeat="requirement in recipe.recipeRequirements">{{requirement.amount}} - {{requirement.skill}} level</li>
+                                <li ng-repeat="requirement in recipe.recipeRequirements">
+                                    <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
+                                    <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
+                                </li>
                                 <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} - {{ingredient.name}} <small style="color: lightgray;">(used up)</small></li>
                             </ul>
                         </td>
