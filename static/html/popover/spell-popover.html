@@ -5,5 +5,7 @@
         <dt>Combat spell:</dt>
         <dd ng-if="data.spell.combatSpell">Yes</dd>
         <dd ng-if="!data.spell.combatSpell">No</dd>
+        <dt>Description:</dt>
+        <dd ng-bind="::data.spell.description"></dd>
     </dl>
 </div>
