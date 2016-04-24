@@ -28,7 +28,6 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
     });
 
     $rootScope.$on('error', function (event, args) {
-        console.log("ERROR");
         $scope.errorText = args.message;
         $scope.errorVisible = true;
 

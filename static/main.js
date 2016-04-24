@@ -32,7 +32,6 @@ require('js/filter/capitalize-filter.js');
 // Directive
 require('js/directive/bind-html-compile.js');
 require('js/directive/unsafe-html-popover.js');
-require('js/directive/game-map-directive.js');
 
 // Interceptors
 require('js/interceptor/combat-update-interceptor.js');
@@ -65,9 +64,6 @@ require('sass/partial/registration/registration.scss');
 
 // Shop scss
 require('sass/partial/shop/shop.scss');
-
-// Map
-require('sass/partial/map/map.scss');
 
 // Journal
 require('sass/partial/journal/journal.scss');

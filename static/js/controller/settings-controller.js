@@ -37,9 +37,7 @@ module.exports = function ($scope, $http) {
     };
 
     $scope.saveOtherSettings = function() {
-        $http.post('http://api.daggersandsorcery.com/combat/settings/other/save', JSON.stringify($scope.otherSettings)).success(function (data, status, headers, config) {
-            console.log("Sent stuff for saving");
-        });
+        $http.post('http://api.daggersandsorcery.com/combat/settings/other/save', JSON.stringify($scope.otherSettings));
     };
 
     $scope.clearNew = function () {

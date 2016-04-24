@@ -8,9 +8,7 @@ module.exports = {
     },
     template: require('partial/main/explore.html'),
     resolve: {
-        explorationResult: function ($http, $stateParams) {
-            console.log($stateParams.explorationId);
-
+        explorationResult: function ($http) {
             return $http.get('http://api.daggersandsorcery.com/explore/').then(function (response) {
                 return response.data.data;
             });

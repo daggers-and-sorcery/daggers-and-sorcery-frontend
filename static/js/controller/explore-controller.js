@@ -1,8 +1,6 @@
 'use strict';
 
 module.exports = function ($scope, $sce, explorationResult) {
-    console.log(explorationResult);
-
     $scope.explorationResult = explorationResult;
 
     $scope.convertCombatMessage = function(messageData) {
