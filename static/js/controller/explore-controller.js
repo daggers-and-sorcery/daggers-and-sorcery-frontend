@@ -15,7 +15,11 @@ module.exports = function ($scope, $sce, explorationResult) {
 
     $scope.getCombatIcon = function(messageData) {
         if (messageData.icon != undefined) {
-            return require('image/icon/' + messageData.icon + '_' + messageData.icon_color + '.png');
+            if(messageData.icon_color != undefined) {
+                return require('image/icon/' + messageData.icon + '_' + messageData.icon_color + '.png');
+            }
+
+            return require('image/icon/' + messageData.icon + '.png');
         }
     }
 }
