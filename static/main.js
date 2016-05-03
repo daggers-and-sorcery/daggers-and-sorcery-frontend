@@ -65,6 +65,9 @@ require('sass/partial/registration/registration.scss');
 // Shop scss
 require('sass/partial/shop/shop.scss');
 
+// Explore scss
+require('sass/partial/explore/explore.scss');
+
 // Journal
 require('sass/partial/journal/journal.scss');
 

@@ -1,0 +1,22 @@
+.map-text-holder {
+  color: wheat;
+  margin-bottom: 0;
+  border: 5px;
+  border-image-source: url(../../../image/select_dropdown_container.png);
+  border-image-slice: 20 fill;
+  border-image-repeat: repeat;
+  border-style: solid;
+  background: transparent;
+  padding: 14px;
+}
+
+.exploration-table {
+  .exploration-level-holder, .exploration-button-holder {
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .exploration-name-holder {
+    vertical-align: middle;
+  }
+}
