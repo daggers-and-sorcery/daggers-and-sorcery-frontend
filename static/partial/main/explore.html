@@ -21,6 +21,11 @@
 			<div ng-if="explorationEntry.eventType == 'TEXT'">
 				<p ng-bind="explorationEntry.content"></p>
 			</div>
+
+			<!-- OPTION -->
+			<div ng-if="explorationEntry.eventType == 'OPTION'">
+				<p ng-repeat="option in explorationEntry.eventOptions"><a ng-click="callOption(option.optionId)" ng-bind="option.text"></a></p>
+			</div>
 		</div>
 	</div>
 </div>
