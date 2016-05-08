@@ -16,7 +16,7 @@
 
                     <div class="news-date">{{::news.releaseDate.dayOfMonth}}. {{::news.releaseDate.monthValue}}. {{news.releaseDate.year}}.</div>
                 </div>
-                <div class="news-body" ng-bind="::news.message"></div>
+                <div class="news-body" marked="news.message"></div>
             </div>
             <div class="news-entry-separator" ng-if="!$last">
                 <img src="../../image/seperator_2.png"/>
