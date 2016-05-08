@@ -17,7 +17,7 @@ module.exports = {
         }
 
         $scope.explore = function(explorationId) {
-            $state.go('explore', {'explorationId': explorationId});
+            $state.go('explore', {'explorationId': explorationId, 'nextStage': 0});
         }
     }
 };
