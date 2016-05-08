@@ -1,6 +1,7 @@
 'use strict';
 
-module.exports = function ($scope, $sce, explorationResult) {
+module.exports = function ($scope, $sce, $state, $stateParams, explorationResult) {
+    console.log(explorationResult);
     $scope.explorationResult = explorationResult;
 
     $scope.convertCombatMessage = function (messageData) {
@@ -23,7 +24,7 @@ module.exports = function ($scope, $sce, explorationResult) {
         }
     };
 
-    $scope.callOption = function (option) {
-        console.log("Call option: " + option)
+    $scope.callOption = function (nextStage) {
+        $state.go('explore', {'explorationId': $stateParams.explorationId, 'nextStage': nextStage, 'explorationInfo': null});
     };
 };
