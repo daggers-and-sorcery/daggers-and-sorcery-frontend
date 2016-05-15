@@ -18,5 +18,7 @@ module.exports = require('js/app.js').config(function ($stateProvider, $urlRoute
         .state(require('js/router/state/prelude-state.js'))
         .state(require('js/router/state/skill/scavenging-state.js'))
         .state(require('js/router/state/skill/cooking-state.js'))
+        .state(require('js/router/state/inn-state.js'))
+        .state(require('js/router/state/inn-services-state.js'))
         .state(require('js/router/state/home-state.js'));
 });

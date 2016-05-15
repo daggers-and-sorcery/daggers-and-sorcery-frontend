@@ -10,47 +10,47 @@
 
     margin-bottom: 0;
 
-    > .panel-heading {
+    .panel-heading {
         color: wheat;
         margin-top: -56px;
         padding-top: 5px;
         background: transparent;
         padding-left: 0;
         border: 0;
+
+        .panel-heading-icon {
+            float: left;
+            margin-left: -6px;
+            margin-right: 6px;
+            margin-top: -3px;
+
+            img {
+                width: 32px;
+            }
+        }
+
+        .panel-title {
+            font-family: "Candara";
+            font-size: 20px;
+        }
+
+        .panel-heading-button-group {
+            position: absolute;
+            right: 18px;
+            top: 10px;
+            z-index: 101;
+        }
+
+        .panel-heading-button-group button {
+            border-width: 20px;
+            height: 30px;
+            line-height: 0;
+        }
     }
 
-    > .panel-heading > .panel-title {
-        font-family: "Candara";
-        font-size: 20px;
-    }
-
-    > .panel-body {
+    .panel-body {
         padding: 20px 0 0;
         font-family: "Candara";
         font-size: 16px;
-    }
-
-    .panel-heading-icon {
-        float: left;
-        margin-left: -6px;
-        margin-right: 6px;
-        margin-top: -3px;
-    }
-
-    .panel-heading-icon img {
-        width: 32px;
-    }
-
-    .panel-heading .panel-heading-button-group {
-        position: absolute;
-        right: 18px;
-        top: 10px;
-        z-index: 101;
-    }
-
-    .panel-heading .panel-heading-button-group button {
-        border-width: 20px;
-        height: 30px;
-        line-height: 0;
     }
 }
