@@ -35,6 +35,7 @@ module.exports = {
             { test: /\/image\/map\/tileset\/.*?\.png$/,    loader: "url" },
             { test: /\/image\/player\.png$/,    loader: "url" },
             { test: /\.png$/,    loader: "file" },
+            { test: /\.jpg$/,    loader: "file" },
             { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=image/svg+xml" }
         ]
     }
