@@ -1,0 +1,15 @@
+.description-holder {
+    color: wheat;
+    margin-bottom: 0;
+    border: 5px;
+    border-image-source: url(../../../image/select_dropdown_container.png);
+    border-image-slice: 20 fill;
+    border-image-repeat: repeat;
+    border-style: solid;
+    background: transparent;
+    padding: 10px;
+
+    p:last-child {
+        margin: 0;
+    }
+}

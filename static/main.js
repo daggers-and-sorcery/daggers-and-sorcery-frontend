@@ -80,6 +80,8 @@ require('sass/common/form/button.scss');
 
 require('sass/common/panel/panel.scss');
 
+require('sass/common/holder/description-holder.scss');
+
 require('sass/common/component/popover.scss');
 
 require('sass/core.scss');
