@@ -1,30 +1,146 @@
+<style>
+    .chat-container::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    .chat-container::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: rgba(245, 222, 179, 0.8);
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    }
+
+    .chat-container::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+        border-radius: 10px;
+    }
+</style>
+
 <div class="panel panel-default panel-shadow">
     <div class="panel-heading">
-        <h3 class="panel-title">Inn <small>(Drunken Dragoon)</small></h3>
+        <h3 class="panel-title">
+            <span>Inn</span>
+            <small>(Drunken Dragoon)</small>
+        </h3>
         <div class="panel-heading-button-group">
-            <button class="button-default">Chat</button>
             <button ng-click="showServices()" class="button-default">Services</button>
+            <button class="button-default">Chat</button>
         </div>
     </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                <div class="inn-text-holder" style="margin: 10px;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lectus justo, suscipit ut mollis eu, tempus quis lacus. Duis rutrum, dui ut vulputate tempor, enim velit scelerisque ex, sit amet fermentum augue urna ac nibh. Proin vel quam ligula. Nullam accumsan euismod dolor at iaculis. Morbi lectus lacus, bibendum in laoreet nec, accumsan sed orci. Pellentesque efficitur, quam ut accumsan ultrices, eros ligula consectetur nulla, eu consectetur mi velit eget turpis. Etiam eget sem a mi laoreet iaculis. Duis eleifend elit auctor, bibendum nulla quis, pellentesque massa. Aenean fringilla mi placerat urna dictum, a dignissim dolor elementum. Vestibulum efficitur consectetur mattis.
+    <div class="panel-body chat">
+        <h4 class="chat-header">Chat with the locals</h4>
 
-                    Nullam fermentum sagittis nulla non aliquam. Phasellus eu massa nec erat porta vehicula nec a mauris. Vivamus eget leo et eros consectetur semper. Integer eleifend consectetur consectetur. Nullam nunc quam, pretium in ullamcorper in, mollis lacinia augue. Quisque ultricies enim eu lacus sollicitudin, sed pharetra urna ultricies. Nulla maximus neque vitae ligula dapibus, a porta ante blandit. Cras metus tellus, suscipit eget libero a, commodo ultrices est. Ut ultricies, nulla eu molestie tristique, orci est volutpat eros, ac tincidunt nisi orci suscipit eros.
+        <form>
+            <div class="row" style="margin: 10px;margin-bottom: 0;">
+                <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10" style="margin-top: 10px;">
+                    <input class="form-control" placeholder="Write a message..." style="width: 100%;
+    padding: 0;
+    padding-right: 8px;">
+                </div>
+                <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2" style="padding: 0;">
+                    <button class="button-default max-width">Send</button>
                 </div>
             </div>
-        </div>
-        <img style="width: 100%;" src="../../image/seperator_2.png"/>
-        <h4 style="text-align: center;
-    margin-bottom: 0;">Chat with the locals</h4>
+        </form>
+
         <div class="row">
             <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                <div class="inn-text-holder" style="margin: 10px;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lectus justo, suscipit ut mollis eu, tempus quis lacus. Duis rutrum, dui ut vulputate tempor, enim velit scelerisque ex, sit amet fermentum augue urna ac nibh. Proin vel quam ligula. Nullam accumsan euismod dolor at iaculis. Morbi lectus lacus, bibendum in laoreet nec, accumsan sed orci. Pellentesque efficitur, quam ut accumsan ultrices, eros ligula consectetur nulla, eu consectetur mi velit eget turpis. Etiam eget sem a mi laoreet iaculis. Duis eleifend elit auctor, bibendum nulla quis, pellentesque massa. Aenean fringilla mi placerat urna dictum, a dignissim dolor elementum. Vestibulum efficitur consectetur mattis.
-
-                    Nullam fermentum sagittis nulla non aliquam. Phasellus eu massa nec erat porta vehicula nec a mauris. Vivamus eget leo et eros consectetur semper. Integer eleifend consectetur consectetur. Nullam nunc quam, pretium in ullamcorper in, mollis lacinia augue. Quisque ultricies enim eu lacus sollicitudin, sed pharetra urna ultricies. Nulla maximus neque vitae ligula dapibus, a porta ante blandit. Cras metus tellus, suscipit eget libero a, commodo ultrices est. Ut ultricies, nulla eu molestie tristique, orci est volutpat eros, ac tincidunt nisi orci suscipit eros.
+                <div class="inn-text-holder chat-container">
+                    <div class="row chat-entry">
+                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                            <div class="chat-entry-holder">
+                                <div class="row">
+                                    <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10">
+                                        Laxika
+                                    </div>
+                                    <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2 chat-entry-posting-time">
+                                        safasdf
+                                    </div>
+                                </div>
+                                <p class="chat-entry-body">
+                                    that mongodb thing looks good, huh?
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row chat-entry">
+                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                            <div class="chat-entry-holder">
+                                <div class="row">
+                                    <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10">
+                                        Laxika
+                                    </div>
+                                    <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2 chat-entry-posting-time">
+                                        safasdf
+                                    </div>
+                                </div>
+                                <p class="chat-entry-body">
+                                    that mongodb thing looks good, huh?
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row chat-entry">
+                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                            <div class="chat-entry-holder">
+                                <div class="row">
+                                    <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10">
+                                        Laxika
+                                    </div>
+                                    <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2 chat-entry-posting-time">
+                                        safasdf
+                                    </div>
+                                </div>
+                                <p class="chat-entry-body">
+                                    that mongodb thing looks good, huh?
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row chat-entry">
+                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                            <div class="chat-entry-holder">
+                                <div class="row">
+                                    <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10">
+                                        Laxika
+                                    </div>
+                                    <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2 chat-entry-posting-time">
+                                        safasdf
+                                    </div>
+                                </div>
+                                <p class="chat-entry-body">
+                                    that mongodb thing looks good, huh?
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                    tiny master db, and huge document store
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

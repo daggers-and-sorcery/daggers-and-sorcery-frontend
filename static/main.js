@@ -63,7 +63,8 @@ require('sass/partial/character/skill/cooking.scss');
 require('sass/partial/registration/registration.scss');
 
 // Inn scss
-require('sass/partial/inn/inn.scss');
+require('sass/partial/inn/chat.scss');
+require('sass/partial/inn/inn-service.scss');
 
 // Shop scss
 require('sass/partial/shop/shop.scss');

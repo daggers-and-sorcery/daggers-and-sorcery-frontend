@@ -1,0 +1,36 @@
+.chat {
+
+    .chat-header {
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .chat-container {
+        margin: 10px;
+        max-height: 600px;
+        overflow-x: hidden;
+
+        .chat-entry {
+            margin-bottom: 10px;
+
+            .chat-entry-holder {
+                background-color: rgba(0, 0, 0, 0.3);
+                border: 1px solid rgba(0, 0, 0, 0.4);
+                padding: 10px;
+
+                .chat-entry-posting-time {
+                    text-align: right;
+                }
+
+                .chat-entry-body {
+                    margin: 0;
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        .chat-entry:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
