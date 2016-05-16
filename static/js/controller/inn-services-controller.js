@@ -6,7 +6,7 @@ module.exports = function ($scope, $state, innInfo) {
     $scope.inn = innInfo;
 
     $scope.getServiceImage = function (service) {
-        return require('image/inn/' + service + '.jpg');
+        return require('image/inn/' + service.toLowerCase().replace("_", "-") + '.jpg');
     };
 
     $scope.showChat = function () {
