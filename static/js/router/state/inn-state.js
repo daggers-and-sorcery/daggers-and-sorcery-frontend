@@ -8,8 +8,8 @@ module.exports = {
     },
     template: require('partial/main/inn.html'),
     resolve: {
-        innInfo: function ($http) {
-            return $http({method: 'GET', url: 'http://api.daggersandsorcery.com/inn/info'}).then(function (response) {
+        chatList: function ($http) {
+            return $http({method: 'GET', url: 'http://api.daggersandsorcery.com/inn/chat/list'}).then(function (response) {
                 return response.data.data;
             });
         }

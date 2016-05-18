@@ -6,7 +6,14 @@
             <button ng-click="showChat()" class="button-default">Chat</button>
         </div>
     </div>
-    <div class="panel-body">
+    <div class="panel-body inn-service-holder">
+        <div class="row inn-service-response-holder">
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                <flash-message duration="5000" show-close="true"></flash-message>
+            </div>
+        </div>
+        <!-- TODO: Add the description of the inn here! -->
+        <!--
         <div class="row">
             <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
                 <div class="description-holder" style="margin: 10px;">
@@ -15,20 +22,20 @@
             </div>
         </div>
         <img style="width: 100%;" src="../../image/seperator_2.png"/>
+        -->
         <div class="row">
-            <div ng-repeat="service in inn.services" class="col-md-6 col-xs-6 col-sm-6 col-lg-6" ng-class-odd="'fix-right'" ng-class-even="'fix-left'">
-                <div style="margin: 12px;">
-                    <img style="box-shadow: 0 0 4px rgba(245,222,179,0.6);" class="img-responsive" ng-src="{{getServiceImage(service.id)}}" />
+            <div ng-repeat="service in inn.services" class="col-md-6 col-xs-6 col-sm-6 col-lg-6 inn-service" ng-class-odd="'fix-right'" ng-class-even="'fix-left'">
+                <div class="service-image-holder">
+                    <img class="img-responsive" ng-src="{{getServiceImage(service.id)}}" />
                 </div>
-                <div style="margin: 10px;">
-                    <h3 style="margin-left: 10px;" ng-bind="service.name"></h3>
+                <div class="service-name-holder">
+                    <h3 ng-bind="service.name"></h3>
                 </div>
-                <div class="description-holder" style="margin: 10px;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris iaculis sapien ac lacus volutpat, laoreet venenatis sem consectetur. Nulla facilisi. Proin mattis, velit et facilisis gravida, dui augue volutpat lectus, at tincidunt sem elit nec metus. Nunc pellentesque dui molestie ipsum ultricies, quis tristique est imperdiet. Integer enim tortor, suscipit sed ultrices sed, maximus et lacus.
+                <div class="service-description-holder description-holder">
+                    <!-- TODO: Add the description of the service here! -->
+                    <div ng-bind-html="getDetails(service.id)"></div>
                 </div>
-                <div style="margin: 10px;
-    margin-right: 80px;
-    margin-left: 80px;">
+                <div class="service-buy-option-holder">
                     <button ng-click="orderService(service.id)" class="button-default max-width">Buy</button>
                 </div>
             </div>
