@@ -1,0 +1,64 @@
+<style>
+    .chat-container::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    .chat-container::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: rgba(245, 222, 179, 0.8);
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    }
+
+    .chat-container::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+        border-radius: 10px;
+    }
+</style>
+
+<div class="panel panel-default panel-shadow">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <span>Inn</span>
+            <small>(Drunken Dragoon)</small>
+        </h3>
+        <div class="panel-heading-button-group">
+            <button ng-click="showServices()" class="button-default">Services</button>
+            <button class="button-default">Chat</button>
+        </div>
+    </div>
+    <div class="panel-body chat">
+        <h4 class="chat-header">Chat with the locals</h4>
+
+        <form>
+            <div class="row" style="margin: 10px;margin-bottom: 0;">
+                <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10" style="margin-top: 10px;
+    padding: 0;
+    padding-right: 8px;">
+                    <input ng-model="textToSend" class="form-control" placeholder="Write a message..." style="width: 100%;">
+                </div>
+                <div ng-click="writeMessage()" class="col-md-2 col-xs-2 col-sm-2 col-lg-2" style="padding: 0;">
+                    <button class="button-default max-width">Send</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                <div class="description-holder chat-container">
+                    <div ng-repeat="message in messages" class="row chat-entry">
+                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                            <div class="chat-entry-holder">
+                                <div class="row">
+                                    <div ng-bind="message.user" class="col-md-6 col-xs-6 col-sm-6 col-lg-6"></div>
+                                    <div ng-bind="message.writingTime | date:'EEEE, MMMM d, y HH:mm:ss'"
+                                         class="col-md-6 col-xs-6 col-sm-6 col-lg-6 chat-entry-posting-time"></div>
+                                </div>
+                                <p ng-bind="message.message" class="chat-entry-body"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

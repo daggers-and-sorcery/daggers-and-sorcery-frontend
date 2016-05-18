@@ -1,0 +1,50 @@
+.inn-service-holder {
+  .fix-right {
+    padding-right: 0;
+  }
+
+  .fix-left {
+    padding-left: 0;
+  }
+
+  .inn-service-response-holder .alert {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .inn-service {
+    .service-image-holder {
+      margin: 12px;
+    }
+
+    .service-image-holder img {
+      box-shadow: 0 0 4px rgba(245,222,179,0.6);
+    }
+
+    .service-name-holder {
+      margin: 10px;
+    }
+
+    .service-name-holder h3 {
+      margin-left: 10px;
+    }
+
+    .service-description-holder {
+      margin: 10px;
+    }
+
+    .service-description-holder dl {
+      margin-bottom: 0;
+    }
+
+    .service-description-holder dd {
+      margin-left: 20px;
+    }
+
+    .service-buy-option-holder {
+      margin: 10px;
+      margin-right: 80px;
+      margin-left: 80px;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<div class="panel panel-default panel-shadow">
+    <div class="panel-heading">
+        <h3 class="panel-title">Inn <small>(Drunken Dragoon)</small></h3>
+        <div class="panel-heading-button-group">
+            <button class="button-default">Services</button>
+            <button ng-click="showChat()" class="button-default">Chat</button>
+        </div>
+    </div>
+    <div class="panel-body inn-service-holder">
+        <div class="row inn-service-response-holder">
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                <flash-message duration="5000" show-close="true"></flash-message>
+            </div>
+        </div>
+        <!-- TODO: Add the description of the inn here! -->
+        <!--
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                <div class="description-holder" style="margin: 10px;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lectus justo, suscipit ut mollis eu, tempus quis lacus. Duis rutrum, dui ut vulputate tempor, enim velit scelerisque ex, sit amet fermentum augue urna ac nibh. Proin vel quam ligula. Nullam accumsan euismod dolor at iaculis. Morbi lectus lacus, bibendum in laoreet nec, accumsan sed orci. Pellentesque efficitur, quam ut accumsan ultrices, eros ligula consectetur nulla, eu consectetur mi velit eget turpis. Etiam eget sem a mi laoreet iaculis. Duis eleifend elit auctor, bibendum nulla quis, pellentesque massa. Aenean fringilla mi placerat urna dictum, a dignissim dolor elementum. Vestibulum efficitur consectetur mattis.
+                </div>
+            </div>
+        </div>
+        <img style="width: 100%;" src="../../image/seperator_2.png"/>
+        -->
+        <div class="row">
+            <div ng-repeat="service in inn.services" class="col-md-6 col-xs-6 col-sm-6 col-lg-6 inn-service" ng-class-odd="'fix-right'" ng-class-even="'fix-left'">
+                <div class="service-image-holder">
+                    <img class="img-responsive" ng-src="{{getServiceImage(service.id)}}" />
+                </div>
+                <div class="service-name-holder">
+                    <h3 ng-bind="service.name"></h3>
+                </div>
+                <div class="service-description-holder description-holder">
+                    <!-- TODO: Add the description of the service here! -->
+                    <div ng-bind-html="getDetails(service.id)"></div>
+                </div>
+                <div class="service-buy-option-holder">
+                    <button ng-click="orderService(service.id)" class="button-default max-width">Buy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

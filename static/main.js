@@ -5,7 +5,8 @@ window.jQuery = $;
 window.$ = $;
 window.marked = require('vendor/marked/js/marked.min.js');
 
-require('vendor/angular/js/angular.min.js');
+var angular = require('vendor/angular/js/angular.min.js');
+
 require('vendor/angular-messages/js/angular-messages.min.js');
 
 require('vendor/angular-ui-router/js/angular-ui-router.min.js');
@@ -13,6 +14,11 @@ require('vendor/angular-ui-bootstrap/js/angular-ui-bootstrap.min.js');
 require('vendor/angular-ui-bootstrap/js/angular-ui-bootstrap-tpls.min.js');
 
 require('vendor/angular-marked/js/angular-marked.min.js');
+
+require('vendor/angular-flash/js/angular-flash.js');
+
+require('vendor/angular-slider/js/rzslider.min.js');
+require('vendor/angular-slider/css/rzslider.min.css');
 
 require('vendor/bootstrap/css/bootstrap.min.css');
 require('vendor/bootstrap/css/bootstrap-theme.min.css');
@@ -62,6 +68,10 @@ require('sass/partial/character/skill/cooking.scss');
 // Registration scss
 require('sass/partial/registration/registration.scss');
 
+// Inn scss
+require('sass/partial/inn/chat.scss');
+require('sass/partial/inn/inn-service.scss');
+
 // Shop scss
 require('sass/partial/shop/shop.scss');
 
@@ -76,6 +86,10 @@ require('sass/common/form/button.scss');
 
 require('sass/common/panel/panel.scss');
 
+require('sass/common/holder/description-holder.scss');
+
 require('sass/common/component/popover.scss');
+
+require('sass/common/flash/flash.scss');
 
 require('sass/core.scss');
