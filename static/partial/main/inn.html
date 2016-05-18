@@ -34,9 +34,9 @@
                 <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10" style="margin-top: 10px;
     padding: 0;
     padding-right: 8px;">
-                    <input class="form-control" placeholder="Write a message..." style="width: 100%;">
+                    <input ng-model="textToSend" class="form-control" placeholder="Write a message..." style="width: 100%;">
                 </div>
-                <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2" style="padding: 0;">
+                <div ng-click="writeMessage()" class="col-md-2 col-xs-2 col-sm-2 col-lg-2" style="padding: 0;">
                     <button class="button-default max-width">Send</button>
                 </div>
             </div>
@@ -45,99 +45,15 @@
         <div class="row">
             <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
                 <div class="description-holder chat-container">
-                    <div class="row chat-entry">
+                    <div ng-repeat="message in messages" class="row chat-entry">
                         <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
                             <div class="chat-entry-holder">
                                 <div class="row">
-                                    <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10">
-                                        Laxika
-                                    </div>
-                                    <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2 chat-entry-posting-time">
-                                        safasdf
-                                    </div>
+                                    <div ng-bind="message.user" class="col-md-6 col-xs-6 col-sm-6 col-lg-6"></div>
+                                    <div ng-bind="message.writingTime | date:'EEEE, MMMM d, y HH:mm:ss'"
+                                         class="col-md-6 col-xs-6 col-sm-6 col-lg-6 chat-entry-posting-time"></div>
                                 </div>
-                                <p class="chat-entry-body">
-                                    that mongodb thing looks good, huh?
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row chat-entry">
-                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                            <div class="chat-entry-holder">
-                                <div class="row">
-                                    <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10">
-                                        Laxika
-                                    </div>
-                                    <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2 chat-entry-posting-time">
-                                        safasdf
-                                    </div>
-                                </div>
-                                <p class="chat-entry-body">
-                                    that mongodb thing looks good, huh?
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row chat-entry">
-                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                            <div class="chat-entry-holder">
-                                <div class="row">
-                                    <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10">
-                                        Laxika
-                                    </div>
-                                    <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2 chat-entry-posting-time">
-                                        safasdf
-                                    </div>
-                                </div>
-                                <p class="chat-entry-body">
-                                    that mongodb thing looks good, huh?
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row chat-entry">
-                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                            <div class="chat-entry-holder">
-                                <div class="row">
-                                    <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10">
-                                        Laxika
-                                    </div>
-                                    <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2 chat-entry-posting-time">
-                                        safasdf
-                                    </div>
-                                </div>
-                                <p class="chat-entry-body">
-                                    that mongodb thing looks good, huh?
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                    tiny master db, and huge document store
-                                </p>
+                                <p ng-bind="message.message" class="chat-entry-body"></p>
                             </div>
                         </div>
                     </div>
