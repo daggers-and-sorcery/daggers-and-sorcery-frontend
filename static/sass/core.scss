@@ -1,8 +1,54 @@
 html,
 body {
   height: 100%;
-  background-color: #000;
   color: wheat;
+  background: url(https://d2ujflorbtfzji.cloudfront.net/preview/000c819c.b8b2f7c6-7b00-40fa-824e-9e17be14f6fe.png);
+
+  .container {
+    /*background-color: rgb(80, 67, 59);
+    box-shadow: 0 10px 50px black;
+
+    border: 26px;
+    border-top: 0;
+    border-bottom: 0;
+    background: url(https://d2ujflorbtfzji.cloudfront.net/preview/000c818d.833d000d-a77d-46d6-b3e1-cc41e6fb8f65.png);
+    border-image: url(../image/best.png) 0 56 round;*/
+  }
+
+  .outter-container {
+    border: 26px;
+    border-top: 0;
+    border-bottom: 0;
+    background: url(https://d2ujflorbtfzji.cloudfront.net/preview/000c818d.833d000d-a77d-46d6-b3e1-cc41e6fb8f65.png);
+    border-image: url(../image/best.png) 0 56 round;
+
+    max-width: 1222px;
+    margin-left: auto;
+    margin-right: auto;
+     box-shadow: 0 10px 50px black;
+  }
+
+  .navbar {
+    border: 5px;
+    border-image-source: url(../image/select_dropdown_container.png);
+    border-image-slice: 20 fill;
+    border-image-repeat: repeat;
+    border-style: solid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: transparent;
+  }
+
+  #footer {
+    border: 5px;
+    border-image-source: url(../image/select_dropdown_container.png);
+    border-image-slice: 20 fill;
+    border-image-repeat: repeat;
+    border-style: solid;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    background: transparent;
+  }
 }
 
 @media (min-width: 992px) {
