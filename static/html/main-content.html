@@ -30,105 +30,134 @@
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
         margin-right: -6px;
     }
+
+    .menu-icon {
+        position: absolute;
+        width: 80px;
+        right: 44px;
+        margin-top: -14px;
+        cursor: pointer;
+    }
 </style>
 <div class="outter-container">
-<div class="container" role="main">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div id="navbar">
-                <div class="row">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#"><img class="logo" src="../image/icon/logo.png"></a>
-                            <a class="navbar-brand" href="#">Daggers &amp; Sorcery</a>
+    <div class="container" role="main">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div id="navbar">
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="#"><img class="logo" src="../image/icon/logo.png"></a>
+                                <a class="navbar-brand" href="#">Daggers &amp; Sorcery</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="$root.user.loggedIn">
-                        <div class="top-attribute-bar top-health-bar">
-                            <span class="top-attribute-text">HP: </span>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-danger" role="progressbar" ng-style="{'width': getHealthPercent()+'%'}">
-                                    <span class="progress-info">{{$root.user.life}} / {{$root.user.max_life}}</span>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="$root.user.loggedIn">
+                            <div class="top-attribute-bar top-health-bar">
+                                <span class="top-attribute-text">HP: </span>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" ng-style="{'width': getHealthPercent()+'%'}">
+                                        <span class="progress-info">{{$root.user.life}} / {{$root.user.max_life}}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="$root.user.loggedIn">
-                        <div class="top-attribute-bar top-mana-bar">
-                            <span class="top-attribute-text">MP: </span>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-info" role="progressbar" ng-style="{'width': getManaPercent()+'%'}">
-                                    <span class="progress-info">{{$root.user.mana}} / {{$root.user.max_mana}}</span>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="$root.user.loggedIn">
+                            <div class="top-attribute-bar top-mana-bar">
+                                <span class="top-attribute-text">MP: </span>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" ng-style="{'width': getManaPercent()+'%'}">
+                                        <span class="progress-info">{{$root.user.mana}} / {{$root.user.max_mana}}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="$root.user.loggedIn">
-                        <div class="top-attribute-bar top-movement-bar">
-                            <span class="top-attribute-text">MOV: </span>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-warning" role="progressbar" ng-style="{'width': getMovementPercent()+'%'}">
-                                    <span class="progress-info">{{$root.user.movement}} / {{$root.user.max_movement}}</span>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="$root.user.loggedIn">
+                            <div class="top-attribute-bar top-movement-bar">
+                                <span class="top-attribute-text">MOV: </span>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" ng-style="{'width': getMovementPercent()+'%'}">
+                                        <span class="progress-info">{{$root.user.movement}} / {{$root.user.max_movement}}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <div class="row">
-        <div class="col-md-9 col-lg-9 content-middle" ui-view></div>
-        <div class="col-md-3 col-lg-3 content-right">
-            <div ng-hide="$root.user.loggedIn" class="panel panel-default login-panel">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Login</h3>
-                </div>
-                <div class="panel-body">
-                    <button class="button-default registration-button" ui-sref="registration" href="#/registration/">
-                        Create an account
-                    </button>
-                    <div class="alert alert-danger login-error ng-binding ng-hide text-center" role="alert" ng-show="error" style="margin-bottom: 15px;">
-                        User not found with the provided username and password.
-                    </div>
-                    <form ng-submit="submit()" class="ng-pristine ng-valid">
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control ng-pristine ng-valid ng-touched" id="username" placeholder="Username" ng-model="user.username" autocomplete="off">
-                        </div>
-                        <div class="password">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control ng-pristine ng-untouched ng-valid" id="password" placeholder="Password" ng-model="user.password">
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="button-default login-button">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div ng-show="$root.user.loggedIn" class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Menu</h3>
-                </div>
-                <div class="panel-body">
-                    <button ui-sref="character" class="button-default max-width">Character</button>
-                    <button ui-sref="map" class="button-default max-width">Explore</button>
-                    <button ui-sref="journal" class="button-default max-width">Journal</button>
-                    <button ui-sref="settings" class="button-default max-width">Settings</button>
-                    <button ui-sref="inn-services" class="button-default max-width">Inn</button>
-                    <button ui-sref="shop({shopId: 'main'})" class="button-default max-width">Shop</button>
-                    <button ui-sref="logout" class="button-default max-width">Logout</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="footer" style="border-radius: 4px;height: 50px;">
+        </nav>
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer-menu">
-                This website and its contents are copyright &copy; 2016 More Than Heroic Studios
+            <div class="col-md-9 col-lg-9 content-middle" ui-view></div>
+            <div class="col-md-3 col-lg-3 content-right">
+                <div ng-hide="$root.user.loggedIn" class="panel panel-default login-panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Login</h3>
+                    </div>
+                    <div class="panel-body">
+                        <button class="button-default registration-button" ui-sref="registration" href="#/registration/">
+                            Create an account
+                        </button>
+                        <div class="alert alert-danger login-error ng-binding ng-hide text-center" role="alert" ng-show="error" style="margin-bottom: 15px;">
+                            User not found with the provided username and password.
+                        </div>
+                        <form ng-submit="submit()" class="ng-pristine ng-valid">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control ng-pristine ng-valid ng-touched" id="username" placeholder="Username" ng-model="user.username" autocomplete="off">
+                            </div>
+                            <div class="password">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control ng-pristine ng-untouched ng-valid" id="password" placeholder="Password" ng-model="user.password">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="button-default login-button">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div ng-show="$root.user.loggedIn" class="panel panel-default unselectable">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Menu</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div ui-sref="character">
+                            <img class="menu-icon" src="../image/icon/menu/character.png">
+                            <button class="button-default max-width">Character</button>
+                        </div>
+                        <div ui-sref="map">
+                            <img class="menu-icon" src="../image/icon/menu/explore.png" style="width: 70px; right: 48px;">
+                            <button class="button-default max-width">Explore</button>
+                        </div>
+                        <div ui-sref="journal">
+                            <img class="menu-icon" src="../image/icon/menu/journal.png">
+                            <button class="button-default max-width">Journal</button>
+                        </div>
+                        <div ui-sref="settings">
+                            <img class="menu-icon" src="../image/icon/menu/settings.png">
+                            <button class="button-default max-width">Settings</button>
+                        </div>
+                        <div ui-sref="inn-services">
+                            <img class="menu-icon" src="../image/icon/menu/inn.png">
+                            <button class="button-default max-width">Inn</button>
+                        </div>
+                        <div ui-sref="shop({shopId: 'main'})">
+                            <img class="menu-icon" src="../image/icon/menu/shop.png">
+                            <button class="button-default max-width">Shop</button>
+                        </div>
+                        <div ui-sref="logout">
+                            <img class="menu-icon" src="../image/icon/menu/logout.png">
+                            <button class="button-default max-width">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer" style="border-radius: 4px;height: 50px;">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer-menu">
+                    This website and its contents are copyright &copy; 2016 More Than Heroic Studios
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
