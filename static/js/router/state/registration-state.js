@@ -307,6 +307,10 @@ module.exports = {
 
         $scope.getAttributeImage = function (attribute) {
             return require('image/attribute/icon/' + attribute + '.png');
+        };
+
+        $scope.getRaceImage = function(race) {
+            return require('image/icon/race/' + race + '.png');
         }
     }
 };
