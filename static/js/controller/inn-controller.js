@@ -10,9 +10,15 @@ module.exports = function ($scope, $state, $interval, $http, chatList) {
         });
     };
 
-    $interval(function () {
+    $scope.chatTimer = $interval(function () {
         refreshChat();
     }, 5000);
+
+    $scope.$on("$destroy",function(){
+        if (angular.isDefined($scope.chatTimer)) {
+            $interval.cancel($scope.chatTimer);
+        }
+    });
 
     $scope.writeMessage = function () {
         var payload = {
