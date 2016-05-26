@@ -26,13 +26,13 @@
         <img class="panel-heading-icon-improved" src="../../../image/icon/skill/Leatherworking.png"/>
         <img class="panel-heading-icon-improved-holder" src="../../../image/m_action_frame.png"/>
 
-        <h3 class="panel-title">Leatherworking</h3>
+        <h3 class="panel-title">Leatherworking <small>(Level 30)</small></h3>
     </div>
     <div class="panel-body">
         <div class="row">
             <div class="col-xs-12">
                 <div class="row">
-                    <div class="col-xs-offset-2 col-xs-4 big-button">
+                    <div class="col-xs-4 big-button">
                         <img src="../../../image/cf_main_frame.png" class="img-responsive">
                         <img class="big-button-icon" src="../../../image/icon/extra/curing.png"/>
                         <span class="big-button-text">Curing</span>
@@ -42,8 +42,125 @@
                         <img class="big-button-icon" src="../../../image/icon/extra/tanning.png"/>
                         <span class="big-button-text">Tanning</span>
                     </div>
+                    <div class="col-xs-4 big-button">
+                        <img src="../../../image/cf_main_frame.png" class="img-responsive">
+                        <img class="big-button-icon" src="../../../image/player.png"/>
+                        <span class="big-button-text">Recipes</span>
+                    </div>
                 </div>
-                asdasdasd
+                <h3 class="text-center">Curing</h3>
+
+                <div class="description-holder" style="margin-bottom: 10px;">
+                    Lorem ipsum
+                </div>
+
+                <p class="text-center">Currently curing: 6 / 10</p>
+
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-5">
+                        <div style="margin-bottom: 5px;">
+                            Working on: Deer skin
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 100%;">
+                                <span class="progress-info" style="padding-right: 30px;">3:47</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-5">
+                        <div style="margin-bottom: 5px;">
+                            Working on: Deer skin
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 100%;">
+                                <span class="progress-info" style="padding-right: 30px;">3:47</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-5">
+                        <div style="margin-bottom: 5px;">
+                            Working on: Deer skin
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 100%;">
+                                <span class="progress-info" style="padding-right: 30px;">3:47</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-5">
+                        <div style="margin-bottom: 5px;">
+                            Working on: Deer skin
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 100%;">
+                                <span class="progress-info" style="padding-right: 30px;">3:47</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-5">
+                        <div style="margin-bottom: 5px;">
+                            Working on: Deer skin
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 100%;">
+                                <span class="progress-info" style="padding-right: 30px;">3:47</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-5">
+                        <div style="margin-bottom: 5px;">
+                            Working on: Deer skin
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 100%;">
+                                <span class="progress-info" style="padding-right: 30px;">3:47</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th class="text-center">Requirements</th>
+                        <th class="text-center">Result</th>
+                        <th class="text-center">Create</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="recipe in leatherworkingInfo.recipes">
+                        <td ng-bind="::recipe.name"></td>
+                        <td>
+                            <ul style="list-style-type: none;">
+                                <li ng-repeat="requirement in recipe.recipeRequirements">
+                                    <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
+                                    <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
+                                </li>
+                                <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} -
+                                    {{ingredient.name}}
+                                    <small style="color: lightgray;">(used up)</small>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul style="list-style-type: none;">
+                                <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} - {{reward.name}}</li>
+                                <li ng-repeat="experience in recipe.recipeExperiences">{{experience.amount}} -
+                                    {{experience.skill}} experience
+                                </li>
+                            </ul>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <a ng-click="create(recipe.id)">Create</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
