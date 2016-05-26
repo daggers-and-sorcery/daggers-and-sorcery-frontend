@@ -17,6 +17,10 @@ require('vendor/angular-marked/js/angular-marked.min.js');
 
 require('vendor/angular-flash/js/angular-flash.js');
 
+require('vendor/angular-sanitize/js/angular-sanitize.js');
+require('vendor/angular-animate/js/angular-animate.js');
+require('vendor/angular-readmore/js/angular-readmore.js');
+
 require('vendor/angular-slider/js/rzslider.min.js');
 require('vendor/angular-slider/css/rzslider.min.css');
 
