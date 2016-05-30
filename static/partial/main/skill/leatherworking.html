@@ -55,70 +55,17 @@
                      style="margin-bottom: 10px;" hm-read-more hm-limit="300">
                 </div>
 
-                <p class="text-center">Currently curing: 6 / 10</p>
+                <p class="text-center">Currently curing: {{leatherworkingInfo.curing_list.length}} / 10</p>
 
                 <div class="row">
-                    <div class="col-xs-offset-1 col-xs-5">
+                    <div class=" col-xs-5" ng-repeat="curing_item in leatherworkingInfo.curing_list" ng-class="{'col-xs-offset-1':$index % 2 == 0}">
+                        <div class="clearfix" ng-if="$index % 2 == 0"></div>
                         <div style="margin-bottom: 5px;">
-                            Working on: Deer skin
+                            Working on: {{curing_item.item}}
                         </div>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 100%;">
-                                <span class="progress-info" style="padding-right: 30px;">3:47</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-5">
-                        <div style="margin-bottom: 5px;">
-                            Working on: Deer skin
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 100%;">
-                                <span class="progress-info" style="padding-right: 30px;">3:47</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-offset-1 col-xs-5">
-                        <div style="margin-bottom: 5px;">
-                            Working on: Deer skin
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 100%;">
-                                <span class="progress-info" style="padding-right: 30px;">3:47</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-5">
-                        <div style="margin-bottom: 5px;">
-                            Working on: Deer skin
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 100%;">
-                                <span class="progress-info" style="padding-right: 30px;">3:47</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-offset-1 col-xs-5">
-                        <div style="margin-bottom: 5px;">
-                            Working on: Deer skin
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 100%;">
-                                <span class="progress-info" style="padding-right: 30px;">3:47</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-5">
-                        <div style="margin-bottom: 5px;">
-                            Working on: Deer skin
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 100%;">
-                                <span class="progress-info" style="padding-right: 30px;">3:47</span>
+                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (curing_item.timeLeft / (curing_item.fullTime / 100))}}%;">
+                                <span class="progress-info" style="padding-right: 30px;" ng-bind="curing_item.timeLeft / 1000 | secondsToDateTime | date:'mm:ss'"></span>
                             </div>
                         </div>
                     </div>
