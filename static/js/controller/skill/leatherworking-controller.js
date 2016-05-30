@@ -10,7 +10,7 @@ module.exports = function ($scope, $http, $rootScope, curingRecipeList) {
             recipeId: recipeId
         };
 
-        $http.post('http://api.daggersandsorcery.com/skill/cooking/create', payload).success(function (data, status, headers, config) {
+        $http.post('http://api.daggersandsorcery.com/skill/leatherworking/curing/start', payload).success(function (data, status, headers, config) {
         }).error(function (data, status, headers, config) {
         });
     }
