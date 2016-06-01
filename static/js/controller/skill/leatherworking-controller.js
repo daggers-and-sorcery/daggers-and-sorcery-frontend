@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ($scope, $http, $rootScope, $interval, curingRecipeList) {
+module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRecipeList) {
     $scope.leatherworkingInfo = curingRecipeList;
 
     //TODO: Add the code for switching to leathercrafting
@@ -11,6 +11,8 @@ module.exports = function ($scope, $http, $rootScope, $interval, curingRecipeLis
         };
 
         $http.post('http://api.daggersandsorcery.com/skill/leatherworking/curing/start', payload).success(function (data, status, headers, config) {
+            Flash.create('success', data.data.result.result);
+
             $scope.refresh();
         });
     };

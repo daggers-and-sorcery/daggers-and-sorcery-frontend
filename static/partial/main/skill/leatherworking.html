@@ -20,15 +20,20 @@
     .big-button {
         cursor: pointer;
     }
+
+    .alert {
+        margin-bottom: 10px;
+    }
 </style>
 <div class="panel panel-default">
     <div class="panel-heading">
         <img class="panel-heading-icon-improved" src="../../../image/icon/skill/Leatherworking.png"/>
         <img class="panel-heading-icon-improved-holder" src="../../../image/m_action_frame.png"/>
 
-        <h3 class="panel-title">Leatherworking <small>(Level 30)</small></h3>
+        <h3 class="panel-title">Leatherworking <small>(Level {{leatherworkingInfo.skill.level}})</small></h3>
     </div>
     <div class="panel-body">
+        <flash-message duration="5000" show-close="true"></flash-message>
         <div class="row">
             <div class="col-xs-12">
                 <div class="row">
