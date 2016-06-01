@@ -11,7 +11,7 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRe
         };
 
         $http.post('http://api.daggersandsorcery.com/skill/leatherworking/curing/start', payload).success(function (data, status, headers, config) {
-            Flash.create('success', data.data.result.result);
+            Flash.create(getCuringResultColor(data.data.result.result), getCuringResultText(data.data.result.result));
 
             $scope.refresh();
         });
@@ -41,4 +41,29 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRe
             $interval.cancel($scope.timer);
         }
     });
+
+    var getCuringResultColor = function(result) {
+        if (result === 'SUCCESSFUL') {
+            return 'success';
+        }
+
+        return 'danger';
+    };
+
+    var getCuringResultText = function(result) {
+        switch(result) {
+            case 'SUCCESSFUL':
+                return 'You started to work on that item.';
+            case 'QUEUE_FULL':
+                return 'You don\'t have enough place to cure that!';
+            case 'INVALID_EVENT':
+                return 'Something went wrong! Please report this to the administrator!';
+            case 'MISSING_REQUIREMENTS':
+                return 'You miss some of the requirements to do this task.';
+            case 'MISSING_INGREDIENTS':
+                return 'You miss some of the ingredients to do this task.';
+            case 'NOT_ENOUGH_MOVEMENT':
+                return 'You don\'t have enough movement points to do this task.';
+        }
+    }
 };
