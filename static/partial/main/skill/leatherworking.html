@@ -1,0 +1,122 @@
+<style>
+    .big-button-text {
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+        width: 170px;
+        top: 18px;
+        left: 80px;
+        font-size: 20px;
+    }
+
+    .big-button-icon {
+        height: 52px;
+        position: absolute;
+        top: 8px;
+        left: 22px;
+        border-radius: 50%;
+    }
+
+    .big-button {
+        cursor: pointer;
+    }
+
+    .alert {
+        margin-bottom: 10px;
+    }
+</style>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <img class="panel-heading-icon-improved" src="../../../image/icon/skill/Leatherworking.png"/>
+        <img class="panel-heading-icon-improved-holder" src="../../../image/m_action_frame.png"/>
+
+        <h3 class="panel-title">Leatherworking <small>(Level {{leatherworkingInfo.skill.level}})</small></h3>
+    </div>
+    <div class="panel-body">
+        <flash-message duration="5000" show-close="true"></flash-message>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-4 big-button">
+                        <img src="../../../image/cf_main_frame.png" class="img-responsive">
+                        <img class="big-button-icon" src="../../../image/icon/extra/curing.png"/>
+                        <span class="big-button-text">Curing</span>
+                    </div>
+                    <div class="col-xs-4 big-button">
+                        <img src="../../../image/cf_main_frame.png" class="img-responsive">
+                        <img class="big-button-icon" src="../../../image/icon/extra/tanning.png"/>
+                        <span class="big-button-text" style="text-decoration: line-through;">Tanning</span>
+                    </div>
+                    <div class="col-xs-4 big-button">
+                        <img src="../../../image/cf_main_frame.png" class="img-responsive">
+                        <img class="big-button-icon" src="../../../image/icon/extra/recipe.png"/>
+                        <span class="big-button-text" style="text-decoration: line-through;">Recipes</span>
+                    </div>
+                </div>
+                <h3 class="text-center">Curing</h3>
+
+                <!--
+                <div class="description-holder"
+                     hm-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in nunc ipsum. Aliquam condimentum ligula sit amet felis pharetra, nec gravida erat pretium. Proin finibus nisi quis leo sodales suscipit. Vestibulum sit amet felis in magna efficitur luctus vel in tellus. Ut nunc lorem, hendrerit nec nunc eu, tempor euismod elit. Donec consectetur a sem mattis sodales. In hac habitasse platea dictumst. Nullam massa arcu, volutpat nec hendrerit et, hendrerit id quam. Sed vitae imperdiet erat. Cras maximus risus eu efficitur gravida. Aenean congue ac dui vel sagittis. Phasellus pharetra elit nisi, non placerat nulla tempus eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in nunc ipsum. Aliquam condimentum ligula sit amet felis pharetra, nec gravida erat pretium. Proin finibus nisi quis leo sodales suscipit. Vestibulum sit amet felis in magna efficitur luctus vel in tellus. Ut nunc lorem, hendrerit nec nunc eu, tempor euismod elit. Donec consectetur a sem mattis sodales. In hac habitasse platea dictumst. Nullam massa arcu, volutpat nec hendrerit et, hendrerit id quam. Sed vitae imperdiet erat. Cras maximus risus eu efficitur gravida. Aenean congue ac dui vel sagittis. Phasellus pharetra elit nisi, non placerat nulla tempus eget."
+                     style="margin-bottom: 10px;" hm-read-more hm-limit="300">
+                </div>
+                -->
+
+                <p class="text-center">Currently curing: {{leatherworkingInfo.curing_list.length}} / 10</p>
+
+                <div class="row">
+                    <div class=" col-xs-5" ng-repeat="curing_item in leatherworkingInfo.curing_list" ng-class="{'col-xs-offset-1':$index % 2 == 0}">
+                        <div class="clearfix" ng-if="$index % 2 == 0"></div>
+                        <div style="margin-bottom: 5px;">
+                            Working on: {{curing_item.item}}
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (curing_item.timeLeft / (curing_item.fullTime / 100))}}%;">
+                                <span class="progress-info" style="padding-right: 30px;" ng-bind="curing_item.timeLeft / 1000 | secondsToDateTime | date:'mm:ss'"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th class="text-center">Requirements</th>
+                        <th class="text-center">Result</th>
+                        <th class="text-center">Create</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="recipe in leatherworkingInfo.recipes">
+                        <td ng-bind="::recipe.name"></td>
+                        <td>
+                            <ul style="list-style-type: none;">
+                                <li ng-repeat="requirement in recipe.recipeRequirements">
+                                    <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
+                                    <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
+                                </li>
+                                <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} -
+                                    {{ingredient.name}}
+                                    <small style="color: lightgray;">(used up)</small>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul style="list-style-type: none;">
+                                <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} - {{reward.name}}</li>
+                                <li ng-repeat="experience in recipe.recipeExperiences">{{experience.amount}} -
+                                    {{experience.skill}} experience
+                                </li>
+                            </ul>
+                        </td>
+                        <td class="text-center" style="vertical-align: middle;">
+                            <a ng-click="create(recipe.id)">Create</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -29,6 +29,24 @@
             }
         }
 
+        .panel-heading-icon-improved {
+            float: left;
+            position: absolute;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            top: 8px;
+            left: 46px;
+        }
+
+        .panel-heading-icon-improved-holder {
+             float: left;
+             height: 80px;
+             margin-top: -26px;
+             margin-left: -10px;
+             margin-right: 8px;
+        }
+
         .panel-title {
             font-family: "Candara";
             font-size: 20px;
