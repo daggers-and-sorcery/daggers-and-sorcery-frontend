@@ -16,6 +16,12 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRe
         $scope.refresh();
     };
 
+    $scope.showWorking = function () {
+        $scope.state = 'working';
+
+        $scope.refresh();
+    };
+
     $scope.create = function (recipeId) {
         var payload = {
             recipeId: recipeId
@@ -30,6 +36,13 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRe
             });
         } else if($scope.state == 'tanning') {
             $http.post('http://api.daggersandsorcery.com/skill/leatherworking/tanning/start', payload).success(function (data, status, headers, config) {
+                Flash.clear();
+                Flash.create(getTanningResultColor(data.data.result.result), getTanningResultText(data.data.result.result));
+
+                $scope.refresh();
+            });
+        } else if($scope.state == 'working') {
+            $http.post('http://api.daggersandsorcery.com/skill/leatherworking/working/start', payload).success(function (data, status, headers, config) {
                 Flash.clear();
                 Flash.create(getTanningResultColor(data.data.result.result), getTanningResultText(data.data.result.result));
 
@@ -50,6 +63,13 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRe
             $http({
                 method: 'GET',
                 url: 'http://api.daggersandsorcery.com/skill/leatherworking/tanning/info'
+            }).then(function (response) {
+                $scope.leatherworkingInfo = response.data.data;
+            });
+        } else if($scope.state == 'working') {
+            $http({
+                method: 'GET',
+                url: 'http://api.daggersandsorcery.com/skill/leatherworking/working/info'
             }).then(function (response) {
                 $scope.leatherworkingInfo = response.data.data;
             });

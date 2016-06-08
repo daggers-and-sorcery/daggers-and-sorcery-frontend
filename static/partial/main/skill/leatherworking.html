@@ -49,10 +49,10 @@
                         <img class="big-button-icon" src="../../../image/icon/extra/tanning.png"/>
                         <span class="big-button-text">Tanning</span>
                     </div>
-                    <div class="col-xs-4 big-button">
+                    <div class="col-xs-4 big-button" ng-click="showWorking()">
                         <img src="../../../image/cf_main_frame.png" class="img-responsive">
                         <img class="big-button-icon" src="../../../image/icon/extra/recipe.png"/>
-                        <span class="big-button-text" style="text-decoration: line-through;">Recipes</span>
+                        <span class="big-button-text">Recipes</span>
                     </div>
                 </div>
                 <div ng-if="state == 'curing'">
@@ -138,6 +138,49 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="recipe in leatherworkingInfo.tanning_recipes">
+                            <td ng-bind="::recipe.name"></td>
+                            <td>
+                                <ul style="list-style-type: none;">
+                                    <li ng-repeat="requirement in recipe.recipeRequirements">
+                                        <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
+                                        <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
+                                    </li>
+                                    <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} -
+                                        {{ingredient.name}}
+                                        <small style="color: lightgray;">(used up)</small>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul style="list-style-type: none;">
+                                    <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} - {{reward.name}}
+                                    </li>
+                                    <li ng-repeat="experience in recipe.recipeExperiences">{{experience.amount}} -
+                                        {{experience.skill}} experience
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="text-center" style="vertical-align: middle;">
+                                <a ng-click="create(recipe.id)">Create</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ng-if="state == 'working'">
+                    <h3 class="text-center">Recipes</h3>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th class="text-center">Requirements</th>
+                            <th class="text-center">Result</th>
+                            <th class="text-center">Create</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="recipe in leatherworkingInfo.working_recipes">
                             <td ng-bind="::recipe.name"></td>
                             <td>
                                 <ul style="list-style-type: none;">
