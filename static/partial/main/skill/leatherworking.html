@@ -49,21 +49,16 @@
                         <img class="big-button-icon" src="../../../image/icon/extra/tanning.png"/>
                         <span class="big-button-text">Tanning</span>
                     </div>
-                    <div class="col-xs-4 big-button">
+                    <div class="col-xs-4 big-button" ng-click="showWorking()">
                         <img src="../../../image/cf_main_frame.png" class="img-responsive">
                         <img class="big-button-icon" src="../../../image/icon/extra/recipe.png"/>
-                        <span class="big-button-text" style="text-decoration: line-through;">Recipes</span>
+                        <span class="big-button-text">Recipes</span>
                     </div>
                 </div>
                 <div ng-if="state == 'curing'">
                     <h3 class="text-center">Curing</h3>
 
-                    <!--
-                    <div class="description-holder"
-                         hm-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in nunc ipsum. Aliquam condimentum ligula sit amet felis pharetra, nec gravida erat pretium. Proin finibus nisi quis leo sodales suscipit. Vestibulum sit amet felis in magna efficitur luctus vel in tellus. Ut nunc lorem, hendrerit nec nunc eu, tempor euismod elit. Donec consectetur a sem mattis sodales. In hac habitasse platea dictumst. Nullam massa arcu, volutpat nec hendrerit et, hendrerit id quam. Sed vitae imperdiet erat. Cras maximus risus eu efficitur gravida. Aenean congue ac dui vel sagittis. Phasellus pharetra elit nisi, non placerat nulla tempus eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in nunc ipsum. Aliquam condimentum ligula sit amet felis pharetra, nec gravida erat pretium. Proin finibus nisi quis leo sodales suscipit. Vestibulum sit amet felis in magna efficitur luctus vel in tellus. Ut nunc lorem, hendrerit nec nunc eu, tempor euismod elit. Donec consectetur a sem mattis sodales. In hac habitasse platea dictumst. Nullam massa arcu, volutpat nec hendrerit et, hendrerit id quam. Sed vitae imperdiet erat. Cras maximus risus eu efficitur gravida. Aenean congue ac dui vel sagittis. Phasellus pharetra elit nisi, non placerat nulla tempus eget."
-                         style="margin-bottom: 10px;" hm-read-more hm-limit="300">
-                    </div>
-                    -->
+                    <div class="description-holder" style="margin-bottom: 10px;" hm-read-more hm-limit="300" hm-text="In the first step of leatherworking, you must cure your raw leather. This requires heavily salting the leather and allowing it to sit for some time. The salt removes the moisture trapped within the leather and prevents deterioration. With larger pieces of leather, more salt is required to effectively cure it. This process is necessary to strengthen the leather and prepare it for tanning. If this step is skipped, the raw leather will putrefy and will not be suitable for crafting."></div>
 
                     <p class="text-center">Currently curing: {{leatherworkingInfo.curing_list.length}} / 10</p>
 
@@ -127,6 +122,8 @@
                 <div ng-if="state == 'tanning'">
                     <h3 class="text-center">Tanning</h3>
 
+                    <div class="description-holder" style="margin-bottom: 10px;" hm-read-more hm-limit="300" hm-text="Tanning is the process of converting animal skins into leather. This requires tannin, an acidic chemical from which tanning derives its name. The two main methods of tanning are vegetable tanning and chroma tanning. In vegetable tanning, the tannins are plentiful and can be harvested from plant fibers. The tannins bind to the proteins within the skin and prevent it from putrefying. On the other hand, chroma tanning requires chroma, an effective tanning essence. The skins are soaked in the chroma until they turn a bright shade of blue. Afterward, the leather is ready for crafting. Chroma tanning is faster than vegetable tanning, but they both produce excellent leather products."></div>
+
                     <table class="table">
                         <thead>
                         <tr>
@@ -138,6 +135,51 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="recipe in leatherworkingInfo.tanning_recipes">
+                            <td ng-bind="::recipe.name"></td>
+                            <td>
+                                <ul style="list-style-type: none;">
+                                    <li ng-repeat="requirement in recipe.recipeRequirements">
+                                        <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
+                                        <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
+                                    </li>
+                                    <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} -
+                                        {{ingredient.name}}
+                                        <small style="color: lightgray;">(used up)</small>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul style="list-style-type: none;">
+                                    <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} - {{reward.name}}
+                                    </li>
+                                    <li ng-repeat="experience in recipe.recipeExperiences">{{experience.amount}} -
+                                        {{experience.skill}} experience
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="text-center" style="vertical-align: middle;">
+                                <a ng-click="create(recipe.id)">Create</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ng-if="state == 'working'">
+                    <h3 class="text-center">Recipes</h3>
+
+                    <div class="description-holder" style="margin-bottom: 10px;" hm-read-more hm-limit="300" hm-text="Leatherworking is the process of crafting the leather into armor, belts, or trinkets. One of the main components of leatherworking is molding. Water is required to ease the leather into the desired shape. Once the leather dries, the leather can be stamped with a mallet to produced intricate designs. These designs will imprint themselves into the leather as it continues to dry. Dyeing provides the leather with a unique color and must be done after molding. Dyes usually contain alcohol which allow the pigments to seep into the leather, but there are countless substitutes."></div>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th class="text-center">Requirements</th>
+                            <th class="text-center">Result</th>
+                            <th class="text-center">Create</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="recipe in leatherworkingInfo.working_recipes">
                             <td ng-bind="::recipe.name"></td>
                             <td>
                                 <ul style="list-style-type: none;">
