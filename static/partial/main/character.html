@@ -29,7 +29,7 @@
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
                     <div class="equipment-slot equipment-slot-gloves" ng-click="unequip('GLOVES')" ng-mouseenter="setType('GLOVES')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
-                        <img ng-if="!user.equipment.GLOVES.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img ng-if="!user.equipment.GLOVES.empty" class="equipment-slot-image-icon" ng-src="{{getEquipmentImage(user.equipment.GLOVES.description.id)}}"/>
                         <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_gloves.png"/>
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
@@ -64,7 +64,7 @@
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
                     <div class="equipment-slot equipment-slot-boots" ng-click="unequip('BOOTS')" ng-mouseenter="setType('BOOTS')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
-                        <img ng-if="!user.equipment.BOOTS.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img ng-if="!user.equipment.BOOTS.empty" class="equipment-slot-image-icon" ng-src="{{getEquipmentImage(user.equipment.BOOTS.description.id)}}"/>
                         <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_boots.png"/>
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
