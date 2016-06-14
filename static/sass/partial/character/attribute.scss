@@ -46,11 +46,10 @@
 }
 
 .combat-attribute-list {
-    border: 30px;
+    border: 30px solid;
     border-image-source: url(../../../image/c_full.png);
     border-image-slice: 30 fill;
     border-image-repeat: repeat;
-    border-style:solid;
     margin: 0;
 }
 
