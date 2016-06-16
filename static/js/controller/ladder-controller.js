@@ -1,7 +1,8 @@
 'use strict';
 
-module.exports = function ($scope,skillTypes) {
+module.exports = function ($scope, $http, skillTypes, ladderInfo) {
     $scope.skillTypes = skillTypes;
+    $scope.ladderData = ladderInfo;
     $scope.selected = skillTypes[0];
 
     $scope.getSkillImage = function (skill) {
@@ -11,6 +12,8 @@ module.exports = function ($scope,skillTypes) {
     $scope.select = function(type) {
         $scope.selected = type;
 
-        //TODO: load data here!
+        $http.get('http://api.daggersandsorcery.com/ladder/skill/'+$scope.selected.id).then(function (response) {
+            $scope.ladderData = response.data.data.ladder_info;
+        });
     }
 };

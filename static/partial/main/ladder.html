@@ -1,3 +1,8 @@
+<style>
+    .ladder-table-holder .table-hover > tbody > tr:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+</style>
 <div class="panel panel-default">
     <div class="panel-heading">
         <img style="    float: left;
@@ -16,62 +21,43 @@
                  style="padding-left: 3px; padding-right: 3px;">
                 <div class="ladder-skill-entry-icon-holder">
                     <div class="ladder-skill-entry-icon-inner-holder">
-                        <img class="ladder-skill-entry-icon img-circle" ng-src="{{getSkillImage(skillType.name)}}" ng-click="select(skillType)"/>
+                        <img class="ladder-skill-entry-icon img-circle" ng-src="{{getSkillImage(skillType.name)}}"
+                             ng-click="select(skillType)"/>
                     </div>
                 </div>
             </div>
         </div>
         <div class="service-description-holder description-holder">
-        <h2 class="text-center" style="margin-top: 0;" ng-bind="selected.name"></h2>
+            <h2 class="text-center" style="margin-top: 0;" ng-bind="selected.name"></h2>
 
-        <div class="ladder-skill-entry-icon-holder" style="    width: 100px;
+            <div class="ladder-skill-entry-icon-holder" style="    width: 100px;
     margin-left: auto;
     margin-right: auto;">
-            <div class="ladder-skill-entry-icon-inner-holder" style="    padding-top: 18px;
+                <div class="ladder-skill-entry-icon-inner-holder" style="    padding-top: 18px;
     padding-left: 28px;">
-                <img class="ladder-skill-entry-icon img-circle" ng-src="{{getSkillImage(selected.name)}}"
-                     style="    height: 48px;"/>
+                    <img class="ladder-skill-entry-icon img-circle" ng-src="{{getSkillImage(selected.name)}}"
+                         style="    height: 48px;"/>
+                </div>
             </div>
-        </div>
-        <div style="    margin-right: 20px;
+            <div class="ladder-table-holder" style="    margin-right: 20px;
     margin-left: 20px;">
-        <table class="table table-hover table-responsive">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th class="text-center" style="width: 10%;">Level</th>
-                <th class="text-center" style="width: 20%;">Experience</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Laxika</td>
-                <td class="text-center">30</td>
-                <td class="text-center">222121</td>
-            </tr>
-            <tr>
-                <td>Laxika</td>
-                <td class="text-center">30</td>
-                <td class="text-center">222121</td>
-            </tr>
-            <tr>
-                <td>Laxika</td>
-                <td class="text-center">30</td>
-                <td class="text-center">222121</td>
-            </tr>
-            <tr>
-                <td>Laxika</td>
-                <td class="text-center">30</td>
-                <td class="text-center">222121</td>
-            </tr>
-            <tr>
-                <td>Laxika</td>
-                <td class="text-center">30</td>
-                <td class="text-center">222121</td>
-            </tr>
-            </tbody>
-        </table>
-        </div>
+                <table class="table table-hover table-responsive">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th class="text-center" style="width: 10%;">Level</th>
+                        <th class="text-center" style="width: 20%;">Experience</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in ladderData">
+                        <td ng-bind="data.username"></td>
+                        <td class="text-center" ng-bind="data.level"></td>
+                        <td class="text-center" ng-bind="data.xp"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
