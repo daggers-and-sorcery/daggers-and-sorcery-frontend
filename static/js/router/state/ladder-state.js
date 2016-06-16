@@ -11,7 +11,7 @@ module.exports = {
             });
         },
         ladderInfo: function($http) {
-            return $http.get('http://api.daggersandsorcery.com/ladder/skill/TWO_HANDED_CRUSHING_WEAPONS/0').then(function (response) {
+            return $http.get('http://api.daggersandsorcery.com/ladder/skill/TWO_HANDED_CRUSHING_WEAPONS/1').then(function (response) {
                 return response.data.data;
             });
         }

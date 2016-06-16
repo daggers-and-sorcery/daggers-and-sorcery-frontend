@@ -2,6 +2,36 @@
     .ladder-table-holder .table-hover > tbody > tr:hover {
         background-color: rgba(0, 0, 0, 0.1);
     }
+
+    .ladder-pager .pagination > li.disabled > a,
+    .ladder-pager .pagination > li.disabled > span {
+        z-index: 3;
+        color: wheat;
+        background-color: #540000;
+        border-color: rgba(0,0,0,0.4);
+    }
+
+    .ladder-pager .pagination > li.active > a {
+        background-color: #540000;
+    }
+
+    .ladder-pager .pagination > li > a,
+    .ladder-pager .pagination > li > span {
+        z-index: 3;
+        color: wheat;
+        background-color: brown;
+        border-color: rgba(0,0,0,0.4);
+    }
+
+    .ladder-pager .pagination > li > a:focus,
+    .ladder-pager .pagination > li > a:hover,
+    .ladder-pager .pagination > li > span:focus,
+    .ladder-pager .pagination > li > span:hover {
+        z-index: 3;
+        color: #23527c;
+        background-color: #eee;
+        border-color: #ddd;
+    }
 </style>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -44,13 +74,15 @@
                 <table class="table table-hover table-responsive">
                     <thead>
                     <tr>
+                        <th class="text-center" style="width: 30px;">#</th>
                         <th>Name</th>
                         <th class="text-center" style="width: 10%;">Level</th>
                         <th class="text-center" style="width: 20%;">Experience</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="data in ladderData">
+                    <tr ng-repeat="data in ladderData" ng-style="data.me ? {'color':'cadetblue'} : {}">
+                        <td class="text-center" ng-bind="(currentPage -1) * 20 + $index + 1"></td>
                         <td ng-bind="data.username"></td>
                         <td class="text-center" ng-bind="data.level"></td>
                         <td class="text-center" ng-bind="data.xp"></td>
@@ -58,7 +90,14 @@
                     </tbody>
                 </table>
             </div>
-            <!-- todo: pager here! -->
+            <div class="ladder-pager text-center">
+                <pagination
+                        ng-model="currentPage"
+                        total-items="pageData.pageCount * 20"
+                        max-size="maxSize"
+                        boundary-links="true">
+                </pagination>
+            </div>
         </div>
     </div>
 </div>
