@@ -85,6 +85,9 @@ require('sass/partial/explore/explore.scss');
 // Journal
 require('sass/partial/journal/journal.scss');
 
+// Ladder
+require('sass/partial/ladder/ladder.scss');
+
 require('sass/common/form/input.scss');
 require('sass/common/form/button.scss');
 

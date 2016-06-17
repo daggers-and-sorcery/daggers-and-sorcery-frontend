@@ -1,0 +1,18 @@
+  .ladder-skill-entry-icon-holder {
+    background: url(../../../image/m_action_frame.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 92px;
+
+    .ladder-skill-entry-icon-inner-holder {
+      padding-top: 25px;
+      padding-left: 13px;
+
+      img.ladder-skill-entry-icon {
+        cursor: pointer;
+        height: 37px;
+        margin: auto;
+      }
+    }
+  }

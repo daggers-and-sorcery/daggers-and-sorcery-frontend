@@ -1,0 +1,103 @@
+<style>
+    .ladder-table-holder .table-hover > tbody > tr:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .ladder-pager .pagination > li.disabled > a,
+    .ladder-pager .pagination > li.disabled > span {
+        z-index: 3;
+        color: wheat;
+        background-color: #540000;
+        border-color: rgba(0,0,0,0.4);
+    }
+
+    .ladder-pager .pagination > li.active > a {
+        background-color: #540000;
+    }
+
+    .ladder-pager .pagination > li > a,
+    .ladder-pager .pagination > li > span {
+        z-index: 3;
+        color: wheat;
+        background-color: brown;
+        border-color: rgba(0,0,0,0.4);
+    }
+
+    .ladder-pager .pagination > li > a:focus,
+    .ladder-pager .pagination > li > a:hover,
+    .ladder-pager .pagination > li > span:focus,
+    .ladder-pager .pagination > li > span:hover {
+        z-index: 3;
+        color: #23527c;
+        background-color: #eee;
+        border-color: #ddd;
+    }
+</style>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <img style="    float: left;
+    width: 70px;
+    border-radius: 50%;
+    margin-top: -24px;
+    margin-left: -16px;" src="../../image/icon/menu/hourglass.png"/>
+
+        <h3 class="panel-title">Ladder</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row" style="
+    margin-left: 0;
+    margin-right: 0;">
+            <div ng-repeat="skillType in skillTypes" class="col-sm-2 col-md-1 col-lg-1"
+                 style="padding-left: 3px; padding-right: 3px;">
+                <div class="ladder-skill-entry-icon-holder">
+                    <div class="ladder-skill-entry-icon-inner-holder">
+                        <img class="ladder-skill-entry-icon img-circle" ng-src="{{getSkillImage(skillType.name)}}"
+                             ng-click="select(skillType)"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="service-description-holder description-holder">
+            <h2 class="text-center" style="margin-top: 0;" ng-bind="selected.name"></h2>
+
+            <div class="ladder-skill-entry-icon-holder" style="    width: 100px;
+    margin-left: auto;
+    margin-right: auto;">
+                <div class="ladder-skill-entry-icon-inner-holder" style="    padding-top: 18px;
+    padding-left: 28px;">
+                    <img class="ladder-skill-entry-icon img-circle" ng-src="{{getSkillImage(selected.name)}}"
+                         style="    height: 48px;"/>
+                </div>
+            </div>
+            <div class="ladder-table-holder" style="    margin-right: 20px;
+    margin-left: 20px;">
+                <table class="table table-hover table-responsive">
+                    <thead>
+                    <tr>
+                        <th class="text-center" style="width: 30px;">#</th>
+                        <th>Name</th>
+                        <th class="text-center" style="width: 10%;">Level</th>
+                        <th class="text-center" style="width: 20%;">Experience</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in ladderData" ng-style="data.me ? {'color':'cadetblue'} : {}">
+                        <td class="text-center" ng-bind="(currentPage -1) * 20 + $index + 1"></td>
+                        <td ng-bind="data.username"></td>
+                        <td class="text-center" ng-bind="data.level"></td>
+                        <td class="text-center" ng-bind="data.xp"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ladder-pager text-center">
+                <pagination
+                        ng-model="currentPage"
+                        total-items="pageData.pageCount * 20"
+                        max-size="maxSize"
+                        boundary-links="true">
+                </pagination>
+            </div>
+        </div>
+    </div>
+</div>
