@@ -1,5 +1,6 @@
 'use strict';
 
+//TODO: Use 3 separate html and controller!
 module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRecipeList) {
     $scope.leatherworkingInfo = curingRecipeList;
     $scope.state = 'curing';

@@ -88,6 +88,9 @@ require('sass/partial/journal/journal.scss');
 // Ladder
 require('sass/partial/ladder/ladder.scss');
 
+// Skills
+require('sass/partial/character/skills-page.scss');
+
 require('sass/common/form/input.scss');
 require('sass/common/form/button.scss');
 
