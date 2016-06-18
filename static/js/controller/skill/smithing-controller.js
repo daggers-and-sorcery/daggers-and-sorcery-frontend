@@ -1,7 +1,7 @@
 'use strict';
 
 //TODO: Use 2 separate html and controller!
-module.exports = function ($scope, smithingRecipeList) {
+module.exports = function ($scope, $http, Flash, smithingRecipeList) {
     $scope.smithingInfo = smithingRecipeList;
     $scope.state = 'smelting';
 
@@ -17,7 +17,52 @@ module.exports = function ($scope, smithingRecipeList) {
         $scope.refresh();
     };
 
-    $scope.refresh = function() {
+    $scope.create = function (recipeId) {
+        var payload = {
+            recipeId: recipeId
+        };
 
+        if($scope.state == 'smelting') {
+            $http.post('http://api.daggersandsorcery.com/skill/smithing/smelting/start', payload).success(function (data, status, headers, config) {
+                Flash.clear();
+                Flash.create(getSmeltingResultColor(data.data.result.result), getSmeltingResultText(data.data.result.result));
+
+                $scope.refresh();
+            });
+        }
     };
+
+    $scope.refresh = function() {
+        if($scope.state == 'smelting') {
+            $http({
+                method: 'GET',
+                url: 'http://api.daggersandsorcery.com/skill/smithing/smelting/info'
+            }).then(function (response) {
+                $scope.leatherworkingInfo = response.data.data;
+            });
+        }
+    };
+
+    var getSmeltingResultColor = function(result) {
+        if (result === 'SUCCESSFUL') {
+            return 'success';
+        }
+
+        return 'danger';
+    };
+
+    var getSmeltingResultText = function(result) {
+        switch(result) {
+            case 'SUCCESSFUL':
+                return 'You successfully smelt that item.';
+            case 'INVALID_EVENT':
+                return 'Something went wrong! Please report this to the administrator! (Missing recipe!)';
+            case 'MISSING_REQUIREMENTS':
+                return 'You miss some of the requirements to do this task.';
+            case 'MISSING_INGREDIENTS':
+                return 'You miss some of the ingredients to do this task.';
+            case 'NOT_ENOUGH_MOVEMENT':
+                return 'You don\'t have enough movement points to do this task.';
+        }
+    }
 };
