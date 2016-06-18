@@ -63,6 +63,8 @@ module.exports = function ($scope, $http, Flash, smithingRecipeList) {
         switch(result) {
             case 'SUCCESSFUL':
                 return 'You successfully smelt that item.';
+            case 'UNSUCCESSFUL':
+                return 'You tried to create the item but were unsuccessful to do so.';
             case 'INVALID_EVENT':
                 return 'Something went wrong! Please report this to the administrator! (Missing recipe!)';
             case 'MISSING_REQUIREMENTS':

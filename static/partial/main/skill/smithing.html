@@ -42,7 +42,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="recipe in smithingInfo.smelting_recipes">
-                                <td ng-bind="::recipe.name"></td>
+                                <td>{{recipe.name}} <small ng-if="recipe.chance < 100" style="color: red;">({{recipe.chance}}% chance)</small></td>
                                 <td>
                                     <ul style="list-style-type: none;">
                                         <li ng-repeat="requirement in recipe.recipeRequirements">
@@ -90,7 +90,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="recipe in smithingInfo.working_recipes">
-                                <td ng-bind="::recipe.name"></td>
+                                <td>{{recipe.name}} <small ng-if="recipe.chance < 100" style="color: red;">({{recipe.chance}}% chance)</small></td>
                                 <td>
                                     <ul style="list-style-type: none;">
                                         <li ng-repeat="requirement in recipe.recipeRequirements">
