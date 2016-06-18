@@ -1,8 +1,8 @@
 'use strict';
 
 //TODO: Use 2 separate html and controller!
-module.exports = function ($scope, smeltingRecipeList) {
-    $scope.smithingInfo = smeltingRecipeList;
+module.exports = function ($scope, smithingRecipeList) {
+    $scope.smithingInfo = smithingRecipeList;
     $scope.state = 'smelting';
 
     $scope.showSmelting = function () {

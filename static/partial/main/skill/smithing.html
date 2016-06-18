@@ -4,7 +4,7 @@
         <img class="panel-heading-icon-improved-holder" src="../../../image/m_action_frame.png"/>
 
         <h3 class="panel-title">Smithing
-            <small>(Level x)</small>
+            <small>(Level {{smithingInfo.skill.level}})</small>
         </h3>
     </div>
     <div class="panel-body">
@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="row">
-                    <div class="col-xs-offset-2 col-xs-4 big-button" ng-click="showCuring()">
+                    <div class="col-xs-offset-2 col-xs-4 big-button" ng-click="showSmelting()">
                         <img src="../../../image/cf_main_frame.png" class="img-responsive">
                         <img class="big-button-icon" src="../../../image/icon/extra/smelting.png"/>
                         <span class="big-button-text">Smelting</span>
@@ -72,7 +72,7 @@
                     </table>
                 </div>
                 <div ng-if="state == 'working'">
-                    <h3 class="text-center">Curing</h3>
+                    <h3 class="text-center">Recipes</h3>
 
                     <!-- TODO: Create the description! -->
                     <!--
