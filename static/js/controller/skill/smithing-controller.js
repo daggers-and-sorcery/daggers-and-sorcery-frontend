@@ -29,16 +29,19 @@ module.exports = function ($scope, $http, Flash, smithingRecipeList) {
 
                 $scope.refresh();
             });
+        } else if($scope.state == 'working') {
+            //TODO
         }
     };
 
     $scope.refresh = function() {
         if($scope.state == 'smelting') {
-            $http({
-                method: 'GET',
-                url: 'http://api.daggersandsorcery.com/skill/smithing/smelting/info'
-            }).then(function (response) {
-                $scope.leatherworkingInfo = response.data.data;
+            $http.get('http://api.daggersandsorcery.com/skill/smithing/smelting/info').then(function (response) {
+                $scope.smithingInfo = response.data.data;
+            });
+        } else if($scope.state == 'working') {
+            $http.get('http://api.daggersandsorcery.com/skill/smithing/working/info').then(function (response) {
+                $scope.smithingInfo = response.data.data;
             });
         }
     };
