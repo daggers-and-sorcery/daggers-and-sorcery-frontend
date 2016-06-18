@@ -30,7 +30,12 @@ module.exports = function ($scope, $http, Flash, smithingRecipeList) {
                 $scope.refresh();
             });
         } else if($scope.state == 'working') {
-            //TODO
+            $http.post('http://api.daggersandsorcery.com/skill/smithing/working/start', payload).success(function (data, status, headers, config) {
+                Flash.clear();
+                Flash.create(getSmeltingResultColor(data.data.result.result), getSmeltingResultText(data.data.result.result));
+
+                $scope.refresh();
+            });
         }
     };
 
