@@ -32,7 +32,7 @@ module.exports = function ($scope, $http, Flash, smithingRecipeList) {
         } else if($scope.state == 'working') {
             $http.post('http://api.daggersandsorcery.com/skill/smithing/working/start', payload).success(function (data, status, headers, config) {
                 Flash.clear();
-                Flash.create(getSmeltingResultColor(data.data.result.result), getSmeltingResultText(data.data.result.result));
+                Flash.create(getSmeltingResultColor(data.data.result.result), getSmithingResultText(data.data.result.result));
 
                 $scope.refresh();
             });
@@ -63,6 +63,23 @@ module.exports = function ($scope, $http, Flash, smithingRecipeList) {
         switch(result) {
             case 'SUCCESSFUL':
                 return 'You successfully smelt that item.';
+            case 'UNSUCCESSFUL':
+                return 'You tried to smelt the item but were unsuccessful to do so.';
+            case 'INVALID_EVENT':
+                return 'Something went wrong! Please report this to the administrator! (Missing recipe!)';
+            case 'MISSING_REQUIREMENTS':
+                return 'You miss some of the requirements to do this task.';
+            case 'MISSING_INGREDIENTS':
+                return 'You miss some of the ingredients to do this task.';
+            case 'NOT_ENOUGH_MOVEMENT':
+                return 'You don\'t have enough movement points to do this task.';
+        }
+    }
+
+    var getSmithingResultText = function(result) {
+        switch(result) {
+            case 'SUCCESSFUL':
+                return 'You successfully created that item.';
             case 'UNSUCCESSFUL':
                 return 'You tried to create the item but were unsuccessful to do so.';
             case 'INVALID_EVENT':
