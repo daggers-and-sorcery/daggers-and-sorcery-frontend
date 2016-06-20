@@ -1,0 +1,125 @@
+<div class="panel panel-default panel-skills">
+    <div class="panel-heading">
+        <img class="panel-heading-icon-improved" src="../../../image/icon/skill/Smithing.png"/>
+        <img class="panel-heading-icon-improved-holder" src="../../../image/m_action_frame.png"/>
+
+        <h3 class="panel-title">Smithing
+            <small>(Level {{smithingInfo.skill.level}})</small>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <flash-message duration="5000" show-close="true"></flash-message>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-4 big-button" ng-click="showSmelting()">
+                        <img src="../../../image/cf_main_frame.png" class="img-responsive">
+                        <img class="big-button-icon" src="../../../image/icon/extra/smelting.png"/>
+                        <span class="big-button-text">Smelting</span>
+                    </div>
+                    <div class="col-xs-4 big-button" ng-click="showWorking()">
+                        <img src="../../../image/cf_main_frame.png" class="img-responsive">
+                        <img class="big-button-icon" src="../../../image/icon/extra/recipe.png"/>
+                        <span class="big-button-text">Recipes</span>
+                    </div>
+                </div>
+                <div ng-if="state == 'smelting'">
+                    <h3 class="text-center">Smelting</h3>
+
+                    <!-- TODO: Create the description! -->
+                    <!--
+                    <div class="description-holder" style="margin-bottom: 10px;" hm-read-more hm-limit="300" hm-text="In the first step of leatherworking, you must cure your raw leather. This requires heavily salting the leather and allowing it to sit for some time. The salt removes the moisture trapped within the leather and prevents deterioration. With larger pieces of leather, more salt is required to effectively cure it. This process is necessary to strengthen the leather and prepare it for tanning. If this step is skipped, the raw leather will putrefy and will not be suitable for crafting."></div>
+                    -->
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th class="text-center">Requirements</th>
+                                <th class="text-center">Result</th>
+                                <th class="text-center">Create</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="recipe in smithingInfo.smelting_recipes">
+                                <td>{{recipe.name}} <small ng-if="recipe.chance < 100" style="color: red;">({{recipe.chance}}% chance)</small></td>
+                                <td>
+                                    <ul style="list-style-type: none;">
+                                        <li ng-repeat="requirement in recipe.recipeRequirements">
+                                            <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
+                                            <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
+                                        </li>
+                                        <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} -
+                                            {{ingredient.name}}
+                                            <small style="color: lightgray;">(used up)</small>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul style="list-style-type: none;">
+                                        <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} - {{reward.name}}
+                                        </li>
+                                        <li ng-repeat="experience in recipe.recipeExperiences">{{experience.amount}} -
+                                            {{experience.skill}} experience
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="text-center" style="vertical-align: middle;">
+                                    <a ng-click="create(recipe.id)">Create</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ng-if="state == 'working'">
+                    <h3 class="text-center">Recipes</h3>
+
+                    <!-- TODO: Create the description! -->
+                    <!--
+                    <div class="description-holder" style="margin-bottom: 10px;" hm-read-more hm-limit="300" hm-text="In the first step of leatherworking, you must cure your raw leather. This requires heavily salting the leather and allowing it to sit for some time. The salt removes the moisture trapped within the leather and prevents deterioration. With larger pieces of leather, more salt is required to effectively cure it. This process is necessary to strengthen the leather and prepare it for tanning. If this step is skipped, the raw leather will putrefy and will not be suitable for crafting."></div>
+                    -->
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th class="text-center">Requirements</th>
+                                <th class="text-center">Result</th>
+                                <th class="text-center">Create</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="recipe in smithingInfo.working_recipes">
+                                <td>{{recipe.name}} <small ng-if="recipe.chance < 100" style="color: red;">({{recipe.chance}}% chance)</small></td>
+                                <td>
+                                    <ul style="list-style-type: none;">
+                                        <li ng-repeat="requirement in recipe.recipeRequirements">
+                                            <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
+                                            <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
+                                        </li>
+                                        <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} -
+                                            {{ingredient.name}}
+                                            <small style="color: lightgray;">(used up)</small>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul style="list-style-type: none;">
+                                        <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} - {{reward.name}}
+                                        </li>
+                                        <li ng-repeat="experience in recipe.recipeExperiences">{{experience.amount}} -
+                                            {{experience.skill}} experience
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="text-center" style="vertical-align: middle;">
+                                    <a ng-click="create(recipe.id)">Create</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

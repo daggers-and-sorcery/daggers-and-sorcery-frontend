@@ -44,7 +44,7 @@
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
                     <div class="equipment-slot equipment-slot-offhand" ng-click="unequip('OFFHAND')" ng-mouseenter="setType('OFFHAND')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
-                        <img ng-if="!user.equipment.OFFHAND.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img ng-if="!user.equipment.OFFHAND.empty" class="equipment-slot-image-icon" ng-src="{{getEquipmentImage(user.equipment.OFFHAND.description.id)}}"/>
                         <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_offhand.png"/>
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>

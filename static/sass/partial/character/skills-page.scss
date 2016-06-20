@@ -1,0 +1,27 @@
+.panel-skills {
+    .big-button-text {
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+        width: 170px;
+        top: 18px;
+        left: 80px;
+        font-size: 20px;
+    }
+
+    .big-button-icon {
+        height: 52px;
+        position: absolute;
+        top: 8px;
+        left: 22px;
+        border-radius: 50%;
+    }
+
+    .big-button {
+        cursor: pointer;
+    }
+
+    .alert {
+        margin-bottom: 10px;
+    }
+}
