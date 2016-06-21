@@ -2,7 +2,6 @@
 
 module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, characterData, $rootScope, characterDataFormatter) {
     $scope.user = characterData;
-    console.log($scope.user);
     $scope.attributeBonusNameMap = ATTRIBUTE_BONUS_MAP;
 
     $scope.inventoryPopover = require('html/popover/inventory-popover.html');
