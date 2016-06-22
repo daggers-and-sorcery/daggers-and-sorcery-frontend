@@ -93,8 +93,8 @@
             <div class="ladder-pager text-center">
                 <pagination
                         ng-model="currentPage"
-                        total-items="pageData.pageCount * 20"
-                        max-size="maxSize"
+                        total-items="totalItems"
+                        items-per-page="itemsPerPage"
                         boundary-links="true">
                 </pagination>
             </div>
