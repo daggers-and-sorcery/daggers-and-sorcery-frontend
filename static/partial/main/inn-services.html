@@ -1,12 +1,20 @@
-<div class="panel panel-default panel-shadow">
+<div class="panel panel-default panel-shadow button-panel">
     <div class="panel-heading">
         <h3 class="panel-title">Inn <small>(Drunken Dragoon)</small></h3>
-        <div class="panel-heading-button-group">
-            <button class="button-default">Services</button>
-            <button ng-click="showChat()" class="button-default">Chat</button>
-        </div>
     </div>
     <div class="panel-body inn-service-holder">
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-4 big-button" ng-click="showServices()">
+                <img src="../../image/cf_main_frame.png" class="img-responsive">
+                <img class="big-button-icon" src="../../image/icon/extra/beer.png"/>
+                <span class="big-button-text">Services</span>
+            </div>
+            <div class="col-xs-4 big-button" ng-click="showChat()">
+                <img src="../../image/cf_main_frame.png" class="img-responsive">
+                <img class="big-button-icon" src="../../image/icon/extra/chat.png"/>
+                <span class="big-button-text">Chat</span>
+            </div>
+        </div>
         <div class="row inn-service-response-holder">
             <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
                 <flash-message duration="5000" show-close="true"></flash-message>
