@@ -1,12 +1,20 @@
-<div class="panel panel-default panel-shadow">
+<div class="panel panel-default panel-shadow button-panel">
     <div class="panel-heading">
         <h3 class="panel-title">Journal</h3>
-        <div class="panel-heading-button-group">
-            <button ng-click="changeType('item')" class="button-default">Items</button>
-            <button ng-click="changeType('monster')" class="button-default">Monsters</button>
-        </div>
     </div>
     <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-4 big-button" ng-click="changeType('item')">
+                <img src="../../image/cf_main_frame.png" class="img-responsive">
+                <img class="big-button-icon" src="../../image/icon/extra/items.png"/>
+                <span class="big-button-text">Items</span>
+            </div>
+            <div class="col-xs-4 big-button" ng-click="changeType('monster')">
+                <img src="../../image/cf_main_frame.png" class="img-responsive">
+                <img class="big-button-icon" src="../../image/icon/extra/monsters.png"/>
+                <span class="big-button-text">Monsters</span>
+            </div>
+        </div>
         <h4 class="text-center journal-header">{{type | capitalize:'first'}}s</h4>
         <div class="row">
             <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
