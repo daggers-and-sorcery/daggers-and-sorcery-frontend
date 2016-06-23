@@ -7,8 +7,12 @@
         <dt>Weight:</dt>
         <dd ng-bind="::data.item.definition.weight + ' kg'"></dd>
         <dt ng-if="data.item.definition.requirements.length > 0">Requirements:</dt>
-        <dd ng-repeat="requirement in data.item.definition.requirements" ng-bind="::requirement.value + ' - ' + requirement.attribute"></dd>
+        <dd ng-repeat="requirement in data.item.definition.requirements"
+            ng-bind="::requirement.value + ' - ' + requirement.attribute"></dd>
         <dt ng-if="data.item.definition.modifiers.length > 0">Modifiers:</dt>
-        <dd ng-repeat="modifier in data.item.definition.modifiers" ng-bind="::modifier.value + ' - ' + modifier.attribute"></dd>
+        <dd ng-repeat="modifier in data.item.definition.modifiers"
+            ng-bind="::modifier.value + ' - ' + modifier.attribute"></dd>
     </dl>
+    <p ng-if="data.item.definition.description" ng-bind="::data.item.definition.description" style="text-align: center;margin: 10px;"></p>
+    <p ng-if="data.item.definition.flavour" style="text-align: center;margin: 10px;"><i>“{{data.item.definition.flavour}}”</i></p>
 </div>
