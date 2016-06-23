@@ -15,26 +15,33 @@
     }
 </style>
 
-<div class="panel panel-default panel-shadow">
+<div class="panel panel-default panel-shadow button-panel">
     <div class="panel-heading">
         <h3 class="panel-title">
             <span>Inn</span>
             <small>(Drunken Dragoon)</small>
         </h3>
-        <div class="panel-heading-button-group">
-            <button ng-click="showServices()" class="button-default">Services</button>
-            <button class="button-default">Chat</button>
-        </div>
     </div>
     <div class="panel-body chat">
-        <h4 class="chat-header">Chat with the locals</h4>
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-4 big-button" ng-click="showServices()">
+                <img src="../../image/cf_main_frame.png" class="img-responsive">
+                <img class="big-button-icon" src="../../image/icon/extra/beer.png"/>
+                <span class="big-button-text">Services</span>
+            </div>
+            <div class="col-xs-4 big-button">
+                <img src="../../image/cf_main_frame.png" class="img-responsive">
+                <img class="big-button-icon" src="../../image/icon/extra/chat.png"/>
+                <span class="big-button-text">Chat</span>
+            </div>
+        </div>
 
         <form>
             <div class="row" style="margin: 10px;margin-bottom: 0;">
                 <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10" style="margin-top: 10px;
     padding: 0;
     padding-right: 8px;">
-                    <input ng-model="textToSend" class="form-control" placeholder="Write a message..." style="width: 100%;">
+                    <input ng-model="textToSend" class="form-control" maxlength="254" placeholder="Write a message..." style="width: 100%;">
                 </div>
                 <div ng-click="writeMessage()" class="col-md-2 col-xs-2 col-sm-2 col-lg-2" style="padding: 0;">
                     <button class="button-default max-width">Send</button>

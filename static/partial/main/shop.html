@@ -1,55 +1,68 @@
-<div class="panel panel-default panel-shadow shop">
+<div class="panel panel-default panel-shadow button-panel shop">
     <div class="panel-heading">
-        <h3 class="panel-title">Shop <small ng-bind="'('+shopData.shopDefinition.name+')'"></small></h3>
-        <div class="panel-heading-button-group">
-            <button class="button-default" ng-click="setShopPage('shop')">Buy</button>
-            <button class="button-default" ng-click="setShopPage('player')">Sell</button>
+        <h3 class="panel-title">Shop
+            <small ng-bind="'('+shopData.shopDefinition.name+')'"></small>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-4 big-button" ng-click="setShopPage('shop')">
+                <img src="../../image/cf_main_frame.png" class="img-responsive">
+                <img class="big-button-icon" src="../../image/icon/extra/buy.png"/>
+                <span class="big-button-text">Buy</span>
+            </div>
+            <div class="col-xs-4 big-button" ng-click="setShopPage('player')">
+                <img src="../../image/cf_main_frame.png" class="img-responsive">
+                <img class="big-button-icon" src="../../image/icon/extra/sell.png"/>
+                <span class="big-button-text">Sell</span>
+            </div>
         </div>
-    </div>
-    <div class="panel-body" ng-show="shopPage === 'player'">
-        <h4 class="text-center">Your inventory</h4>
-        <table class="table full-width-table">
-            <thead>
-            <tr>
-                <th class="text-center">Item name</th>
-                <th class="text-center">Amount</th>
-                <th class="text-center">Price</th>
-                <th class="text-center">Sell</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="item in shopData.inventoryList">
-                <td class="shop-item-cell" style="width: 40%;" ng-bind="item.itemDefinition.name"></td>
-                <td class="shop-item-cell text-center" ng-bind="item.itemAmount"></td>
-                <td class="shop-item-cell text-center" ng-bind="item.itemPrice"></td>
-                <td class="shop-item-cell text-center">
-                    <button class="button-default shop-button" ng-click="sellItem(item.itemDefinition.id)">Sell</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="panel-body" ng-show="shopPage === 'shop'">
-        <h4 class="text-center">Shop inventory</h4>
-        <table class="table full-width-table">
-            <thead>
-            <tr>
-                <th class="text-center">Item name</th>
-                <th class="text-center">Amount</th>
-                <th class="text-center">Price</th>
-                <th class="text-center">Buy</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="item in shopData.itemList">
-                <td class="shop-item-cell" style="width: 40%;" ng-bind="item.itemDefinition.name"></td>
-                <td class="shop-item-cell text-center" ng-bind="item.itemAmount"></td>
-                <td class="shop-item-cell text-center" ng-bind="item.itemPrice"></td>
-                <td class="shop-item-cell text-center">
-                    <button class="button-default shop-button" ng-click="buyItem(item.itemDefinition.id)">Buy</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <div ng-show="shopPage === 'player'">
+            <h4 class="text-center">Your inventory</h4>
+            <table class="table full-width-table">
+                <thead>
+                <tr>
+                    <th class="text-center">Item name</th>
+                    <th class="text-center">Amount</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Sell</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in shopData.inventoryList">
+                    <td class="shop-item-cell" style="width: 40%;" ng-bind="item.itemDefinition.name"></td>
+                    <td class="shop-item-cell text-center" ng-bind="item.itemAmount"></td>
+                    <td class="shop-item-cell text-center" ng-bind="item.itemPrice"></td>
+                    <td class="shop-item-cell text-center">
+                        <button class="button-default shop-button" ng-click="sellItem(item.itemDefinition.id)">Sell
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-show="shopPage === 'shop'">
+            <h4 class="text-center">Shop inventory</h4>
+            <table class="table full-width-table">
+                <thead>
+                <tr>
+                    <th class="text-center">Item name</th>
+                    <th class="text-center">Amount</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Buy</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in shopData.itemList">
+                    <td class="shop-item-cell" style="width: 40%;" ng-bind="item.itemDefinition.name"></td>
+                    <td class="shop-item-cell text-center" ng-bind="item.itemAmount"></td>
+                    <td class="shop-item-cell text-center" ng-bind="item.itemPrice"></td>
+                    <td class="shop-item-cell text-center">
+                        <button class="button-default shop-button" ng-click="buyItem(item.itemDefinition.id)">Buy</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

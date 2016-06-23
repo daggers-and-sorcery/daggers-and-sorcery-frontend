@@ -7,7 +7,8 @@ module.exports = function ($scope, $http, skillTypes, ladderInfo) {
     $scope.selected = skillTypes[0];
 
     $scope.currentPage = 1;
-    $scope.maxSize = 5;
+    $scope.itemsPerPage = 20;
+    $scope.totalItems =  ($scope.pageData.pageCount + 1) * 20;
 
     $scope.getSkillImage = function (skill) {
         return require('image/icon/skill/' + skill.replace(new RegExp('\\s', 'g'), '_') + '.png');
