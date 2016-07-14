@@ -116,24 +116,12 @@
                 </div>
                 <div ng-show="$root.user.loggedIn" class="panel panel-default unselectable">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Menu</h3>
+                        <h3 class="panel-title">Location <small>(City of Sevgard)</small></h3>
                     </div>
                     <div class="panel-body">
-                        <div ui-sref="character">
-                            <img class="menu-icon" src="../image/icon/menu/character.png">
-                            <button class="button-default max-width">Character</button>
-                        </div>
                         <div ui-sref="map">
                             <img class="menu-icon" src="../image/icon/menu/explore.png" style="width: 70px; right: 48px;">
                             <button class="button-default max-width">Explore</button>
-                        </div>
-                        <div ui-sref="journal">
-                            <img class="menu-icon" src="../image/icon/menu/journal.png">
-                            <button class="button-default max-width">Journal</button>
-                        </div>
-                        <div ui-sref="settings">
-                            <img class="menu-icon" src="../image/icon/menu/settings.png">
-                            <button class="button-default max-width">Settings</button>
                         </div>
                         <div ui-sref="inn-services">
                             <img class="menu-icon" src="../image/icon/menu/inn.png">
@@ -142,6 +130,25 @@
                         <div ui-sref="shop({shopId: 'main'})">
                             <img class="menu-icon" src="../image/icon/menu/shop.png">
                             <button class="button-default max-width">Shop</button>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="$root.user.loggedIn" class="panel panel-default unselectable">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Menu</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div ui-sref="character">
+                            <img class="menu-icon" src="../image/icon/menu/character.png">
+                            <button class="button-default max-width">Character</button>
+                        </div>
+                        <div ui-sref="journal">
+                            <img class="menu-icon" src="../image/icon/menu/journal.png">
+                            <button class="button-default max-width">Journal</button>
+                        </div>
+                        <div ui-sref="settings">
+                            <img class="menu-icon" src="../image/icon/menu/settings.png">
+                            <button class="button-default max-width">Settings</button>
                         </div>
                         <div ui-sref="ladder">
                             <img class="menu-icon" src="../image/icon/menu/hourglass.png">
