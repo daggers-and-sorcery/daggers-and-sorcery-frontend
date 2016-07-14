@@ -15,98 +15,40 @@
                         <th class="text-center" style="width: 20%;">Explore</th>
                     </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody ng-repeat="exploration in explorationData.location.exploration" ng-style="$first ? { 'border-width': '2px' } : { 'border-width': '0' }">
+                        <tr ng-if="exploration.image[0] === 'true'">
                             <td colspan="3" style="padding: 0;">
-                                <img style="max-width: 100%" src="../../image/exploration/sevgard_farmfields.png" />
+                                <img class="img-responsive max-width" ng-src="{{getExplorationImage(exploration.id)}}" />
                             </td>
                         </tr>
-                    <tr>
-                        <td class="exploration-name-holder">Farmfields</td>
-                        <td class="exploration-level-holder">(1 - 5)</td>
-                        <td class="exploration-button-holder">
-                            <button class="button-default" ng-click="explore(0)">Explore</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" style="border: 0;padding: 0 0 15px;">
-                            <div class="description-holder">
-                                <p>
-                                    Farmfields is a large, fertile vale nestled outside Sevgard's stone walls. Sevgard
-                                    operates under a form of feudalism and provides farmers with land, supplies, and
-                                    protection in exchange for fresh produce and meat. This relationship has thrived for
-                                    centuries and has allowed Sevgard to become a prosperous city.
-                                </p>
-
-                                <p>
-                                    On its own, Farmfields is a quaint, cooperative community. The fields are divided
-                                    into
-                                    plots with sturdy fences built around them, and each plot contains a different crop,
-                                    guarded by a stout scarecrow. For every few plots, there is a green pasture for
-                                    cattle,
-                                    horses, goats, and sheep to graze. Their manure is then used to fertilize the fields
-                                    which gives the land a natural, earthy scent. One central irrigation system supplies
-                                    the
-                                    fields from the Hister River and its tributaries. The Hister flows strong throughout
-                                    the
-                                    year and keeps the crops refreshed during the warm season. What is more, an inn was
-                                    established to accommodate travelers, and it is stationed beside the farmers' market
-                                    where business is conducted.
-                                </p>
-
-                                <p>
-                                    From sunrise to sunset, the farmers can be found in their fields plowing, seeding,
-                                    weeding, or harvesting. There is always work to be done. With their ever expanding
-                                    fields, they require extra farmhands and will offer their hospitality for a hard
-                                    day's
-                                    work. Wheat is the predominant crop, and when the wind blows, the wheat sways like a
-                                    tumultuous wave. As a result, the locals nicknamed the fields the Golden Sea. It is
-                                    an
-                                    especially breathtaking sight when the sun is setting, and the fields seem to glow
-                                    in
-                                    the dying light.
-                                </p>
-
-                                <p>
-                                    By nightfall, lanterns are lit on posts to prevent weary travelers from drifting
-                                    astray.
-                                    Despite Sevgard's age old vow to protect its farmers, the guards have become lax in
-                                    their patrols. More bandits, goblins, and orcs have been roaming the countryside
-                                    after
-                                    dark.
-                                </p>
-                            </div>
-                        </td>
-                    </tr>
                         <tr>
-                            <td colspan="3" style="padding: 0;">
-                                <img style="max-width: 100%; min-width: 100%;" src="../../image/exploration/sevgard_whispering_forest.png" />
+                            <td class="exploration-name-holder" ng-bind="exploration.name"></td>
+                            <td class="exploration-level-holder">({{exploration.level[0].minimum[0]}} - {{exploration.level[0].maximum[0]}})</td>
+                            <td class="exploration-button-holder">
+                                <div ng-if="exploration.enabled[0] === 'true'">
+                                    <button class="button-default" ng-click="explore(exploration.target)">Explore</button>
+                                </div>
+                                <div ng-if="exploration.enabled[0] === 'false'" style="height:71px;line-height: 71px;">
+                                    This map is disabled!
+                                </div>
                             </td>
                         </tr>
-                    <tr>
-                        <td class="exploration-name-holder">Whispering woods</td>
-                        <td class="exploration-level-holder">(6 - 10)</td>
-                        <td class="exploration-button-holder" style="height: 71px;">This map is disabled!</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" style="border: 0;padding: 0 0 15px;">
-                            <div class="description-holder">
-                                Pure mystery.
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="exploration-name-holder">Woodland cemetery</td>
-                        <td class="exploration-level-holder">(10 - 15)</td>
-                        <td class="exploration-button-holder" style="height: 71px;">This map is disabled!</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" style="border: 0;padding: 0 0 15px;">
-                            <div class="description-holder">
-                                Pure mystery.
-                            </div>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td colspan="3" style="border: 0;padding: 0 0 15px;">
+                                <div ng-if="!exploration.showfull" class="description-holder">
+                                    <div marked="exploration.first[0]"></div>
+                                    <div class="text-right" style="margin-top: 5px;">
+                                        <a ng-click="switchDescription($index)">Read more...</a>
+                                    </div>
+                                </div>
+                                <div ng-if="exploration.showfull" class="description-holder">
+                                    <div marked="exploration.description[0]"></div>
+                                    <div class="text-right" style="margin-top: 5px;">
+                                        <a ng-click="switchDescription($index)">Read less...</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
