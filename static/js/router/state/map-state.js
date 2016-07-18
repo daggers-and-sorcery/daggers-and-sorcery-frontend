@@ -20,15 +20,14 @@ module.exports = {
             return require('image/exploration/' + imageId + '.png');
         };
 
-        $scope.explore = function (explorationId) {
-            $state.go('explore', {'explorationId': explorationId, 'nextStage': 0});
+        $scope.explore = function (explorationLocation, explorationId) {
+            $state.go('explore', {'explorationId': explorationId, 'nextStage': 0, 'nextLocation': explorationLocation});
         };
 
-        $scope.switchDescription = function(index) {
+        $scope.switchDescription = function (index) {
             $scope.explorationData.location.exploration[index].showfull = !$scope.explorationData.location.exploration[index].showfull;
         };
 
         $scope.explorationData = require('data/explore/sevgard.xml');
-        console.log($scope.explorationData)
     }
 };
