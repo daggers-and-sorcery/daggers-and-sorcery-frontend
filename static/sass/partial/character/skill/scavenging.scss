@@ -43,7 +43,7 @@
 
         .rz-bar {
             height: 18px;
-            background: url("../../../../image/scale_bar.png");
+            background: url("../../../../image/scale_bar.png") no-repeat;
             background-size: 100%;
         }
 
@@ -61,7 +61,7 @@
         .rz-pointer {
             box-shadow: none;
             background: url("../../../../image/scale_bar_handler.png");
-            top: -18px;
+            top: -20px;
             z-index: 3;
             width: 39px;
             height: 51px;
