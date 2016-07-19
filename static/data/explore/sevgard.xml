@@ -2,7 +2,6 @@
     <id>sevgard</id>
     <exploration>
         <id>farmfields</id>
-        <target>0</target>
         <name>Farmfields</name>
         <enabled>true</enabled>
         <image>true</image>
@@ -28,10 +27,9 @@ By nightfall, lanterns are lit on posts to prevent weary travelers from drifting
         </level>
     </exploration>
     <exploration>
-        <id>whispering_forest</id>
-        <target>1</target>
+        <id>whispering_woods</id>
         <name>Whispering woods</name>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <image>true</image>
         <first>
             <![CDATA[

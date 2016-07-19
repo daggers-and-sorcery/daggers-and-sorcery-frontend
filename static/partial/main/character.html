@@ -17,6 +17,7 @@
 
                 <div class="inventory-player-model">
                     <div class="equipment-slot equipment-slot-amulet" ng-click="unequip('AMULET')" ng-mouseenter="setType('AMULET')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <img ng-if="!user.equipment.AMULET.empty" class="equipment-slot-image-icon" ng-src="{{getEquipmentImage(user.equipment.AMULET.description.id)}}"/>
                         <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_neck.png"/>
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>

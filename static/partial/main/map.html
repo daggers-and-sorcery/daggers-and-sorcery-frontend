@@ -26,7 +26,7 @@
                             <td class="exploration-level-holder">({{exploration.level[0].minimum[0]}} - {{exploration.level[0].maximum[0]}})</td>
                             <td class="exploration-button-holder">
                                 <div ng-if="exploration.enabled[0] === 'true'">
-                                    <button class="button-default" ng-click="explore(exploration.target)">Explore</button>
+                                    <button class="button-default" ng-click="explore(exploration.id, 0)">Explore</button>
                                 </div>
                                 <div ng-if="exploration.enabled[0] === 'false'" style="height:71px;line-height: 71px;">
                                     This map is disabled!
