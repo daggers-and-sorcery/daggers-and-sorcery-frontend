@@ -1,0 +1,48 @@
+<attributes>
+    <attribute>
+        <id>mana</id>
+        <description>
+            Mana points are used for spellcasting. A starting character's MP is 0 + half of the ***intelligence***, ***wisdom*** and ***willpower*** attributes.
+        </description>
+    </attribute>
+    <attribute>
+        <id>life</id>
+        <description>Life points shows the amount of damage a character can receive before dying. If the character's LP reach 0 then it dies. The base life point is 15 + half of the ***vitality*** and ***endurance*** attributes.</description>
+    </attribute>
+    <attribute>
+        <id>initiation</id>
+        <description>The initiation attribute determines who attack first in combat. The starting initiation is 10 + half of the ***swiftness*** and ***perception*** attributes.</description>
+    </attribute>
+    <attribute>
+        <id>attack</id>
+        <description>The attack attribute determines the chance of damaging the enemy in melee combat. The starting attack is 10 + half of the ***dexterity*** and ***swiftness***.</description>
+    </attribute>
+    <attribute>
+        <id>magic_attack</id>
+        <description>The magic attack attribute determines the chance of damaging the enemy in magic combat. The starting magic attack is 10 + half of the ***intelligence*** and ***wisdom***.</description>
+    </attribute>
+    <attribute>
+        <id>aiming</id>
+        <description>The aiming attribute determines the chance of damaging the enemy in ranged combat. The starting aiming is 10 + half of the ***dexterity*** and ***perception***.</description>
+    </attribute>
+    <attribute>
+        <id>damage</id>
+        <description>The damage attribute determines the amount of casualty the character can deal to it's opponent in melee combat. The starting damage is 1 + the quarter of the ***strength*** attribute.</description>
+    </attribute>
+    <attribute>
+        <id>ranged_damage</id>
+        <description>The damage attribute determines the amount of casualty the character can deal to it's opponent in ranged combat. The starting ranged damage is 1 + the quarter of the ***dexterity*** attribute.</description>
+    </attribute>
+    <attribute>
+        <id>magic_damage</id>
+        <description>The damage attribute determines the amount of casualty the character can deal to it's opponent in magical combat. The starting magic damage is 1 + the quarter of the ***willpower*** attribute.</description>
+    </attribute>
+    <attribute>
+        <id>defense</id>
+        <description>The defense attribute determines the chance of avoiding the opponents attacks in combat. The starting defense is 10 + half of the ***endurance*** and ***dexterity***.</description>
+    </attribute>
+    <attribute>
+        <id>spell_resistance</id>
+        <description>The spell resistance attribute determines the chance of avoiding or decreasing the opponents magical attacks or damage in combat. The starting spell resistance is 10 + half of the ***willpower*** and ***intelligence***.</description>
+    </attribute>
+</attributes>
