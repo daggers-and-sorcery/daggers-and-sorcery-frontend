@@ -1,32 +1,98 @@
-<div class="panel panel-default">
+<style>
+    .scavenging-converter {
+        margin: 0 0 16px;
+    }
+
+    .scavenging-converter > div {
+        padding: 0;
+    }
+
+    .scavenging-converter .rz-bubble, .scavenging-converter .rz-bubble.rz-limit {
+        color: wheat;
+    }
+
+    .scavenging-converter .rz-pointer:after {
+        top: 8px;
+        left: 8px;
+        background-color: transparent !important;
+    }
+
+    .scavenging-converter .rz-pointer:focus {
+        border: none;
+        box-shadow: none;
+        outline: 0 none;
+    }
+
+    .scavenging-panel .list-group {
+        box-shadow: none;
+        margin-bottom: 0;
+    }
+</style>
+
+<div class="panel panel-default scavenging-panel">
     <div class="panel-heading">
-        <img class="panel-heading-icon-improved" src="../../../image/icon/skill/Scavenging.png" />
-        <img class="panel-heading-icon-improved-holder" src="../../../image/m_action_frame.png" />
+        <img class="panel-heading-icon-improved" src="../../../image/icon/skill/Scavenging.png"/>
+        <img class="panel-heading-icon-improved-holder" src="../../../image/m_action_frame.png"/>
         <h3 class="panel-title">Scavenging</h3>
     </div>
     <div class="panel-body">
         <div class="row">
             <div class="col-xs-12">
+                <div class="description-holder" style="margin-bottom: 10px;" hm-read-more hm-limit="300" hm-text="Enemies guard their loot to the grave and refuse to relinquish it. However, scavenging allows you to search fallen enemies for their hidden loot, and you may discover coins, materials, and recipes through this skill. Upon obtaining loot, it may be sold at the shop or utilized to advance trading and combat skills. Furthermore, some enemies drop loot specific to them, and these items cannot be found anywhere else. Besides, the dead have no use for worldly possessions. Why let precious loot go to waste?"></div>
                 <ul class="list-group attribute-list-group">
                     <li class="list-group-item attribute-list-item" style="background-color:transparent;border:none;">
                         <div class="row">
-                            <div class="col-xs-6" style="border-right: 1px solid rgba(1,1,1,0.4);">
-                                Scavenging points: <span>{{user.scavengingPoints}}/50</span><br> <span>Costs: {{calculateNeededMovementPoints(scavengingSlider)}} movement points</span><br>
+                            <div class="col-xs-6">
+                                <div>
+                                    <div class="description-holder" style="width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 18px;">
+                                        <div style="text-align: center;
+    font-size: 20px;">
+                                            You have
+                                        </div>
+                                        <div style="text-align: center;
+    font-size: 50px;">
+                                            {{user.scavengingPoints}}
+                                        </div>
+                                        <div style="text-align: center;
+    margin-bottom: 10px;">
+                                            / 50
+                                        </div>
+                                        <div style="text-align: center;
+    font-size: 20px;">
+                                            points!
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <div class="row scavenging-converter">
-                                    <div class="col-xs-9" style="padding-right: 0;">
-                                        <rzslider rz-slider-model="scavengingSlider" rz-slider-options="slider.options"></rzslider>
+                                <div>
+                                    <span>Costs: {{calculateNeededMovementPoints(scavengingSlider)}} movement points</span>
+                                </div>
+                                <div>
+                                    <div class="row scavenging-converter">
+                                        <div class="col-xs-12" style="padding-right: 0;">
+                                            <rzslider rz-slider-model="scavengingSlider" rz-slider-options="slider.options"></rzslider>
+                                        </div>
                                     </div>
-                                    <div class="col-xs-3">
-                                        <span style="padding: 10px; border: 1px solid rgba(1,1,1,0.2);" ng-bind="scavengingSlider"></span>
-                                        <span class="pull-right inventory-item-watch" ng-click="convertScavengingPoints()" style="width: 26px;height: 26px;cursor: pointer;">
-                                            <img style="margin-top: -8px;width:14px;height:14px;" src="../../../image/icon/convert.svg">
-                                        </span>
-                                    </div>
+                                </div>
+                                <!--<div>
+                                    <span style="padding: 10px;" ng-bind="scavengingSlider"></span>
+                                </div>-->
+                                <div style="text-align: center; margin-bottom: 10px;">
+                                    Convert movement points to scavenging points. <br>(1 -> 5)
+                                </div>
+                                <div class="text-center">
+                                    <button class="button-default" ng-click="convertScavengingPoints()">Convert</button>
                                 </div>
                             </div>
                             <div class="col-xs-6">
-                                Convert movement points to scavenging points here.
+                                <div class="description-holder">
+                                    To activate the scavenging skill, go to the settings tab, and check scavenging
+                                    enabled. Movement points can be converted into scavenging points by sliding the bar
+                                    to the right. The scavenging points are utilized during exploration events.
+                                </div>
                             </div>
                         </div>
                     </li>

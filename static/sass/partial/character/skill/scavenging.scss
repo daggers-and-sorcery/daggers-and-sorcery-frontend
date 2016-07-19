@@ -1,0 +1,26 @@
+.scavenging-converter .rz-bar {
+    height: 18px;
+    background: url("../../../../image/scale_bar.png");
+    background-size: 100%;
+}
+
+.scavenging-converter .rz-bar.rz-selection {
+    height: 3px;
+    top: 22px;
+    margin-left: 8px;
+    background: url("../../../../image/scale_bar_fill_red.png");
+}
+
+.scavenging-converter .rz-bar-wrapper + .rz-bar-wrapper {
+    opacity: 100 !important;
+}
+
+.scavenging-converter .rz-pointer {
+    box-shadow: none;
+    background: url("../../../../image/scale_bar_handler.png");
+    top: -18px;
+    z-index: 3;
+    width: 39px;
+    height: 51px;
+    border-radius: 0;
+}
