@@ -68,6 +68,7 @@ require('sass/partial/character/general.scss');
 
 //Skill scss
 require('sass/partial/character/skill/cooking.scss');
+require('sass/partial/character/skill/scavenging.scss');
 
 // Registration scss
 require('sass/partial/registration/registration.scss');
