@@ -45,7 +45,7 @@
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
                     <div class="equipment-slot equipment-slot-body" ng-click="unequip('CHEST')" ng-mouseenter="setType('CHEST')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
-                        <img ng-if="!user.equipment.CHEST.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img ng-if="!user.equipment.CHEST.empty" class="equipment-slot-image-icon" ng-src="{{getEquipmentImage(user.equipment.CHEST.description.id)}}"/>
                         <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_chest.png"/>
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
@@ -66,7 +66,7 @@
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
                     <div class="equipment-slot equipment-slot-legs" ng-click="unequip('LEGS')" ng-mouseenter="setType('LEGS')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
-                        <img ng-if="!user.equipment.LEGS.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img ng-if="!user.equipment.LEGS.empty" class="equipment-slot-image-icon" ng-src="{{getEquipmentImage(user.equipment.LEGS.description.id)}}"/>
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
                     <div class="equipment-slot equipment-slot-boots" ng-click="unequip('BOOTS')" ng-mouseenter="setType('BOOTS')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
