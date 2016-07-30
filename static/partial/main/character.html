@@ -13,7 +13,8 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-sm-5 col-md-5 col-lg-5" style="margin-bottom: 15px;">
-                <h3><img class="character-list-header" src="../../image/btts_stats_button.png" style="margin-top: 0;"> Equipment</h3>
+                <h3><img class="character-list-header" src="../../image/btts_stats_button.png" style="margin-top: 0;">
+                    Equipment</h3>
 
                 <div class="inventory-player-model">
                     <div class="equipment-slot equipment-slot-amulet" ng-click="unequip('AMULET')" ng-mouseenter="setType('AMULET')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
@@ -79,14 +80,16 @@
                 </div>
             </div>
             <div class="col-sm-7 col-md-7 col-lg-7" style="margin-bottom: 15px;">
-                <h3><img class="character-list-header" src="../../image/btts_stats_button.png" style="margin-top: 0;"> Attributes</h3>
+                <h3><img class="character-list-header" src="../../image/btts_stats_button.png" style="margin-top: 0;">
+                    Attributes</h3>
                 <div class="inventory-entry-list">
                     <h4 style="margin-top: 0;margin-bottom: 0;">Physical Attributes</h4>
                     <div class="row">
                         <div class="col-sm-6 col-md-6 col-lg-6" ng-repeat="(attributeName, attributeValue) in user.attribute.GENERAL_PHYSICAL">
                             <div class="clearfix" ng-if="$index % 2 == 0"></div>
                             <img class="img-circle attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.id)}}">
-                            <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png"> <span class="attribute-name">{{attributeName}}</span>
+                            <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png">
+                            <span class="attribute-name">{{attributeName}}</span>
                             <div class="progress attribute-progress-bar">
                                 <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (10 - attributeValue.pointsToNextLevel) / (10 / 100)}}%;">
                                     <span class="progress-info ng-binding">{{attributeValue.pointsToNextLevel}} / 10</span>
@@ -100,7 +103,8 @@
                         <div class="col-sm-6 col-md-6 col-lg-6" ng-repeat="(attributeName, attributeValue) in user.attribute.GENERAL_MENTAL">
                             <div class="clearfix" ng-if="$index % 2 == 0"></div>
                             <img class="img-circle attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.id)}}">
-                            <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png"> <span class="attribute-name">{{attributeName}}</span>
+                            <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png">
+                            <span class="attribute-name">{{attributeName}}</span>
                             <div class="progress attribute-progress-bar">
                                 <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (10 - attributeValue.pointsToNextLevel) / (10 / 100)}}%;">
                                     <span class="progress-info ng-binding">{{attributeValue.pointsToNextLevel}} / 10</span>
@@ -116,14 +120,18 @@
         <h3><img class="character-list-header" src="../../image/btts_stats_button.png"> Inventory</h3>
         <div class="row inventory-entry-list">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="row">
-                    <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="item in user.inventory" style="padding: 0;">
-                        <div class="clearfix" ng-if="$index % 3 == 0"></div>
-                        <div class="inventory-entry">
-                            <span class="inventory-entry-item-amount badge attribute-badge pull-left" ng-bind="item.item.amount"></span> <span class="inventory-entry-item-name" ng-bind="item.definition.name"></span>
-                            <span class="glyphicon glyphicon-circle-arrow-up inventory-entry-equip-icon-holder inventory-entry-icon-holder" ng-click="equip(item.definition.id)" ng-if="item.definition.equipment" uib-tooltip="Equip" tooltip-placement="right"></span>
-                            <span class="glyphicon glyphicon-tint inventory-entry-use-icon-holder inventory-entry-icon-holder" ng-click="use(item.definition.id)" ng-if="item.definition.usable" uib-tooltip="Usable" tooltip-placement="right"></span>
-                            <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
+                <div ng-repeat="type in user.inventory.types">
+                    <h4 style="margin-left:-12px;" ng-bind="type.typeName"></h4>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="item in type.items" style="padding: 0;">
+                            <div class="clearfix" ng-if="$index % 3 == 0"></div>
+                            <div class="inventory-entry">
+                                <span class="inventory-entry-item-amount badge attribute-badge pull-left" ng-bind="item.amount"></span>
+                                <span class="inventory-entry-item-name" ng-bind="item.name"></span>
+                                <span class="glyphicon glyphicon-circle-arrow-up inventory-entry-equip-icon-holder inventory-entry-icon-holder" ng-click="equip(item.id)" ng-if="item.equipment" uib-tooltip="Equip" tooltip-placement="right"></span>
+                                <span class="glyphicon glyphicon-tint inventory-entry-use-icon-holder inventory-entry-icon-holder" ng-click="use(item.id)" ng-if="item.usable" uib-tooltip="Usable" tooltip-placement="right"></span>
+                                <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -136,7 +144,8 @@
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
 
                 <img class="img-circle combat-attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getCombatImage(attributeValue.attribute.id)}}">
-                <img class="combat-attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png"> <span class="combat-attribute-name">{{attributeName}}</span>
+                <img class="combat-attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png">
+                <span class="combat-attribute-name">{{attributeName}}</span>
                 <span class="combat-attribute-value" popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">
                     {{attributeValue.actual.value}}
                     {{attributeValue.actual.d2 > 0 ? ' + '+attributeValue.actual.d2+'d2' : ''}}
@@ -148,7 +157,9 @@
             </div>
         </div>
 
-        <h3><img class="character-list-header" src="../../image/btts_stats_button.png"> Skills <small style="color: wheat;">(Trading skills)</small></h3>
+        <h3><img class="character-list-header" src="../../image/btts_stats_button.png"> Skills
+            <small style="color: wheat;">(Trading skills)</small>
+        </h3>
 
         <div class="row">
             <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="attributeValue in user.skill.tradeSkills">
@@ -177,7 +188,9 @@
                         </div>
                         <div ng-if="attributeValue.attribute.hasPage">
                             <a ui-sref="skill-{{attributeValue.attribute.id | lowercase}}" class="skill-info-text">
-                                <div class="text-center" style="margin-top: -8px;color: wheat;font-size: 14px;">(Skill info)</div>
+                                <div class="text-center" style="margin-top: -8px;color: wheat;font-size: 14px;">(Skill
+                                    info)
+                                </div>
                                 <img class="skill-entry-info-down-arrow" src="../../image/fw_char_status_arrow.png">
                                 <img class="skill-entry-info-link" src="../../image/cc_small_window_bot_arrow.png">
                             </a>
@@ -187,7 +200,9 @@
             </div>
         </div>
 
-        <h3><img class="character-list-header" src="../../image/btts_stats_button.png"> Skills <small style="color: wheat;">(Combat skills)</small></h3>
+        <h3><img class="character-list-header" src="../../image/btts_stats_button.png"> Skills
+            <small style="color: wheat;">(Combat skills)</small>
+        </h3>
 
         <div class="row">
             <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="attributeValue in user.skill.combatSkills">
