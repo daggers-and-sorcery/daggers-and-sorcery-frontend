@@ -82,7 +82,19 @@
     left: 215px;
 }
 
-.equipment-slot-amulet {
+.equipment-slot-quiver {
     bottom: 370px;
     left: 215px;
+}
+
+.equipment-slot-quiver-amount {
+    position: absolute;
+    bottom: 28px;
+    right: 28px;
+    z-index: 5;
+}
+
+.equipment-slot-amulet {
+    bottom: 370px;
+    left: 25px;
 }

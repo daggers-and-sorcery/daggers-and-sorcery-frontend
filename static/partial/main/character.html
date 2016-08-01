@@ -22,6 +22,11 @@
                         <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_neck.png"/>
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
+                    <div class="equipment-slot equipment-slot-quiver" ng-click="unequip('QUIVER')" ng-mouseenter="setType('QUIVER')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <div class="equipment-slot-quiver-amount badge" ng-bind="user.equipment.QUIVER.amount"></div>
+                        <img ng-if="!user.equipment.QUIVER.empty" class="equipment-slot-image-icon" ng-src="{{getEquipmentImage(user.equipment.QUIVER.description.id)}}"/>
+                        <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
+                    </div>
                     <div class="equipment-slot equipment-slot-right-ring" ng-click="unequip('RING')" ng-mouseenter="setType('RING')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
                         <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_finger.png"/>
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
@@ -41,7 +46,7 @@
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
                     <div class="equipment-slot equipment-slot-helm" ng-click="unequip('HELM')" ng-mouseenter="setType('HELM')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
-                        <img ng-if="!user.equipment.HELM.empty" class="equipment-slot-image-icon" src="../../image/inventory/cw_item_border_gray.png"/>
+                        <img ng-if="!user.equipment.HELM.empty" class="equipment-slot-image-icon" ng-src="{{getEquipmentImage(user.equipment.HELM.description.id)}}"/>
                         <img class="equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_helmet.png"/>
                         <img class="equipment-slot-image" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
@@ -126,7 +131,7 @@
                         <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="item in type.items" style="padding: 0;">
                             <div class="clearfix" ng-if="$index % 3 == 0"></div>
                             <div class="inventory-entry">
-                                <span class="inventory-entry-item-amount badge attribute-badge pull-left" ng-bind="item.amount"></span>
+                                <span class="inventory-entry-item-amount badge pull-left" ng-bind="item.amount"></span>
                                 <span class="inventory-entry-item-name" ng-bind="item.name"></span>
                                 <span class="glyphicon glyphicon-circle-arrow-up inventory-entry-equip-icon-holder inventory-entry-icon-holder" ng-click="equip(item.id)" ng-if="item.equipment" uib-tooltip="Equip" tooltip-placement="right"></span>
                                 <span class="glyphicon glyphicon-tint inventory-entry-use-icon-holder inventory-entry-icon-holder" ng-click="use(item.id)" ng-if="item.usable" uib-tooltip="Usable" tooltip-placement="right"></span>
