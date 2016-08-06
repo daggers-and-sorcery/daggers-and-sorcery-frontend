@@ -1,7 +1,7 @@
 <div class="panel panel-default panel-shadow button-panel shop">
     <div class="panel-heading">
         <h3 class="panel-title">Shop
-            <small ng-bind="'('+shopData.shopDefinition.name+')'"></small>
+            <small ng-bind="'('+shopData.definition.name+')'"></small>
         </h3>
     </div>
     <div class="panel-body">
@@ -18,51 +18,76 @@
             </div>
         </div>
         <div ng-show="shopPage === 'player'">
-            <h4 class="text-center">Your inventory</h4>
-            <table class="table full-width-table">
-                <thead>
-                <tr>
-                    <th class="text-center">Item name</th>
-                    <th class="text-center">Amount</th>
-                    <th class="text-center">Price</th>
-                    <th class="text-center">Sell</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="item in shopData.inventoryList">
-                    <td class="shop-item-cell" style="width: 40%;" ng-bind="item.itemDefinition.name"></td>
-                    <td class="shop-item-cell text-center" ng-bind="item.itemAmount"></td>
-                    <td class="shop-item-cell text-center" ng-bind="item.itemPrice"></td>
-                    <td class="shop-item-cell text-center">
-                        <button class="button-default shop-button" ng-click="sellItem(item.itemDefinition.id)">Sell
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <h3 class="text-center">Your inventory</h3>
+            <div class="row">
+                <div class="col-lg-8 text-center" style="font-size: 18px;">
+                    Item
+                </div>
+                <div class="col-lg-2 text-center" style="font-size: 18px;">
+                    Price
+                </div>
+            </div>
+            <div ng-repeat="type in shopData.items">
+                <h4 ng-bind="type.typeName"></h4>
+                <div class="row" ng-repeat="item in type.items">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding: 0;">
+                        <div class="row">
+                            <div class="col-lg-1 text-center">
+                                <span class="badge text-center" style="margin-left: 20px;" ng-bind="item.amount"></span>
+                            </div>
+                            <div class="col-lg-7">{{item.definition.name}}
+                                <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
+                            </div>
+                            <div class="col-lg-2 text-center">
+                                <span>{{item.price % 100}} <img src="../../image/icon/shop/bronze.png" style="width:16px;"></span>
+                                <span ng-if="item.price > 100">{{floor(item.price / 100)}} <img src="../../image/icon/shop/silver.png" style="width:16px;"></span>
+                                <span ng-if="item.price > 10000">{{floor(item.price / 10000)}} <img src="../../image/icon/shop/gold.png" style="width:16px;"></span>
+                            </div>
+                            <div class="col-lg-2 text-center">
+                                <button class="button-default shop-button" style="width: 100%; margin-left: -40px;" ng-click="sellItem(item.definition.id)">
+                                    Sell
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div ng-show="shopPage === 'shop'">
-            <h4 class="text-center">Shop inventory</h4>
-            <table class="table full-width-table">
-                <thead>
-                <tr>
-                    <th class="text-center">Item name</th>
-                    <th class="text-center">Amount</th>
-                    <th class="text-center">Price</th>
-                    <th class="text-center">Buy</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="item in shopData.itemList">
-                    <td class="shop-item-cell" style="width: 40%;" ng-bind="item.itemDefinition.name"></td>
-                    <td class="shop-item-cell text-center" ng-bind="item.itemAmount"></td>
-                    <td class="shop-item-cell text-center" ng-bind="item.itemPrice"></td>
-                    <td class="shop-item-cell text-center">
-                        <button class="button-default shop-button" ng-click="buyItem(item.itemDefinition.id)">Buy</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <h3 class="text-center">Shop inventory</h3>
+            <div class="row">
+                <div class="col-lg-8 text-center" style="font-size: 18px;">
+                    Item
+                </div>
+                <div class="col-lg-2 text-center" style="font-size: 18px;">
+                    Price
+                </div>
+            </div>
+            <div ng-repeat="type in shopData.items">
+                <h4 ng-bind="type.typeName"></h4>
+                <div class="row" ng-repeat="item in type.items">
+                    <div class="col-sm-12 col-md-12 col-lg-12" style="padding: 0;">
+                        <div class="row">
+                            <div class="col-lg-1 text-center">
+                                <span class="badge text-center" style="margin-left: 20px;" ng-bind="item.amount"></span>
+                            </div>
+                            <div class="col-lg-6">{{item.definition.name}}
+                                <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <span>{{item.price % 100}} <img src="../../image/icon/shop/bronze.png" style="width:16px;"></span>
+                                <span ng-if="item.price > 100">{{floor(item.price / 100)}} <img src="../../image/icon/shop/silver.png" style="width:16px;"></span>
+                                <span ng-if="item.price > 10000">{{floor(item.price / 10000)}} <img src="../../image/icon/shop/gold.png" style="width:16px;"></span>
+                            </div>
+                            <div class="col-lg-2 text-center">
+                                <button class="button-default shop-button" style="width: 100%; margin-left: -40px;" ng-click="buyItem(item.definition.id)">
+                                    Buy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
