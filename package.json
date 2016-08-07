@@ -11,6 +11,7 @@
     "url-loader": "0.5.7",
     "node-sass": "3.4.2",
     "sass-loader": "3.1.2",
-    "webpack": "1.12.9"
+    "gulp-sass": "2",
+    "webpack": "1.13.1"
   }
 }
