@@ -1,25 +1,39 @@
 .shop {
-    .shop-button {
-        border-width: 20px;
-        height: 30px;
-        line-height: 0;
+
+    .shop-top-image {
+        box-shadow: 0 0 4px rgba(245, 222, 179, 0.6);
+        margin-bottom: 20px;
     }
 
-    table {
-        tr {
-            td {
-                border-top: 0;
-                padding: 0;
-                vertical-align: middle;
-            }
+    .shop-inner-container {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+
+        .shop-button {
+            border-width: 20px;
+            height: 30px;
+            line-height: 0;
+            width: 100%;
+            margin-left: -40px;
         }
-    }
-    table {
-        thead {
-            tr {
-                th {
-                    border-bottom: 2px solid rgba(100,100,100,0.3);
-                }
+
+        .shop-money-container {
+            padding-bottom: 10px;
+        }
+
+        .shop-money-icon {
+            width:16px;
+        }
+
+        .shop-table-entry-container {
+            box-shadow: 0 0 4px rgba(245, 222, 179, 0.6);
+            background-color: rgba(255,255,255,0.05);
+            padding: 5px;
+
+            .shop-entry-text {
+                height: 42px;
+                line-height: 42px;
             }
         }
     }
