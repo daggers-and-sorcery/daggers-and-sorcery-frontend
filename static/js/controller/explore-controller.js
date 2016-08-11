@@ -1,25 +1,23 @@
 'use strict';
 
-module.exports = function ($scope, $sce, $state, $stateParams, explorationResult) {
+module.exports = function ($scope, $http, $sce, $state, $stateParams, explorationResult) {
     $scope.explorationResult = explorationResult;
 
-    $scope.convertCombatMessage = function (messageData) {
-        var message = messageData.message;
+    console.log(explorationResult);
 
-        angular.forEach(messageData, function (value, key) {
-            message = message.replace("${" + key + "}", '<b>' + value + '</b>');
-        });
-
+    $scope.convertCombatMessage = function (message) {
         return $sce.trustAsHtml(message);
     };
 
-    $scope.getCombatIcon = function (messageData) {
-        if (messageData.icon != undefined) {
-            if (messageData.icon_color != undefined) {
-                return require('image/icon/' + messageData.icon + '_' + messageData.icon_color + '.png');
-            }
+    $scope.attack = function() {
+        $http.get('http://api.daggersandsorcery.com/combat/attack').then(function (response) {
+            $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages = $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages.concat(response.data.data.combatSteps);
+        });
+    };
 
-            return require('image/icon/' + messageData.icon + '.png');
+    $scope.getCombatIcon = function (icon) {
+        if (icon != undefined) {
+            return require('image/icon/' + icon + '.png');
         }
     };
 
