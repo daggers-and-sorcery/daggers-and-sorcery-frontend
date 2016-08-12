@@ -16,8 +16,11 @@
 					<div class="media-body" style="vertical-align: middle;" ng-bind-html="convertCombatMessage(message.message)"></div>
 				</div>
 				<div>
-					<div class="text-center">
+					<div class="text-center" ng-if="!explorationEntry.status.combatEnded">
 						<button class="button-default" ng-click="attack()">Attack</button>
+					</div>
+					<div class="text-center" ng-if="explorationEntry.status.combatEnded && !explorationEntry.status.continued">
+						<button class="button-default" ng-click="continueExploring()">Continue</button>
 					</div>
 				</div>
 			</div>
