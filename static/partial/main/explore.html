@@ -7,13 +7,22 @@
 			<!-- COMBAT -->
 			<div class="race-info-text" ng-if="explorationEntry.eventType == 'COMBAT'">
 				<div class="media" ng-repeat="message in explorationEntry.combatMessages">
-					<div class="media-left" ng-if="message.messageData.icon">
+					<div class="media-left" ng-if="message.icon">
 						<img class="icon media-object" style="width: 40px;margin-left: 4px;margin-top: 4px;position: absolute;"
-								 ng-src="{{getCombatIcon(message.messageData)}}"/>
+								 ng-src="{{getCombatIcon(message.icon)}}"/>
 						<img class="icon media-object" style="width: 48px;" src="../../image/icon/tgb_avatar_frame.png"/>
 					</div>
-					<div class="media-left" ng-if="!message.messageData.icon" style="min-width: 42px;"></div>
-					<div class="media-body" style="vertical-align: middle;" ng-bind-html="convertCombatMessage(message.messageData)"></div>
+					<div class="media-body text-center" style="font-weight:700;height: 48px;vertical-align: middle;" ng-if="!message.icon"
+							 ng-bind-html="convertCombatMessage(message.message)"></div>
+					<div class="media-body" ng-if="message.icon" style="vertical-align: middle;" ng-bind-html="convertCombatMessage(message.message)"></div>
+				</div>
+				<div ng-if="!explorationEntry.status.playerDead">
+					<div class="text-center" ng-if="!explorationEntry.status.combatEnded">
+						<button class="button-default" ng-click="attack()">Attack</button>
+					</div>
+					<div class="text-center" ng-if="explorationEntry.status.combatEnded && !explorationEntry.status.continued">
+						<button class="button-default" ng-click="continueExploring()">Continue</button>
+					</div>
 				</div>
 			</div>
 
