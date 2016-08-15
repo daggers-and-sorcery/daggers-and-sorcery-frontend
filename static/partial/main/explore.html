@@ -16,7 +16,7 @@
 							 ng-bind-html="convertCombatMessage(message.message)"></div>
 					<div class="media-body" ng-if="message.icon" style="vertical-align: middle;" ng-bind-html="convertCombatMessage(message.message)"></div>
 				</div>
-				<div>
+				<div ng-if="!explorationEntry.status.playerDead">
 					<div class="text-center" ng-if="!explorationEntry.status.combatEnded">
 						<button class="button-default" ng-click="attack()">Attack</button>
 					</div>
