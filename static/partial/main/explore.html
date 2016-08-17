@@ -91,8 +91,29 @@ select.spell-select:focus {
     vertical-align: middle;">Use an item</h4>
 							</div>
 							<div class="text-center" ng-if="!explorationEntry.status.combatEnded" style="width: 180px; margin-left: auto; margin-right: auto;">
-								<select class="form-control spell-select" ng-model="itemToUse" ng-options="item.name for item in usableItems track by item.id" ng-value="item.id"></select>
+								<select class="form-control spell-select" ng-model="itemToUse.target" ng-options="item.name for item in usableItems track by item.id" ng-value="item.id"></select>
 								<button class="button-default" ng-click="use()" style="margin-top: 10px;">Use</button>
+							</div>
+						</div>
+					</div>
+					<div class="row" ng-if="!explorationEntry.status.combatEnded && !explorationEntry.status.continued">
+						<div class="col-lg-offset-4 col-lg-4">
+							<div>
+								<img src="../../image/papper_container_avatar_spell_frame.png" style="
+    width: 100px;">
+								<img src="../../image/icon/combat/flee.png" style="    position: absolute;
+    left: 20px;
+    top: 5px;
+    width: 59px;
+    border-radius: 90px;">
+								<h4 class="text-center" style="    position: absolute;
+    left: 31px;
+    top: 14px;
+    right: 0;
+    vertical-align: middle;">Use an item</h4>
+							</div>
+							<div class="text-center" ng-if="!explorationEntry.status.combatEnded" style="width: 180px; margin-left: auto; margin-right: auto;">
+								<button class="button-default" ng-click="flee()">Flee</button>
 							</div>
 						</div>
 					</div>
