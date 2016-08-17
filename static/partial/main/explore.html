@@ -1,3 +1,21 @@
+<style>
+/* The CSS */
+select.spell-select {
+	display: inline-block;
+	height: 28px;
+	line-height: 28px;
+	border: 1px solid #000;
+	font-size: 14px;
+	color: #fff;
+	background: #444;
+	padding: 5px;
+}
+
+select.spell-select:focus {
+	border-color: rgba(0,0,0,0.3);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+</style>
 <div class="panel panel-default map-page">
 	<div class="panel-heading">
 		<h3 class="panel-title">Explore</h3>
@@ -17,8 +35,87 @@
 					<div class="media-body" ng-if="message.icon" style="vertical-align: middle;" ng-bind-html="convertCombatMessage(message.message)"></div>
 				</div>
 				<div ng-if="!explorationEntry.status.playerDead">
-					<div class="text-center" ng-if="!explorationEntry.status.combatEnded">
-						<button class="button-default" ng-click="attack()">Attack</button>
+					<div class="row" ng-if="!explorationEntry.status.combatEnded && !explorationEntry.status.continued" style="    margin-top: 20px;">
+						<div class="col-lg-4">
+							<div>
+								<img src="../../image/papper_container_avatar_spell_frame.png" style="
+    width: 100px;">
+								<img src="../../image/icon/combat/cast.png" style="    position: absolute;
+    left: 20px;
+    top: 5px;
+    width: 59px;
+    border-radius: 90px;">
+								<h4 class="text-center" style="    position: absolute;
+    left: 31px;
+    top: 14px;
+    right: 0;
+    vertical-align: middle;">Cast a spell</h4>
+							</div>
+							<div class="text-center" ng-if="!explorationEntry.status.combatEnded" style="width: 180px; margin-left: auto; margin-right: auto;">
+								<select class="form-control spell-select" ng-model="spellToUse.target" ng-options="spell.name for spell in usableSpells track by spell.id" ng-value="spell.id"></select>
+								<button class="button-default" ng-click="cast()" style="margin-top: 10px;">Cast</button>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div>
+								<img src="../../image/papper_container_avatar_spell_frame.png" style="
+    width: 100px;">
+								<img src="../../image/icon/combat/attack.png" style="    position: absolute;
+    left: 20px;
+    top: 5px;
+    width: 59px;
+    border-radius: 90px;">
+								<h4 class="text-center" style="    position: absolute;
+    left: 0;
+    top: 14px;
+    right: 0;
+    vertical-align: middle;">Attack</h4>
+							</div>
+							<div class="text-center" ng-if="!explorationEntry.status.combatEnded">
+								<button class="button-default" ng-click="attack()">Attack</button>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div>
+								<img src="../../image/papper_container_avatar_spell_frame.png" style="
+    width: 100px;">
+								<img src="../../image/icon/combat/use.png" style="    position: absolute;
+    left: 20px;
+    top: 5px;
+    width: 59px;
+    border-radius: 90px;">
+								<h4 class="text-center" style="    position: absolute;
+    left: 31px;
+    top: 14px;
+    right: 0;
+    vertical-align: middle;">Use an item</h4>
+							</div>
+							<div class="text-center" ng-if="!explorationEntry.status.combatEnded" style="width: 180px; margin-left: auto; margin-right: auto;">
+								<select class="form-control spell-select" ng-model="itemToUse.target" ng-options="item.name for item in usableItems track by item.id" ng-value="item.id"></select>
+								<button class="button-default" ng-click="use()" style="margin-top: 10px;">Use</button>
+							</div>
+						</div>
+					</div>
+					<div class="row" ng-if="!explorationEntry.status.combatEnded && !explorationEntry.status.continued">
+						<div class="col-lg-offset-4 col-lg-4">
+							<div>
+								<img src="../../image/papper_container_avatar_spell_frame.png" style="
+    width: 100px;">
+								<img src="../../image/icon/combat/flee.png" style="    position: absolute;
+    left: 20px;
+    top: 5px;
+    width: 59px;
+    border-radius: 90px;">
+								<h4 class="text-center" style="    position: absolute;
+    left: 31px;
+    top: 14px;
+    right: 0;
+    vertical-align: middle;">Use an item</h4>
+							</div>
+							<div class="text-center" ng-if="!explorationEntry.status.combatEnded" style="width: 180px; margin-left: auto; margin-right: auto;">
+								<button class="button-default" ng-click="flee()">Flee</button>
+							</div>
+						</div>
 					</div>
 					<div class="text-center" ng-if="explorationEntry.status.combatEnded && !explorationEntry.status.continued">
 						<button class="button-default" ng-click="continueExploring()">Continue</button>
