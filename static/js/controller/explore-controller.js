@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ($scope, $http, $sce, $state, $stateParams, explorationResult) {
+module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, explorationResult) {
     $scope.explorationResult = explorationResult;
     $scope.usableSpells = [];
     $scope.usableItems = [];
@@ -22,6 +22,8 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, exploratio
     });
 
     $scope.cast = function () {
+        $log.debug('Casting the spell with id: ' + $scope.spellToUse.target.id);
+
         $http.get('http://api.daggersandsorcery.com/combat/cast/' + $scope.spellToUse.target.id).then(function (response) {
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages = $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages.concat(response.data.data.combatSteps);
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].status = response.data.data.status;
@@ -29,6 +31,8 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, exploratio
     };
 
     $scope.use = function () {
+        $log.debug('Use the item with id: ' + $scope.itemToUse.target.id);
+
         $http.get('http://api.daggersandsorcery.com/combat/use/' + $scope.itemToUse.target.id).then(function (response) {
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages = $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages.concat(response.data.data.combatSteps);
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].status = response.data.data.status;
@@ -36,6 +40,8 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, exploratio
     };
 
     $scope.flee = function () {
+        $log.debug('Trying to flee!');
+
         $http.get('http://api.daggersandsorcery.com/combat/flee').then(function (response) {
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages = $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages.concat(response.data.data.combatSteps);
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].status = response.data.data.status;
@@ -47,6 +53,8 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, exploratio
     };
 
     $scope.attack = function () {
+        $log.debug('Attacking the opponent!');
+
         $http.get('http://api.daggersandsorcery.com/combat/attack').then(function (response) {
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages = $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages.concat(response.data.data.combatSteps);
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].status = response.data.data.status;
