@@ -1,20 +1,31 @@
 <style>
-/* The CSS */
-select.spell-select {
-	display: inline-block;
-	height: 28px;
-	line-height: 28px;
-	border: 1px solid #000;
-	font-size: 14px;
-	color: #fff;
-	background: #444;
-	padding: 5px;
-}
+    select.spell-select {
+        display: inline-block;
+        height: 28px;
+        line-height: 28px;
+        border: 1px solid #000;
+        font-size: 14px;
+        color: #fff;
+        background: #444;
+        padding: 5px;
+    }
 
-select.spell-select:focus {
-	border-color: rgba(0,0,0,0.3);
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-}
+    select.spell-select:focus {
+        border-color: rgba(0,0,0,0.3);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    }
+
+    .attribute-entry p {
+        margin: 0;
+    }
+
+    .attribute-entry {
+        margin-bottom: 10px;
+    }
+
+    .attribute-entry:last-child {
+        margin-bottom: 0;
+    }
 </style>
 <div class="panel panel-default map-page">
 	<div class="panel-heading">
@@ -123,9 +134,14 @@ select.spell-select:focus {
 				</div>
 			</div>
 
+			<!-- ATTRIBUTE_ATTEMPT -->
+			<div class="race-info-text" ng-if="explorationEntry.eventType == 'ATTRIBUTE_ATTEMPT'">
+                <div class="attribute-entry" marked="message.content" ng-repeat="message in explorationEntry.messages"></div>
+			</div>
+
 			<!-- TEXT -->
 			<div ng-if="explorationEntry.eventType == 'TEXT'">
-				<p marked="explorationEntry.content"></p>
+				<div marked="explorationEntry.content"></div>
 			</div>
 
 			<!-- OPTION -->
