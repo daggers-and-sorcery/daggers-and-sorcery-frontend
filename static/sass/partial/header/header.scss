@@ -1,3 +1,5 @@
+@import '../../viewport-info.scss';
+
 .header-menu {
   background: url(../../../image/btts_frame.png) no-repeat;
   background-size: contain;
@@ -18,7 +20,6 @@
 }
 
 .top-attribute-bar {
-  width: 250px;
   margin-bottom: 8px;
 
   .progress {
@@ -30,14 +31,10 @@
 
 .top-attribute-bar:first-of-type {
   margin-top: 18px;
-}
 
-.top-health-bar {
-  margin-left: 40px;
-}
-
-.top-mana-bar {
-  margin-left: 20px;
+  @include when-tablet {
+    margin-top: 10px;
+  }
 }
 
 .top-movement-bar {
@@ -47,7 +44,6 @@
 .top-attribute-text {
   float: left;
   margin-top: -3px;
-  margin-right: 5px;
 }
 
 .progress-info {
