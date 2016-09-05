@@ -1,3 +1,5 @@
+@import '../../viewport-info.scss';
+
 .button-panel {
     .big-button-text {
         position: absolute;
@@ -11,10 +13,14 @@
 
     .big-button-icon {
         height: 52px;
-        position: absolute;
         top: 8px;
         left: 22px;
         border-radius: 50%;
+        position: absolute;
+
+        @include when-tablet {
+            position: relative;
+        }
     }
 
     .big-button {
