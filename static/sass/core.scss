@@ -1,3 +1,5 @@
+@import 'viewport-info.scss';
+
 html,
 body {
   height: 100%;
@@ -25,6 +27,11 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
     background: transparent;
+
+    @include when-tablet {
+      margin-left: 4px;
+      margin-right: 4px;
+    }
   }
 
   #footer {
@@ -35,6 +42,13 @@ body {
     margin-top: 12px;
     margin-bottom: 12px;
     background: transparent;
+  }
+}
+
+.outter-container > .container-fluid {
+
+  @include when-tablet {
+    padding: 0;
   }
 }
 

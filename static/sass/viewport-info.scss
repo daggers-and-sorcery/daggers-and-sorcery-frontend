@@ -1,0 +1,23 @@
+// Extra small screen / phone
+$screen-phone: 480px;
+
+// Small screen / tablet
+$screen-tablet: 768px;
+
+// Medium screen / desktop
+$screen-desktop: 992px;
+
+// Large screen / wide desktop
+$screen-lg-desktop: 1200px;
+
+@mixin when-mobile() {
+    @media (max-width: $screen-phone) {
+        @content;
+    }
+}
+
+@mixin when-tablet() {
+    @media (max-width: $screen-tablet) {
+        @content;
+    }
+}
