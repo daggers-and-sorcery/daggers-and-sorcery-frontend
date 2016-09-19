@@ -1,3 +1,5 @@
+@import '../../viewport-info.scss';
+
 .shop {
 
     .shop-top-image {
@@ -16,6 +18,10 @@
             line-height: 0;
             width: 100%;
             margin-left: -40px;
+
+            @include when-tablet {
+                margin-left: 0;
+            }
         }
 
         .shop-money-container {
@@ -34,6 +40,28 @@
             .shop-entry-text {
                 height: 42px;
                 line-height: 42px;
+
+                @include when-tablet {
+                    padding-right: 0;
+                }
+
+                .badge {
+                    margin-left: 30px;
+
+                    @include when-tablet {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+
+        .shop-item-container {
+            padding: 0;
+
+            @include when-tablet {
+                padding: 15px;
+                padding-top: 0;
+                padding-bottom: 0;
             }
         }
     }

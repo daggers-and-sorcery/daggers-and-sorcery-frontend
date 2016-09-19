@@ -1,20 +1,3 @@
-<style>
-    .chat-container::-webkit-scrollbar {
-        width: 12px;
-    }
-
-    .chat-container::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        background-color: rgba(245, 222, 179, 0.8);
-        box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-    }
-
-    .chat-container::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
-        border-radius: 10px;
-    }
-</style>
-
 <div class="panel panel-default panel-shadow button-panel">
     <div class="panel-heading">
         <h3 class="panel-title">
@@ -24,26 +7,24 @@
     </div>
     <div class="panel-body chat">
         <div class="row">
-            <div class="col-xs-offset-2 col-xs-4 col-md-offset-2 col-md-4 big-button" ng-click="showServices()">
-                <img src="../../image/cf_main_frame.png" class="img-responsive">
-                <img class="big-button-icon" src="../../image/icon/extra/beer.png"/>
+            <div class="col-md-offset-2 col-md-4 col-lg-offset-2 col-lg-4 big-button" ng-click="showServices()">
+                <img src="../../../image/cf_main_frame.png" class="img-responsive">
+                <img class="big-button-icon" src="../../../image/icon/extra/beer.png"/>
                 <span class="big-button-text">Services</span>
             </div>
-            <div class="col-xs-4 col-md-4 big-button">
-                <img src="../../image/cf_main_frame.png" class="img-responsive">
-                <img class="big-button-icon" src="../../image/icon/extra/chat.png"/>
+            <div class="col-md-4 col-lg-4 big-button">
+                <img src="../../../image/cf_main_frame.png" class="img-responsive">
+                <img class="big-button-icon" src="../../../image/icon/extra/chat.png"/>
                 <span class="big-button-text">Chat</span>
             </div>
         </div>
 
         <form>
             <div class="row" style="margin: 10px;margin-bottom: 0;">
-                <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10" style="margin-top: 10px;
-    padding: 0;
-    padding-right: 8px;">
+                <div class="col-md-10 col-lg-10 chat-input-container">
                     <input ng-model="textToSend" class="form-control" maxlength="254" placeholder="Write a message..." style="width: 100%;">
                 </div>
-                <div ng-click="writeMessage()" class="col-md-2 col-xs-2 col-sm-2 col-lg-2" style="padding: 0;">
+                <div ng-click="writeMessage()" class="col-md-2 col-lg-2" style="padding: 0;">
                     <button class="button-default max-width">Send</button>
                 </div>
             </div>
@@ -56,9 +37,9 @@
                         <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
                             <div class="chat-entry-holder">
                                 <div class="row">
-                                    <div ng-bind="message.user" class="col-md-6 col-xs-6 col-sm-6 col-lg-6"></div>
+                                    <div ng-bind="message.user" class="col-md-6 col-lg-6"></div>
                                     <div ng-bind="message.writingTime | date:'EEEE, MMMM d, y HH:mm:ss'"
-                                         class="col-md-6 col-xs-6 col-sm-6 col-lg-6 chat-entry-posting-time"></div>
+                                         class="col-md-6 col-lg-6 chat-entry-posting-time"></div>
                                 </div>
                                 <p ng-bind="message.message" class="chat-entry-body"></p>
                             </div>

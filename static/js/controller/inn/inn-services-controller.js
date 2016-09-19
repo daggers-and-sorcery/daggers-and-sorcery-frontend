@@ -8,7 +8,7 @@ module.exports = function ($scope, $state, $http, $sce, marked, Flash, innInfo) 
     };
 
     $scope.showChat = function () {
-        $state.go('inn');
+        $state.go('inn-chat');
     };
 
     $scope.inn.showShortDescription = true;
