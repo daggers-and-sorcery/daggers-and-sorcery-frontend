@@ -1,5 +1,24 @@
-.footer-menu {
-  font-size: 12px;
-  text-align: center;
-  line-height: 42px;
+@import '../../viewport-info.scss';
+
+#footer {
+    border: 5px solid;
+    border-image-source: url(../../../image/select_dropdown_container.png);
+    border-image-slice: 20 fill;
+    border-image-repeat: repeat;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    background: transparent;
+    height: 52px;
+    border-radius: 4px;
+
+    .footer-menu {
+        font-size: 12px;
+        text-align: center;
+        line-height: 42px;
+
+        @include when-tablet {
+            line-height: 18px;
+            margin-top: 3px;
+        }
+    }
 }

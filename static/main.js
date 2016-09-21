@@ -55,7 +55,6 @@ require('sass/partial/news/news.scss');
 require('sass/partial/news/news-entry.scss');
 require('sass/partial/header/header.scss');
 require('sass/partial/footer/footer.scss');
-require('sass/partial/footer/sticky-footer.scss');
 require('sass/partial/login/login-form.scss');
 
 // Character scss

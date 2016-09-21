@@ -1,4 +1,23 @@
+@import '../../viewport-info.scss';
+
 .exploration-table {
+    table-layout:fixed;
+
+    .exploration-table-header-level {
+        width: 20%;
+
+        @include when-tablet {
+            width: auto;
+        }
+    }
+
+    .exploration-table-header-explore {
+        width: 20%;
+
+        @include when-tablet {
+            width: auto;
+        }
+    }
 
     .exploration-level-holder, .exploration-button-holder {
         vertical-align: middle;

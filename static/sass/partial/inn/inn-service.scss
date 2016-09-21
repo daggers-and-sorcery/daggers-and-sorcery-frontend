@@ -1,10 +1,20 @@
+@import '../../viewport-info.scss';
+
 .inn-service-holder {
   .fix-right {
     padding-right: 0;
+
+    @include when-tablet {
+        padding-right: 15px;
+    }
   }
 
   .fix-left {
     padding-left: 0;
+
+    @include when-tablet {
+        padding-left: 15px;
+    }
   }
 
   .inn-service-response-holder .alert {

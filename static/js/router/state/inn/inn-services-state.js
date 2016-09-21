@@ -6,7 +6,7 @@ module.exports = {
     data: {
         visibleWhenNotLoggedIn: true
     },
-    template: require('partial/main/inn-services.html'),
+    template: require('partial/main/inn/inn-services.html'),
     resolve: {
         innInfo: function ($http) {
             return $http({method: 'GET', url: 'http://api.daggersandsorcery.com/inn/info'}).then(function (response) {
@@ -14,5 +14,5 @@ module.exports = {
             });
         }
     },
-    controller: require('js/controller/inn-services-controller.js')
+    controller: require('js/controller/inn/inn-services-controller.js')
 };

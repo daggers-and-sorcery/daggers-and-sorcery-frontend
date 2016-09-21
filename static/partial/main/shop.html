@@ -9,19 +9,19 @@
     </div>
     <div class="panel-body">
         <img class="shop-top-image img-responsive" src="../../image/shop/background.png">
-        <div class="shop-inner-container">
-            <div class="row">
-                <div class="col-xs-offset-2 col-xs-4 big-button" ng-click="setShopPage('shop')">
-                    <img src="../../image/cf_main_frame.png" class="img-responsive">
-                    <img class="big-button-icon" src="../../image/icon/extra/buy.png"/>
-                    <span class="big-button-text">Buy</span>
-                </div>
-                <div class="col-xs-4 big-button" ng-click="setShopPage('player')">
-                    <img src="../../image/cf_main_frame.png" class="img-responsive">
-                    <img class="big-button-icon" src="../../image/icon/extra/sell.png"/>
-                    <span class="big-button-text">Sell</span>
-                </div>
+        <div class="row">
+            <div class="col-md-offset-2 col-md-4 col-lg-offset-2 col-lg-4 big-button" ng-click="setShopPage('shop')">
+                <img src="../../image/cf_main_frame.png" class="img-responsive">
+                <img class="big-button-icon" src="../../image/icon/extra/buy.png"/>
+                <span class="big-button-text">Buy</span>
             </div>
+            <div class="col-md-4 col-lg-4 big-button" ng-click="setShopPage('player')">
+                <img src="../../image/cf_main_frame.png" class="img-responsive">
+                <img class="big-button-icon" src="../../image/icon/extra/sell.png"/>
+                <span class="big-button-text">Sell</span>
+            </div>
+        </div>
+        <div class="shop-inner-container">
             <div ng-show="shopPage === 'player'">
                 <h3 class="text-center">Your inventory</h3>
                 <div class="shop-money-container text-center">
@@ -53,16 +53,16 @@
                     <h4 ng-bind="type.typeName"></h4>
                     <div class="shop-table-entry-container">
                         <div class="row" ng-repeat="item in type.items">
-                            <div class="col-sm-12 col-md-12 col-lg-12" style="padding: 0;">
+                            <div class="col-sm-12 col-md-12 col-lg-12 shop-item-container">
                                 <div class="row">
-                                    <div class="col-lg-1 text-center shop-entry-text">
-                                        <span class="badge text-center" style="margin-left: 30px;" ng-bind="item.amount"></span>
+                                    <div class="col-xs-3 col-sm-3 col-md-1 col-lg-1 text-center shop-entry-text">
+                                        <span class="badge text-center" ng-bind="item.amount"></span>
                                     </div>
-                                    <div class="col-lg-6 shop-entry-text">
+                                    <div class="col-md-6 col-lg-6 shop-entry-text">
                                         {{item.definition.name}}
                                         <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
                                     </div>
-                                    <div class="col-lg-3 text-center shop-entry-text">
+                                    <div class="col-md-3 col-lg-3 text-center shop-entry-text">
                                         <span>{{item.price % 100}} <img class="shop-money-icon" src="../../image/icon/shop/bronze.png"></span>
                                         <span ng-if="item.price > 100">{{floor((item.price / 100) % 100)}} <img class="shop-money-icon" src="../../image/icon/shop/silver.png"></span>
                                         <span ng-if="item.price > 10000">{{floor(item.price / 10000)}} <img class="shop-money-icon" src="../../image/icon/shop/gold.png"></span>
@@ -103,15 +103,15 @@
                     <h4 ng-bind="type.typeName"></h4>
                     <div class="shop-table-entry-container">
                     <div class="row" ng-repeat="item in type.items">
-                        <div class="col-sm-12 col-md-12 col-lg-12" style="padding: 0;">
+                        <div class="col-sm-12 col-md-12 col-lg-12 shop-item-container">
                             <div class="row">
-                                <div class="col-lg-1 text-center shop-entry-text">
-                                    <span class="badge text-center" style="margin-left: 30px;" ng-bind="item.amount"></span>
+                                <div class="col-xs-3 col-sm-3 col-md-1 col-lg-1 text-center shop-entry-text">
+                                    <span class="badge text-center" ng-bind="item.amount"></span>
                                 </div>
-                                <div class="col-lg-6 shop-entry-text">{{item.definition.name}}
+                                <div class="col-md-6 col-lg-6 shop-entry-text">{{item.definition.name}}
                                     <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
                                 </div>
-                                <div class="col-lg-3 text-center shop-entry-text">
+                                <div class="col-md-3 col-lg-3 text-center shop-entry-text">
                                     <span>{{item.price % 100}} <img class="shop-money-icon" src="../../image/icon/shop/bronze.png"></span>
                                     <span ng-if="item.price > 100">{{floor((item.price / 100) % 100)}} <img class="shop-money-icon" src="../../image/icon/shop/silver.png"></span>
                                     <span ng-if="item.price > 10000">{{floor(item.price / 10000)}} <img class="shop-money-icon" src="../../image/icon/shop/gold.png"></span>
