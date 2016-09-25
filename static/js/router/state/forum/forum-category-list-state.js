@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-    name: 'forum',
+    name: 'forum-category-list',
     url: '/forum/',
-    template: require('partial/main/forum.html'),
+    template: require('partial/main/forum/forum-category-list.html'),
     resolve: {
         categories: function ($http) {
             return $http.get('http://api.daggersandsorcery.com/forum/list/categories').then(function (response) {
@@ -11,5 +11,5 @@ module.exports = {
             });
         }
     },
-    controller: require('js/controller/forum-controller.js')
+    controller: require('js/controller/forum/forum-category-list-controller.js')
 };

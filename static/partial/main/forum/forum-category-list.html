@@ -14,7 +14,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <div class="panel-heading-icon">
-            <img src="../../image/swords.png"/>
+            <img src="../../../image/swords.png"/>
         </div>
         <h3 class="panel-title">Forum</h3>
     </div>
@@ -43,16 +43,16 @@
     width: 45px;
     top: 4px;
     left: 19px; " ng-src="{{getForumIcon(category.icon)}}"/>
-                    <img style="box-shadow: 0 0 1px 1px rgba(211,211,211,0.5);" class="img-responsive" src="../../image/icon/tgb_avatar_frame.png"/>
+                    <img style="box-shadow: 0 0 1px 1px rgba(211,211,211,0.5);" class="img-responsive" src="../../../image/icon/tgb_avatar_frame.png"/>
                 </div>
-                <div class="col-md-7" style="    font-size: 18px;"><a style="    color: wheat; cursor: pointer;" ng-bind="category.name"></a></div>
+                <div class="col-md-7" style="    font-size: 18px;"><a style="    color: wheat; cursor: pointer;" ng-bind="category.name" ui-sref="forum-topic-list({category: category.id})"></a></div>
                 <div class="col-md-2 text-center" ng-if="category.lastPostDate == 0">Never</div>
                 <div class="col-md-2 text-center" ng-if="category.lastPostDate > 0" ng-bind="category.lastPostDate | date:'fullDate'">Never</div>
                 <div class="col-md-2 text-center" ng-bind="category.lastPoster == undefined ? 'Nobody' : category.lastPoster"></div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <img style="opacity: 0.4;" class="img-responsive" src="../../image/seperator_2.png"/>
+                    <img style="opacity: 0.4;" class="img-responsive" src="../../../image/seperator_2.png"/>
                 </div>
             </div>
         </div>
