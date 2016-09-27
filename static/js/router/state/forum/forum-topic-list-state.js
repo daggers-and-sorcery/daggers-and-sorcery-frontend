@@ -6,9 +6,8 @@ module.exports = {
     template: require('partial/main/forum/forum-topic-list.html'),
     resolve: {
         topics: function ($http, $stateParams) {
-            console.log($stateParams.category);
-            return $http.get('http://api.daggersandsorcery.com/forum/list/categories').then(function (response) {
-                return response.data.data.categories;
+            return $http.get('http://api.daggersandsorcery.com/forum/list/category/' + $stateParams.category).then(function (response) {
+                return response.data.data;
             });
         }
     },

@@ -10,6 +10,7 @@
 
 
 
+
 </style>
 <div class="panel panel-default">
 	<div class="panel-heading">
@@ -25,32 +26,45 @@
 			<div class="col-md-12">
 				<ol class="breadcrumb" style="background-color: rgba(100,100,100,0.2);
 			box-shadow: 0 0 1px 1px rgba(211,211,211,0.3);">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Library</a></li>
-					<li class="active">Data</li>
+					<li><a ui-sref="forum-category-list">Forum</a></li>
+					<li ng-bind="topics.parentCategory.name"></li>
 				</ol>
 				<div>
-					<input class="form-control" placeholder="The title of the topic." style="width: 100%;
+					<input class="form-control" ng-model="newTopicTitle" placeholder="The title of the topic." style="width: 100%;
     margin-bottom: 18px;">
 				</div>
 				<div>
-					<textarea style="    background-color: rgba(255,255,255,0.1);
+					<textarea ng-model="newTopicContent" style="    background-color: rgba(255,255,255,0.1);
 			border: rgba(0,0,0,0.6);
 			width: 100%;
 			min-width: 100%;
 			height: 200px;
 			min-height: 200px;
 			resize: none;
-			outline: none;" placeholder="The message of the first post in the topic."></textarea>
+			outline: none;padding: 10px;margin:2px;" placeholder="The message of the first post in the topic."></textarea>
 				</div>
 				<div style="text-align: center">
-					<button class="button-default">Create</button>
+					<button ng-click="newTopic()" class="button-default">Create</button>
 				</div>
 			</div>
 		</div>
+		<h3 class=" text-center">Topics</h3>
 		<div class="row">
 			<div class="col-md-12">
-				Existing topics go here!
+				<div class="row">
+					<div class="col-md-5 text-center">Title</div>
+					<div class="col-md-1 text-center">Post count</div>
+					<div class="col-md-2 text-center">Last post date</div>
+					<div class="col-md-2 text-center">Last poster</div>
+					<div class="col-md-2 text-center">Creator</div>
+				</div>
+				<div class="row" ng-repeat="topic in topics.topiclist">
+					<div class="col-md-5" ng-bind="topic.name"></div>
+					<div class="col-md-1" ng-bind="topic.commentCount"></div>
+					<div class="col-md-2" ng-bind="topic.lastPostDate | date:'fullDate'"></div>
+					<div class="col-md-2" ng-bind="topic.lastPoster"></div>
+					<div class="col-md-2" ng-bind="topic.creator"></div>
+				</div>
 			</div>
 		</div>
 	</div>
