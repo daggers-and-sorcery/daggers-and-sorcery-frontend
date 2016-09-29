@@ -6,6 +6,7 @@
     .breadcrumb a {
         color: wheat;
     }
+
     a.topic-title:first-letter {
         text-transform: uppercase;
     }
@@ -39,8 +40,7 @@
 			height: 200px;
 			min-height: 200px;
 			resize: none;
-			outline: none;padding: 10px;margin:2px;"
-                              placeholder="The message of the first post in the topic."></textarea>
+			outline: none;padding: 10px;margin:2px;" placeholder="The message of the first post in the topic."></textarea>
                 </div>
                 <div style="text-align: center">
                     <button ng-click="newTopic()" class="button-default">Create</button>
@@ -69,7 +69,7 @@
                 <div class="row" ng-repeat="topic in topics.topiclist" style="    padding-left: 15px;
     padding-right: 15px;padding-bottom: 10px;">
                     <div class="col-md-3"><a ui-sref="forum-comment-list({topic: topic.id})" class="topic-title" style="color: wheat;
-    cursor: pointer;display:block" ng-bind="topic.name" ui-sref="forum-comment-list-stage"></a></div>
+    cursor: pointer;display:block" ng-bind="topic.name" ui-sref="forum-comment-list-state"></a></div>
                     <div class="col-md-2  text-center" ng-bind="topic.commentCount"></div>
                     <div class="col-md-3 text-center" ng-bind="topic.lastPostDate | date:'fullDate'"></div>
                     <div class="col-md-2 text-center" ng-bind="topic.lastPoster"></div>

@@ -11,5 +11,5 @@ module.exports = {
             });
         }
     },
-    controller: require('js/controller/forum/forum-topic-list-controller.js')
+    controller: require('js/controller/forum/forum-comment-list-controller.js')
 };
