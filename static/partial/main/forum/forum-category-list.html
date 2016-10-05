@@ -1,0 +1,63 @@
+<style>
+    .flex-row:first-child {
+        margin-top: 10px;
+    }
+    .flex-row {
+        margin-bottom: 10px;
+    }
+    .flex-row > [class*='col-'] {
+        float: none;
+        display: table-cell;
+        vertical-align: middle;
+    }
+</style>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-heading-icon">
+            <img src="../../../image/swords.png"/>
+        </div>
+        <h3 class="panel-title">Forum</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row" style="
+            padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: rgba(100,100,100,0.2);
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 26px;
+    box-shadow: 0 0 1px 1px rgba(211,211,211,0.3);
+        border-radius: 4px;
+">
+            <div class="col-md-5 text-center" style="font-size: 17px;">Category name</div>
+            <div class="col-md-2 text-center" style="font-size: 17px;">Post count</div>
+            <div class="col-md-3 text-center" style="font-size: 17px;">Last post date</div>
+            <div class="col-md-2 text-center" style="font-size: 17px;">Last poster</div>
+        </div>
+        <div ng-repeat="category in categories">
+            <div class="row flex-row" style="
+    margin-left: 10px;
+    margin-right: 10px;">
+                <div class="col-md-1" style="padding-right: 0; height: 54px;">
+                    <img style="    position: absolute;
+    width: 46px;
+    top: 4px;
+    left: 17px;" ng-src="{{getForumIcon(category.icon)}}"/>
+                    <img style="box-shadow: 0 0 1px 1px rgba(211,211,211,0.5);" class="img-responsive" src="../../../image/icon/tgb_avatar_frame.png"/>
+                </div>
+                <div class="col-md-4" style="    font-size: 18px;"><a style="    color: wheat; cursor: pointer;" ng-bind="category.name" ui-sref="forum-topic-list({category: category.id})"></a></div>
+                <div class="col-md-2 text-center" ng-bind="category.postCount"></div>
+                <div class="col-md-3 text-center" ng-if="category.lastPostDate == 0">Never</div>
+                <div class="col-md-3 text-center" ng-if="category.lastPostDate > 0" ng-bind="category.lastPostDate | date:'EEEE, MMMM d, y hh:mm:ss a'">Never</div>
+                <div class="col-md-2 text-center" ng-bind="category.lastPoster == undefined ? 'Nobody' : category.lastPoster"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <img style="opacity: 0.4;" class="img-responsive" src="../../../image/seperator_2.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
