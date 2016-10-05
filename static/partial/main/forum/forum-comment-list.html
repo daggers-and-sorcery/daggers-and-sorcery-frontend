@@ -26,7 +26,10 @@
                 <ol class="breadcrumb" style="background-color: rgba(100,100,100,0.2);
 			box-shadow: 0 0 1px 1px rgba(211,211,211,0.3);">
                     <li><a ui-sref="forum-category-list">Forum</a></li>
-                    <li class="active" ng-bind="topics.parentCategory.name"></li>
+                    <li>
+                        <a ui-sref="forum-topic-list({category: comments.category.id})" ng-bind="comments.category.name"></a>
+                    </li>
+                    <li class="active" ng-bind="comments.parent.name"></li>
                 </ol>
                 <div class="row" ng-repeat="comment in comments.comments" style="padding: 5px;
     margin: 5px;

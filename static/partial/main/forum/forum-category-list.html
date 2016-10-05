@@ -31,8 +31,9 @@
     box-shadow: 0 0 1px 1px rgba(211,211,211,0.3);
         border-radius: 4px;
 ">
-            <div class="col-md-8 text-center" style="font-size: 17px;">Category name</div>
-            <div class="col-md-2 text-center" style="font-size: 17px;">Last post date</div>
+            <div class="col-md-5 text-center" style="font-size: 17px;">Category name</div>
+            <div class="col-md-2 text-center" style="font-size: 17px;">Post count</div>
+            <div class="col-md-3 text-center" style="font-size: 17px;">Last post date</div>
             <div class="col-md-2 text-center" style="font-size: 17px;">Last poster</div>
         </div>
         <div ng-repeat="category in categories">
@@ -46,9 +47,10 @@
     left: 17px;" ng-src="{{getForumIcon(category.icon)}}"/>
                     <img style="box-shadow: 0 0 1px 1px rgba(211,211,211,0.5);" class="img-responsive" src="../../../image/icon/tgb_avatar_frame.png"/>
                 </div>
-                <div class="col-md-7" style="    font-size: 18px;"><a style="    color: wheat; cursor: pointer;" ng-bind="category.name" ui-sref="forum-topic-list({category: category.id})"></a></div>
-                <div class="col-md-2 text-center" ng-if="category.lastPostDate == 0">Never</div>
-                <div class="col-md-2 text-center" ng-if="category.lastPostDate > 0" ng-bind="category.lastPostDate | date:'fullDate'">Never</div>
+                <div class="col-md-4" style="    font-size: 18px;"><a style="    color: wheat; cursor: pointer;" ng-bind="category.name" ui-sref="forum-topic-list({category: category.id})"></a></div>
+                <div class="col-md-2 text-center" ng-bind="category.postCount"></div>
+                <div class="col-md-3 text-center" ng-if="category.lastPostDate == 0">Never</div>
+                <div class="col-md-3 text-center" ng-if="category.lastPostDate > 0" ng-bind="category.lastPostDate | date:'EEEE, MMMM d, y hh:mm:ss a'">Never</div>
                 <div class="col-md-2 text-center" ng-bind="category.lastPoster == undefined ? 'Nobody' : category.lastPoster"></div>
             </div>
             <div class="row">
