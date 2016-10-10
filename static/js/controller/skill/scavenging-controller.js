@@ -9,6 +9,21 @@ module.exports = function ($scope, $http, $rootScope) {
     $scope.scavengingSlider = 0;
     $scope.maxScavengingPointsToConvert = Math.floor((50 - $scope.user.scavengingPoints) / 5) * 5;
 
+    //TODO: from info
+    $scope.scavengingEnabled = false;
+
+    $scope.updateScavengingEnabled = function() {
+        $scope.scavengingEnabled = !$scope.scavengingEnabled;
+    };
+
+    $scope.getCheckboxImage = function() {
+        if($scope.scavengingEnabled) {
+            return require('../../../image/form/checkbox_selected.png');
+        } else {
+            return require('../../../image/form/checkbox_empty.png');
+        }
+    };
+
     $scope.convertScavengingPoints = function () {
         if ($scope.scavengingSlider == 0) {
             return;
