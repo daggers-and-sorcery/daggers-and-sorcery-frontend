@@ -144,6 +144,11 @@
 				<div marked="explorationEntry.content"></div>
 			</div>
 
+			<!-- MESSAGE BOX -->
+			<div class="race-info-text" ng-if="explorationEntry.eventType == 'MESSAGE_BOX'">
+				<div class="attribute-entry" marked="explorationEntry.content"></div>
+			</div>
+
 			<!-- OPTION -->
 			<div ng-if="explorationEntry.eventType == 'OPTION'">
 				<p ng-repeat="option in explorationEntry.eventOptions"><a ng-click="callOption(option.optionId)" ng-bind="option.text"></a></p>

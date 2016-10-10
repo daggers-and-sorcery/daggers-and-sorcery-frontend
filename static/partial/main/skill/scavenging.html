@@ -50,10 +50,15 @@
                                         <img src="../../../image/cc_char_info_button.png">
                                     </div>
                                     <div>
-                                        To activate the scavenging skill, go to the settings tab, and check scavenging
-                                        enabled. Movement points can be converted into scavenging points by sliding the
+                                        Before you can use scavenging you should enable it using the "enable scavenging"
+                                        checkbox.
+                                        Movement points can be converted into scavenging points by sliding the
                                         bar to the right. The scavenging points are utilized during exploration events.
                                     </div>
+                                </div>
+
+                                <div class="description-holder">
+                                    <img ng-src="{{getCheckboxImage()}}" ng-click="updateScavengingEnabled()" style="    width: 34px;"> Enable scavenging
                                 </div>
                             </div>
                         </div>
