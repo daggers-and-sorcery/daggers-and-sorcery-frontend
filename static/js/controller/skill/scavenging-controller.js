@@ -14,6 +14,12 @@ module.exports = function ($scope, $http, $rootScope) {
 
     $scope.updateScavengingEnabled = function() {
         $scope.scavengingEnabled = !$scope.scavengingEnabled;
+
+        var payload = {
+            scavengingEnabled: $scope.scavengingEnabled
+        };
+
+        $http.post('http://api.daggersandsorcery.com/skill/scavenging/settings', payload);
     };
 
     $scope.getCheckboxImage = function() {
@@ -60,6 +66,7 @@ module.exports = function ($scope, $http, $rootScope) {
     $scope.refreshPoints = function () {
         $http.get('http://api.daggersandsorcery.com/skill/scavenging/info').success(function (data, status, headers, config) {
             $scope.user.scavengingPoints = data.data.scavengingInfo.scavengingPoints;
+            $scope.scavengingEnabled = data.data.scavengingInfo.scavengingEnabled;
 
             var pountsUntilMax = Math.floor((50 - $scope.user.scavengingPoints) / 5) * 5;
 
