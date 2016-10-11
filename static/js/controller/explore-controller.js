@@ -7,6 +7,15 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
     $scope.spellToUse = {};
     $scope.itemToUse = {};
 
+    $scope.mapImageInfo = {
+        field: ['field-0', 'field-1', 'field-2', 'field-3']
+    };
+
+    $scope.getTerrainImage = function () {
+        console.log($scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()][Math.floor(Math.random() * $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()].length)]);
+        return require('image/icon/map/' + $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()][Math.floor(Math.random() * $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()].length)] + '.png');
+    };
+
     $http.get('http://api.daggersandsorcery.com/combat/usable/spell').then(function (response) {
         $scope.usableSpells = response.data.data.spellList;
         if ($scope.usableSpells.length > 0) {
