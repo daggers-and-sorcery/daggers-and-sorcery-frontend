@@ -27,13 +27,26 @@
         margin-bottom: 0;
     }
 </style>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
 <div class="panel panel-default map-page">
     <div class="panel-heading">
         <h3 class="panel-title">Explore</h3>
-        <img class="pull-right" ng-src="{{getTerrainImage()}}" style="    width: 70px;
+        <div  class="pull-right" >
+            <img ng-src="{{getRarityIcon()}}" style="    width: 38px;
+    position: absolute;
+    right: 26px;
+    border-radius: 26px;
+    z-index: 1;
+    margin-top: -6px;"  data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"/>
+            <img ng-src="{{getTerrainImage()}}" style="    width: 70px;
     margin-top: -76px;
     margin-right: -20px;
     -webkit-filter: drop-shadow(0px 0px 6px rgba(0,0,0,0.8));"/>
+        </div>
     </div>
     <div class="panel-body" style="padding: 10px; padding-top: 15px;">
         <div ng-repeat="explorationEntry in explorationResult.events">

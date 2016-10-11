@@ -11,10 +11,15 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
         field: ['field-0', 'field-1', 'field-2', 'field-3']
     };
 
+    $scope.activeMapIcon = $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()][Math.floor(Math.random() * $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()].length)];
+
     $scope.getTerrainImage = function () {
-        console.log($scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()][Math.floor(Math.random() * $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()].length)]);
-        return require('image/icon/map/' + $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()][Math.floor(Math.random() * $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()].length)] + '.png');
+        return require('image/icon/map/' + $scope.activeMapIcon + '.png');
     };
+
+    $scope.getRarityIcon = function() {
+        return require('image/icon/rarity/' + $scope.explorationResult.info.rarity.toLowerCase() + '.png');
+    }
 
     $http.get('http://api.daggersandsorcery.com/combat/usable/spell').then(function (response) {
         $scope.usableSpells = response.data.data.spellList;
