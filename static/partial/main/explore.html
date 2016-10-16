@@ -11,8 +11,8 @@
     }
 
     select.spell-select:focus {
-        border-color: rgba(0,0,0,0.3);
-        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+        border-color: rgba(0, 0, 0, 0.3);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
     }
 
     .attribute-entry p {
@@ -27,127 +27,149 @@
         margin-bottom: 0;
     }
 </style>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
 <div class="panel panel-default map-page">
-	<div class="panel-heading">
-		<h3 class="panel-title">Explore</h3>
-	</div>
-	<div class="panel-body" style="padding: 10px; padding-top: 15px;">
-		<div ng-repeat="explorationEntry in explorationResult.events">
-			<!-- COMBAT -->
-			<div class="race-info-text" ng-if="explorationEntry.eventType == 'COMBAT'">
-				<div class="media" ng-repeat="message in explorationEntry.combatMessages">
-					<div class="media-left" ng-if="message.icon">
-						<img class="icon media-object" style="width: 40px;margin-left: 4px;margin-top: 4px;position: absolute;"
-								 ng-src="{{getCombatIcon(message.icon)}}"/>
-						<img class="icon media-object" style="width: 48px;" src="../../image/icon/tgb_avatar_frame.png"/>
-					</div>
-					<div class="media-body text-center" style="font-weight:700;height: 48px;vertical-align: middle;" ng-if="!message.icon"
-							 ng-bind-html="convertCombatMessage(message.message)"></div>
-					<div class="media-body" ng-if="message.icon" style="vertical-align: middle;" ng-bind-html="convertCombatMessage(message.message)"></div>
-				</div>
-				<div ng-if="!explorationEntry.status.playerDead">
-					<div class="row" ng-if="!explorationEntry.status.combatEnded && !explorationEntry.status.continued" style="    margin-top: 20px;">
-						<div class="col-lg-4">
-							<div>
-								<img src="../../image/papper_container_avatar_spell_frame.png" style="
+    <div class="panel-heading">
+        <h3 class="panel-title">Explore</h3>
+        <div  class="pull-right" >
+            <img ng-src="{{getRarityIcon()}}" style="    width: 32px;
+    position: absolute;
+    right: 26px;
+    border-radius: 26px;
+    z-index: 1;"  data-toggle="tooltip" data-placement="bottom" title="{{getRarityText()}}"/>
+            <img ng-src="{{getTerrainImage()}}" style="    width: 70px;
+    margin-top: -76px;
+    margin-right: -20px;
+    -webkit-filter: drop-shadow(0px 0px 6px rgba(0,0,0,0.8));"/>
+        </div>
+    </div>
+    <div class="panel-body" style="padding: 10px; padding-top: 15px;">
+        <div ng-repeat="explorationEntry in explorationResult.events">
+            <!-- COMBAT -->
+            <div class="race-info-text" ng-if="explorationEntry.eventType == 'COMBAT'">
+                <div class="media" ng-repeat="message in explorationEntry.combatMessages">
+                    <div class="media-left" ng-if="message.icon">
+                        <img class="icon media-object" style="width: 40px;margin-left: 4px;margin-top: 4px;position: absolute;"
+                             ng-src="{{getCombatIcon(message.icon)}}"/>
+                        <img class="icon media-object" style="width: 48px;" src="../../image/icon/tgb_avatar_frame.png"/>
+                    </div>
+                    <div class="media-body text-center" style="font-weight:700;height: 48px;vertical-align: middle;" ng-if="!message.icon"
+                         ng-bind-html="convertCombatMessage(message.message)"></div>
+                    <div class="media-body" ng-if="message.icon" style="vertical-align: middle;" ng-bind-html="convertCombatMessage(message.message)"></div>
+                </div>
+                <div ng-if="!explorationEntry.status.playerDead">
+                    <div class="row" ng-if="!explorationEntry.status.combatEnded && !explorationEntry.status.continued" style="    margin-top: 20px;">
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="../../image/papper_container_avatar_spell_frame.png" style="
     width: 100px;">
-								<img src="../../image/icon/combat/cast.png" style="    position: absolute;
+                                <img src="../../image/icon/combat/cast.png" style="    position: absolute;
     left: 20px;
     top: 5px;
     width: 59px;
     border-radius: 90px;">
-								<h4 class="text-center" style="    position: absolute;
+                                <h4 class="text-center" style="    position: absolute;
     left: 31px;
     top: 14px;
     right: 0;
     vertical-align: middle;">Cast a spell</h4>
-							</div>
-							<div class="text-center" ng-if="!explorationEntry.status.combatEnded" style="width: 180px; margin-left: auto; margin-right: auto;">
-								<select class="form-control spell-select" ng-model="spellToUse.target" ng-options="spell.name for spell in usableSpells track by spell.id" ng-value="spell.id"></select>
-								<button class="button-default" ng-click="cast()" style="margin-top: 10px;">Cast</button>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div>
-								<img src="../../image/papper_container_avatar_spell_frame.png" style="
+                            </div>
+                            <div class="text-center" ng-if="!explorationEntry.status.combatEnded" style="width: 180px; margin-left: auto; margin-right: auto;">
+                                <select class="form-control spell-select" ng-model="spellToUse.target" ng-options="spell.name for spell in usableSpells track by spell.id" ng-value="spell.id"></select>
+                                <button class="button-default" ng-click="cast()" style="margin-top: 10px;">Cast</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="../../image/papper_container_avatar_spell_frame.png" style="
     width: 100px;">
-								<img src="../../image/icon/combat/attack.png" style="    position: absolute;
+                                <img src="../../image/icon/combat/attack.png" style="    position: absolute;
     left: 20px;
     top: 5px;
     width: 59px;
     border-radius: 90px;">
-								<h4 class="text-center" style="    position: absolute;
+                                <h4 class="text-center" style="    position: absolute;
     left: 0;
     top: 14px;
     right: 0;
     vertical-align: middle;">Attack</h4>
-							</div>
-							<div class="text-center" ng-if="!explorationEntry.status.combatEnded">
-								<button class="button-default" ng-click="attack()">Attack</button>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div>
-								<img src="../../image/papper_container_avatar_spell_frame.png" style="
+                            </div>
+                            <div class="text-center" ng-if="!explorationEntry.status.combatEnded">
+                                <button class="button-default" ng-click="attack()">Attack</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="../../image/papper_container_avatar_spell_frame.png" style="
     width: 100px;">
-								<img src="../../image/icon/combat/use.png" style="    position: absolute;
+                                <img src="../../image/icon/combat/use.png" style="    position: absolute;
     left: 20px;
     top: 5px;
     width: 59px;
     border-radius: 90px;">
-								<h4 class="text-center" style="    position: absolute;
+                                <h4 class="text-center" style="    position: absolute;
     left: 31px;
     top: 14px;
     right: 0;
     vertical-align: middle;">Use an item</h4>
-							</div>
-							<div class="text-center" ng-if="!explorationEntry.status.combatEnded" style="width: 180px; margin-left: auto; margin-right: auto;">
-								<select class="form-control spell-select" ng-model="itemToUse.target" ng-options="item.name for item in usableItems track by item.id" ng-value="item.id"></select>
-								<button class="button-default" ng-click="use()" style="margin-top: 10px;">Use</button>
-							</div>
-						</div>
-					</div>
-					<div class="row" ng-if="!explorationEntry.status.combatEnded && !explorationEntry.status.continued">
-						<div class="col-lg-offset-4 col-lg-4">
-							<div>
-								<img src="../../image/papper_container_avatar_spell_frame.png" style="
+                            </div>
+                            <div class="text-center" ng-if="!explorationEntry.status.combatEnded" style="width: 180px; margin-left: auto; margin-right: auto;">
+                                <select class="form-control spell-select" ng-model="itemToUse.target" ng-options="item.name for item in usableItems track by item.id" ng-value="item.id"></select>
+                                <button class="button-default" ng-click="use()" style="margin-top: 10px;">Use</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="!explorationEntry.status.combatEnded && !explorationEntry.status.continued">
+                        <div class="col-lg-offset-4 col-lg-4">
+                            <div>
+                                <img src="../../image/papper_container_avatar_spell_frame.png" style="
     width: 100px;">
-								<img src="../../image/icon/combat/flee.png" style="    position: absolute;
+                                <img src="../../image/icon/combat/flee.png" style="    position: absolute;
     left: 20px;
     top: 5px;
     width: 59px;
     border-radius: 90px;">
-								<h4 class="text-center" style="    position: absolute;
+                                <h4 class="text-center" style="    position: absolute;
     left: 31px;
     top: 14px;
     right: 0;
     vertical-align: middle;">Use an item</h4>
-							</div>
-							<div class="text-center" ng-if="!explorationEntry.status.combatEnded" style="width: 180px; margin-left: auto; margin-right: auto;">
-								<button class="button-default" ng-click="flee()">Flee</button>
-							</div>
-						</div>
-					</div>
-					<div class="text-center" ng-if="explorationEntry.status.combatEnded && !explorationEntry.status.continued">
-						<button class="button-default" ng-click="continueExploring()">Continue</button>
-					</div>
-				</div>
-			</div>
+                            </div>
+                            <div class="text-center" ng-if="!explorationEntry.status.combatEnded" style="width: 180px; margin-left: auto; margin-right: auto;">
+                                <button class="button-default" ng-click="flee()">Flee</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center" ng-if="explorationEntry.status.combatEnded && !explorationEntry.status.continued">
+                        <button class="button-default" ng-click="continueExploring()">Continue</button>
+                    </div>
+                </div>
+            </div>
 
-			<!-- ATTRIBUTE_ATTEMPT -->
-			<div class="race-info-text" ng-if="explorationEntry.eventType == 'ATTRIBUTE_ATTEMPT'">
+            <!-- ATTRIBUTE_ATTEMPT -->
+            <div class="race-info-text" ng-if="explorationEntry.eventType == 'ATTRIBUTE_ATTEMPT'">
                 <div class="attribute-entry" marked="message.content" ng-repeat="message in explorationEntry.messages"></div>
-			</div>
+            </div>
 
-			<!-- TEXT -->
-			<div ng-if="explorationEntry.eventType == 'TEXT'">
-				<div marked="explorationEntry.content"></div>
-			</div>
+            <!-- TEXT -->
+            <div ng-if="explorationEntry.eventType == 'TEXT'">
+                <div marked="explorationEntry.content"></div>
+            </div>
 
-			<!-- OPTION -->
-			<div ng-if="explorationEntry.eventType == 'OPTION'">
-				<p ng-repeat="option in explorationEntry.eventOptions"><a ng-click="callOption(option.optionId)" ng-bind="option.text"></a></p>
-			</div>
-		</div>
-	</div>
+            <!-- MESSAGE BOX -->
+            <div class="race-info-text" ng-if="explorationEntry.eventType == 'MESSAGE_BOX'">
+                <div class="attribute-entry" marked="explorationEntry.content"></div>
+            </div>
+
+            <!-- OPTION -->
+            <div ng-if="explorationEntry.eventType == 'OPTION'">
+                <p ng-repeat="option in explorationEntry.eventOptions">
+                    <a ng-click="callOption(option.optionId)" ng-bind="option.text"></a></p>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,23 +1,32 @@
 'use strict';
 
-module.exports = function ($scope, $http, topics) {
+module.exports = function ($scope, $http, $log, topics) {
     $scope.topics = topics;
 
     $scope.newTopicTitle = '';
     $scope.newTopicContent = '';
 
     $scope.newTopic = function () {
-        var payload = {
-            name: $scope.newTopicTitle,
-            content: $scope.newTopicContent,
-            parentCategory: $scope.topics.parentCategory.id
-        };
+        if ($scope.newTopicTitle.trim().length > 0 && $scope.newTopicContent.trim().length > 0) {
+            var payload = {
+                name: $scope.newTopicTitle,
+                content: $scope.newTopicContent,
+                parentCategory: $scope.topics.parentCategory.id
+            };
 
-        $http.post('http://api.daggersandsorcery.com/forum/new_topic', payload).then(function (response) {
-                $http.get('http://api.daggersandsorcery.com/forum/list/category/' + $scope.topics.parentCategory.id).then(function (response) {
-                    $scope.topics = response.data.data;
-                })
-            }
-        );
+            $log.debug('Sending new topic with payload: ' + angular.toJson(payload));
+
+            $http.post('http://api.daggersandsorcery.com/forum/new_topic', payload).then(function (response) {
+                    $http.get('http://api.daggersandsorcery.com/forum/list/category/' + $scope.topics.parentCategory.id).then(function (response) {
+                        $scope.topics = response.data.data;
+
+                        $scope.newTopicContent = '';
+                        $scope.newTopicTitle = '';
+                    })
+                }
+            );
+        } else {
+            $log.debug('Not sending topic because it\'s empty!');
+        }
     };
 };
