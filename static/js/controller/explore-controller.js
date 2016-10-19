@@ -24,7 +24,7 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
 
     $scope.getRarityIcon = function() {
         return require('image/icon/rarity/' + $scope.explorationResult.info.rarity.toLowerCase() + '.png');
-    }
+    };
 
     $scope.getRarityText = function() {
         var eventRarity = $scope.explorationResult.info.rarity.toLowerCase();
@@ -39,7 +39,7 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
             case 'epic':
                 return 'Epic event';
         }
-    }
+    };
 
     $http.get('http://api.daggersandsorcery.com/combat/usable/spell').then(function (response) {
         $scope.usableSpells = response.data.data.spellList;
