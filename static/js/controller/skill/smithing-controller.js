@@ -74,7 +74,7 @@ module.exports = function ($scope, $http, Flash, smithingRecipeList) {
             case 'NOT_ENOUGH_MOVEMENT':
                 return 'You don\'t have enough movement points to do this task.';
         }
-    }
+    };
 
     var getSmithingResultText = function(result) {
         switch(result) {
