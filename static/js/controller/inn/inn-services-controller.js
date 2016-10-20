@@ -21,6 +21,8 @@ module.exports = function ($scope, $state, $http, $sce, marked, Flash, innInfo) 
 
     $scope.orderService = function (serviceId) {
         $http.get('http://api.daggersandsorcery.com/inn/service/' + serviceId).then(function (response) {
+            Flash.clear();
+
             if (response.data.data.result.successful) {
                 Flash.create('success', 'You successfully paid for the service and enjoy it\'s benefits.');
             } else {
@@ -36,6 +38,7 @@ module.exports = function ($scope, $state, $http, $sce, marked, Flash, innInfo) 
                 '<dl>' +
                 '<dt>Cost</dt><dd>3 Bronze coins and 1 movement point.</dd>' +
                 '<dt>Effect</dt><dd>You are healed for 5 health points.</dd>' +
+                '<dd>You are healed for 2 mana points.</dd>' +
                 '</dl>'
             );
         } else if (serviceId === 'COMMON_ROOM') {
@@ -44,6 +47,7 @@ module.exports = function ($scope, $state, $http, $sce, marked, Flash, innInfo) 
                 '<dl>' +
                 '<dt>Cost</dt><dd>7 Bronze coins and 2 movement point.</dd>' +
                 '<dt>Effect</dt><dd>You are healed for 12 health points.</dd>' +
+                '<dd>You are healed for 4 health points.</dd>' +
                 '</dl>'
             );
         }
