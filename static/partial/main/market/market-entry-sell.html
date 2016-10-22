@@ -1,0 +1,132 @@
+<div class="panel panel-default button-panel shop scavenging-panel">
+    <div class="panel-heading">
+        <img class="panel-heading-icon-improved" src="../../../image/icon/extra/market.png">
+        <img class="panel-heading-icon-improved-holder" src="../../../image/m_action_frame.png"/>
+        <h3 class="panel-title">Market</h3>
+    </div>
+    <div class="panel-body" style="padding: 6px;">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row" style="    margin-top: 20px;">
+                    <div class="col-md-offset-2 col-md-4 col-lg-offset-2 col-lg-4 big-button">
+                        <img src="../../../image/cf_main_frame.png" class="img-responsive">
+                        <img class="big-button-icon" src="../../../image/icon/extra/agreement.png"/>
+                        <span class="big-button-text" ui-sref="market">Sell</span>
+                    </div>
+                    <div class="col-md-4 col-lg-4 big-button">
+                        <img src="../../../image/cf_main_frame.png" class="img-responsive">
+                        <img class="big-button-icon" src="../../../image/icon/extra/sell.png"/>
+                        <span class="big-button-text">Buy</span>
+                    </div>
+                </div>
+                <div class="shop-inner-container">
+                    <h3 class="text-center">Sell</h3>
+                    <div class="row" style="
+    padding-top: 25px;
+    margin-bottom: 10px;">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="information-holder">
+                                <div class="information-holder-icon">
+                                    <img src="../../../image/cc_char_info_button.png">
+                                </div>
+                                <div>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel semper diam,
+                                    vitae cursus orci. Duis fermentum urna non sem luctus tempor. Quisque viverra
+                                    iaculis dui, ut bibendum urna sollicitudin in. Aenean sagittis orci sit amet dolor
+                                    porttitor scelerisque. Aenean vel augue diam. Sed vel sagittis dolor. Sed sagittis,
+                                    lacus ut interdum ornare, dui odio consectetur metus, ut aliquam tortor felis sed
+                                    elit.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-center">Item name</h3>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                            <dl class="inventory-popup-definition-list">
+                                <dt>Name:</dt>
+                                <dd ng-bind="::entry.name"></dd>
+                                <dt>Type:</dt>
+                                <dd ng-bind="::entry.type"></dd>
+                                <dt>Weight:</dt>
+                                <dd ng-bind="::entry.weight + ' kg'"></dd>
+                                <dt>Equipment:</dt>
+                                <dd ng-bind="::entry.equipment"></dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                            <dl class="inventory-popup-definition-list">
+                                <dt ng-if="entry.requirements.length > 0">Requirements:</dt>
+                                <dd ng-repeat="requirement in entry.requirements"
+                                    ng-bind="::requirement.value + ' - ' + requirement.attribute"></dd>
+                                <dt ng-if="entry.modifiers.length > 0">Modifiers:</dt>
+                                <dd ng-repeat="modifier in entry.modifiers"
+                                    ng-bind="::modifier.value + ' - ' + modifier.attribute"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <h3 class="text-center">Make an offer</h3>
+                    <div class="row">
+                        <div class="col-xs-offset-4 col-xs-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4 text-center">
+                            <h4>Ammount:</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-offset-4 col-xs-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4 text-center">
+                            <input class="form-control max-width" type="number" min="1" max="10" value="0"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-offset-4 col-xs-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4 text-center">
+                            <h4>Price:</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-offset-4 col-xs-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4 text-center">
+                            <div class="row">
+                                <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10" style="padding-right: 0;">
+                                    <input class="form-control" type="number" min="1" max="10" value="0"/>
+                                </div>
+                                <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2" style="    padding-left: 2px;
+    padding-top: 6px;">
+                                    <img class="shop-money-icon" src="../../../image/icon/shop/bronze.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-offset-4 col-xs-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4 text-center">
+                            <div class="row">
+                                <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10" style="padding-right: 0;">
+                                    <input class="form-control" type="number" min="1" max="10" value="0"/>
+                                </div>
+                                <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2" style="    padding-left: 2px;
+    padding-top: 6px;">
+                                    <img class="shop-money-icon" src="../../../image/icon/shop/silver.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-offset-4 col-xs-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4 text-center">
+                            <div class="row">
+                                <div class="col-md-10 col-xs-10 col-sm-10 col-lg-10" style="padding-right: 0;">
+                                    <input class="form-control" type="number" min="1" max="10" value="0"/>
+                                </div>
+                                <div class="col-md-2 col-xs-2 col-sm-2 col-lg-2" style="    padding-left: 2px;
+    padding-top: 6px;">
+                                    <img class="shop-money-icon" src="../../../image/icon/shop/gold.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="    margin-top: 12px;">
+                        <div class="col-xs-offset-4 col-xs-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-lg-offset-4 col-lg-4 text-center">
+                            <button class="button-default max-width">Sell</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
