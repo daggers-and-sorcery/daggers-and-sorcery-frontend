@@ -43,6 +43,10 @@
                     <label for="itemname">Item name</label>
                     <input class="form-control" id="itemname" ng-model="item.definition.name"/>
 
+                    <div class="text-center" ng-if="shopData.items.length == 0" style="    margin-top: 14px;">
+                        No items to sell in your inventory.
+                    </div>
+
                     <div ng-repeat="type in shopData.items" ng-if="(type.items  | filter:item).length > 0">
                         <h4 ng-bind="type.typeName"></h4>
                         <div class="shop-table-entry-container">
