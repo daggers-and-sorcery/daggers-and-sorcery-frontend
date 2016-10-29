@@ -8,19 +8,24 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row" style="    margin-top: 20px;">
-                    <div class="col-md-offset-2 col-md-4 col-lg-offset-2 col-lg-4 big-button">
+                    <div class="col-md-4 col-lg-4 big-button" ui-sref="market-list-sell">
                         <img src="../../../image/cf_main_frame.png" class="img-responsive">
                         <img class="big-button-icon" src="../../../image/icon/extra/agreement.png"/>
                         <span class="big-button-text">Sell</span>
                     </div>
-                    <div class="col-md-4 col-lg-4 big-button">
+                    <div class="col-md-4 col-lg-4 big-button" ui-sref="market-list-buy">
                         <img src="../../../image/cf_main_frame.png" class="img-responsive">
                         <img class="big-button-icon" src="../../../image/icon/extra/sell.png"/>
                         <span class="big-button-text">Buy</span>
                     </div>
+                    <div class="col-md-4 col-lg-4 big-button" ui-sref="market-list-buy">
+                        <img src="../../../image/cf_main_frame.png" class="img-responsive">
+                        <img class="big-button-icon" src="../../../image/icon/extra/sell.png"/>
+                        <span class="big-button-text">My listings</span>
+                    </div>
                 </div>
                 <div class="shop-inner-container">
-                    <h3 class="text-center">Sell</h3>
+                    <h3 class="text-center">Buy</h3>
                     <div class="row" style="
     padding-top: 25px;
     margin-bottom: 10px;">
@@ -43,28 +48,33 @@
                     <label for="itemname">Item name</label>
                     <input class="form-control" id="itemname" ng-model="item.definition.name"/>
 
-                    <div class="text-center" ng-if="shopData.items.length == 0" style="    margin-top: 14px;">
-                        No items to sell in your inventory.
+                    <div class="text-center" ng-if="marketData.items.length == 0" style="    margin-top: 14px;">
+                        No items to buy at the market.
                     </div>
 
-                    <div ng-repeat="type in shopData.items" ng-if="(type.items  | filter:item).length > 0">
+                    <div ng-repeat="type in marketData.types" ng-if="(type.offers  | filter:item).length > 0">
                         <h4 ng-bind="type.typeName"></h4>
                         <div class="shop-table-entry-container">
-                            <div class="row" ng-repeat="item in type.items | filter:item">
+                            <div class="row" ng-repeat="item in type.offers | filter:item">
                                 <div class="col-sm-12 col-md-12 col-lg-12 shop-item-container">
                                     <div class="row">
-                                        <div class="col-xs-3 col-sm-3 col-md-1 col-lg-1 text-center shop-entry-text">
+                                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-center shop-entry-text">
                                             <span class="badge text-center" ng-bind="item.amount"></span>
                                         </div>
-                                        <div class="col-md-9 col-lg-9 shop-entry-text">
+                                        <div class="col-md-7 col-lg-7 shop-entry-text">
                                             {{item.definition.name}}
                                             <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon"
                                                   popover-html-unsafe="{{inventoryPopover}}"
                                                   popover-trigger="mouseenter" popover-placement="right"></span>
                                         </div>
+                                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center shop-entry-text">
+                                            <span>{{item.cheapestPrice % 100}} <img class="shop-money-icon" src="../../../image/icon/shop/bronze.png"></span>
+                                            <span ng-if="item.cheapestPrice > 100">{{floor((item.cheapestPrice / 100) % 100)}} <img class="shop-money-icon" src="../../../image/icon/shop/silver.png"></span>
+                                            <span ng-if="item.cheapestPrice > 10000">{{floor(item.cheapestPrice / 10000)}} <img class="shop-money-icon" src="../../../image/icon/shop/gold.png"></span>
+                                        </div>
                                         <div class="col-lg-2 text-center">
                                             <button class="button-default shop-button" ui-sref="market-entry-sell({itemId: item.definition.id})">
-                                                Sell
+                                                Buy
                                             </button>
                                         </div>
                                     </div>

@@ -24,8 +24,12 @@ module.exports = function ($scope, $http, $log, marketData) {
             priceGold: $scope.item.price.goldPrice
         };
 
-        $http.post('http://api.daggersandsorcery.com/market/sell', payload).then(function (response) {
-            $log.debug("Got response for selling attempt!");
-        });
+        if ($scope.sellForm.$valid) {
+            $scope.marketData.sellData.maximumAmount -= $scope.item.amount;
+
+            $http.post('http://api.daggersandsorcery.com/market/sell', payload).then(function (response) {
+                $log.debug("Got response for selling attempt!");
+            });
+        }
     };
 };

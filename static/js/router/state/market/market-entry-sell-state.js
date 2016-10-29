@@ -2,11 +2,11 @@
 
 module.exports = {
     name: 'market-entry-sell',
-    url: '/market-entry-sell/',
+    url: '/market/sell/:itemId',
     template: require('partial/main/market/market-entry-sell.html'),
     resolve: {
-        marketData: function ($http) {
-            return $http.get('http://api.daggersandsorcery.com/market/show/sell/'+'107').then(function (response) {
+        marketData: function ($http, $stateParams) {
+            return $http.get('http://api.daggersandsorcery.com/market/show/sell/' + $stateParams.itemId).then(function (response) {
                 return response.data.data;
             });
         }
