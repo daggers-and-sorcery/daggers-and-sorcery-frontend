@@ -1,0 +1,93 @@
+<div class="panel panel-default button-panel shop scavenging-panel">
+    <div class="panel-heading">
+        <img class="panel-heading-icon-improved" src="../../../image/icon/extra/market.png">
+        <img class="panel-heading-icon-improved-holder" src="../../../image/m_action_frame.png"/>
+        <h3 class="panel-title">Market</h3>
+    </div>
+    <div class="panel-body" style="padding: 6px;">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row" style="    margin-top: 20px;">
+                    <div ng-include="'market-header'"></div>
+                </div>
+                <div class="shop-inner-container">
+                    <h3 class="text-center">Buy</h3>
+                    <div class="row" style="
+    padding-top: 25px;
+    margin-bottom: 10px;">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="information-holder">
+                                <div class="information-holder-icon">
+                                    <img src="../../../image/cc_char_info_button.png">
+                                </div>
+                                <div>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel semper diam,
+                                    vitae cursus orci. Duis fermentum urna non sem luctus tempor. Quisque viverra
+                                    iaculis dui, ut bibendum urna sollicitudin in. Aenean sagittis orci sit amet dolor
+                                    porttitor scelerisque. Aenean vel augue diam. Sed vel sagittis dolor. Sed sagittis,
+                                    lacus ut interdum ornare, dui odio consectetur metus, ut aliquam tortor felis sed
+                                    elit.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-center" ng-bind="::marketData.item.name"></h3>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                            <dl class="inventory-popup-definition-list">
+                                <dt>Name:</dt>
+                                <dd ng-bind="::marketData.item.name"></dd>
+                                <dt>Type:</dt>
+                                <dd ng-bind="::marketData.item.type"></dd>
+                                <dt>Weight:</dt>
+                                <dd ng-bind="::marketData.item.weight + ' kg'"></dd>
+                                <dt>Equipment:</dt>
+                                <dd ng-bind="::marketData.item.equipment"></dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                            <dl class="inventory-popup-definition-list">
+                                <dt ng-if="marketData.item.requirements.length > 0">Requirements:</dt>
+                                <dd ng-repeat="requirement in marketData.item.requirements"
+                                    ng-bind="::requirement.value + ' - ' + requirement.attribute"></dd>
+                                <dt ng-if="marketData.item.modifiers.length > 0">Modifiers:</dt>
+                                <dd ng-repeat="modifier in marketData.item.modifiers"
+                                    ng-bind="::modifier.value + ' - ' + modifier.attribute"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <h3 class="text-center">Buy an item</h3>
+
+                    <div class="text-center" ng-if="marketData.listings.length == 0">
+                        No items to buy.
+                    </div>
+
+                    <div class="shop-table-entry-container">
+                        <div class="row" ng-repeat="offer in marketData.listings" ng-if="marketData.listings.length > 0">
+                            <div class="col-sm-12 col-md-12 col-lg-12 shop-item-container" style="
+    padding-left: 15px;
+    padding-right: 15px;">
+                                <div class="row">
+                                    <div class="col-md-1 col-lg-1 shop-entry-text">
+                                        <span class="badge text-center" ng-bind="offer.amount"></span>
+                                    </div>
+                                    <div class="col-md-7 col-lg-7 shop-entry-text" ng-bind="offer.seller"></div>
+                                    <div class="col-md-2 col-lg-2 shop-entry-text text-center">
+                                        <span>{{offer.price % 100}} <img class="shop-money-icon" src="../../../image/icon/shop/bronze.png"></span>
+                                        <span ng-if="offer.price > 100">{{floor((offer.price / 100) % 100)}} <img class="shop-money-icon" src="../../../image/icon/shop/silver.png"></span>
+                                        <span ng-if="offer.price > 10000">{{floor(offer.price / 10000)}} <img class="shop-money-icon" src="../../../image/icon/shop/gold.png"></span>
+                                    </div>
+                                    <div class="col-lg-2 text-center">
+                                        <button class="button-default shop-button" ng-click="buyItem(offer.id)">
+                                            Buy
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

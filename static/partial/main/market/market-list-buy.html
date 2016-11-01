@@ -8,21 +8,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row" style="    margin-top: 20px;">
-                    <div class="col-md-4 col-lg-4 big-button" ui-sref="market-list-sell">
-                        <img src="../../../image/cf_main_frame.png" class="img-responsive">
-                        <img class="big-button-icon" src="../../../image/icon/extra/agreement.png"/>
-                        <span class="big-button-text">Sell</span>
-                    </div>
-                    <div class="col-md-4 col-lg-4 big-button" ui-sref="market-list-buy">
-                        <img src="../../../image/cf_main_frame.png" class="img-responsive">
-                        <img class="big-button-icon" src="../../../image/icon/extra/sell.png"/>
-                        <span class="big-button-text">Buy</span>
-                    </div>
-                    <div class="col-md-4 col-lg-4 big-button" ui-sref="market-list-buy">
-                        <img src="../../../image/cf_main_frame.png" class="img-responsive">
-                        <img class="big-button-icon" src="../../../image/icon/extra/sell.png"/>
-                        <span class="big-button-text">My listings</span>
-                    </div>
+                    <div ng-include="'market-header'"></div>
                 </div>
                 <div class="shop-inner-container">
                     <h3 class="text-center">Buy</h3>
@@ -73,7 +59,7 @@
                                             <span ng-if="item.cheapestPrice > 10000">{{floor(item.cheapestPrice / 10000)}} <img class="shop-money-icon" src="../../../image/icon/shop/gold.png"></span>
                                         </div>
                                         <div class="col-lg-2 text-center">
-                                            <button class="button-default shop-button" ui-sref="market-entry-sell({itemId: item.definition.id})">
+                                            <button class="button-default shop-button" ui-sref="market-entry-buy({itemId: item.definition.id})">
                                                 Buy
                                             </button>
                                         </div>

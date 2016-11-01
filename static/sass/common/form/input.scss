@@ -1,14 +1,18 @@
 input.form-control {
-  border: 8px;
-  border-image-source: url(../../../image/text_input.png);
-  border-style:solid;
-  border-image-slice: 22 fill;
-  background: transparent;
-  height: 38px;
-  font-size: 16px;
-  padding: 5px;
+    border: 8px;
+    border-image-source: url(../../../image/text_input.png);
+    border-style: solid;
+    border-image-slice: 22 fill;
+    background: transparent;
+    height: 38px;
+    font-size: 16px;
+    padding: 5px;
 }
 
 input.form-control:focus {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(245,222,179,0.3);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(245, 222, 179, 0.3);
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: transparent;
 }
