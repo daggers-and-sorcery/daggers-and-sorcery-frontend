@@ -1,3 +1,6 @@
+// Analytics
+require('js/analytics/google-analytics.js');
+
 // Vendor - JQuery
 var $ = require('vendor/jquery/js/jquery.min.js');
 window.jQuery = $;
