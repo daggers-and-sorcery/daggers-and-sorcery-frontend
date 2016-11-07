@@ -93,3 +93,7 @@ node_modules
 .node_repl_history
 
 /static/bundle
+gradlew
+gradlew.bat
+.gradle/
+gradle/
