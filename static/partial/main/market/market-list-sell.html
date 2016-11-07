@@ -1,0 +1,70 @@
+<div class="panel panel-default button-panel shop scavenging-panel">
+    <div class="panel-heading">
+        <img class="panel-heading-icon-improved" src="../../../image/icon/extra/market.png">
+        <img class="panel-heading-icon-improved-holder" src="../../../image/m_action_frame.png"/>
+        <h3 class="panel-title">Market</h3>
+    </div>
+    <div class="panel-body" style="padding: 6px;">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row" style="    margin-top: 20px;">
+                    <div ng-include="'market-header'"></div>
+                </div>
+                <div class="shop-inner-container">
+                    <h3 class="text-center">Sell</h3>
+                    <div class="row" style="
+    padding-top: 25px;
+    margin-bottom: 10px;">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="information-holder">
+                                <div class="information-holder-icon">
+                                    <img src="../../../image/cc_char_info_button.png">
+                                </div>
+                                <div>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel semper diam,
+                                    vitae cursus orci. Duis fermentum urna non sem luctus tempor. Quisque viverra
+                                    iaculis dui, ut bibendum urna sollicitudin in. Aenean sagittis orci sit amet dolor
+                                    porttitor scelerisque. Aenean vel augue diam. Sed vel sagittis dolor. Sed sagittis,
+                                    lacus ut interdum ornare, dui odio consectetur metus, ut aliquam tortor felis sed
+                                    elit.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="itemname">Item name</label>
+                    <input class="form-control" id="itemname" ng-model="item.definition.name"/>
+
+                    <div class="text-center" ng-if="shopData.items.length == 0" style="    margin-top: 14px;">
+                        No items to sell in your inventory.
+                    </div>
+
+                    <div ng-repeat="type in shopData.items" ng-if="(type.items  | filter:item).length > 0">
+                        <h4 ng-bind="type.typeName"></h4>
+                        <div class="shop-table-entry-container">
+                            <div class="row" ng-repeat="item in type.items | filter:item">
+                                <div class="col-sm-12 col-md-12 col-lg-12 shop-item-container">
+                                    <div class="row">
+                                        <div class="col-xs-1 col-sm-1 text-center shop-entry-text">
+                                            <span class="badge text-center" ng-bind="item.amount"></span>
+                                        </div>
+                                        <div class="col-md-9 col-lg-9 shop-entry-text">
+                                            {{item.definition.name}}
+                                            <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon"
+                                                  popover-html-unsafe="{{inventoryPopover}}"
+                                                  popover-trigger="mouseenter" popover-placement="right"></span>
+                                        </div>
+                                        <div class="col-lg-2 text-center">
+                                            <button class="button-default shop-button" ui-sref="market-entry-sell({itemId: item.definition.id})">
+                                                Sell
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
