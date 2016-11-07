@@ -17,6 +17,7 @@ module.exports = require('js/app.js').config(function ($stateProvider, $urlRoute
             .state(require('js/router/state/market/market-list-buy-state.js'))
             .state(require('js/router/state/market/market-entry-sell-state.js'))
             .state(require('js/router/state/market/market-entry-buy-state.js'))
+            .state(require('js/router/state/market/market-my-offers-state.js'))
             .state(require('js/router/state/spellpage-state.js'))
             .state(require('js/router/state/prelude-state.js'))
             .state(require('js/router/state/skill/scavenging-state.js'))
