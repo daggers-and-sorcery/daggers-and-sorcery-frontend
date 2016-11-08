@@ -28,17 +28,23 @@
                     <div class="row">
                         <div class="col-lg-offset-3 col-lg-3">Your money:</div>
                         <div class="col-lg-1">
-                            {{shopData.money.bronze}}
-                            <img class="shop-money-icon" src="../../image/icon/shop/bronze.png">
+                            {{shopData.money.gold}}
+                            <img class="shop-money-icon" src="../../image/icon/shop/gold.png">
                         </div>
                         <div class="col-lg-1">
                             {{shopData.money.silver}}
                             <img class="shop-money-icon" src="../../image/icon/shop/silver.png">
                         </div>
                         <div class="col-lg-1">
-                            {{shopData.money.gold}}
-                            <img class="shop-money-icon" src="../../image/icon/shop/gold.png">
+                            {{shopData.money.bronze}}
+                            <img class="shop-money-icon" src="../../image/icon/shop/bronze.png">
                         </div>
+                    </div>
+                </div>
+                <div class="shop-search-container row">
+                    <div class="col-lg-12">
+                        <label for="item-name-for-sell">Item name</label>
+                        <input class="form-control" id="item-name-for-sell" ng-model="item.definition.name"/>
                     </div>
                 </div>
                 <div class="row">
@@ -49,10 +55,10 @@
                         Price
                     </div>
                 </div>
-                <div ng-repeat="type in shopData.items">
+                <div ng-repeat="type in shopData.items" ng-if="(type.items  | filter:item).length > 0">
                     <h4 ng-bind="type.typeName"></h4>
                     <div class="shop-table-entry-container">
-                        <div class="row" ng-repeat="item in type.items">
+                        <div class="row" ng-repeat="item in type.items | filter:item">
                             <div class="col-sm-12 col-md-12 col-lg-12 shop-item-container">
                                 <div class="row">
                                     <div class="col-xs-3 col-sm-3 col-md-1 col-lg-1 text-center shop-entry-text">
@@ -63,9 +69,7 @@
                                         <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
                                     </div>
                                     <div class="col-md-3 col-lg-3 text-center shop-entry-text">
-                                        <span>{{item.price % 100}} <img class="shop-money-icon" src="../../image/icon/shop/bronze.png"></span>
-                                        <span ng-if="item.price > 100">{{floor((item.price / 100) % 100)}} <img class="shop-money-icon" src="../../image/icon/shop/silver.png"></span>
-                                        <span ng-if="item.price > 10000">{{floor(item.price / 10000)}} <img class="shop-money-icon" src="../../image/icon/shop/gold.png"></span>
+                                        <display-price price="item.price"></display-price>
                                     </div>
                                     <div class="col-lg-2 text-center">
                                         <button class="button-default shop-button" ng-click="sellItem(item.definition.id)">
@@ -83,12 +87,21 @@
                 <div class="text-center" style="padding-bottom: 10px;">
                     <div class="row">
                         <div class="col-lg-offset-3 col-lg-3">Your money:</div>
-                        <div class="col-lg-1">{{shopData.money.bronze}}
-                            <img class="shop-money-icon" src="../../image/icon/shop/bronze.png"></div>
-                        <div class="col-lg-1">{{shopData.money.silver}}
-                            <img class="shop-money-icon" src="../../image/icon/shop/silver.png"></div>
                         <div class="col-lg-1">{{shopData.money.gold}}
-                            <img class="shop-money-icon" src="../../image/icon/shop/gold.png"></div>
+                            <img class="shop-money-icon" src="../../image/icon/shop/gold.png">
+                        </div>
+                        <div class="col-lg-1">{{shopData.money.silver}}
+                            <img class="shop-money-icon" src="../../image/icon/shop/silver.png">
+                        </div>
+                        <div class="col-lg-1">{{shopData.money.bronze}}
+                            <img class="shop-money-icon" src="../../image/icon/shop/bronze.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="shop-search-container row">
+                    <div class="col-lg-12">
+                        <label for="item-name-for-buy">Item name</label>
+                        <input class="form-control" id="item-name-for-buy" ng-model="item.definition.name"/>
                     </div>
                 </div>
                 <div class="row">
@@ -99,10 +112,10 @@
                         Price
                     </div>
                 </div>
-                <div ng-repeat="type in shopData.items">
+                <div ng-repeat="type in shopData.items" ng-if="(type.items  | filter:item).length > 0">
                     <h4 ng-bind="type.typeName"></h4>
                     <div class="shop-table-entry-container">
-                    <div class="row" ng-repeat="item in type.items">
+                    <div class="row" ng-repeat="item in type.items | filter:item">
                         <div class="col-sm-12 col-md-12 col-lg-12 shop-item-container">
                             <div class="row">
                                 <div class="col-xs-3 col-sm-3 col-md-1 col-lg-1 text-center shop-entry-text">
@@ -112,9 +125,7 @@
                                     <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
                                 </div>
                                 <div class="col-md-3 col-lg-3 text-center shop-entry-text">
-                                    <span>{{item.price % 100}} <img class="shop-money-icon" src="../../image/icon/shop/bronze.png"></span>
-                                    <span ng-if="item.price > 100">{{floor((item.price / 100) % 100)}} <img class="shop-money-icon" src="../../image/icon/shop/silver.png"></span>
-                                    <span ng-if="item.price > 10000">{{floor(item.price / 10000)}} <img class="shop-money-icon" src="../../image/icon/shop/gold.png"></span>
+                                    <display-price price="item.price"></display-price>
                                 </div>
                                 <div class="col-lg-2 text-center">
                                     <button class="button-default shop-button" ng-click="buyItem(item.definition.id)">

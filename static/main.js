@@ -29,6 +29,7 @@ require('js/filter/capitalize-filter.js');
 // Directive
 require('js/directive/bind-html-compile.js');
 require('js/directive/unsafe-html-popover.js');
+require('js/directive/display-price-directive.js');
 
 // Interceptors
 require('js/interceptor/combat-update-interceptor.js');
@@ -88,5 +89,6 @@ require('sass/common/holder/description-holder.scss');
 require('sass/common/component/popover.scss');
 
 require('sass/common/flash/flash.scss');
+require('sass/common/money.scss');
 
 require('sass/core.scss');

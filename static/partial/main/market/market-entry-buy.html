@@ -57,9 +57,7 @@
                                     </div>
                                     <div class="col-md-7 col-lg-7 shop-entry-text" ng-bind="offer.seller"></div>
                                     <div class="col-md-2 col-lg-2 shop-entry-text text-center">
-                                        <span>{{offer.price % 100}} <img class="shop-money-icon" src="../../../image/icon/shop/bronze.png"></span>
-                                        <span ng-if="offer.price > 100">{{floor((offer.price / 100) % 100)}} <img class="shop-money-icon" src="../../../image/icon/shop/silver.png"></span>
-                                        <span ng-if="offer.price > 10000">{{floor(offer.price / 10000)}} <img class="shop-money-icon" src="../../../image/icon/shop/gold.png"></span>
+                                        <display-price price="offer.price"></display-price>
                                     </div>
                                     <div class="col-lg-2 text-center">
                                         <button class="button-default shop-button" ng-click="buyItem(offer.id)">
