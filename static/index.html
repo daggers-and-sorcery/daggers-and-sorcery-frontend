@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html ng-app="swordssorcery">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>Daggers & Sorcery</title>
+
+        <link rel="shortcut icon" href="favicon.png" />
+
+        <meta property="og:url" content="//www.daggersandsorcery.com/" />
+        <meta property="og:title" content="Daggers & Sorcery" />
+        <meta property="og:description" content="An online browser based fantasy role playing game." />
+        <meta property="og:image" content="//www.daggersandsorcery.com/fbicon.png" />
+
+        <meta name=viewport content="width=device-width, initial-scale=1">
+
+				<!-- Fonts -->
+				<link href="//fonts.googleapis.com/css?family=Cardo" rel="stylesheet" type="text/css">
+
+				<!-- Angular -->
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js" integrity="sha256-6Sr0HqNgUf/p88g6vsl87CrAnNqiOWhjlY6LS8jeWHA=" crossorigin="anonymous"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.js" integrity="sha256-59KcG0bz2jTeDCBcEBD4bK+iHY0xYEhi1qsASkIysP0=" crossorigin="anonymous"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js" integrity="sha256-jUHgsHoPXAh7OyogDZWIrwTF8PXRiRg+mdxod+c295k=" crossorigin="anonymous"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap.min.js" integrity="sha256-vITLLTJmkWIvMflk5hotntpbwigKYqkKxtWHe7Z/cFU=" crossorigin="anonymous"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js" integrity="sha256-vxvthf253WFqqC+HLKOEe2MDxMcQ77t7g2yNrDARvK4=" crossorigin="anonymous"></script>
+
+				<!-- JQuery -->
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+				<!-- Bootstrap -->
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha256-ZT4HPpdCOt2lvDkXokHuhJfdOKSPFLzeAJik5U/Q+l4=" crossorigin="anonymous" />
+
+				<!-- Markdown -->
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js" integrity="sha256-mJAzKDq6kSoKqZKnA6UNLtPaIj8zT2mFnWu/GSouhgQ=" crossorigin="anonymous"></script>
+		</head>
+    <body bind-html-compile="loadContent()" ng-controller="MainController"></body>
+</html>

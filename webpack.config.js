@@ -1,4 +1,6 @@
 var path = require('path');
+var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './static/main.js',
@@ -8,9 +10,8 @@ module.exports = {
         ]
     },
     output: {
-        path: './static/bundle',
-        filename: './bundle.js',
-        publicPath: './static/bundle/'
+        path: './static/bundle/',
+        filename: 'bundle-[hash].js',
     },
     devtool: 'source-map',
     module: {
@@ -39,5 +40,17 @@ module.exports = {
             { test: /\.xml$/, loader: 'xml-loader' },
             { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=image/svg+xml" }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './static/index.html',
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            mangle: false,
+            sourceMap: false
+        })
+    ]
 };
