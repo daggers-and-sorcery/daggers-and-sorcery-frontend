@@ -10,4 +10,7 @@ module.exports = angular.module('swordssorcery', ['ui.router', 'ui.bootstrap', '
         return function (seconds) {
             return new Date(1970, 0, 1).setSeconds(seconds);
         };
-    }]);
+    }])
+    .run(function ($templateCache) {
+        $templateCache.put('market-header', require('../partial/main/market/market-header.html'));
+    });

@@ -1,0 +1,57 @@
+<div class="panel panel-default button-panel shop scavenging-panel">
+    <div class="panel-heading">
+        <img class="panel-heading-icon-improved" src="../../../image/icon/extra/market.png">
+        <img class="panel-heading-icon-improved-holder" src="../../../image/m_action_frame.png"/>
+        <h3 class="panel-title">Market</h3>
+    </div>
+    <div class="panel-body" style="padding: 6px;">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row" style="    margin-top: 20px;">
+                    <div ng-include="'market-header'"></div>
+                </div>
+                <div class="shop-inner-container">
+                    <h3 class="text-center">Buy</h3>
+
+                    <label for="itemname">Item name</label>
+                    <input class="form-control" id="itemname" ng-model="item.definition.name"/>
+
+                    <div class="text-center" ng-if="marketData.items.length == 0" style="    margin-top: 14px;">
+                        No items to buy at the market.
+                    </div>
+
+                    <div ng-repeat="type in marketData.types" ng-if="(type.offers  | filter:item).length > 0">
+                        <h4 ng-bind="type.typeName"></h4>
+                        <div class="shop-table-entry-container">
+                            <div class="row" ng-repeat="item in type.offers | filter:item">
+                                <div class="col-sm-12 col-md-12 col-lg-12 shop-item-container">
+                                    <div class="row">
+                                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-center shop-entry-text">
+                                            <span class="badge text-center" ng-bind="item.amount"></span>
+                                        </div>
+                                        <div class="col-md-7 col-lg-7 shop-entry-text">
+                                            {{item.definition.name}}
+                                            <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon"
+                                                  popover-html-unsafe="{{inventoryPopover}}"
+                                                  popover-trigger="mouseenter" popover-placement="right"></span>
+                                        </div>
+                                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center shop-entry-text">
+                                            <span>{{item.cheapestPrice % 100}} <img class="shop-money-icon" src="../../../image/icon/shop/bronze.png"></span>
+                                            <span ng-if="item.cheapestPrice > 100">{{floor((item.cheapestPrice / 100) % 100)}} <img class="shop-money-icon" src="../../../image/icon/shop/silver.png"></span>
+                                            <span ng-if="item.cheapestPrice > 10000">{{floor(item.cheapestPrice / 10000)}} <img class="shop-money-icon" src="../../../image/icon/shop/gold.png"></span>
+                                        </div>
+                                        <div class="col-lg-2 text-center">
+                                            <button class="button-default shop-button" ui-sref="market-entry-buy({itemId: item.definition.id})">
+                                                Buy
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
