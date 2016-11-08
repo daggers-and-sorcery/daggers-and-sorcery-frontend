@@ -1,37 +1,18 @@
 // Analytics
 require('js/analytics/google-analytics.js');
 
-// Vendor - JQuery
-var $ = require('vendor/jquery/js/jquery.min.js');
-window.jQuery = $;
-window.$ = $;
-
-// Vendor - Marked
-window.marked = require('vendor/marked/js/marked.min.js');
-
 // Vendor - Angular
-var angular = require('vendor/angular/js/angular.min.js');
 require('vendor/angular-messages/js/angular-messages.min.js');
-require('vendor/angular-ui-router/js/angular-ui-router.min.js');
-
-require('vendor/angular-ui-bootstrap/js/angular-ui-bootstrap.min.js');
-require('vendor/angular-ui-bootstrap/js/angular-ui-bootstrap-tpls.min.js');
 
 require('vendor/angular-marked/js/angular-marked.min.js');
 
 require('vendor/angular-flash/js/angular-flash.js');
 
 require('vendor/angular-sanitize/js/angular-sanitize.js');
-require('vendor/angular-animate/js/angular-animate.js');
 require('vendor/angular-readmore/js/angular-readmore.js');
 
 require('vendor/angular-slider/js/rzslider.min.js');
 require('vendor/angular-slider/css/rzslider.min.css');
-
-// Vendor - Bootstrap
-require('vendor/bootstrap/css/bootstrap.min.css');
-require('vendor/bootstrap/css/bootstrap-theme.min.css');
-require('vendor/bootstrap/js/bootstrap.min.js');
 
 // Controllers
 require('js/controller/main-controller.js');
