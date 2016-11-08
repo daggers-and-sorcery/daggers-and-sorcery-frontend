@@ -89,5 +89,6 @@ require('sass/common/holder/description-holder.scss');
 require('sass/common/component/popover.scss');
 
 require('sass/common/flash/flash.scss');
+require('sass/common/money.scss');
 
 require('sass/core.scss');
