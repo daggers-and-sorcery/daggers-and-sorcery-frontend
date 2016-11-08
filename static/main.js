@@ -29,6 +29,7 @@ require('js/filter/capitalize-filter.js');
 // Directive
 require('js/directive/bind-html-compile.js');
 require('js/directive/unsafe-html-popover.js');
+require('js/directive/display-price-directive.js');
 
 // Interceptors
 require('js/interceptor/combat-update-interceptor.js');

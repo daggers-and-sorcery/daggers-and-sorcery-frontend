@@ -36,9 +36,7 @@
                                                   popover-trigger="mouseenter" popover-placement="right"></span>
                                         </div>
                                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center shop-entry-text">
-                                            <span>{{item.cheapestPrice % 100}} <img class="shop-money-icon" src="../../../image/icon/shop/bronze.png"></span>
-                                            <span ng-if="item.cheapestPrice > 100">{{floor((item.cheapestPrice / 100) % 100)}} <img class="shop-money-icon" src="../../../image/icon/shop/silver.png"></span>
-                                            <span ng-if="item.cheapestPrice > 10000">{{floor(item.cheapestPrice / 10000)}} <img class="shop-money-icon" src="../../../image/icon/shop/gold.png"></span>
+                                            <display-price price="item.cheapestPrice"></display-price>
                                         </div>
                                         <div class="col-lg-2 text-center">
                                             <button class="button-default shop-button" ui-sref="market-entry-buy({itemId: item.definition.id})">
