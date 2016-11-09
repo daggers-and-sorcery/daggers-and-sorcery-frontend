@@ -1,9 +1,15 @@
-.journal-table {
-    width: 100%;
-}
+.journal-panel {
+    .journal-table {
+        width: 100%;
+    }
 
-.journal-item-watch {
-    padding: 5px;
-    color: #888;
-    cursor: pointer;
+    .journal-item-watch {
+        padding: 5px;
+        color: #888;
+        cursor: pointer;
+    }
+
+    .journal-head-icon-container {
+        margin-top: 2px;
+    }
 }

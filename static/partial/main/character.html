@@ -5,16 +5,14 @@
 </style>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <div class="panel-heading-icon">
-            <img src="../../image/swords.png"/>
-        </div>
+        <img class="panel-heading-icon-improved" src="../../image/icon/extra/character.png">
+        <img class="panel-heading-icon-improved-holder" src="../../image/m_action_frame.png"/>
         <h3 class="panel-title">Character</h3>
     </div>
     <div class="panel-body">
         <div class="row">
             <div class="col-sm-5 col-md-5 col-lg-5" style="margin-bottom: 15px;">
-                <h3><img class="character-list-header" src="../../image/btts_stats_button.png" style="margin-top: 0;">
-                    Equipment</h3>
+                <h3><img class="character-list-header" src="../../image/btts_stats_button.png" style="margin-top: 0;"> Equipment</h3>
 
                 <div class="inventory-player-model">
                     <div class="equipment-slot equipment-slot-amulet" ng-click="unequip('AMULET')" ng-mouseenter="setType('AMULET')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
@@ -93,7 +91,7 @@
                         <div class="col-sm-6 col-md-6 col-lg-6" ng-repeat="(attributeName, attributeValue) in user.attribute.GENERAL_PHYSICAL">
                             <div class="clearfix" ng-if="$index % 2 == 0"></div>
                             <img class="img-circle attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.id)}}">
-                            <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png">
+                            <img class="attribute-icon-holder" src="../../image/common/frame/icon_frame.png">
                             <span class="attribute-name">{{attributeName}}</span>
                             <div class="progress attribute-progress-bar">
                                 <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (10 - attributeValue.pointsToNextLevel) / (10 / 100)}}%;">
@@ -108,7 +106,7 @@
                         <div class="col-sm-6 col-md-6 col-lg-6" ng-repeat="(attributeName, attributeValue) in user.attribute.GENERAL_MENTAL">
                             <div class="clearfix" ng-if="$index % 2 == 0"></div>
                             <img class="img-circle attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.id)}}">
-                            <img class="attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png">
+                            <img class="attribute-icon-holder" src="../../image/common/frame/icon_frame.png">
                             <span class="attribute-name">{{attributeName}}</span>
                             <div class="progress attribute-progress-bar">
                                 <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (10 - attributeValue.pointsToNextLevel) / (10 / 100)}}%;">
@@ -149,7 +147,7 @@
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
 
                 <img class="img-circle combat-attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getCombatImage(attributeValue.attribute.id)}}">
-                <img class="combat-attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png">
+                <img class="combat-attribute-icon-holder" src="../../image/common/frame/icon_frame.png">
                 <span class="combat-attribute-name">{{attributeName}}</span>
                 <span class="combat-attribute-value" popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">
                     {{attributeValue.actual.value}}
@@ -184,7 +182,7 @@
                         </h5>
                         <div class="skill-entry-incremented-attribute">
                             <img class="img-circle skill-entry-incremented-attribute-icon" popover-html-unsafe="{{incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
-                            <img class="skill-entry-incremented-attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png">
+                            <img class="skill-entry-incremented-attribute-icon-holder" src="../../image/common/frame/icon_frame.png">
                         </div>
                         <div class="progress">
                             <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;">
@@ -227,7 +225,7 @@
                         </h5>
                         <div class="skill-entry-incremented-attribute">
                             <img class="img-circle skill-entry-incremented-attribute-icon" popover-html-unsafe="{{incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
-                            <img class="skill-entry-incremented-attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png">
+                            <img class="skill-entry-incremented-attribute-icon-holder" src="../../image/common/frame/icon_frame.png">
                         </div>
                         <div class="progress">
                             <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;">
@@ -270,7 +268,7 @@
                         </h5>
                         <div class="skill-entry-incremented-attribute">
                             <img class="img-circle skill-entry-incremented-attribute-icon" popover-html-unsafe="{{incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
-                            <img class="skill-entry-incremented-attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png">
+                            <img class="skill-entry-incremented-attribute-icon-holder" src="../../image/common/frame/icon_frame.png">
                         </div>
                         <div class="progress">
                             <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;">
@@ -313,7 +311,7 @@
                         </h5>
                         <div class="skill-entry-incremented-attribute">
                             <img class="img-circle skill-entry-incremented-attribute-icon" popover-html-unsafe="{{incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
-                            <img class="skill-entry-incremented-attribute-icon-holder" src="../../image/attribute/ab2_potion_frame_right.png">
+                            <img class="skill-entry-incremented-attribute-icon-holder" src="../../image/common/frame/icon_frame.png">
                         </div>
                         <div class="progress">
                             <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;">
