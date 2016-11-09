@@ -37,8 +37,8 @@ module.exports = function ($scope, $state, $http, $sce, marked, Flash, innInfo) 
                 '<p>Simple meal consisting of black bread and vegetable soup. Simple, but fills the stomach enough to keep going.</p>' +
                 '<dl>' +
                 '<dt>Cost</dt><dd>3 Bronze coins and 1 movement point.</dd>' +
-                '<dt>Effect</dt><dd>You will regenerate 5 health points.</dd>' +
-                '<dd>You will regenerate 2 mana points.</dd>' +
+                '<dt>Effect</dt><dd>You restore 5 health points.</dd>' +
+                '<dd>You restore 2 mana points.</dd>' +
                 '</dl>'
             );
         } else if (serviceId === 'COMMON_ROOM') {
@@ -46,8 +46,8 @@ module.exports = function ($scope, $state, $http, $sce, marked, Flash, innInfo) 
                 '<p>Simple room with straw bed and nothing else inside.With simple stick to secure door from inside, you can be sure you aren´t robbed of your possessions while asleep.</p>' +
                 '<dl>' +
                 '<dt>Cost</dt><dd>7 Bronze coins and 2 movement point.</dd>' +
-                '<dt>Effect</dt><dd>You will regenerate 12 health points.</dd>' +
-                '<dd>You will regenerate 4 mana points.</dd>' +
+                '<dt>Effect</dt><dd>You restore 12 health points.</dd>' +
+                '<dd>You restore 4 mana points.</dd>' +
                 '</dl>'
             );
         }
