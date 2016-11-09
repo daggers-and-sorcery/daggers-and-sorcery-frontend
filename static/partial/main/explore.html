@@ -1,46 +1,14 @@
-<style>
-    select.spell-select {
-        display: inline-block;
-        height: 28px;
-        line-height: 28px;
-        border: 1px solid #000;
-        font-size: 14px;
-        color: #fff;
-        background: #444;
-        padding: 5px;
-    }
-
-    select.spell-select:focus {
-        border-color: rgba(0, 0, 0, 0.3);
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-    }
-
-    .attribute-entry p {
-        margin: 0;
-    }
-
-    .attribute-entry {
-        margin-bottom: 10px;
-    }
-
-    .attribute-entry:last-child {
-        margin-bottom: 0;
-    }
-</style>
-<script>
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-</script>
-<div class="panel panel-default map-page">
+<div class="panel panel-default exploration-panel">
     <div class="panel-heading">
+        <img class="panel-heading-icon-improved" src="../../image/icon/extra/map.png">
+        <img class="panel-heading-icon-improved-holder" src="../../image/m_action_frame.png"/>
         <h3 class="panel-title">Explore</h3>
         <div  class="pull-right" >
             <img ng-src="{{getRarityIcon()}}" style="    width: 32px;
     position: absolute;
     right: 26px;
     border-radius: 26px;
-    z-index: 1;"  data-toggle="tooltip" data-placement="bottom" title="{{getRarityText()}}"/>
+    z-index: 1;" tooltip-placement="bottom" uib-tooltip-html="getRarityText()" />
             <img ng-src="{{getTerrainImage()}}" style="    width: 70px;
     margin-top: -76px;
     margin-right: -20px;
@@ -48,7 +16,7 @@ $(function () {
         </div>
     </div>
     <div class="panel-body" style="padding: 10px; padding-top: 15px;">
-        <div ng-repeat="explorationEntry in explorationResult.events">
+        <div class="exploration-entry-container" ng-repeat="explorationEntry in explorationResult.events">
             <!-- COMBAT -->
             <div class="race-info-text" ng-if="explorationEntry.eventType == 'COMBAT'">
                 <div class="media" ng-repeat="message in explorationEntry.combatMessages">
@@ -166,9 +134,10 @@ $(function () {
             </div>
 
             <!-- OPTION -->
-            <div ng-if="explorationEntry.eventType == 'OPTION'">
+            <div ng-if="explorationEntry.eventType == 'OPTION'" class="description-holder">
                 <p ng-repeat="option in explorationEntry.eventOptions">
-                    <a ng-click="callOption(option.optionId)" ng-bind="option.text"></a></p>
+                    <img src="../../image/common/bulletin/bulletin.png"> <a ng-click="callOption(option.optionId)" ng-bind="option.text"></a>
+                </p>
             </div>
         </div>
     </div>

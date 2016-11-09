@@ -69,6 +69,7 @@ require('sass/partial/shop/shop.scss');
 
 // Explore scss
 require('sass/partial/explore/explore.scss');
+require('sass/partial/explore/explore-page.scss');
 
 // Journal
 require('sass/partial/journal/journal.scss');
@@ -90,5 +91,6 @@ require('sass/common/component/popover.scss');
 
 require('sass/common/flash/flash.scss');
 require('sass/common/money.scss');
+require('sass/common/common.scss');
 
 require('sass/core.scss');

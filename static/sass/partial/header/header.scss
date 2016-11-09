@@ -36,18 +36,3 @@
   //This strange line height is used to both FF and Chrome render the texst in the bar correctly.
   line-height: 1.34;
 }
-
-.exit-button {
-  background-image: url(../../../image/not_close_button.png);
-  background-size: contain;
-  width: 70px;
-  height: 42px;
-  position: absolute;
-  top: 20px;
-  right: 110px;
-}
-
-.exit-button:hover {
-  background-image: url(../../../image/not_close_button_red.png);
-  cursor: pointer;
-}
