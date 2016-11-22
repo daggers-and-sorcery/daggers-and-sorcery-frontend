@@ -12,8 +12,15 @@
         <dd ng-repeat="requirement in data.item.definition.requirements"
             ng-bind="::requirement.value + ' - ' + requirement.attribute"></dd>
         <dt ng-if="data.item.definition.modifiers.length > 0">Modifiers:</dt>
-        <dd ng-repeat="modifier in data.item.definition.modifiers"
-            ng-bind="::modifier.value + ' - ' + modifier.attribute"></dd>
+        <dd ng-repeat="modifier in data.item.definition.modifiers">
+            <span ng-bind="::modifier.value">11</span>
+            <span ng-if="modifier.d2 != 0">{{modifier.d2}}d2</span>
+            <span ng-if="modifier.d4 != 0">{{modifier.d4}}d4</span>
+            <span ng-if="modifier.d6 != 0">{{modifier.d6}}d6</span>
+            <span ng-if="modifier.d8 != 0">{{modifier.d8}}d8</span>
+            <span ng-if="modifier.d10 != 0">{{modifier.d10}}d10</span>
+            <span> - {{modifier.attribute}}</span>
+        </dd>
     </dl>
     <p ng-if="data.item.definition.description" ng-bind="::data.item.definition.description" style="text-align: center;margin: 10px;"></p>
     <p ng-if="data.item.definition.flavour" style="text-align: center;margin: 10px;"><i>“{{data.item.definition.flavour}}”</i></p>
