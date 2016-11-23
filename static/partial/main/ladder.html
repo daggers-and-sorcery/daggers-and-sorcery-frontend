@@ -8,7 +8,7 @@
         z-index: 3;
         color: wheat;
         background-color: #540000;
-        border-color: rgba(0,0,0,0.4);
+        border-color: rgba(0, 0, 0, 0.4);
     }
 
     .ladder-pager .pagination > li.active > a {
@@ -20,7 +20,7 @@
         z-index: 3;
         color: wheat;
         background-color: brown;
-        border-color: rgba(0,0,0,0.4);
+        border-color: rgba(0, 0, 0, 0.4);
     }
 
     .ladder-pager .pagination > li > a:focus,
@@ -40,9 +40,7 @@
         <h3 class="panel-title">Ladder</h3>
     </div>
     <div class="panel-body">
-        <div class="row" style="
-    margin-left: 0;
-    margin-right: 0;">
+        <div class="row" style="margin-left: 0;margin-right: 0;margin-top: 2px;">
             <div ng-repeat="skillType in skillTypes" class="col-sm-2 col-md-1 col-lg-1"
                  style="padding-left: 3px; padding-right: 3px;">
                 <div class="ladder-skill-entry-icon-holder">
@@ -87,12 +85,13 @@
                 </table>
             </div>
             <div class="ladder-pager text-center">
-                <pagination
+                <uib-pagination
                         ng-model="currentPage"
                         total-items="totalItems"
                         items-per-page="itemsPerPage"
-                        boundary-links="true">
-                </pagination>
+                        boundary-links="true"
+                        max-size="numPages">
+                </uib-pagination>
             </div>
         </div>
     </div>

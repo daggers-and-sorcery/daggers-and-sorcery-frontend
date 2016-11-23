@@ -8,6 +8,7 @@ module.exports = function ($scope, $http, skillTypes, ladderInfo) {
 
     $scope.currentPage = 1;
     $scope.itemsPerPage = 20;
+    $scope.numPages = 10;
     $scope.totalItems =  ($scope.pageData.pageCount + 1) * 20;
 
     $scope.getSkillImage = function (skill) {
