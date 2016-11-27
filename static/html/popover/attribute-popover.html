@@ -1,6 +1,9 @@
-<ul class="attribute-popover">
-    <li ng-if="attributeModifier.attributeModifierValue != 0" ng-repeat="attributeModifier in data.attributeValue.modifierDataArray">
+<ul class="attribute-popover" ng-if="(data.attributeValue.modifierDataArray | filter: {attributeModifierValue:'!0'} : true).length > 0">
+    <li ng-repeat="attributeModifier in data.attributeValue.modifierDataArray | filter: {attributeModifierValue:'!0'} : true">
         <span ng-if="attributeModifier.attributeModifierValueType == 'VALUE'">{{attributeModifier.attributeModifierValue}} - {{data.attributeBonusNameMap[attributeModifier.attributeModifierType]}}</span>
         <span ng-if="attributeModifier.attributeModifierValueType == 'PERCENTAGE'">{{attributeModifier.percentageBonus}}% <small>({{attributeModifier.attributeModifierValue}})</small> - {{data.attributeBonusNameMap[attributeModifier.attributeModifierType]}}</span>
     </li>
 </ul>
+<div ng-if="(data.attributeValue.modifierDataArray | filter: {attributeModifierValue:'!0'} : true).length == 0" class="text-center">
+    You don't have a bonus for this attribute.
+</div>
