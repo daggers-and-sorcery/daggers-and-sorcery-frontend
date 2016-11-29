@@ -29,6 +29,7 @@ module.exports = require('js/app.js').config(function ($stateProvider, $urlRoute
             .state(require('js/router/state/inn/inn-services-state.js'))
             .state(require('js/router/state/ladder-state.js'))
             .state(require('js/router/state/home-state.js'))
+            .state(require('js/router/state/knowledge-base-state.js'))
             .state(require('js/router/state/forum/forum-category-list-state.js'))
             .state(require('js/router/state/forum/forum-comment-list-state.js'))
             .state(require('js/router/state/forum/forum-topic-list-state.js'));

@@ -74,6 +74,9 @@ require('sass/partial/explore/explore-page.scss');
 // Journal
 require('sass/partial/journal/journal.scss');
 
+// Knowledge base
+require('sass/partial/knowledge-base/knowledge-base.scss');
+
 // Ladder
 require('sass/partial/ladder/ladder.scss');
 
