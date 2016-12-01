@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = require('js/app.js').controller('MainController', function ($scope, $rootScope, $state, $http, $timeout, $interval, $log) {
+module.exports = require('js/app.js').controller('MainController', function ($scope, $rootScope, $state, $http, $timeout, $interval, $log, $location, $anchorScroll) {
     $scope.loadContent = function () {
         return require('html/main-content.html');
     };
@@ -82,6 +82,13 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
             event.preventDefault();
             $state.go('home');
         }
+    });
+
+    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+        // Jump the user to the main content if on mobile
+        $location.hash('main-container-mobile');
+        $anchorScroll.yOffset = 10;
+        $anchorScroll();
     });
 
     //MERGED FROM RIGHT MENU
