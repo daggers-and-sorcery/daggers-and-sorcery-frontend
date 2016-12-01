@@ -16,10 +16,16 @@
         bottom: 0;
         left: 0;
         right: 0;
+
+        @include when-mobile {
+            position: relative;
+        }
     }
 }
 
 .knowledge-base-toc {
+    color: #c2af8d;
+
     .knowledge-base-toc-list-big span {
         font-size: 20px;
         cursor: pointer;

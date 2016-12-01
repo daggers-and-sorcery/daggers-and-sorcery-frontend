@@ -6,7 +6,7 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-xs-offset-4 col-xs-4 big-button" ui-sref="journal(type)">
+            <div class="col-md-offset-2 col-md-4 col-lg-offset-2 col-lg-4 big-button" ui-sref="journal(type)">
                 <img src="../../image/cf_main_frame.png" class="img-responsive">
                 <img class="big-button-icon" src="../../image/icon/extra/journal.png"/>
                 <span class="big-button-text">Back</span>
@@ -23,7 +23,7 @@
                     <dt>Weight:</dt>
                     <dd ng-bind="::entry.weight + ' kg'"></dd>
                     <dt>Equipment:</dt>
-                    <dd ng-bind="::entry.equipment"></dd>
+                    <dd ng-bind="entry.equipment ? 'Yes' : 'No'"></dd>
                 </dl>
             </div>
             <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
