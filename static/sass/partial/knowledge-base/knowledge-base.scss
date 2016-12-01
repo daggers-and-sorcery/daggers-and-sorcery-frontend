@@ -18,3 +18,15 @@
         right: 0;
     }
 }
+
+.knowledge-base-toc {
+    .knowledge-base-toc-list-big span {
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .knowledge-base-toc-list-small span {
+        font-size: 16px;
+        cursor: pointer;
+    }
+}
