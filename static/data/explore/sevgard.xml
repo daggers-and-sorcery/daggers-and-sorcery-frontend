@@ -54,9 +54,8 @@ For instance, goblins reside deep within the forest beneath the roots of a sickl
     </exploration>
     <exploration>
         <id>woodland_cemetery</id>
-        <target>2</target>
         <name>Woodland cemetery</name>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <image>false</image>
         <first>
             <![CDATA[
