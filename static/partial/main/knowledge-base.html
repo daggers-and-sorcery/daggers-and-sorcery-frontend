@@ -13,16 +13,52 @@
 				</div>
 				<ul class="list-unstyled knowledge-base-toc">
 					<li class="knowledge-base-toc-list-big">
-						<span ng-click="scrollTo('what-is-dns')">What is Daggers & Sorcery?</span>
+						<img style="width: 48px;" src="../../image/knowledge_base/question_mark.png"> <span ng-click="scrollTo('what-is-dns')">What is Daggers & Sorcery?</span>
 					</li>
 					<li class="knowledge-base-toc-list-big">
-						<span ng-click="scrollTo('items')">Items</span>
-						<ul class="knowledge-base-toc-list-small">
+						<img style="width: 48px;" src="../../image/knowledge_base/hammer.png"> <span ng-click="scrollTo('items')">Items</span>
+						<div class="row" style="    margin-left: 50px;">
+							<div class="col-lg-4">
+								<a class="btn btn-primary" style="width: 100%;height: 60px;">
+									<img style="width: 48px;" src="../../image/knowledge_base/recipe.png"> <span ng-click="scrollTo('items-recipes')">Recipes</span>
+								</a>
+							</div>
+							<div class="col-lg-4">
+								<a class="btn btn-primary" style="width: 100%;height: 60px;">
+									<img style="width: 48px;" src="../../image/knowledge_base/wood.png"> <span ng-click="scrollTo('items-materials')">Materials</span>
+								</a>
+							</div>
+							<div class="col-lg-4">
+								<a class="btn btn-primary" style="width: 100%;height: 60px;">
+									<img style="width: 48px;" src="../../image/knowledge_base/weapon.png"> <span ng-click="scrollTo('items-weapons')">Weapons</span>
+								</a>
+							</div>
+						</div>
+						<div class="row" style="    margin-left: 50px;
+    margin-top: 14px;">
+							<div class="col-lg-4">
+								<a class="btn btn-primary" style="width: 100%;height: 60px;">
+									<img style="width: 48px;margin-top: -5px;" src="../../image/knowledge_base/armor.png"> <span ng-click="scrollTo('items-armor')">Armor</span>
+								</a>
+							</div>
+							<div class="col-lg-4">
+								<a class="btn btn-primary" style="width: 100%;height: 60px;">
+									<span ng-click="scrollTo('items-unidentified')">Unidentified items</span>
+								</a>
+							</div>
+							<div class="col-lg-4">
+								<a class="btn btn-primary" style="width: 100%;height: 60px;">
+									<span ng-click="scrollTo('items-coins')">Coins</span>
+								</a>
+							</div>
+						</div>
+						<!--
+						<ul class="list-unstyled knowledge-base-toc-list-small" style="margin-left: 30px;">
 							<li>
-								<span ng-click="scrollTo('items-recipes')">Recipes</span>
+								<img style="width: 48px;" src="../../image/knowledge_base/recipe.png"> <span ng-click="scrollTo('items-recipes')">Recipes</span>
 							</li>
 							<li>
-								<span ng-click="scrollTo('items-materials')">Materials</span>
+								<img style="width: 48px;" src="../../image/knowledge_base/wood.png"> <span ng-click="scrollTo('items-materials')">Materials</span>
 							</li>
 							<li>
 								<span ng-click="scrollTo('items-weapons')">Weapons</span>
@@ -37,6 +73,7 @@
 								<span ng-click="scrollTo('items-coins')">Coins</span>
 							</li>
 						</ul>
+						-->
 					</li>
 				</ul>
 			</div>
@@ -47,7 +84,8 @@
 					<img class="knowledge-base-header-image img-responsive hidden-xs" src="../../image/not_container_2.png">
 					<h3 class="text-center knowledge-base-header">What is Daggers & Sorcery?</h3>
 				</div>
-				<p>
+				<img class="img-thumbnail" style="float: right;margin-left: 10px;background-color: rgba(255,255,255,0.1);border: 1px solid rgba(255,255,255,0.1);" src="../../image/knowledge_base/question_mark.png">
+				<p class="knowledge-base-text">
 					Daggers & Sorcery is a text-based role-playing game, where you can play as a character belonging to one of 8 unique races in a high fantasy
 					world. You can craft your own items, train in many various skills, crush enemies with a hammer, shoot them with a bow, blow them up with a
 					fireball, or anything else. But it will not always be easy. You will have to survive countless battles with as many various enemies ranging
@@ -64,7 +102,8 @@
 					<img class="knowledge-base-header-image img-responsive hidden-xs" src="../../image/not_container_2.png">
 					<h3 class="text-center knowledge-base-header">Items</h3>
 				</div>
-				<p>
+				<img class="img-thumbnail" style="float: right;margin-left: 10px;background-color: rgba(255,255,255,0.1);border: 1px solid rgba(255,255,255,0.1);" src="../../image/knowledge_base/hammer.png">
+				<p class="knowledge-base-text">
 					Items are all the things you find during your adventures or buy in a shop or market and every one of them can somehow help you in your
 					effort to become better. They are shown in your inventory with one or two icons next to each. Hovering your cursor over the eye icon next
 					to an item will show a tooltip window containing the item’s properties. Clicking the arrow icon next to some items will result in equipping
@@ -74,20 +113,20 @@
 					you can carry at once is defined by your strength.
 				</p>
 
-				<h4 id="items-recipes">Recipes</h4>
-				<p>
+				<h4 id="items-recipes"><img style="width: 48px;" src="../../image/knowledge_base/recipe.png"> Recipes</h4>
+				<p class="knowledge-base-text">
 					You can use recipes to learn to create new items of various types. After using a recipe (via the box icon next to it) the item it describes
 					will appear in one of your crafting skill menus where you can then craft the item if you fulfill the necessary requirements. You only need
 					to use a recipe once to be able to create the specific item anytime.
 				</p>
 
-				<h4 id="items-materials">Materials</h4>
-				<p>
+				<h4 id="items-materials"><img style="width: 48px;" src="../../image/knowledge_base/wood.png"> Materials</h4>
+				<p class="knowledge-base-text">
 					One of the most common types of items you receive in your adventures are materials. Materials are consumed when you craft items.
 				</p>
 
-				<h4 id="items-weapons">Weapons</h4>
-				<p>
+				<h4 id="items-weapons"><img style="width: 48px;" src="../../image/knowledge_base/weapon.png"> Weapons</h4>
+				<p class="knowledge-base-text">
 					Much of Daggers & Sorcery consists of fighting. You can of course fight barehanded but if you want to deal some serious damage to your
 					enemies, you will need some weapons. There are three basic types of weapons – Melee, Ranged and Magic. Melee weapons (like daggers, swords,
 					axes, hammers, pikes…) use your Dexterity and Swiftness attributes to determine the chance for you to hit an enemy and Strength to determine
@@ -96,8 +135,8 @@
 					deal damage. Every weapon adds some modifiers to the attack and damage type it uses.
 				</p>
 
-				<h4 id="items-armor">Armor</h4>
-				<p>
+				<h4 id="items-armor"><img style="width: 48px;" src="../../image/knowledge_base/armor.png"> Armor</h4>
+				<p class="knowledge-base-text">
 					To better protect yourself in a fight it is useful to wear some armor. There are three types of armor – Light, Heavy and Robe – and each
 					gives you protection from attacks. Light armor is best suited for rogue-like or ranged characters since it helps improve your Dexterity and
 					gives a smaller bonus to Defence (chance to avoid being hit), but also boosts your Aiming (chance to hit with ranged attacks) and Spell
@@ -107,7 +146,7 @@
 				</p>
 
 				<h4 id="items-unidentified">Unidentified items</h4>
-				<p>
+				<p class="knowledge-base-text">
 					Sometimes it can happen that you find an item and know nothing about what it can do. Such item will then appear in you inventory as
 					“Unidentified Item”. You can equip this item but the problem is that you don’t know what bonuses you get from it. To identify an item you
 					first need to learn the “Lesser identification” spell by using the respective spell tome. Afterwards the spell will appear at the very
@@ -116,7 +155,7 @@
 				</p>
 
 				<h4 id="items-coins">Coins</h4>
-				<p>
+				<p class="knowledge-base-text">
 					Unlike all the other items in your inventory, the ones in the “Money” section are special in many ways. First of all they don’t have any
 					weight because nobody is dumb enough to carry all their hardly gained precious metal on them. Instead you keep it all in the local bank, so
 					the weight just doesn't bother you. The second weird property of coins is that they only appear in your inventory on the “Character” page.

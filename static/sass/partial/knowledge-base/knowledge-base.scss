@@ -35,4 +35,14 @@
         font-size: 16px;
         cursor: pointer;
     }
+
+    .btn.btn-primary {
+        background-image: linear-gradient(to bottom,rgba(255,255,255,0.1),rgba(255,255,255,0.3) 100%);
+        background-color: rgba(255,255,255,0.1);
+        border: rgba(255,255,255,0.05);
+    }
+}
+
+.knowledge-base-text {
+    text-align: justify;
 }
