@@ -1,0 +1,8 @@
+#snow{
+	background-image: url('../../../image/events/winter/snow1.png'), url('../../../image/events/winter/snow2.png');
+	animation: snow 10s linear infinite;
+}
+@keyframes snow {
+ 0% {background-position: 0px 0px;}
+ 100% {background-position: 400px 400px, 300px 300px;}
+}
