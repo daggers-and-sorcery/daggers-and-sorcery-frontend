@@ -1,0 +1,69 @@
+<div class="panel panel-default button-panel">
+    <div class="panel-heading">
+        <img class="panel-heading-icon-improved" src="../../../../image/icon/skill/Herblore.png"/>
+        <img class="panel-heading-icon-improved-holder" src="../../../../image/m_action_frame.png"/>
+
+        <h3 class="panel-title">Herblore
+            <small>(Level {{gatheringInfo.skill.level}})</small>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <flash-message duration="5000" show-close="true"></flash-message>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-4 big-button" ui-sref="skill-herblore-gathering">
+                        <img src="../../../../image/cf_main_frame.png" class="img-responsive">
+                        <img class="big-button-icon" src="../../../../image/icon/extra/gathering.png"/>
+                        <span class="big-button-text">Gathering</span>
+                    </div>
+                    <div class="col-xs-4 big-button">
+                        <img src="../../../../image/cf_main_frame.png" class="img-responsive">
+                        <img class="big-button-icon" src="../../../../image/icon/extra/cleaning.png"/>
+                        <span class="big-button-text">Cleaning</span>
+                    </div>
+                    <div class="col-xs-4 big-button">
+                        <img src="../../../../image/cf_main_frame.png" class="img-responsive">
+                        <img class="big-button-icon" src="../../../../image/icon/extra/recipe.png"/>
+                        <span class="big-button-text">Recipes</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-center">Gathering</h3>
+
+                    <div class="row">
+                        <div class=" col-xs-12" ng-if="gatheringInfo.gathering_list.length == 0">
+                            <div style="margin: 0 auto;max-width: 300px;">
+                                <div style="text-align: center;
+    margin-bottom: 6px;">
+                                    <img style="width: 200px; margin: 0 auto;
+    box-shadow: 0 0 5px #1D120E;
+    border: 1px solid #1D120E;" src="../../../../image/icon/extra/harvest.png"/>
+                                </div>
+                                <div>
+                                    <button class="button-default max-width" ng-click="startGathering()">Go on gathering</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class=" col-xs-6 col-xs-offset-3" ng-repeat="gathering_item in gatheringInfo.gathering_list">
+                            <div class="clearfix" ng-if="$index % 2 == 0"></div>
+                            <div style="margin-bottom: 5px;">
+                                Working on: {{gathering_item.item}}
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning" role="progressbar"
+                                     style="width: {{100 - (gathering_item.timeLeft / (gathering_item.fullTime / 100))}}%;">
+                                    <span class="progress-info" style="padding-right: 30px;"
+                                          ng-bind="gathering_item.timeLeft / 1000 | secondsToDateTime | date:'mm:ss'"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
