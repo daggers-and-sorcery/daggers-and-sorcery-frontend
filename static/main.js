@@ -97,5 +97,3 @@ require('sass/common/money.scss');
 require('sass/common/common.scss');
 
 require('sass/core.scss');
-
-require('sass/events/winter/snow.scss');
