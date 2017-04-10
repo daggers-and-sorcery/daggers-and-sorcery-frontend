@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = angular.module('swordssorcery', ['ui.router', 'ui.bootstrap', 'ngMessages', 'rzModule', 'hc.marked', 'ngAnimate', 'ngFlash', 'hm.readmore'])
+module.exports = angular.module('swordssorcery', ['ui.router', 'ui.bootstrap', 'ngMessages', 'rzModule', 'hc.marked', 'ngAnimate', 'ngFlash', 'hm.readmore', 'angular-google-adsense'])
     .config(function ($httpProvider, $logProvider) {
         $httpProvider.defaults.withCredentials = true;
 
