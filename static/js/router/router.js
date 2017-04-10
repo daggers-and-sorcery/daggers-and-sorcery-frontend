@@ -27,6 +27,7 @@ module.exports = require('js/app.js').config(function ($stateProvider, $urlRoute
             .state(require('js/router/state/skill/fletching-state.js'))
             .state(require('js/router/state/skill/herblore/herblore-state.js'))
             .state(require('js/router/state/skill/herblore/herblore-gathering-state.js'))
+            .state(require('js/router/state/skill/herblore/herblore-cleaning-state.js'))
             .state(require('js/router/state/inn/inn-chat-state.js'))
             .state(require('js/router/state/inn/inn-services-state.js'))
             .state(require('js/router/state/ladder-state.js'))
