@@ -35,8 +35,27 @@
 
         <!-- Markdown -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js" integrity="sha256-mJAzKDq6kSoKqZKnA6UNLtPaIj8zT2mFnWu/GSouhgQ=" crossorigin="anonymous"></script>
-    </head>
+
+				<style>
+						@media (max-width: 1600px) {
+								.right-side-ad {
+										display: none;
+								}
+						}
+				</style>
+		</head>
     <body>
         <div bind-html-compile="loadContent()" ng-controller="MainController"></div>
+        <div class="right-side-ad" style="background: black; position: absolute; right: 10px; top: 10px;">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Daggers and Sorcery - Right panel -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:160px;height:600px"
+                 data-ad-client="ca-pub-5228688053569541"
+                 data-ad-slot="2103968533"></ins>
+            <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
     </body>
 </html>
