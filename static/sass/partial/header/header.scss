@@ -27,6 +27,12 @@
   margin-top: -3px;
 }
 
+.top-attribute-text + div {
+  @include when-mobile {
+    padding: 0;
+  }
+}
+
 .progress-info {
   position: absolute;
   display: block;
