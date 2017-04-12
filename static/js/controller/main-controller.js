@@ -27,7 +27,7 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
     $http.get('http://api.daggersandsorcery.com/user/info').success(function (data, status, headers, config) {
         $log.debug('Got new user info response: ' + angular.toJson(data.data));
 
-        $rootScope.user = data.data;
+        $rootScope.user.loggedIn = data.data.loggedIn;
         $rootScope.previouslyLoggedIn = $rootScope.user.loggedIn;
         $state.go('home');
     });
@@ -36,7 +36,7 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
         $http.get('http://api.daggersandsorcery.com/user/info').success(function (data, status, headers, config) {
             $log.debug('Refreshing the user data!');
 
-            $rootScope.user = data.data;
+            $rootScope.user.loggedIn = data.data.loggedIn;
             if (!$rootScope.user.loggedIn && $rootScope.previouslyLoggedIn) {
                 $state.go('home');
             }
@@ -84,26 +84,21 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
         }
     });
 
-    //MERGED FROM RIGHT MENU
     $scope.user = {};
     $scope.error = '';
 
     $scope.submit = function () {
         $http.post('http://api.daggersandsorcery.com/user/login', $scope.user).success(function (data, status, headers, config) {
-            if (data.data.success === "true") {
+            if (data.data.result.successful === true) {
                 $log.debug('Successful login!');
 
                 $rootScope.previouslyLoggedIn = true;
                 $scope.error = false;
 
                 $http.get('http://api.daggersandsorcery.com/user/info').success(function (data2, status, headers, config) {
-                    $rootScope.user = data2.data;
+                    $rootScope.user.loggedIn = data2.data.loggedIn;
 
-                    if (data.data.prelude) {
-                        $state.go('prelude');
-                    } else {
-                        $state.go('home');
-                    }
+                    $state.go('home');
                 });
             } else {
                 $scope.error = true;

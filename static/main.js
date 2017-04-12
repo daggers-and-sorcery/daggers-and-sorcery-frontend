@@ -35,7 +35,8 @@ require('js/directive/display-price-directive.js');
 
 // Interceptors
 require('js/interceptor/combat-update-interceptor.js');
-require('js/interceptor/combat-update-interceptor-config.js');
+require('js/interceptor/preload-interceptor.js');
+require('js/interceptor/interceptor-config.js');
 
 // Constants
 require('js/constant/attribute-bonus-map.js');
