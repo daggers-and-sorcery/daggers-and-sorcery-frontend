@@ -1,18 +1,10 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <div class="panel-heading-icon">
-            <img src="../../image/swords.png"/>
-        </div>
-        <h3 class="panel-title">Welcome</h3>
+        <img class="panel-heading-icon-improved" src="../../image/icon/extra/chat.png">
+        <img class="panel-heading-icon-improved-holder" src="../../image/m_action_frame.png"/>
+        <h3 class="panel-title">Chapter I: New beginnings</h3>
     </div>
-    <div class="panel-body" style="padding: 6px;">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <img class="img-responsive" src="../../image/not_container_2.png">
-                <h1 class="text-center" style="margin-top: -84px;margin-bottom: 40px;">Prelude</h1>
-            </div>
-        </div>
-
+    <div class="panel-body">
         <div ng-if="page == 'introduction'">
             <p>
                 You are one of these explorers. After leaving your home and having no further prospects, you decide to
@@ -131,8 +123,8 @@
                 wake you, but you were in a deep sleep. I brought you back with me. We're in Sevgard now. You're safe."
             </p>
 
-            <p class="text-center">
-                <a ng-click="showChooseArmorPage()" style="cursor: pointer;">Continue...</a>
+            <p class="text-center" style="margin-bottom: 0;">
+                <button ng-click="showChooseArmorPage()" class="button-default btn-block">Continue...</button>
             </p>
         </div>
         <div ng-if="page == 'armor'">
@@ -141,32 +133,24 @@
                 savior´s soothing words, your mind wanders and you dream. You dream of forests. Lush, beautiful forest
                 untouched by human hand. You walk around in wonder, donning your usual:
             </p>
-            <ul>
-                <li><a ng-click="chooseArmor('HEAVY')" style="cursor: pointer;">Sturdy, safe plated armor...</a></li>
-                <li><a ng-click="chooseArmor('LIGHT')" style="cursor: pointer;">Flexible, easy to move in armor...</a>
-                </li>
-                <li><a ng-click="chooseArmor('ROBE')" style="cursor: pointer;">Comfortable, rune-embroidered
-                    robes...</a></li>
-            </ul>
+
+            <button ng-click="chooseArmor('HEAVY')" class="button-default btn-block">Sturdy, safe plated armor...</button>
+            <button ng-click="chooseArmor('LIGHT')" class="button-default btn-block">Flexible, easy to move in armor...</button>
+            <button ng-click="chooseArmor('ROBE')" class="button-default btn-block">Comfortable, rune-embroidered
+                robes...</button>
         </div>
         <div ng-if="page == 'weapon'">
             <p>
                 Suddenly, you sense presence of danger. You hastily grab your:
             </p>
-            <ul>
-                <li ng-if="armor == 'HEAVY' || armor == 'LIGHT'"><a ng-click="chooseWeapon('SWORD')"
-                                                                    style="cursor: pointer;">Sword...</a></li>
-                <li ng-if="armor == 'HEAVY' || armor == 'LIGHT'"><a ng-click="chooseWeapon('AXE')"
-                                                                    style="cursor: pointer;">Axe...</a></li>
-                <li ng-if="armor == 'HEAVY'"><a ng-click="chooseWeapon('HAMMER')" style="cursor: pointer;">Hammer...</a>
-                </li>
-                <li ng-if="armor == 'LIGHT'"><a ng-click="chooseWeapon('DAGGER')" style="cursor: pointer;">Dagger...</a>
-                </li>
-                <li ng-if="armor == 'LIGHT'"><a ng-click="chooseWeapon('BOW')" style="cursor: pointer;">Bow...</a></li>
-                <li ng-if="armor == 'ROBE'"><a ng-click="chooseWeapon('STAFF')" style="cursor: pointer;">Staff...</a>
-                </li>
-                <li ng-if="armor == 'ROBE'"><a ng-click="chooseWeapon('WAND')" style="cursor: pointer;">Wand...</a></li>
-            </ul>
+
+            <button ng-if="armor == 'HEAVY'" ng-click="chooseWeapon('SWORD')" class="button-default btn-block">Sword...</button>
+            <button ng-if="armor == 'HEAVY'" ng-click="chooseWeapon('AXE')" class="button-default btn-block">Axe...</button>
+            <button ng-if="armor == 'HEAVY'" ng-click="chooseWeapon('HAMMER')" class="button-default btn-block">Hammer...</button>
+            <button ng-if="armor == 'LIGHT'" ng-click="chooseWeapon('DAGGER')" class="button-default btn-block">Dagger...</button>
+            <button ng-if="armor == 'LIGHT'" ng-click="chooseWeapon('BOW')" class="button-default btn-block">Bow...</button>
+            <button ng-if="armor == 'ROBE'" ng-click="chooseWeapon('STAFF')" class="button-default btn-block">Staff...</button>
+            <button ng-if="armor == 'ROBE'" ng-click="chooseWeapon('WAND')" class="button-default btn-block">Wand...</button>
         </div>
         <div ng-if="page == 'ending'">
             <p>
@@ -262,8 +246,8 @@
                 adventurer.
             </p>
 
-            <p class="text-center">
-                <a ng-click="finish()" style="cursor: pointer;">Continue...</a>
+            <p class="text-center" style="margin-bottom: 0;">
+                <button ng-click="finish()" class="button-default btn-block">Continue...</button>
             </p>
         </div>
     </div>
