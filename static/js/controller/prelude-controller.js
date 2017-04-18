@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ($scope, $state) {
+module.exports = function ($scope, $state, $http) {
     $scope.page = 'introduction';
     $scope.armor = undefined;
     $scope.weapon = undefined;
@@ -20,6 +20,13 @@ module.exports = function ($scope, $state) {
     };
 
     $scope.finish = function () {
-        //TODO: send the character data to the server and if everything goes correctly go to the character page.
+        var payload = {
+            startingWeapon: $scope.weapon,
+            startingArmor: $scope.armor
+        };
+
+        $http.post('http://api.daggersandsorcery.com/user/starter-path', payload).success(function (data, status, headers, config) {
+            $state.go('character');
+        });
     };
 };
