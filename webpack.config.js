@@ -10,7 +10,7 @@ module.exports = {
         ]
     },
     output: {
-        path: './static/bundle/',
+        path: path.resolve('./static/bundle/'),
         filename: 'bundle-[hash].js',
     },
     devtool: 'source-map',
