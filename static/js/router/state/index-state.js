@@ -9,7 +9,9 @@ module.exports = {
     template: require('partial/main/index.html'),
     resolve: {
         newslist: function ($http) {
-            return $http({method: 'GET', url: 'http://api.daggersandsorcery.com/news/last'});
+            return $http.get('http://api.daggersandsorcery.com/news/last').then(function (response) {
+                return response.data.data;
+            });
         }
     },
     controller: require('js/controller/index-controller.js')
