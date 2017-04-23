@@ -4,7 +4,7 @@
         <img class="panel-heading-icon-improved-holder" src="../../../../image/m_action_frame.png"/>
 
         <h3 class="panel-title">Herblore
-            <small>(Level {{cleaningInfo.skill.level}})</small>
+            <small>(Level {{recipesInfo.skill.level}})</small>
         </h3>
     </div>
     <div class="panel-body">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-center">Cleaning</h3>
+                    <h3 class="text-center">Recipes</h3>
 
                     <table class="table">
                         <thead>
@@ -41,7 +41,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="recipe in cleaningInfo.recipes">
+                        <tr ng-repeat="recipe in recipesInfo.recipes">
                             <td>{{recipe.name}}
                                 <small ng-if="recipe.chance < 100" style="color: red;">({{recipe.chance}}% chance)
                                 </small>
