@@ -24,9 +24,9 @@ module.exports = function ($scope, $http, $rootScope) {
 
     $scope.getCheckboxImage = function() {
         if($scope.scavengingEnabled) {
-            return require('../../../image/form/checkbox_selected.png');
+            return require('image/form/checkbox_selected.png');
         } else {
-            return require('../../../image/form/checkbox_empty.png');
+            return require('image/form/checkbox_empty.png');
         }
     };
 

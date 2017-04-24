@@ -1,108 +1,254 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <div class="panel-heading-icon">
-            <img src="../../image/swords.png"/>
-        </div>
-        <h3 class="panel-title">Welcome</h3>
+        <img class="panel-heading-icon-improved" src="../../image/icon/extra/chat.png">
+        <img class="panel-heading-icon-improved-holder" src="../../image/m_action_frame.png"/>
+        <h3 class="panel-title">Chapter I: New beginnings</h3>
     </div>
-    <div class="panel-body" style="padding: 6px;">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <img class="img-responsive" src="../../image/not_container_2.png">
-                <h1 class="text-center" style="margin-top: -84px;margin-bottom: 40px;">Prelude</h1>
-            </div>
+    <div class="panel-body">
+        <div ng-if="page == 'introduction'">
+            <p>
+                You are one of these explorers. After leaving your home and having no further prospects, you decide to
+                join
+                this bold quest. With high hopes, you sign your life away on an official document and are ushered aboard
+                the
+                Paloma. Suddenly, you’re surrounded by seasoned explorers and warriors with grand stories of their past
+                exploits. There are humans, dwarves, elves, dark elves, and the occasional gnome, and you have never
+                seen
+                such a diverse crowd in your entire life. Before you can change your mind, the port is shrinking into
+                the
+                distance.
+            </p>
+
+            <p>
+                Once the ship is on course, Captain Lombardi, the leader of the expedition, introduces himself with a
+                booming
+                voice and states the rules for the voyage. Most of his rules were described in your contract, and any
+                offender to these rules will walk the plank. After he finishes his speech, the captain returns to the
+                stern
+                where he begins speaking with his first mate. You see them holding a gigantic map, and you yearn for a
+                map
+                of your own, wishing you knew the whereabouts of your destination.
+            </p>
+
+            <p>
+                While pondering the next chapter of your life, you lean against the ship’s railing and watch the other
+                explorers. You wonder about each of their pasts and from which countries they hailed from. A few of the
+                explorers must be already acquainted since they were either huddling in groups or keeping their distance
+                with solemn expressions. At the moment, nobody seems particularly interested in you, and you feel like
+                that
+                is a good thing.
+            </p>
+
+            <p>
+                As sunset approaches, the tensions have lowered, and the explorers have settled down with the crew
+                members
+                to
+                have supper. The elves, all seven of them, entertained the company with a charming story about their
+                midsummer festivals. They detail how midsummer is an essential holiday in their culture and how they
+                felt
+                shameful for missing the celebration of the summer solstice, the longest day of the year. To the elves,
+                this
+                tradition appeased nature and would bring plentiful harvest and prosperity, and they propose having
+                their
+                own festival aboard the ship. That’s when the merrymaking begins.
+            </p>
+
+            <p>
+                The elves remove lutes and ocarinas and play elvish ballads while the crew clap their hands and stomp
+                the
+                feet. Meanwhile, you try to eat your supper in relative peace until the elves remove colorful ribbons
+                and
+                transform the mast into a maypole. Before you know it, a female elf hands you a teal ribbon and urges
+                you to
+                celebrate with the others. The only person opposed to the festivities is Captain Lombardi, but even his
+                boisterous laugh echoes over the ship by nightfall. You suspect the seemingly endless kegs of ale from
+                the
+                Paloma’s lower levels.
+            </p>
+
+            <p>
+                When you wake in the morning, everything is silent. You walk to the upper decks and study the remains of
+                the
+                previous night. A few of the colorful ribbons are still wrapped around the mast, but the majority of
+                them
+                are strewn across the deck. The first mate orders you to clean up the mess, and you oblige. You were one
+                of
+                the few who had not been drinking ale or wine last night, so at the moment, it was the least you could
+                do.
+                As you reach down to collect a purple ribbon, you stumble as a massive wave slams against the Paloma.
+            </p>
+
+            <p>
+                An icy wind billows out of nowhere, and large thunderclouds appear in the distance, roiling toward the
+                ship
+                like a starved beast. The gusts rip the ribbon from your grasp and carry it far away. The grey sky
+                transforms before your eyes, turning as dark as pitch, and you stare upward as the clouds release their
+                burden. Torrential rain pours from above, and you’re swept off your feet by a wave and are nearly dumped
+                overboard. You cling to the railing as the ship comes alive. The crew members scatter to their stations,
+                trying to navigate the Paloma through the harsh storm. A sharp whistling sound fills the air, and you
+                hear
+                malevolent whispers on the wind. As the first bolt of lightning cracks, you’re temporarily blinded by
+                the
+                sudden light, but you can just barely see a host of wispy phantoms surrounding the ship. None of your
+                company seem to notice these creatures, and before you can warn them, you hear a shuddering crack.
+            </p>
+
+            <p>
+                A massive hole appears on the vessel’s starboard side, allowing seawater to flood inward. With each
+                passing
+                moment, the ship sinks lower to its watery demise. You make a rash decision and leap overboard. Luckily,
+                there are pieces of driftwood to keep you afloat, and you paddle far away from the sinking ship. Before
+                you
+                can swim more than a few yards, a vortex appears around the ship and sucks it beneath the surface. You
+                cling
+                to the piece of driftwood for dear life as water crashes over your head, submerging you again and again
+                until you fall unconscious. Before the storm disappears, it washes you onto a sandy shore.
+            </p>
+
+            <p>
+                Your head feels fuzzy. Blinking your eyes open, you see a fire radiating from a stone hearth. You are
+                tucked beneath warm quilts and feel quite sleepy. Swords and assorted tools mount the walls. You hear a
+                door creak open, and a bearded man enters the room.
+            </p>
+
+            <p>"You're awake!"</p>
+
+            <p>"Where am I?" you ask, clearing your throat.</p>
+
+            <p>The strange man offers you a cup of water which you greatly accept.</p>
+
+            <p>
+                "This is my home." The man gestures around him. "I was a delivering a broadsword to Guirag, and on my
+                way back, I found you washed up on the shore. You must have been caught in that evil storm. I tried to
+                wake you, but you were in a deep sleep. I brought you back with me. We're in Sevgard now. You're safe."
+            </p>
+
+            <p class="text-center" style="margin-bottom: 0;">
+                <button ng-click="showChooseArmorPage()" class="button-default btn-block">Continue...</button>
+            </p>
         </div>
+        <div ng-if="page == 'armor'">
+            <p>
+                After calming down a bit, you fall asleep again. Maybe because of exhaustion, and maybe because of your
+                savior´s soothing words, your mind wanders and you dream. You dream of forests. Lush, beautiful forest
+                untouched by human hand. You walk around in wonder, donning your usual:
+            </p>
 
-        <p>
-            You are one of these explorers. After leaving your home and having no further prospects, you decide to join
-            this bold quest. With high hopes, you sign your life away on an official document and are ushered aboard the
-            Paloma. Suddenly, you’re surrounded by seasoned explorers and warriors with grand stories of their past
-            exploits. There are humans, dwarves, elves, dark elves, and the occasional gnome, and you have never seen
-            such a diverse crowd in your entire life. Before you can change your mind, the port is shrinking into the
-            distance.
-        </p>
+            <button ng-click="chooseArmor('HEAVY')" class="button-default btn-block">Sturdy, safe plated armor...</button>
+            <button ng-click="chooseArmor('LIGHT')" class="button-default btn-block">Flexible, easy to move in armor...</button>
+            <button ng-click="chooseArmor('ROBE')" class="button-default btn-block">Comfortable, rune-embroidered
+                robes...</button>
+        </div>
+        <div ng-if="page == 'weapon'">
+            <p>
+                Suddenly, you sense presence of danger. You hastily grab your:
+            </p>
 
-        <p>
-            Once the ship is on course, Captain Lombardi, the leader of the expedition, introduces himself with a
-            booming
-            voice and states the rules for the voyage. Most of his rules were described in your contract, and any
-            offender to these rules will walk the plank. After he finishes his speech, the captain returns to the stern
-            where he begins speaking with his first mate. You see them holding a gigantic map, and you yearn for a map
-            of your own, wishing you knew the whereabouts of your destination.
-        </p>
+            <button ng-if="armor == 'HEAVY'" ng-click="chooseWeapon('SWORD')" class="button-default btn-block">Sword...</button>
+            <button ng-if="armor == 'HEAVY'" ng-click="chooseWeapon('AXE')" class="button-default btn-block">Axe...</button>
+            <button ng-if="armor == 'HEAVY'" ng-click="chooseWeapon('HAMMER')" class="button-default btn-block">Hammer...</button>
+            <button ng-if="armor == 'LIGHT'" ng-click="chooseWeapon('DAGGER')" class="button-default btn-block">Dagger...</button>
+            <button ng-if="armor == 'LIGHT'" ng-click="chooseWeapon('BOW')" class="button-default btn-block">Bow...</button>
+            <button ng-if="armor == 'ROBE'" ng-click="chooseWeapon('STAFF')" class="button-default btn-block">Staff...</button>
+            <button ng-if="armor == 'ROBE'" ng-click="chooseWeapon('WAND')" class="button-default btn-block">Wand...</button>
+        </div>
+        <div ng-if="page == 'ending'">
+            <p>
+                You feel surge of killing intent from behind. You leap forward, only to feel claws of beast graze your
+                back. Fortunately you were fast enough. Meanwhile, scenery around you changes. Trees wither, Flowers and
+                leaves are decaying rapidly. Where you sensed serenity and beauty, ther is only death and emptiness now.
+                You sense evil presence all around you. You wake up covered in sweat.
+            </p>
+            <p>
+                That dream, you feel something odd about it. It felt too real, killing intent was terrifying, you could
+                feel despair of nature. Was it merely heavy nightmare,or premonition? Your heart pounds from shock, and
+                you slowly start to calm down. You realized you clutch bundle of cloth.
+            </p>
+            <p>
+                „Important, isn´t it?“- old man says
+            </p>
+            <p>
+                „You clutched it and wouldn´t let go of it for entire 3 days you were out cold“. You hurriedly unpack
+                bundle containing only belongings you managed to pack quickly in storm.
+            </p>
+            <p ng-if="armor == 'HEAVY'">
+                Your armor is all rusty, seawater is harmful to iron after all.
+            </p>
+            <p ng-if="armor == 'LIGHT'">
+                Your leather armor is fine despite its age.
+            </p>
+            <p ng-if="armor == 'ROBE'">
+                Your precious spell tomes, bundled in your spare cloth, fall apart despite your effort to protect them
+                from water.
+            </p>
+            <p ng-if="weapon == 'SWORD' || weapon == 'AXE' || weapon == 'HAMMER' || weapon == 'DAGGER'">
+                Your weapons were old to begin with, but now they are in pathetic state, you need replacements as soon
+                as possible.
+            </p>
+            <p ng-if="weapon == 'BOW' || weapon == 'STAFF' || weapon == 'WAND'">
+                As expected, wood didn't survive in storm.
+            </p>
+            <p ng-if="weapon == 'BOW'">
+                „Are you archer? I can understand your pain of losing bow you made yourself. Here take this one as
+                replacement.“
+            </p>
+            <p ng-if="weapon == 'STAFF' || weapon == 'WAND'">
+                „Tomes are in tatters? Well, you should ask Serfi, magician living nearby for help.“
+            </p>
+            <p>Your stomach growls loudly.</p>
+            <p>
+                „Hungry, are we? Let´s go to kitchen, my wife baked apple pies we can have some“ old man offers.
+            </p>
+            <p>
+                You follow old man, grateful for his hospitality. After delicious lunch, his wife packs one pie and some
+                peanuts for you to take. You thank her sincerely and turn to leave.
+            </p>
+            <div ng-if="weapon == 'BOW'">
+                <p>
+                    „Here, take some arrows as well, you will need them“ old man gives you one more gift.“
+                </p>
+                <p>
+                    You thank him once more and promise to repay debt.
+                </p>
+                <p>
+                    „Repay? I didn't do it for profit, it did it because it´s right thing to do.“
+                </p>
+            </div>
+            <div ng-if="weapon == 'STAFF' || weapon == 'WAND'">
+                <p>
+                    „To visit Serfi, just follow western path, his dwelling is on top of the hill“. You thank old man
+                    once again and head to the west. You arrive at small hut. Suddenly, ground shakes and huge explosion
+                    tears small house apart. You rush in worried, only to see old wizard staring angrily at you.
+                </p>
+                <p>
+                    „Your aura distrupted my ritual! Do you want to KILL US ALL YOU IDIOT“ shrieks wizard.
+                </p>
+                <p>
+                    „As fellow student of Magical Arts, you should be aware of risks.“ He keeps ranting. Then he turns
+                    around and starts muttering „Adjust the power,yes, I need to reduce impact and concentrate it,
+                    hehe....“ You stand there, forgotten and left alone. Just how senile is he. Timidly, you approach
+                    him.
+                </p>
+                <p>
+                    „WHAT DO YOU WANT? HAVEN´T YOU DONE ENOUGH DAMAGE ALREADY?“ he roars at you.
+                </p>
+                <p>
+                    You apologize repeatedly and man finally calms down.
+                </p>
+                <p>
+                    „A spare Staff or a Wand, huh? I should have some here, collecting dust along with robes and books
+                    for amateurs. Take them and get out of my sight, I don´t need them anyways!!!“ You run off, glad for
+                    rags,old tool and your very life.
+                </p>
+            </div>
+            <p>
+                After all the struggles, you arrive into Sevgard. Not in way you expected, but you begin your life as an
+                adventurer.
+            </p>
 
-        <p>
-            While pondering the next chapter of your life, you lean against the ship’s railing and watch the other
-            explorers. You wonder about each of their pasts and from which countries they hailed from. A few of the
-            explorers must be already acquainted since they were either huddling in groups or keeping their distance
-            with solemn expressions. At the moment, nobody seems particularly interested in you, and you feel like that
-            is a good thing.
-        </p>
-
-        <p>
-            As sunset approaches, the tensions have lowered, and the explorers have settled down with the crew members
-            to
-            have supper. The elves, all seven of them, entertained the company with a charming story about their
-            midsummer festivals. They detail how midsummer is an essential holiday in their culture and how they felt
-            shameful for missing the celebration of the summer solstice, the longest day of the year. To the elves, this
-            tradition appeased nature and would bring plentiful harvest and prosperity, and they propose having their
-            own festival aboard the ship. That’s when the merrymaking begins.
-        </p>
-
-        <p>
-            The elves remove lutes and ocarinas and play elvish ballads while the crew clap their hands and stomp the
-            feet. Meanwhile, you try to eat your supper in relative peace until the elves remove colorful ribbons and
-            transform the mast into a maypole. Before you know it, a female elf hands you a teal ribbon and urges you to
-            celebrate with the others. The only person opposed to the festivities is Captain Lombardi, but even his
-            boisterous laugh echoes over the ship by nightfall. You suspect the seemingly endless kegs of ale from the
-            Paloma’s lower levels.
-        </p>
-
-        <p>
-            When you wake in the morning, everything is silent. You walk to the upper decks and study the remains of the
-            previous night. A few of the colorful ribbons are still wrapped around the mast, but the majority of them
-            are strewn across the deck. The first mate orders you to clean up the mess, and you oblige. You were one of
-            the few who had not been drinking ale or wine last night, so at the moment, it was the least you could do.
-            As you reach down to collect a purple ribbon, you stumble as a massive wave slams against the Paloma.
-        </p>
-
-        <p>
-            An icy wind billows out of nowhere, and large thunderclouds appear in the distance, roiling toward the ship
-            like a starved beast. The gusts rip the ribbon from your grasp and carry it far away. The grey sky
-            transforms before your eyes, turning as dark as pitch, and you stare upward as the clouds release their
-            burden. Torrential rain pours from above, and you’re swept off your feet by a wave and are nearly dumped
-            overboard. You cling to the railing as the ship comes alive. The crew members scatter to their stations,
-            trying to navigate the Paloma through the harsh storm. A sharp whistling sound fills the air, and you hear
-            malevolent whispers on the wind. As the first bolt of lightning cracks, you’re temporarily blinded by the
-            sudden light, but you can just barely see a host of wispy phantoms surrounding the ship. None of your
-            company seem to notice these creatures, and before you can warn them, you hear a shuddering crack.
-        </p>
-
-        <p>
-            A massive hole appears on the vessel’s starboard side, allowing seawater to flood inward. With each passing
-            moment, the ship sinks lower to its watery demise. You make a rash decision and leap overboard. Luckily,
-            there are pieces of driftwood to keep you afloat, and you paddle far away from the sinking ship. Before you
-            can swim more than a few yards, a vortex appears around the ship and sucks it beneath the surface. You cling
-            to the piece of driftwood for dear life as water crashes over your head, submerging you again and again
-            until you fall unconscious. Before the storm disappears, it washes you onto a sandy shore.
-        </p>
-
-        <p>
-            Your head feels fuzzy. Blinking your eyes open, you see a fire radiating from a stone hearth. You are tucked beneath warm quilts and feel quite sleepy. Swords and assorted tools mount the walls. You hear a door creak open, and a bearded man enters the room.
-        </p>
-
-        <p>"You're awake!"</p>
-
-        <p>"Where am I?" you ask, clearing your throat.</p>
-
-        <p>The strange man offers you a cup of water which you greatly accept.</p>
-
-        <p>
-            "This is my home." The man gestures around him. "I was a delivering a broadsword to Guirag, and on my way back, I found you washed up on the shore. You must have been caught in that evil storm. I tried to wake you, but you were in a deep sleep. I brought you back with me. We're in Sevgard now. You're safe."
-        </p>
-
-        <p class="text-center">
-            <a ng-click="next()" style="cursor: pointer;">To the character page...</a>
-        </p>
+            <p class="text-center" style="margin-bottom: 0;">
+                <button ng-click="finish()" class="button-default btn-block">Continue...</button>
+            </p>
+        </div>
     </div>
 </div>

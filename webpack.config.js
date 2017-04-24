@@ -5,40 +5,145 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './static/main.js',
     resolve: {
-        root: [
-            path.resolve('./static')
+        modules: [
+            path.resolve('static')
         ]
     },
     output: {
-        path: './static/bundle/',
+        path: path.resolve('./static/bundle/'),
         filename: 'bundle-[hash].js',
     },
     devtool: 'source-map',
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.html$/,
-                loader: "html"
+                use: [
+                    {
+                        loader: "html-loader"
+                    }
+                ]
             },
             {
                 test: /\.scss/,
-                loaders: ["style", "css", "sass"]
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader"
+                    },
+                    {
+                        loader: "sass-loader"
+                    }
+                ]
             },
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader?root=."
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader",
+                        options: {
+                            root: '.'
+                        }
+                    }
+                ]
             },
-            { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   loader: "url?limit=10000&mimetype=application/font-woff" },
-            { test: /\.woff2$/,   loader: "url?limit=10000&mimetype=application/font-woff" },
-            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=application/octet-stream" },
-            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    loader: "file" },
-            { test: /map.\d+\.json$/,    loader: "url" },
-            { test: /\/image\/map\/tileset\/.*?\.png$/,    loader: "url" },
-            { test: /\/image\/player\.png$/,    loader: "url" },
-            { test: /\.png$/,    loader: "file" },
-            { test: /\.jpg$/,    loader: "file" },
-            { test: /\.xml$/, loader: 'xml-loader' },
-            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=image/svg+xml" }
+            {
+                test: /\.woff(\?v=\d+\.\d+\.\d+|\d+)?$/,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 10000,
+                            mimetype: 'application/font-woff'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 10000,
+                            mimetype: 'application/octet-stream'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                    }
+                ]
+            },
+            {
+                test: /map.\d+\.json$/,
+                use: [
+                    {
+                        loader: "url-loader",
+                    }
+                ]
+            },
+            {
+                test: /\/image\/map\/tileset\/.*?\.png$/,
+                use: [
+                    {
+                        loader: "url-loader",
+                    }
+                ]
+            },
+            {
+                test: /\/image\/player\.png$/,
+                use: [
+                    {
+                        loader: "url-loader",
+                    }
+                ]
+            },
+            {
+                test: /\.png$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                    }
+                ]
+            },
+            {
+                test: /\.jpg$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                    }
+                ]
+            },
+            {
+                test: /\.xml$/,
+                use: [
+                    {
+                        loader: "xml-loader",
+                    }
+                ]
+            },
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 10000,
+                            mimetype: 'image/svg+xml'
+                        }
+                    }
+                ]
+            },
         ]
     },
     plugins: [
@@ -46,9 +151,6 @@ module.exports = {
             template: './static/index.html',
         }),
         new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
             mangle: false,
             sourceMap: false
         })
