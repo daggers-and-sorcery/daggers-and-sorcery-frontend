@@ -88,6 +88,9 @@ require('./sass/partial/character/skills-page.scss');
 
 require('./sass/common/form/input.scss');
 require('./sass/common/form/button.scss');
+require('./sass/common/form/label.scss');
+
+require('./sass/common/cursor.scss');
 
 require('./sass/common/panel/panel.scss');
 
