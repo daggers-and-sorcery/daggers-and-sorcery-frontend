@@ -41,235 +41,235 @@
 </style>
 <div class="outter-container">
     <div class="container-fluid" role="main">
-        <div class="hidden-sm hidden-md hidden-lg" style="height: 69px;"></div>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#"><img class="logo" src="../image/icon/logo.png"></a>
-                            <a class="hidden-xs navbar-brand" href="#">Daggers &amp; Sorcery</a>
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-right: 0;
-    background-color: rgba(245, 213, 149, 0.6); border-color: rgba(0,0,0,0.2);">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar" style="    background-color: wheat;"></span>
-                                <span class="icon-bar" style="    background-color: wheat;"></span>
-                                <span class="icon-bar" style="    background-color: wheat;"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="$root.user.loggedIn">
-                        <div class="top-attribute-bar top-health-bar">
-                            <div class="row">
-                                <div class="top-attribute-text col-xs-2 col-sm-1 col-md-2 col-lg-2">HP:</div>
-                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar"
-                                             ng-style="{'width': getHealthPercent()+'%'}">
-                                            <span class="progress-info">{{$root.user.life}} / {{$root.user.max_life}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="$root.user.loggedIn">
-                        <div class="top-attribute-bar top-mana-bar">
-                            <div class="row">
-                                <div class="top-attribute-text col-xs-2 col-sm-2 col-md-2 col-lg-2">MP:</div>
-                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-info" role="progressbar"
-                                             ng-style="{'width': getManaPercent()+'%'}">
-                                            <span class="progress-info">{{$root.user.mana}} / {{$root.user.max_mana}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="$root.user.loggedIn">
-                        <div class="top-attribute-bar top-movement-bar">
-                            <div class="row">
-                                <div class="top-attribute-text col-xs-2 col-sm-2 col-md-2 col-lg-2">MOV:</div>
-                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar"
-                                             ng-style="{'width': getMovementPercent()+'%'}">
-                                            <span class="progress-info">{{$root.user.movement}} / {{$root.user.max_movement}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row hidden-sm hidden-md hidden-lg">
-                    <div class="col-xs-12">
-                        <div class="collapse navbar-collapse" style="border: none;    box-shadow: none;" id="bs-example-navbar-collapse-1">
-                            <div ng-show="$root.user.loggedIn">
-                                <div ui-sref="map"  data-toggle="collapse"
-                                     data-target="#bs-example-navbar-collapse-1">
-                                    <img class="menu-icon" src="../image/icon/menu/explore.png"
-                                         style="width: 70px; right: 48px;">
-                                    <button class="button-default max-width">Explore</button>
-                                </div>
-                                <div ui-sref="inn-services" data-toggle="collapse"
-                                     data-target="#bs-example-navbar-collapse-1">
-                                    <img class="menu-icon" src="../image/icon/menu/inn.png">
-                                    <button class="button-default max-width">Inn</button>
-                                </div>
-                                <div ui-sref="shop({shopId: '1'})" data-toggle="collapse"
-                                     data-target="#bs-example-navbar-collapse-1">
-                                    <img class="menu-icon" src="../image/icon/menu/shop.png">
-                                    <button class="button-default max-width">Shop</button>
-                                </div>
-                                <div ui-sref="market-list-sell" data-toggle="collapse"
-                                     data-target="#bs-example-navbar-collapse-1">
-                                    <img class="menu-icon" src="../image/icon/menu/shop.png">
-                                    <button class="button-default max-width">Market</button>
-                                </div>
-                                <hr style="    border-color: wheat;margin: 5px">
-                                <div ui-sref="character" data-toggle="collapse"
-                                     data-target="#bs-example-navbar-collapse-1">
-                                    <img class="menu-icon" src="../image/icon/menu/character.png">
-                                    <button class="button-default max-width">Character</button>
-                                </div>
-                                <div ui-sref="journal" data-toggle="collapse"
-                                     data-target="#bs-example-navbar-collapse-1">
-                                    <img class="menu-icon" src="../image/icon/menu/journal.png">
-                                    <button class="button-default max-width">Journal</button>
-                                </div>
-                                <div ui-sref="forum-category-list" data-toggle="collapse"
-                                     data-target="#bs-example-navbar-collapse-1">
-                                    <img class="menu-icon" src="../image/icon/menu/forum.png">
-                                    <button class="button-default max-width">Forum</button>
-                                </div>
-                                <div ui-sref="knowledge-base" data-toggle="collapse"
-                                     data-target="#bs-example-navbar-collapse-1">
-                                    <img class="menu-icon" src="../image/icon/menu/knowledgebase.png">
-                                    <button class="button-default max-width">Knowledge base</button>
-                                </div>
-                                <div ui-sref="ladder" data-toggle="collapse"
-                                     data-target="#bs-example-navbar-collapse-1">
-                                    <img class="menu-icon" src="../image/icon/menu/hourglass.png">
-                                    <button class="button-default max-width">Ladder</button>
-                                </div>
-                                <div ui-sref="logout" data-toggle="collapse"
-                                     data-target="#bs-example-navbar-collapse-1">
-                                    <img class="menu-icon" src="../image/icon/menu/logout.png">
-                                    <button class="button-default max-width">Logout</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <div class="row">
-            <div class="col-md-push-9 col-md-3 col-lg-3 content-right">
-                <div ng-hide="$root.user.loggedIn" class="panel panel-default login-panel">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Login</h3>
-                    </div>
-                    <div class="panel-body">
-                        <button class="button-default registration-button" ui-sref="registration"
-                                href="#/registration/">
-                            Create an account
-                        </button>
-                        <div class="alert alert-danger login-error ng-binding ng-hide text-center" role="alert"
-                             ng-show="error" style="margin-bottom: 15px;">
-                            User not found with the provided username and password.
-                        </div>
-                        <form ng-submit="submit()" class="ng-pristine ng-valid">
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control ng-pristine ng-valid ng-touched" id="username"
-                                       placeholder="Username" ng-model="user.username" autocomplete="off">
-                            </div>
-                            <div class="password">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control ng-pristine ng-untouched ng-valid"
-                                       id="password" placeholder="Password" ng-model="user.password">
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="button-default login-button">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div ng-show="$root.user.loggedIn" class="panel panel-default unselectable hidden-xs">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Location
-                            <small>(City of Sevgard)</small>
-                        </h3>
-                    </div>
-                    <div class="panel-body">
-                        <div ui-sref="map">
-                            <img class="menu-icon" src="../image/icon/menu/explore.png"
-                                 style="width: 70px; right: 48px;">
-                            <button class="button-default max-width">Explore</button>
-                        </div>
-                        <div ui-sref="inn-services">
-                            <img class="menu-icon" src="../image/icon/menu/inn.png">
-                            <button class="button-default max-width">Inn</button>
-                        </div>
-                        <div ui-sref="shop({shopId: '1'})">
-                            <img class="menu-icon" src="../image/icon/menu/shop.png">
-                            <button class="button-default max-width">Shop</button>
-                        </div>
-                        <div ui-sref="market-list-sell">
-                            <img class="menu-icon" src="../image/icon/menu/shop.png">
-                            <button class="button-default max-width">Market</button>
-                        </div>
-                    </div>
-                </div>
-                <div ng-show="$root.user.loggedIn" class="panel panel-default unselectable hidden-xs">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Menu</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div ui-sref="character">
-                            <img class="menu-icon" src="../image/icon/menu/character.png">
-                            <button class="button-default max-width">Character</button>
-                        </div>
-                        <div ui-sref="journal">
-                            <img class="menu-icon" src="../image/icon/menu/journal.png">
-                            <button class="button-default max-width">Journal</button>
-                        </div>
-                        <div ui-sref="forum-category-list">
-                            <img class="menu-icon" src="../image/icon/menu/forum.png">
-                            <button class="button-default max-width">Forum</button>
-                        </div>
-                        <div ui-sref="knowledge-base">
-                            <img class="menu-icon" src="../image/icon/menu/knowledgebase.png">
-                            <button class="button-default max-width">Knowledge base</button>
-                        </div>
-                        <div ui-sref="ladder">
-                            <img class="menu-icon" src="../image/icon/menu/hourglass.png">
-                            <button class="button-default max-width">Ladder</button>
-                        </div>
-                        <div ui-sref="logout">
-                            <img class="menu-icon" src="../image/icon/menu/logout.png">
-                            <button class="button-default max-width">Logout</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+				<div class="hidden-sm hidden-md hidden-lg" style="height: 69px;"></div>
+				<nav class="navbar navbar-default">
+						<div class="container-fluid">
+								<div class="row">
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+												<div class="navbar-header">
+														<a class="navbar-brand" href="#"><img class="logo" src="../image/icon/logo.png"></a>
+														<a class="hidden-xs navbar-brand" href="#">Daggers &amp; Sorcery</a>
+														<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+																		data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-right: 0;
+				background-color: rgba(245, 213, 149, 0.6); border-color: rgba(0,0,0,0.2);">
+																<span class="sr-only">Toggle navigation</span>
+																<span class="icon-bar" style="    background-color: wheat;"></span>
+																<span class="icon-bar" style="    background-color: wheat;"></span>
+																<span class="icon-bar" style="    background-color: wheat;"></span>
+														</button>
+												</div>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="$root.user.loggedIn">
+												<div class="top-attribute-bar top-health-bar">
+														<div class="row">
+																<div class="top-attribute-text col-xs-2 col-sm-1 col-md-2 col-lg-2">HP:</div>
+																<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																		<div class="progress">
+																				<div class="progress-bar progress-bar-danger" role="progressbar"
+																						 ng-style="{'width': getHealthPercent()+'%'}">
+																						<span class="progress-info">{{$root.user.life}} / {{$root.user.max_life}}</span>
+																				</div>
+																		</div>
+																</div>
+														</div>
+												</div>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="$root.user.loggedIn">
+												<div class="top-attribute-bar top-mana-bar">
+														<div class="row">
+																<div class="top-attribute-text col-xs-2 col-sm-2 col-md-2 col-lg-2">MP:</div>
+																<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																		<div class="progress">
+																				<div class="progress-bar progress-bar-info" role="progressbar"
+																						 ng-style="{'width': getManaPercent()+'%'}">
+																						<span class="progress-info">{{$root.user.mana}} / {{$root.user.max_mana}}</span>
+																				</div>
+																		</div>
+																</div>
+														</div>
+												</div>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="$root.user.loggedIn">
+												<div class="top-attribute-bar top-movement-bar">
+														<div class="row">
+																<div class="top-attribute-text col-xs-2 col-sm-2 col-md-2 col-lg-2">MOV:</div>
+																<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																		<div class="progress">
+																				<div class="progress-bar progress-bar-warning" role="progressbar"
+																						 ng-style="{'width': getMovementPercent()+'%'}">
+																						<span class="progress-info">{{$root.user.movement}} / {{$root.user.max_movement}}</span>
+																				</div>
+																		</div>
+																</div>
+														</div>
+												</div>
+										</div>
+								</div>
+								<div class="row hidden-sm hidden-md hidden-lg">
+										<div class="col-xs-12">
+												<div class="collapse navbar-collapse" style="border: none;    box-shadow: none;" id="bs-example-navbar-collapse-1">
+														<div ng-show="$root.user.loggedIn">
+																<div ui-sref="map"  data-toggle="collapse"
+																		 data-target="#bs-example-navbar-collapse-1">
+																		<img class="menu-icon" src="../image/icon/menu/explore.png"
+																				 style="width: 70px; right: 48px;">
+																		<button class="button-default max-width">Explore</button>
+																</div>
+																<div ui-sref="inn-services" data-toggle="collapse"
+																		 data-target="#bs-example-navbar-collapse-1">
+																		<img class="menu-icon" src="../image/icon/menu/inn.png">
+																		<button class="button-default max-width">Inn</button>
+																</div>
+																<div ui-sref="shop({shopId: '1'})" data-toggle="collapse"
+																		 data-target="#bs-example-navbar-collapse-1">
+																		<img class="menu-icon" src="../image/icon/menu/shop.png">
+																		<button class="button-default max-width">Shop</button>
+																</div>
+																<div ui-sref="market-list-sell" data-toggle="collapse"
+																		 data-target="#bs-example-navbar-collapse-1">
+																		<img class="menu-icon" src="../image/icon/menu/shop.png">
+																		<button class="button-default max-width">Market</button>
+																</div>
+																<hr style="    border-color: wheat;margin: 5px">
+																<div ui-sref="character" data-toggle="collapse"
+																		 data-target="#bs-example-navbar-collapse-1">
+																		<img class="menu-icon" src="../image/icon/menu/character.png">
+																		<button class="button-default max-width">Character</button>
+																</div>
+																<div ui-sref="journal" data-toggle="collapse"
+																		 data-target="#bs-example-navbar-collapse-1">
+																		<img class="menu-icon" src="../image/icon/menu/journal.png">
+																		<button class="button-default max-width">Journal</button>
+																</div>
+																<div ui-sref="forum-category-list" data-toggle="collapse"
+																		 data-target="#bs-example-navbar-collapse-1">
+																		<img class="menu-icon" src="../image/icon/menu/forum.png">
+																		<button class="button-default max-width">Forum</button>
+																</div>
+																<div ui-sref="knowledge-base" data-toggle="collapse"
+																		 data-target="#bs-example-navbar-collapse-1">
+																		<img class="menu-icon" src="../image/icon/menu/knowledgebase.png">
+																		<button class="button-default max-width">Knowledge base</button>
+																</div>
+																<div ui-sref="ladder" data-toggle="collapse"
+																		 data-target="#bs-example-navbar-collapse-1">
+																		<img class="menu-icon" src="../image/icon/menu/hourglass.png">
+																		<button class="button-default max-width">Ladder</button>
+																</div>
+																<div ui-sref="logout" data-toggle="collapse"
+																		 data-target="#bs-example-navbar-collapse-1">
+																		<img class="menu-icon" src="../image/icon/menu/logout.png">
+																		<button class="button-default max-width">Logout</button>
+																</div>
+														</div>
+												</div>
+										</div>
+								</div>
+						</div>
+				</nav>
+				<div class="row">
+						<div class="col-md-push-9 col-md-3 col-lg-3 content-right">
+								<div ng-hide="$root.user.loggedIn" class="panel panel-default login-panel">
+										<div class="panel-heading">
+												<h3 class="panel-title">Login</h3>
+										</div>
+										<div class="panel-body">
+												<button class="button-default registration-button" ui-sref="registration"
+																href="#/registration/">
+														Create an account
+												</button>
+												<div class="alert alert-danger login-error ng-binding ng-hide text-center" role="alert"
+														 ng-show="error" style="margin-bottom: 15px;">
+														User not found with the provided username and password.
+												</div>
+												<form ng-submit="submit()" class="ng-pristine ng-valid">
+														<div class="form-group">
+																<label for="username">Username</label>
+																<input type="text" class="form-control ng-pristine ng-valid ng-touched" id="username"
+																			 placeholder="Username" ng-model="user.username" autocomplete="off">
+														</div>
+														<div class="password">
+																<label for="password">Password</label>
+																<input type="password" class="form-control ng-pristine ng-untouched ng-valid"
+																			 id="password" placeholder="Password" ng-model="user.password">
+														</div>
+														<div class="text-center">
+																<button type="submit" class="button-default login-button">Submit</button>
+														</div>
+												</form>
+										</div>
+								</div>
+								<div ng-show="$root.user.loggedIn" class="panel panel-default unselectable hidden-xs">
+										<div class="panel-heading">
+												<h3 class="panel-title">Location
+														<small>(City of Sevgard)</small>
+												</h3>
+										</div>
+										<div class="panel-body">
+												<div ui-sref="map">
+														<img class="menu-icon" src="../image/icon/menu/explore.png"
+																 style="width: 70px; right: 48px;">
+														<button class="button-default max-width">Explore</button>
+												</div>
+												<div ui-sref="inn-services">
+														<img class="menu-icon" src="../image/icon/menu/inn.png">
+														<button class="button-default max-width">Inn</button>
+												</div>
+												<div ui-sref="shop({shopId: '1'})">
+														<img class="menu-icon" src="../image/icon/menu/shop.png">
+														<button class="button-default max-width">Shop</button>
+												</div>
+												<div ui-sref="market-list-sell">
+														<img class="menu-icon" src="../image/icon/menu/shop.png">
+														<button class="button-default max-width">Market</button>
+												</div>
+										</div>
+								</div>
+								<div ng-show="$root.user.loggedIn" class="panel panel-default unselectable hidden-xs">
+										<div class="panel-heading">
+												<h3 class="panel-title">Menu</h3>
+										</div>
+										<div class="panel-body">
+												<div ui-sref="character">
+														<img class="menu-icon" src="../image/icon/menu/character.png">
+														<button class="button-default max-width">Character</button>
+												</div>
+												<div ui-sref="journal">
+														<img class="menu-icon" src="../image/icon/menu/journal.png">
+														<button class="button-default max-width">Journal</button>
+												</div>
+												<div ui-sref="forum-category-list">
+														<img class="menu-icon" src="../image/icon/menu/forum.png">
+														<button class="button-default max-width">Forum</button>
+												</div>
+												<div ui-sref="knowledge-base">
+														<img class="menu-icon" src="../image/icon/menu/knowledgebase.png">
+														<button class="button-default max-width">Knowledge base</button>
+												</div>
+												<div ui-sref="ladder">
+														<img class="menu-icon" src="../image/icon/menu/hourglass.png">
+														<button class="button-default max-width">Ladder</button>
+												</div>
+												<div ui-sref="logout">
+														<img class="menu-icon" src="../image/icon/menu/logout.png">
+														<button class="button-default max-width">Logout</button>
+												</div>
+										</div>
+								</div>
+						</div>
 
-            <div class="col-md-pull-3 col-md-9 col-lg-9 content-middle" ui-view></div>
-        </div>
+						<div class="col-md-pull-3 col-md-9 col-lg-9 content-middle" ui-view></div>
+				</div>
 
-			<div class="text-center">
-				<adsense ad-client="ca-pub-5228688053569541" ad-slot="8510428933" inline-style="display:inline-block;width:728px;height:90px" ad-format="auto"></adsense>
-			</div>
-        <div id="footer">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer-menu">
-                    This website and its contents are copyright &copy; 2016 More Than Heroic Studios
-                </div>
-            </div>
-        </div>
+				<div class="text-center">
+						<adsense ad-client="ca-pub-5228688053569541" ad-slot="1764597738" inline-style="display:inline-block;height:90px;width: 100%;" ad-format="auto"></adsense>
+				</div>
+				<div id="footer">
+						<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer-menu">
+										This website and its contents are copyright &copy; 2016 More Than Heroic Studios
+								</div>
+						</div>
+				</div>
     </div>
 </div>

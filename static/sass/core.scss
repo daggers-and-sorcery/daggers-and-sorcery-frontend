@@ -10,7 +10,8 @@ body {
     border: 26px solid;
 
     @include when-mobile {
-      border: 15px solid;
+      border-left: 15px solid;
+      border-right: 15px solid;
       border-image: url(../image/best.png) 0 56 round;
     }
 
@@ -51,7 +52,6 @@ body {
     }
 
     @include when-tablet {
-      position: fixed;
       z-index: 10;
       right: 0;
       left: 0;
@@ -61,8 +61,8 @@ body {
     }
 
     @include when-mobile {
-      margin-left: 20px !important;
-      margin-right: 20px !important;
+      margin-left: 8px !important;
+      margin-right: 8px !important;
       margin-top: -70px;
     }
   }
