@@ -28,7 +28,7 @@
 
     .knowledge-base-toc-list-big {
         span {
-          cursor: pointer;
+            cursor: url(../../../image/cursor/target.png), auto;
             font-size: 20px;
             line-height: 44px
         }
@@ -60,7 +60,7 @@
 
     .knowledge-base-toc-list-small span {
         font-size: 16px;
-        cursor: pointer;
+        cursor: url(../../../image/cursor/target.png), auto;
     }
 
     .btn.btn-primary {

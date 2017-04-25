@@ -88,12 +88,16 @@ require('./sass/partial/character/skills-page.scss');
 
 require('./sass/common/form/input.scss');
 require('./sass/common/form/button.scss');
+require('./sass/common/form/label.scss');
+
+require('./sass/common/cursor.scss');
 
 require('./sass/common/panel/panel.scss');
 
 require('./sass/common/holder/description-holder.scss');
 
 require('./sass/common/component/popover.scss');
+require('./sass/common/component/right-menu.scss');
 
 require('./sass/common/flash/flash.scss');
 require('./sass/common/money.scss');

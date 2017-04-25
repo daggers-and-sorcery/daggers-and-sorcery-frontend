@@ -18,7 +18,13 @@
     }
 
     .big-button {
-        cursor: pointer;
+        cursor: url(../../../image/cursor/target.png), auto;
+
+        user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
     }
 
     .alert {

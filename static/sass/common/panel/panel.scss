@@ -50,8 +50,13 @@
 
         .panel-title {
             font-family: "Candara";
-            font-size: 20px;
-            cursor: default;
+            font-size: 23px;
+
+            user-select: none;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -o-user-select: none;
         }
     }
 
