@@ -6,7 +6,7 @@ module.exports = {
     template: require('partial/main/character.html'),
     resolve: {
         characterData: function ($http, characterDataFormatter) {
-            return $http.get('http://api.daggersandsorcery.com/character/info').then(function(response) {
+            return $http.get('https://api.daggersandsorcery.com/character/info').then(function(response) {
                 return characterDataFormatter.format(response.data);
             });
         }

@@ -16,7 +16,7 @@ module.exports = function ($scope, $http, skillTypes, ladderInfo) {
     };
 
     $scope.$watch('currentPage', function () {
-        $http.get('http://api.daggersandsorcery.com/ladder/skill/' + $scope.selected.id + '/' + $scope.currentPage).then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/ladder/skill/' + $scope.selected.id + '/' + $scope.currentPage).then(function (response) {
             $scope.ladderData = response.data.data.ladder_info;
             $scope.pageData = response.data.data.page_info;
         });
@@ -26,7 +26,7 @@ module.exports = function ($scope, $http, skillTypes, ladderInfo) {
         $scope.selected = type;
         $scope.currentPage = 1;
 
-        $http.get('http://api.daggersandsorcery.com/ladder/skill/' + $scope.selected.id + '/' + $scope.currentPage).then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/ladder/skill/' + $scope.selected.id + '/' + $scope.currentPage).then(function (response) {
             $scope.ladderData = response.data.data.ladder_info;
             $scope.pageData = response.data.data.page_info;
         });

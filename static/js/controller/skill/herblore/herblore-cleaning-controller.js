@@ -8,7 +8,7 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, cleaning
             recipeId: recipeId
         };
 
-        $http.post('http://api.daggersandsorcery.com/skill/herblore/cleaning/craft', payload).success(function (data, status, headers, config) {
+        $http.post('https://api.daggersandsorcery.com/skill/herblore/cleaning/craft', payload).success(function (data, status, headers, config) {
             Flash.clear();
             Flash.create(getFletchingResultColor(data.data.result.result), getFletchingResultText(data.data.result.result));
 
@@ -19,7 +19,7 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, cleaning
     $scope.refresh = function () {
         $http({
             method: 'GET',
-            url: 'http://api.daggersandsorcery.com/skill/herblore/cleaning/info'
+            url: 'https://api.daggersandsorcery.com/skill/herblore/cleaning/info'
         }).then(function (response) {
             $scope.cleaningInfo = response.data.data;
         });

@@ -6,7 +6,7 @@ module.exports = function ($scope, $http, $stateParams, journalInfo) {
 
     $scope.changeType = function (newType) {
         if($scope.type !== newType) {
-            $http({method: 'GET', url: 'http://api.daggersandsorcery.com/journal/list/'+newType}).then(function(response) {
+            $http({method: 'GET', url: 'https://api.daggersandsorcery.com/journal/list/'+newType}).then(function(response) {
                 $scope.type = newType;
                 $scope.list = response.data.data.journal_info;
             });

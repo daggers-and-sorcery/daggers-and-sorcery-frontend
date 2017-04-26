@@ -16,7 +16,7 @@ module.exports = {
                 return $stateParams.explorationInfo;
             }
 
-            return $http.get('http://api.daggersandsorcery.com/explore/' + $stateParams.nextLocation + '/' + $stateParams.nextStage).then(function (response) {
+            return $http.get('https://api.daggersandsorcery.com/explore/' + $stateParams.nextLocation + '/' + $stateParams.nextStage).then(function (response) {
                 return response.data.data;
             });
         }

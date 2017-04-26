@@ -20,25 +20,25 @@ module.exports = function ($scope, $http, shopData) {
     };
 
     $scope.buyItem = function (itemId) {
-        $http.get('http://api.daggersandsorcery.com/shop/' + $scope.shopData.definition.id + '/buy/' + itemId).then(function () {
+        $http.get('https://api.daggersandsorcery.com/shop/' + $scope.shopData.definition.id + '/buy/' + itemId).then(function () {
             $scope.refreshBuyShop();
         });
     };
 
     $scope.sellItem = function (itemId) {
-        $http.get('http://api.daggersandsorcery.com/shop/' + $scope.shopData.definition.id + '/sell/' + itemId).then(function () {
+        $http.get('https://api.daggersandsorcery.com/shop/' + $scope.shopData.definition.id + '/sell/' + itemId).then(function () {
             $scope.refreshSellShop();
         });
     };
 
     $scope.refreshSellShop = function () {
-        $http.get('http://api.daggersandsorcery.com/shop/selllist/' + $scope.shopData.definition.id).then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/shop/selllist/' + $scope.shopData.definition.id).then(function (response) {
             $scope.shopData = response.data.data;
         })
     };
 
     $scope.refreshBuyShop = function () {
-        $http.get('http://api.daggersandsorcery.com/shop/buylist/' + $scope.shopData.definition.id).then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/shop/buylist/' + $scope.shopData.definition.id).then(function (response) {
             $scope.shopData = response.data.data;
         })
     };

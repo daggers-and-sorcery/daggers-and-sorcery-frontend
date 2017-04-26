@@ -20,7 +20,7 @@ module.exports = function ($scope, $state, $http, $sce, marked, Flash, innInfo) 
     };
 
     $scope.orderService = function (serviceId) {
-        $http.get('http://api.daggersandsorcery.com/inn/service/' + serviceId).then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/inn/service/' + serviceId).then(function (response) {
             Flash.clear();
 
             if (response.data.data.result.successful) {

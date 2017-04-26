@@ -14,7 +14,7 @@ module.exports = function ($scope, $http, $log, Flash, marketData) {
             marketEntityId: id
         };
 
-        $http.post('http://api.daggersandsorcery.com/market/buy', payload).then(function (response) {
+        $http.post('https://api.daggersandsorcery.com/market/buy', payload).then(function (response) {
             var buyingResult = response.data.data.result.result;
 
             $log.debug("Got response for buying attempt!");
@@ -29,7 +29,7 @@ module.exports = function ($scope, $http, $log, Flash, marketData) {
     $scope.refreshMarketData = function () {
         $log.debug("Refreshing the buylist for item: " + $scope.marketData.item.id);
 
-        $http.get('http://api.daggersandsorcery.com/market/show/buy/' + $scope.marketData.item.id).then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/market/show/buy/' + $scope.marketData.item.id).then(function (response) {
             $log.debug("Buylist refresh finished.");
 
             $scope.marketData = response.data.data;

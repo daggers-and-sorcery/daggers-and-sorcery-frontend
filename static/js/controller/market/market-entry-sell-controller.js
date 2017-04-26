@@ -32,7 +32,7 @@ module.exports = function ($scope, $http, $log, Flash, marketData) {
         if ($scope.sellForm.$valid) {
             $log.debug("The selling form is valid, doing the selling logic.");
 
-            $http.post('http://api.daggersandsorcery.com/market/sell', payload).then(function (response) {
+            $http.post('https://api.daggersandsorcery.com/market/sell', payload).then(function (response) {
                 var sellingResult = response.data.data.result.sellingResult;
 
                 $log.debug("Got response for selling attempt! The result is: " + sellingResult + ".");

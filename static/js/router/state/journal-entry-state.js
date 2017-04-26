@@ -6,7 +6,7 @@ module.exports = {
     template: require('partial/main/journal_entry.html'),
     resolve: {
         journalEntryInfo: function ($http, $stateParams) {
-            return $http({method: 'GET', url: 'http://api.daggersandsorcery.com/journal/entry/' + $stateParams.type + '/' + $stateParams.entryId});
+            return $http({method: 'GET', url: 'https://api.daggersandsorcery.com/journal/entry/' + $stateParams.type + '/' + $stateParams.entryId});
         }
     },
     controller: require('js/controller/journal-entry-controller.js')

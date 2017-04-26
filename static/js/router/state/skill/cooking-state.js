@@ -6,7 +6,7 @@ module.exports = {
     template: require('partial/main/skill/cooking.html'),
     resolve: {
         cookingInfo: function ($http) {
-            return $http({method: 'GET', url: 'http://api.daggersandsorcery.com/skill/cooking/info'});
+            return $http({method: 'GET', url: 'https://api.daggersandsorcery.com/skill/cooking/info'});
         }
     },
     controller: require('js/controller/skill/cooking-controller.js')

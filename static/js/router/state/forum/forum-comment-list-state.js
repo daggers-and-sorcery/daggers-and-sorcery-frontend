@@ -6,7 +6,7 @@ module.exports = {
     template: require('partial/main/forum/forum-comment-list.html'),
     resolve: {
         comments: function ($http, $stateParams) {
-            return $http.get('http://api.daggersandsorcery.com/forum/list/topic/' + $stateParams.topic).then(function (response) {
+            return $http.get('https://api.daggersandsorcery.com/forum/list/topic/' + $stateParams.topic).then(function (response) {
                 return response.data.data;
             });
         }

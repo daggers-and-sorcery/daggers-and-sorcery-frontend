@@ -14,7 +14,7 @@ module.exports = function ($scope, $http, marketData) {
     };
 
     $scope.refreshOfferList = function () {
-        $http.get('http://api.daggersandsorcery.com/market/show/listings').then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/market/show/listings').then(function (response) {
             $scope.shopData = response.data.data;
         });
     }

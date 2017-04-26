@@ -6,7 +6,7 @@ module.exports = {
     template: require('partial/main/market/market-list-sell.html'),
     resolve: {
         marketData: function ($http) {
-            return $http.get('http://api.daggersandsorcery.com/market/show/sell/list').then(function (response) {
+            return $http.get('https://api.daggersandsorcery.com/market/show/sell/list').then(function (response) {
                 return response.data.data;
             });
         }

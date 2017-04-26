@@ -16,8 +16,8 @@ module.exports = function ($scope, $http, $log, topics) {
 
             $log.debug('Sending new topic with payload: ' + angular.toJson(payload));
 
-            $http.post('http://api.daggersandsorcery.com/forum/new_topic', payload).then(function (response) {
-                    $http.get('http://api.daggersandsorcery.com/forum/list/category/' + $scope.topics.parentCategory.id).then(function (response) {
+            $http.post('https://api.daggersandsorcery.com/forum/new_topic', payload).then(function (response) {
+                    $http.get('https://api.daggersandsorcery.com/forum/list/category/' + $scope.topics.parentCategory.id).then(function (response) {
                         $scope.topics = response.data.data;
 
                         $scope.newTopicContent = '';

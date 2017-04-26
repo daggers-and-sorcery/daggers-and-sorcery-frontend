@@ -8,7 +8,7 @@ module.exports = function ($scope, $http, Flash, fletchingInfo) {
             recipeId: recipeId
         };
 
-        $http.post('http://api.daggersandsorcery.com/skill/fletching/create', payload).success(function (data, status, headers, config) {
+        $http.post('https://api.daggersandsorcery.com/skill/fletching/create', payload).success(function (data, status, headers, config) {
             Flash.clear();
             Flash.create(getFletchingResultColor(data.data.result.result), getFletchingResultText(data.data.result.result));
 
@@ -17,7 +17,7 @@ module.exports = function ($scope, $http, Flash, fletchingInfo) {
     };
 
     $scope.refresh = function () {
-        $http.get('http://api.daggersandsorcery.com/skill/fletching/info').then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/skill/fletching/info').then(function (response) {
             $scope.fletchingInfo = response.data.data;
         });
     };

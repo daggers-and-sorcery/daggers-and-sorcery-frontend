@@ -11,8 +11,8 @@ module.exports = function ($scope, $http, $log, comments) {
 
             $log.debug('Sending new comment with payload: ' + angular.toJson(payload));
 
-            $http.post('http://api.daggersandsorcery.com/forum/new_comment', payload).then(function () {
-                    $http.get('http://api.daggersandsorcery.com/forum/list/topic/' + $scope.comments.parent.id).then(function (response) {
+            $http.post('https://api.daggersandsorcery.com/forum/new_comment', payload).then(function () {
+                    $http.get('https://api.daggersandsorcery.com/forum/list/topic/' + $scope.comments.parent.id).then(function (response) {
                         $scope.comments = response.data.data;
 
                         $scope.resetCommentData();

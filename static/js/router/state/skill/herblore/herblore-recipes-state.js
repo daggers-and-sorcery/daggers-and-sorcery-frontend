@@ -6,7 +6,7 @@ module.exports = {
     template: require('partial/main/skill/herblore/recipes.html'),
     resolve: {
         recipesInfo: function ($http) {
-            return $http.get('http://api.daggersandsorcery.com/skill/herblore/recipe/info').then(function(response) {
+            return $http.get('https://api.daggersandsorcery.com/skill/herblore/recipe/info').then(function(response) {
                 return response.data.data;
             });
         }

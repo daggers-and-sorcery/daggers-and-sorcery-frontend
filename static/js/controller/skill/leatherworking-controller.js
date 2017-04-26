@@ -29,21 +29,21 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRe
         };
 
         if($scope.state == 'curing') {
-            $http.post('http://api.daggersandsorcery.com/skill/leatherworking/curing/start', payload).success(function (data, status, headers, config) {
+            $http.post('https://api.daggersandsorcery.com/skill/leatherworking/curing/start', payload).success(function (data, status, headers, config) {
                 Flash.clear();
                 Flash.create(getCuringResultColor(data.data.result.result), getCuringResultText(data.data.result.result));
 
                 $scope.refresh();
             });
         } else if($scope.state == 'tanning') {
-            $http.post('http://api.daggersandsorcery.com/skill/leatherworking/tanning/start', payload).success(function (data, status, headers, config) {
+            $http.post('https://api.daggersandsorcery.com/skill/leatherworking/tanning/start', payload).success(function (data, status, headers, config) {
                 Flash.clear();
                 Flash.create(getTanningResultColor(data.data.result.result), getTanningResultText(data.data.result.result));
 
                 $scope.refresh();
             });
         } else if($scope.state == 'working') {
-            $http.post('http://api.daggersandsorcery.com/skill/leatherworking/working/start', payload).success(function (data, status, headers, config) {
+            $http.post('https://api.daggersandsorcery.com/skill/leatherworking/working/start', payload).success(function (data, status, headers, config) {
                 Flash.clear();
                 Flash.create(getTanningResultColor(data.data.result.result), getTanningResultText(data.data.result.result));
 
@@ -56,21 +56,21 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRe
         if($scope.state == 'curing') {
             $http({
                 method: 'GET',
-                url: 'http://api.daggersandsorcery.com/skill/leatherworking/curing/info'
+                url: 'https://api.daggersandsorcery.com/skill/leatherworking/curing/info'
             }).then(function (response) {
                 $scope.leatherworkingInfo = response.data.data;
             });
         } else if($scope.state == 'tanning') {
             $http({
                 method: 'GET',
-                url: 'http://api.daggersandsorcery.com/skill/leatherworking/tanning/info'
+                url: 'https://api.daggersandsorcery.com/skill/leatherworking/tanning/info'
             }).then(function (response) {
                 $scope.leatherworkingInfo = response.data.data;
             });
         } else if($scope.state == 'working') {
             $http({
                 method: 'GET',
-                url: 'http://api.daggersandsorcery.com/skill/leatherworking/working/info'
+                url: 'https://api.daggersandsorcery.com/skill/leatherworking/working/info'
             }).then(function (response) {
                 $scope.leatherworkingInfo = response.data.data;
             });

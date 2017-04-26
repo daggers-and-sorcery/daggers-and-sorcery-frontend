@@ -6,7 +6,7 @@ module.exports = {
     template: require('partial/main/map.html'),
     resolve: {
         explorationInfo: function ($http) {
-            return $http.get('http://api.daggersandsorcery.com/explore/info').then(function (response) {
+            return $http.get('https://api.daggersandsorcery.com/explore/info').then(function (response) {
                 return response.data.data;
             });
         }

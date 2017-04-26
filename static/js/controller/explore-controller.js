@@ -41,14 +41,14 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
         }
     };
 
-    $http.get('http://api.daggersandsorcery.com/combat/usable/spell').then(function (response) {
+    $http.get('https://api.daggersandsorcery.com/combat/usable/spell').then(function (response) {
         $scope.usableSpells = response.data.data.spellList;
         if ($scope.usableSpells.length > 0) {
             $scope.spellToUse.target = $scope.usableSpells[0];
         }
     });
 
-    $http.get('http://api.daggersandsorcery.com/combat/usable/item').then(function (response) {
+    $http.get('https://api.daggersandsorcery.com/combat/usable/item').then(function (response) {
         $scope.usableItems = response.data.data.itemList;
         if ($scope.usableItems.length > 0) {
             $scope.itemToUse.target = $scope.usableItems[0];
@@ -58,7 +58,7 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
     $scope.cast = function () {
         $log.debug('Casting the spell with id: ' + $scope.spellToUse.target.id);
 
-        $http.get('http://api.daggersandsorcery.com/combat/cast/' + $scope.spellToUse.target.id).then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/combat/cast/' + $scope.spellToUse.target.id).then(function (response) {
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages = $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages.concat(response.data.data.combatSteps);
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].status = response.data.data.status;
         });
@@ -67,7 +67,7 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
     $scope.use = function () {
         $log.debug('Use the item with id: ' + $scope.itemToUse.target.id);
 
-        $http.get('http://api.daggersandsorcery.com/combat/use/' + $scope.itemToUse.target.id).then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/combat/use/' + $scope.itemToUse.target.id).then(function (response) {
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages = $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages.concat(response.data.data.combatSteps);
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].status = response.data.data.status;
         });
@@ -76,7 +76,7 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
     $scope.flee = function () {
         $log.debug('Trying to flee!');
 
-        $http.get('http://api.daggersandsorcery.com/combat/flee').then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/combat/flee').then(function (response) {
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages = $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages.concat(response.data.data.combatSteps);
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].status = response.data.data.status;
         });
@@ -89,14 +89,14 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
     $scope.attack = function () {
         $log.debug('Attacking the opponent!');
 
-        $http.get('http://api.daggersandsorcery.com/combat/attack').then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/combat/attack').then(function (response) {
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages = $scope.explorationResult.events[$scope.explorationResult.events.length - 1].combatMessages.concat(response.data.data.combatSteps);
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].status = response.data.data.status;
         });
     };
 
     $scope.continueExploring = function () {
-        $http.get('http://api.daggersandsorcery.com/explore/next').then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/explore/next').then(function (response) {
             $scope.explorationResult.events[$scope.explorationResult.events.length - 1].status.continued = true;
             $scope.explorationResult.events = $scope.explorationResult.events.concat(response.data.data.events);
         });
