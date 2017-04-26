@@ -47,13 +47,13 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
     };
 
     $scope.$on('profile-update-needed', function (event, args) {
-        $http.get('http://api.daggersandsorcery.com/character/info').then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/character/info').then(function (response) {
             $scope.user = characterDataFormatter.format(response.data);
         });
     });
 
     $scope.unequip = function (slot) {
-        $http.get('http://api.daggersandsorcery.com/unequip/' + slot).then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/unequip/' + slot).then(function (response) {
             if (response.data.data.success) {
                 $rootScope.$broadcast('profile-update-needed');
             } else {
@@ -63,7 +63,7 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
     };
 
     $scope.equip = function(itemId) {
-        $http.get('http://api.daggersandsorcery.com/equip/'+itemId).then(function(response) {
+        $http.get('https://api.daggersandsorcery.com/equip/'+itemId).then(function(response) {
             if(response.data.data.success) {
                 $rootScope.$broadcast('profile-update-needed');
             } else {
@@ -73,7 +73,7 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
     };
 
     $scope.use = function(item) {
-        $http.get('http://api.daggersandsorcery.com/item/use/'+item).then(function(response) {
+        $http.get('https://api.daggersandsorcery.com/item/use/'+item).then(function(response) {
             if(response.data.data.success) {
                 $rootScope.$broadcast('profile-update-needed');
             }
@@ -81,7 +81,7 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
     };
 
     $scope.cast = function (spell) {
-        $http.get('http://api.daggersandsorcery.com/spell/cast/' + spell).then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/spell/cast/' + spell).then(function (response) {
             if (response.data.data.success) {
                 $rootScope.$broadcast('profile-update-needed');
             }

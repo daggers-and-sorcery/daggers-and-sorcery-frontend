@@ -6,7 +6,7 @@ module.exports = {
     template: require('partial/main/market/market-entry-buy.html'),
     resolve: {
         marketData: function ($http, $stateParams) {
-            return $http.get('http://api.daggersandsorcery.com/market/show/buy/' + $stateParams.itemId).then(function (response) {
+            return $http.get('https://api.daggersandsorcery.com/market/show/buy/' + $stateParams.itemId).then(function (response) {
                 return response.data.data;
             });
         }

@@ -8,7 +8,7 @@ module.exports = {
     },
     resolve: {
         pagedata: function ($http, $stateParams) {
-            return $http({method: 'GET', url: 'http://api.daggersandsorcery.com/spell/page/' + $stateParams.spell}).then(function (response) {
+            return $http({method: 'GET', url: 'https://api.daggersandsorcery.com/spell/page/' + $stateParams.spell}).then(function (response) {
                 return response.data.data;
             });
         }

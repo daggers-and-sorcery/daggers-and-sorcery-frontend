@@ -5,7 +5,7 @@ module.exports = function ($scope, $state, $interval, $http, chatList) {
     $scope.textToSend = "";
 
     var refreshChat = function() {
-        $http.get('http://api.daggersandsorcery.com/inn/chat/list').then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/inn/chat/list').then(function (response) {
             $scope.messages = response.data.data.messages;
         });
     };
@@ -25,7 +25,7 @@ module.exports = function ($scope, $state, $interval, $http, chatList) {
             chatMessage: $scope.textToSend
         };
 
-        $http.post('http://api.daggersandsorcery.com/inn/chat/send', payload).then(function (response) {
+        $http.post('https://api.daggersandsorcery.com/inn/chat/send', payload).then(function (response) {
             refreshChat();
         });
 

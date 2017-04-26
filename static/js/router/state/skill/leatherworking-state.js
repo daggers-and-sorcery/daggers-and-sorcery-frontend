@@ -6,7 +6,7 @@ module.exports = {
     template: require('partial/main/skill/leatherworking.html'),
     resolve: {
         curingRecipeList: function ($http) {
-            return $http({method: 'GET', url: 'http://api.daggersandsorcery.com/skill/leatherworking/curing/info'}).then(function(response) {
+            return $http({method: 'GET', url: 'https://api.daggersandsorcery.com/skill/leatherworking/curing/info'}).then(function(response) {
                 return response.data.data;
             });
         }

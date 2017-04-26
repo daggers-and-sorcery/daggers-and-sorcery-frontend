@@ -6,7 +6,7 @@ module.exports = {
     template: require('partial/main/skill/smithing.html'),
     resolve: {
         smithingRecipeList: function ($http) {
-            return $http({method: 'GET', url: 'http://api.daggersandsorcery.com/skill/smithing/smelting/info'}).then(function(response) {
+            return $http({method: 'GET', url: 'https://api.daggersandsorcery.com/skill/smithing/smelting/info'}).then(function(response) {
                 return response.data.data;
             });
         }

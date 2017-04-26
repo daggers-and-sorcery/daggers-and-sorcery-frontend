@@ -14,7 +14,7 @@ module.exports = function ($scope, $state, $http, $stateParams, pagedata) {
             }
         };
 
-        $http.post('http://api.daggersandsorcery.com/spell/cast/3', $.param({'itemId': itemId}), requestConfig).then(function (response) {
+        $http.post('https://api.daggersandsorcery.com/spell/cast/3', $.param({'itemId': itemId}), requestConfig).then(function (response) {
             $scope.result = response.data.data.success;
 
             $scope.reload();
@@ -22,7 +22,7 @@ module.exports = function ($scope, $state, $http, $stateParams, pagedata) {
     };
 
     $scope.reload = function () {
-        return $http({method: 'GET', url: 'http://api.daggersandsorcery.com/spell/page/' + $stateParams.spell}).then(function (response) {
+        return $http({method: 'GET', url: 'https://api.daggersandsorcery.com/spell/page/' + $stateParams.spell}).then(function (response) {
             $scope.pagedata = response.data.data;
         });
     }

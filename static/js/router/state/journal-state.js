@@ -11,7 +11,7 @@ module.exports = {
     },
     resolve: {
         journalInfo: function ($http, $stateParams) {
-            return $http({method: 'GET', url: 'http://api.daggersandsorcery.com/journal/list/'+$stateParams.type});
+            return $http({method: 'GET', url: 'https://api.daggersandsorcery.com/journal/list/'+$stateParams.type});
         }
     },
     controller: require('js/controller/journal-controller.js')

@@ -6,12 +6,12 @@ module.exports = {
     template: require('partial/main/ladder.html'),
     resolve: {
         skillTypes: function ($http) {
-            return $http({method: 'GET', url: 'http://api.daggersandsorcery.com/skill/list'}).then(function (response) {
+            return $http({method: 'GET', url: 'https://api.daggersandsorcery.com/skill/list'}).then(function (response) {
                 return response.data.data.skillList;
             });
         },
         ladderInfo: function($http) {
-            return $http.get('http://api.daggersandsorcery.com/ladder/skill/TWO_HANDED_CRUSHING_WEAPONS/1').then(function (response) {
+            return $http.get('https://api.daggersandsorcery.com/ladder/skill/TWO_HANDED_CRUSHING_WEAPONS/1').then(function (response) {
                 return response.data.data;
             });
         }

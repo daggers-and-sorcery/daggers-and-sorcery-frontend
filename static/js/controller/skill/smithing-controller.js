@@ -23,14 +23,14 @@ module.exports = function ($scope, $http, Flash, smithingRecipeList) {
         };
 
         if($scope.state == 'smelting') {
-            $http.post('http://api.daggersandsorcery.com/skill/smithing/smelting/start', payload).success(function (data, status, headers, config) {
+            $http.post('https://api.daggersandsorcery.com/skill/smithing/smelting/start', payload).success(function (data, status, headers, config) {
                 Flash.clear();
                 Flash.create(getSmeltingResultColor(data.data.result.result), getSmeltingResultText(data.data.result.result));
 
                 $scope.refresh();
             });
         } else if($scope.state == 'working') {
-            $http.post('http://api.daggersandsorcery.com/skill/smithing/working/start', payload).success(function (data, status, headers, config) {
+            $http.post('https://api.daggersandsorcery.com/skill/smithing/working/start', payload).success(function (data, status, headers, config) {
                 Flash.clear();
                 Flash.create(getSmeltingResultColor(data.data.result.result), getSmithingResultText(data.data.result.result));
 
@@ -41,11 +41,11 @@ module.exports = function ($scope, $http, Flash, smithingRecipeList) {
 
     $scope.refresh = function() {
         if($scope.state == 'smelting') {
-            $http.get('http://api.daggersandsorcery.com/skill/smithing/smelting/info').then(function (response) {
+            $http.get('https://api.daggersandsorcery.com/skill/smithing/smelting/info').then(function (response) {
                 $scope.smithingInfo = response.data.data;
             });
         } else if($scope.state == 'working') {
-            $http.get('http://api.daggersandsorcery.com/skill/smithing/working/info').then(function (response) {
+            $http.get('https://api.daggersandsorcery.com/skill/smithing/working/info').then(function (response) {
                 $scope.smithingInfo = response.data.data;
             });
         }
