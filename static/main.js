@@ -14,8 +14,6 @@ require('./vendor/angular-readmore/js/angular-readmore.js');
 require('./vendor/angular-slider/js/rzslider.min.js');
 require('./vendor/angular-slider/css/rzslider.min.css');
 
-require('./vendor/angular-google-adsense/js/angular-google-adsense.min.js');
-
 // Controllers
 require('./js/controller/main-controller.js');
 
