@@ -1,0 +1,17 @@
+<div>
+    <dl class="inventory-popup-definition-list">
+        <dt>Name:</dt>
+        <dd ng-bind="::data.statusEffect.name"></dd>
+        <dt ng-if="data.statusEffect.modifiers.length > 0">Modifiers:</dt>
+        <dd ng-repeat="modifier in data.statusEffect.modifiers">
+            <span ng-bind="::modifier.amount">11</span>
+            <span ng-if="modifier.d2 != 0">{{modifier.d2}}d2</span>
+            <span ng-if="modifier.d4 != 0">{{modifier.d4}}d4</span>
+            <span ng-if="modifier.d6 != 0">{{modifier.d6}}d6</span>
+            <span ng-if="modifier.d8 != 0">{{modifier.d8}}d8</span>
+            <span ng-if="modifier.d10 != 0">{{modifier.d10}}d10</span>
+            <span> - {{modifier.modifier}}</span>
+        </dd>
+    </dl>
+    <p ng-bind="::data.statusEffect.description" style="text-align: center;margin: 10px;"></p>
+</div>

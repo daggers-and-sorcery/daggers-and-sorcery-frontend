@@ -30,6 +30,7 @@ require('./js/filter/capitalize-filter.js');
 require('./js/directive/bind-html-compile.js');
 require('./js/directive/unsafe-html-popover.js');
 require('./js/directive/display-price-directive.js');
+require('./js/directive/counter-directive.js');
 
 // Interceptors
 require('./js/interceptor/combat-update-interceptor.js');
@@ -53,6 +54,7 @@ require('./sass/partial/character/character.scss');
 require('./sass/partial/character/attribute.scss');
 require('./sass/partial/character/equipment.scss');
 require('./sass/partial/character/general.scss');
+require('./sass/partial/character/status-effect.scss');
 
 //Skill scss
 require('./sass/partial/character/skill/cooking.scss');

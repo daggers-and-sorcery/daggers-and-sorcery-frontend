@@ -33,7 +33,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-sm-5 col-md-5 col-lg-5" style="margin-bottom: 15px;">
-                <h3><img class="character-list-header" src="../../image/btts_stats_button.png" style="margin-top: 0;"> Equipment</h3>
+                <h3 style="margin-top: 0;"><img class="character-list-header" src="../../image/btts_stats_button.png"> Equipment</h3>
 
                 <div>
                     <!--<img class="inventory-player-model-image" style="    position: absolute;    top: 0;
@@ -138,7 +138,7 @@
                 </div>
             </div>
             <div class="col-sm-7 col-md-7 col-lg-7" style="margin-bottom: 15px;">
-                <h3><img class="character-list-header" src="../../image/btts_stats_button.png" style="margin-top: 0;">
+                <h3 style="margin-top: 0;"><img class="character-list-header" src="../../image/btts_stats_button.png" style="margin-top: 0;">
                     Attributes</h3>
                 <div class="inventory-entry-list">
                     <h4 style="margin-top: 0;margin-bottom: 0;">Physical Attributes</h4>
@@ -172,6 +172,19 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 0;"><img class="character-list-header" src="../../image/btts_stats_button.png"> Active status effects</h3>
+        <div class="row inventory-entry-list">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col-sm-2 col-md-2 col-lg-2 status-effect-icon-holder text-center" ng-repeat="statusEffect in user.statusEffect">
+                        <img class="status-effect-icon" ng-src="{{getStatusEffectImage(statusEffect.id)}}" popover-html-unsafe="{{statusEffectPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <div countdown='' date='{{statusEffect.expirationTime}}'>&nbsp;</div>
+                    </div>
+                </div>
+                <div class="text-center" ng-if="user.statusEffect.length == 0">You don't have any status effects active.</div>
             </div>
         </div>
 
