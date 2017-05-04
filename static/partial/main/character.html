@@ -25,7 +25,7 @@
     }
 </style>
 <div class="panel panel-default">
-    <div class="panel-heading" style="margin-bottom: 2px;">
+    <div class="panel-heading">
         <img class="panel-heading-icon-improved" src="../../image/icon/extra/character.png">
         <img class="panel-heading-icon-improved-holder" src="../../image/m_action_frame.png"/>
         <h3 class="panel-title">Character</h3>
@@ -201,7 +201,7 @@
                                 <span class="inventory-entry-item-name" ng-bind="item.definition.name"></span>
                                 <span class="glyphicon glyphicon-circle-arrow-up inventory-entry-equip-icon-holder inventory-entry-icon-holder" ng-click="equip(item.definition.id)" ng-if="item.definition.equipment" uib-tooltip="Equip" tooltip-placement="right"></span>
                                 <span class="glyphicon glyphicon-tint inventory-entry-use-icon-holder inventory-entry-icon-holder" ng-click="use(item.definition.id)" ng-if="item.definition.usable" uib-tooltip="Usable" tooltip-placement="right"></span>
-                                <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
+                                <span class="glyphicon glyphicon-eye-open cursor-examine inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
                             </div>
                         </div>
                     </div>
@@ -421,7 +421,7 @@
                 <span ng-bind="spell.name"></span>
                 <span class="glyphicon glyphicon-asterisk pull-right inventory-item-watch" ng-click="cast(spell.id)" ng-if="!spell.combatSpell && !spell.openPage" style="padding-left: 5px;"></span>
                 <span class="glyphicon glyphicon-book pull-right inventory-item-watch" ng-click="openPage(spell.id)" ng-if="spell.openPage" style="padding-left: 5px;"></span>
-                <span class="glyphicon glyphicon-eye-open pull-right" popover-html-unsafe="{{spellPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
+                <span class="glyphicon glyphicon-eye-open cursor-examine pull-right" popover-html-unsafe="{{spellPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
             </div>
         </div>
 
