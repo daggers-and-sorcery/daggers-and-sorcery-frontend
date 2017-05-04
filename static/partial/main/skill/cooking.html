@@ -35,7 +35,7 @@
                                     <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
                                     <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
                                 </li>
-                                <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} - {{ingredient.name}} <small style="color: lightgray;">(used up)</small></li>
+                                <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} - {{ingredient.name}} <small style="color: lightgray;">(consumed)</small></li>
                             </ul>
                         </td>
                         <td>
