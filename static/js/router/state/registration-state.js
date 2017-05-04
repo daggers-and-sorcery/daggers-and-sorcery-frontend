@@ -292,11 +292,11 @@ module.exports = {
 
                 dataToSend.race = $scope.race[$scope.visibleRace].id;
 
-                $http.post('https://api.daggersandsorcery.com/user/register', dataToSend).success(function (data, status, headers, config) {
+                $http.post('https://api.daggersandsorcery.com/user/register', dataToSend).then(function (response) {
                     $scope.errorList = [];
                     $scope.successfulRegistration = true;
-                }).error(function (data, status, headers, config) {
-                    $scope.errorList = data;
+                }).catch(function (response) {
+                    $scope.errorList = response.data;
                 });
             }
         };

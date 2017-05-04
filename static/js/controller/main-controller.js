@@ -24,19 +24,19 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
 
     $rootScope.previouslyLoggedIn = false;
 
-    $http.get('https://api.daggersandsorcery.com/user/info').success(function (data, status, headers, config) {
-        $log.debug('Got new user info response: ' + angular.toJson(data.data));
+    $http.get('https://api.daggersandsorcery.com/user/info').then(function (response) {
+        $log.debug('Got new user info response: ' + angular.toJson(response.data.data));
 
-        $rootScope.user.loggedIn = data.data.loggedIn;
+        $rootScope.user.loggedIn = response.data.data.loggedIn;
         $rootScope.previouslyLoggedIn = $rootScope.user.loggedIn;
         $state.go('home');
     });
 
     $interval(function () {
-        $http.get('https://api.daggersandsorcery.com/user/info').success(function (data, status, headers, config) {
+        $http.get('https://api.daggersandsorcery.com/user/info').then(function (response) {
             $log.debug('Refreshing the user data!');
 
-            $rootScope.user.loggedIn = data.data.loggedIn;
+            $rootScope.user.loggedIn = response.data.data.loggedIn;
             if (!$rootScope.user.loggedIn && $rootScope.previouslyLoggedIn) {
                 $state.go('home');
             }
@@ -62,7 +62,7 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         //Logout the user
         if (toState.name === 'logout') {
-            $http.get('https://api.daggersandsorcery.com/user/logout').success(function (data, status, headers, config) {
+            $http.get('https://api.daggersandsorcery.com/user/logout').then(function (response) {
                 $rootScope.user.loggedIn = false;
                 $state.go('index');
             });
@@ -88,15 +88,15 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
     $scope.error = '';
 
     $scope.submit = function () {
-        $http.post('https://api.daggersandsorcery.com/user/login', $scope.user).success(function (data, status, headers, config) {
-            if (data.data.result.successful === true) {
+        $http.post('https://api.daggersandsorcery.com/user/login', $scope.user).then(function (response) {
+            if (response.data.data.result.successful === true) {
                 $log.debug('Successful login!');
 
                 $rootScope.previouslyLoggedIn = true;
                 $scope.error = false;
 
-                $http.get('https://api.daggersandsorcery.com/user/info').success(function (data2, status, headers, config) {
-                    $rootScope.user.loggedIn = data2.data.loggedIn;
+                $http.get('https://api.daggersandsorcery.com/user/info').then(function (response2) {
+                    $rootScope.user.loggedIn = response2.data.data.loggedIn;
 
                     $state.go('home');
                 });
