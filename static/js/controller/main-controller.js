@@ -29,11 +29,12 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
 
         $rootScope.user.loggedIn = response.data.data.loggedIn;
         $rootScope.previouslyLoggedIn = $rootScope.user.loggedIn;
+        $rootScope.user.witchuntersGuildUnlocked = response.data.data.witchuntersGuildInfo.witchhuntersGuildUnlocked;
         $state.go('home');
     });
 
     $interval(function () {
-        $http.get('https://api.daggersandsorcery.com/user/info').then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/user/info/refresh').then(function (response) {
             $log.debug('Refreshing the user data!');
 
             $rootScope.user.loggedIn = response.data.data.loggedIn;
@@ -95,8 +96,9 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
                 $rootScope.previouslyLoggedIn = true;
                 $scope.error = false;
 
-                $http.get('https://api.daggersandsorcery.com/user/info').then(function (response2) {
-                    $rootScope.user.loggedIn = response2.data.data.loggedIn;
+                $http.get('https://api.daggersandsorcery.com/user/info').then(function (infoResponse) {
+                    $rootScope.user.loggedIn = infoResponse.data.data.loggedIn;
+                    $rootScope.user.witchuntersGuildUnlocked = infoResponse.data.data.witchuntersGuildInfo.witchhuntersGuildUnlocked;
 
                     $state.go('home');
                 });
