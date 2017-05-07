@@ -4,9 +4,9 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, gatherin
     $scope.gatheringInfo = gatheringInfo;
 
     $scope.startGathering = function () {
-        $http.post('https://api.daggersandsorcery.com/skill/herblore/gathering/start').success(function (data, status, headers, config) {
+        $http.post('https://api.daggersandsorcery.com/skill/herblore/gathering/start').then(function (response) {
             Flash.clear();
-            Flash.create(getGatheringResultColor(data.data.result.result), getGatheringResultText(data.data.result.result));
+            Flash.create(getGatheringResultColor(response.data.data.result.result), getGatheringResultText(response.data.data.result.result));
 
             $scope.refresh();
         });

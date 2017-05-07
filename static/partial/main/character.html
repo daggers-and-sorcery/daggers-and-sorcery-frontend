@@ -25,22 +25,17 @@
     }
 </style>
 <div class="panel panel-default">
-    <div class="panel-heading" style="margin-bottom: 2px;">
+    <div class="panel-heading">
         <img class="panel-heading-icon-improved" src="../../image/icon/extra/character.png">
-        <img class="panel-heading-icon-improved-holder" src="../../image/m_action_frame.png"/>
+        <img class="panel-heading-icon-improved-holder" src="../../image/panel/header/panel-header-icon-background.png"/>
         <h3 class="panel-title">Character</h3>
     </div>
     <div class="panel-body">
         <div class="row">
             <div class="col-sm-5 col-md-5 col-lg-5" style="margin-bottom: 15px;">
-                <h3><img class="character-list-header" src="../../image/btts_stats_button.png" style="margin-top: 0;"> Equipment</h3>
+                <h3 style="margin-top: 0;"><img class="character-list-header" src="../../image/btts_stats_button.png"> Equipment</h3>
 
                 <div>
-                    <!--<img class="inventory-player-model-image" style="    position: absolute;    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;" src="../../image/inventory/character_example.png">-->
                     <img class="inventory-player-model-background" style="    position: absolute;    top: 0;
     bottom: 0;
     left: 0;
@@ -138,7 +133,7 @@
                 </div>
             </div>
             <div class="col-sm-7 col-md-7 col-lg-7" style="margin-bottom: 15px;">
-                <h3><img class="character-list-header" src="../../image/btts_stats_button.png" style="margin-top: 0;">
+                <h3 style="margin-top: 0;"><img class="character-list-header" src="../../image/btts_stats_button.png" style="margin-top: 0;">
                     Attributes</h3>
                 <div class="inventory-entry-list">
                     <h4 style="margin-top: 0;margin-bottom: 0;">Physical Attributes</h4>
@@ -175,6 +170,19 @@
             </div>
         </div>
 
+        <h3 style="margin-top: 0;"><img class="character-list-header" src="../../image/btts_stats_button.png"> Active status effects</h3>
+        <div class="row inventory-entry-list">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col-sm-2 col-md-2 col-lg-2 status-effect-icon-holder text-center" ng-repeat="statusEffect in user.statusEffect">
+                        <img class="status-effect-icon" ng-src="{{getStatusEffectImage(statusEffect.id)}}" popover-html-unsafe="{{statusEffectPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <div countdown='' date='{{statusEffect.expirationTime}}'>&nbsp;</div>
+                    </div>
+                </div>
+                <div class="text-center" ng-if="user.statusEffect.length == 0">You don't have any status effects active.</div>
+            </div>
+        </div>
+
         <h3><img class="character-list-header" src="../../image/btts_stats_button.png"> Inventory</h3>
         <div class="row inventory-entry-list">
             <div class="col-sm-12 col-md-12 col-lg-12">
@@ -188,7 +196,7 @@
                                 <span class="inventory-entry-item-name" ng-bind="item.definition.name"></span>
                                 <span class="glyphicon glyphicon-circle-arrow-up inventory-entry-equip-icon-holder inventory-entry-icon-holder" ng-click="equip(item.definition.id)" ng-if="item.definition.equipment" uib-tooltip="Equip" tooltip-placement="right"></span>
                                 <span class="glyphicon glyphicon-tint inventory-entry-use-icon-holder inventory-entry-icon-holder" ng-click="use(item.definition.id)" ng-if="item.definition.usable" uib-tooltip="Usable" tooltip-placement="right"></span>
-                                <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
+                                <span class="glyphicon glyphicon-eye-open cursor-examine inventory-entry-popup-icon" popover-html-unsafe="{{inventoryPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
                             </div>
                         </div>
                     </div>
@@ -236,31 +244,31 @@
         </h3>
 
         <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="attributeValue in user.skill.tradeSkills">
+            <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="attributeValue in ::user.skill.tradeSkills">
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
                 <div class="skill-entry">
                     <div class="skill-entry-header">
                         <div class="skill-entry-icon-holder">
                             <div class="skill-entry-icon-inner-holder">
-                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{getSkillImage(attributeValue.attribute.name)}}">
+                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{::getSkillImage(attributeValue.attribute.name)}}">
                             </div>
                         </div>
                     </div>
                     <div class="skill-entry-body">
-                        <h4 class="skill-entry-title">{{attributeValue.attribute.name}}</h4>
+                        <h4 class="skill-entry-title">{{::attributeValue.attribute.name}}</h4>
                         <h5 class="skill-entry-level">
-                            <span popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">Level: {{attributeValue.baseValue}} <span class="skill-entry-level-bonus" ng-if="attributeValue.bonusValue > 0">+ ({{attributeValue.bonusValue}})</span></span>
+                            <span popover-html-unsafe="{{::attributePopover}}" popover-trigger="mouseenter" popover-placement="right">Level: {{::attributeValue.baseValue}} <span class="skill-entry-level-bonus" ng-if="attributeValue.bonusValue > 0">+ ({{attributeValue.bonusValue}})</span></span>
                         </h5>
                         <div class="skill-entry-incremented-attribute">
-                            <img class="img-circle skill-entry-incremented-attribute-icon" popover-html-unsafe="{{incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
+                            <img class="img-circle skill-entry-incremented-attribute-icon" popover-html-unsafe="{{::incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
                             <img class="skill-entry-incremented-attribute-icon-holder" src="../../image/common/frame/icon_frame.png">
                         </div>
                         <div class="progress">
                             <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;">
-                                <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>
+                                <span class="progress-info ng-binding">{{::attributeValue.actualXp}} / {{::attributeValue.nextLevelXp}}</span>
                             </div>
                         </div>
-                        <div ng-if="attributeValue.attribute.hasPage">
+                        <div ng-if="::attributeValue.attribute.hasPage">
                             <a ui-sref="skill-{{attributeValue.attribute.id | lowercase}}" class="skill-info-text">
                                 <div class="text-center" style="margin-top: -8px;color: wheat;font-size: 14px;">(Skill
                                     info)
@@ -365,20 +373,20 @@
         </h3>
 
         <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="attributeValue in user.skill.combatSkills">
+            <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="attributeValue in ::user.skill.combatSkills">
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
                 <div class="skill-entry">
                     <div class="skill-entry-header">
                         <div class="skill-entry-icon-holder">
                             <div class="skill-entry-icon-inner-holder">
-                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{getSkillImage(attributeValue.attribute.name)}}">
+                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{::getSkillImage(attributeValue.attribute.name)}}">
                             </div>
                         </div>
                     </div>
                     <div class="skill-entry-body">
-                        <h4 class="skill-entry-title">{{attributeValue.attribute.name}}</h4>
+                        <h4 class="skill-entry-title">{{::attributeValue.attribute.name}}</h4>
                         <h5 class="skill-entry-level">
-                            <span popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">Level: {{attributeValue.baseValue}} <span class="skill-entry-level-bonus" ng-if="attributeValue.bonusValue > 0">+ ({{attributeValue.bonusValue}})</span></span>
+                            <span popover-html-unsafe="{{::attributePopover}}" popover-trigger="mouseenter" popover-placement="right">Level: {{::attributeValue.baseValue}} <span class="skill-entry-level-bonus" ng-if="attributeValue.bonusValue > 0">+ ({{::attributeValue.bonusValue}})</span></span>
                         </h5>
                         <div class="skill-entry-incremented-attribute">
                             <img class="img-circle skill-entry-incremented-attribute-icon" popover-html-unsafe="{{incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
@@ -389,7 +397,7 @@
                                 <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>
                             </div>
                         </div>
-                        <div ng-if="attributeValue.attribute.hasPage">
+                        <div ng-if="::attributeValue.attribute.hasPage">
                             <a ui-sref="skill-{{attributeValue.attribute.id | lowercase}}">
                                 <img class="skill-entry-info-down-arrow" src="../../image/fw_char_status_arrow.png">
                                 <img class="skill-entry-info-link" src="../../image/cc_small_window_bot_arrow.png">
@@ -408,7 +416,7 @@
                 <span ng-bind="spell.name"></span>
                 <span class="glyphicon glyphicon-asterisk pull-right inventory-item-watch" ng-click="cast(spell.id)" ng-if="!spell.combatSpell && !spell.openPage" style="padding-left: 5px;"></span>
                 <span class="glyphicon glyphicon-book pull-right inventory-item-watch" ng-click="openPage(spell.id)" ng-if="spell.openPage" style="padding-left: 5px;"></span>
-                <span class="glyphicon glyphicon-eye-open pull-right" popover-html-unsafe="{{spellPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
+                <span class="glyphicon glyphicon-eye-open cursor-examine pull-right" popover-html-unsafe="{{spellPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
             </div>
         </div>
 

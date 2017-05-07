@@ -6,6 +6,7 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
 
     $scope.inventoryPopover = require('html/popover/inventory-popover.html');
     $scope.attributePopover = require('html/popover/attribute-popover.html');
+    $scope.statusEffectPopover = require('html/popover/status-effect-popover.html');
     $scope.attributeDescriptionPopover = require('html/popover/attribute-description-popover.html');
     $scope.incrementedAttributePopover = require('html/popover/incremented-attribute-popover.html');
     $scope.equipmentPopover = require('html/popover/equipment-popover.html');
@@ -13,12 +14,12 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
 
     $scope.attributeDescribtionMap = {};
 
-    require('data/attribute/definition.xml').attributes.attribute.forEach(function(item, index) {
+    require('data/attribute/definition.xml').attributes.attribute.forEach(function (item, index) {
         $scope.attributeDescribtionMap[item.id[0]] = item.description[0];
     });
 
-    $scope.combatAttributeDescriptionMap = function(attribute) {
-        if($scope.attributeDescribtionMap[attribute.toLowerCase()] != undefined) {
+    $scope.combatAttributeDescriptionMap = function (attribute) {
+        if ($scope.attributeDescribtionMap[attribute.toLowerCase()] != undefined) {
             return $scope.attributeDescribtionMap[attribute.toLowerCase()];
         }
 
@@ -26,12 +27,16 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
     };
 
     $scope.type = 'empty';
-    $scope.setType = function(newType) {
+    $scope.setType = function (newType) {
         $scope.type = newType;
     };
 
     $scope.getSkillImage = function (skill) {
         return require('image/icon/skill/' + skill.replace(new RegExp('\\s', 'g'), '_') + '.png');
+    };
+
+    $scope.getStatusEffectImage = function (statusEffectId) {
+        return require('image/icon/statuseffect/' + statusEffectId + '.png');
     };
 
     $scope.getEquipmentImage = function (item) {
@@ -62,9 +67,9 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
         });
     };
 
-    $scope.equip = function(itemId) {
-        $http.get('https://api.daggersandsorcery.com/equip/'+itemId).then(function(response) {
-            if(response.data.data.success) {
+    $scope.equip = function (itemId) {
+        $http.get('https://api.daggersandsorcery.com/equip/' + itemId).then(function (response) {
+            if (response.data.data.success) {
                 $rootScope.$broadcast('profile-update-needed');
             } else {
                 $rootScope.$broadcast('error', {message: 'You can\'t equip that item!'});
@@ -72,9 +77,9 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
         });
     };
 
-    $scope.use = function(item) {
-        $http.get('https://api.daggersandsorcery.com/item/use/'+item).then(function(response) {
-            if(response.data.data.success) {
+    $scope.use = function (item) {
+        $http.get('https://api.daggersandsorcery.com/item/use/' + item).then(function (response) {
+            if (response.data.data.success) {
                 $rootScope.$broadcast('profile-update-needed');
             }
         });

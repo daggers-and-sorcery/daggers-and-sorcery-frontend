@@ -9,10 +9,8 @@ module.exports = function ($scope, $http, $rootScope, cookingInfo) {
             recipeId: recipeId
         };
 
-        $http.post('https://api.daggersandsorcery.com/skill/cooking/create', payload).success(function (data, status, headers, config) {
-            $scope.success = data.data.success.success;
-        }).error(function (data, status, headers, config) {
-            $scope.success = false;
+        $http.post('https://api.daggersandsorcery.com/skill/cooking/create', payload).then(function (response) {
+            $scope.success = response.data.data.success.success;
         });
     }
 };

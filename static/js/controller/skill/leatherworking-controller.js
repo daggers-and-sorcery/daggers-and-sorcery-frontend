@@ -29,23 +29,23 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRe
         };
 
         if($scope.state == 'curing') {
-            $http.post('https://api.daggersandsorcery.com/skill/leatherworking/curing/start', payload).success(function (data, status, headers, config) {
+            $http.post('https://api.daggersandsorcery.com/skill/leatherworking/curing/start', payload).then(function (response) {
                 Flash.clear();
-                Flash.create(getCuringResultColor(data.data.result.result), getCuringResultText(data.data.result.result));
+                Flash.create(getCuringResultColor(response.data.data.result.result), getCuringResultText(response.data.data.result.result));
 
                 $scope.refresh();
             });
         } else if($scope.state == 'tanning') {
-            $http.post('https://api.daggersandsorcery.com/skill/leatherworking/tanning/start', payload).success(function (data, status, headers, config) {
+            $http.post('https://api.daggersandsorcery.com/skill/leatherworking/tanning/start', payload).then(function (response) {
                 Flash.clear();
-                Flash.create(getTanningResultColor(data.data.result.result), getTanningResultText(data.data.result.result));
+                Flash.create(getTanningResultColor(response.data.data.result.result), getTanningResultText(response.data.data.result.result));
 
                 $scope.refresh();
             });
         } else if($scope.state == 'working') {
-            $http.post('https://api.daggersandsorcery.com/skill/leatherworking/working/start', payload).success(function (data, status, headers, config) {
+            $http.post('https://api.daggersandsorcery.com/skill/leatherworking/working/start', payload).then(function (response) {
                 Flash.clear();
-                Flash.create(getTanningResultColor(data.data.result.result), getTanningResultText(data.data.result.result));
+                Flash.create(getTanningResultColor(response.data.data.result.result), getTanningResultText(response.data.data.result.result));
 
                 $scope.refresh();
             });

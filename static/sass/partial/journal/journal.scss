@@ -1,12 +1,12 @@
-.journal-panel {
-    .journal-table {
-        width: 100%;
+.journal-panel.panel {
+    .panel-body {
+        padding-left: 6px;
+        padding-right: 6px;
     }
 
     .journal-item-watch {
         padding: 5px;
-        color: #888;
-        cursor: pointer;
+        color: wheat;
     }
 
     .journal-head-icon-container {

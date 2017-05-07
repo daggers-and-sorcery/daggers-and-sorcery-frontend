@@ -45,7 +45,7 @@ module.exports = function ($scope, $http, $rootScope) {
             pointsToConvert: $scope.scavengingSlider / 5
         };
 
-        $http.post('https://api.daggersandsorcery.com/skill/scavenging/convert', $.param(requestData), requestConfig).success(function (data, status, headers, config) {
+        $http.post('https://api.daggersandsorcery.com/skill/scavenging/convert', $.param(requestData), requestConfig).then(function (response) {
             $scope.refreshPoints();
         });
     };
@@ -64,9 +64,9 @@ module.exports = function ($scope, $http, $rootScope) {
     };
 
     $scope.refreshPoints = function () {
-        $http.get('https://api.daggersandsorcery.com/skill/scavenging/info').success(function (data, status, headers, config) {
-            $scope.user.scavengingPoints = data.data.scavengingInfo.scavengingPoints;
-            $scope.scavengingEnabled = data.data.scavengingInfo.scavengingEnabled;
+        $http.get('https://api.daggersandsorcery.com/skill/scavenging/info').then(function (response) {
+            $scope.user.scavengingPoints = response.data.data.scavengingInfo.scavengingPoints;
+            $scope.scavengingEnabled = response.data.data.scavengingInfo.scavengingEnabled;
 
             var pountsUntilMax = Math.floor((50 - $scope.user.scavengingPoints) / 5) * 5;
 

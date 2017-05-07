@@ -25,7 +25,7 @@ module.exports = function ($scope, $state, $http) {
             startingArmor: $scope.armor
         };
 
-        $http.post('https://api.daggersandsorcery.com/user/starter-path', payload).success(function (data, status, headers, config) {
+        $http.post('https://api.daggersandsorcery.com/user/starter-path', payload).then(function (response) {
             $state.go('character');
         });
     };

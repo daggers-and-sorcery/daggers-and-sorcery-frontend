@@ -23,16 +23,16 @@ module.exports = function ($scope, $http, Flash, smithingRecipeList) {
         };
 
         if($scope.state == 'smelting') {
-            $http.post('https://api.daggersandsorcery.com/skill/smithing/smelting/start', payload).success(function (data, status, headers, config) {
+            $http.post('https://api.daggersandsorcery.com/skill/smithing/smelting/start', payload).then(function (response) {
                 Flash.clear();
-                Flash.create(getSmeltingResultColor(data.data.result.result), getSmeltingResultText(data.data.result.result));
+                Flash.create(getSmeltingResultColor(response.data.data.result.result), getSmeltingResultText(response.data.data.result.result));
 
                 $scope.refresh();
             });
         } else if($scope.state == 'working') {
-            $http.post('https://api.daggersandsorcery.com/skill/smithing/working/start', payload).success(function (data, status, headers, config) {
+            $http.post('https://api.daggersandsorcery.com/skill/smithing/working/start', payload).then(function (response) {
                 Flash.clear();
-                Flash.create(getSmeltingResultColor(data.data.result.result), getSmithingResultText(data.data.result.result));
+                Flash.create(getSmeltingResultColor(response.data.data.result.result), getSmithingResultText(response.data.data.result.result));
 
                 $scope.refresh();
             });

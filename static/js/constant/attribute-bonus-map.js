@@ -7,5 +7,7 @@ module.exports = require('js/app.js').constant('ATTRIBUTE_BONUS_MAP', {
     'LEVEL': 'Skill level',
     'MINIMUM': 'To meet the minimum',
     'GENERAL_ATTRIBUTE': 'General attribute bonus',
-    'EQUIPMENT': 'Equipment bonus'
+    'EQUIPMENT': 'Equipment bonus',
+    'VAMPIRE': 'Vampire bonus',
+    'STATUS_EFFECT': 'Status effect bonus'
 });
