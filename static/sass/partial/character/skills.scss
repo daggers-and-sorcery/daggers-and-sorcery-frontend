@@ -35,6 +35,11 @@
                 }
             }
         }
+
+        .skill-entry-icon-holder .skill-entry-icon-glow:hover {
+          -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
+        }
     }
 
     .skill-entry-body {
