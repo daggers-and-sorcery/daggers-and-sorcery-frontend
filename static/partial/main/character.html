@@ -250,7 +250,8 @@
                     <div class="skill-entry-header">
                         <div class="skill-entry-icon-holder">
                             <div class="skill-entry-icon-inner-holder">
-                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{::getSkillImage(attributeValue.attribute.name)}}">
+                                <img class="skill-entry-icon skill-entry-icon-glow img-responsive img-circle" ng-src="{{::getSkillImage(attributeValue.attribute.name)}}" ng-if="::attributeValue.attribute.hasPage" ui-sref="skill-{{attributeValue.attribute.id | lowercase}}">
+                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{::getSkillImage(attributeValue.attribute.name)}}" ng-if="::!attributeValue.attribute.hasPage">
                             </div>
                         </div>
                     </div>
@@ -259,8 +260,8 @@
                         <h5 class="skill-entry-level">
                             <span popover-html-unsafe="{{::attributePopover}}" popover-trigger="mouseenter" popover-placement="right">Level: {{::attributeValue.baseValue}} <span class="skill-entry-level-bonus" ng-if="attributeValue.bonusValue > 0">+ ({{attributeValue.bonusValue}})</span></span>
                         </h5>
-                        <div class="skill-entry-incremented-attribute">
-                            <img class="img-circle skill-entry-incremented-attribute-icon" popover-html-unsafe="{{::incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
+                        <div class="skill-entry-incremented-attribute" >
+                            <img class="img-circle skill-entry-incremented-attribute-icon"  popover-html-unsafe="{{::incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
                             <img class="skill-entry-incremented-attribute-icon-holder" src="../../image/common/frame/icon_frame.png">
                         </div>
                         <div class="progress">
@@ -293,7 +294,8 @@
                     <div class="skill-entry-header">
                         <div class="skill-entry-icon-holder">
                             <div class="skill-entry-icon-inner-holder">
-                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{getSkillImage(attributeValue.attribute.name)}}">
+                                <img class="skill-entry-icon skill-entry-icon-glow img-responsive img-circle" ng-src="{{getSkillImage(attributeValue.attribute.name)}}" ng-if="::attributeValue.attribute.hasPage" ui-sref="skill-{{attributeValue.attribute.id | lowercase}}">
+                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{getSkillImage(attributeValue.attribute.name)}}" ng-if="::!attributeValue.attribute.hasPage">
                             </div>
                         </div>
                     </div>
@@ -336,7 +338,8 @@
                     <div class="skill-entry-header">
                         <div class="skill-entry-icon-holder">
                             <div class="skill-entry-icon-inner-holder">
-                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{getSkillImage(attributeValue.attribute.name)}}">
+                                <img class="skill-entry-icon skill-entry-icon-glow img-responsive img-circle" ng-src="{{getSkillImage(attributeValue.attribute.name)}}" ng-if="::attributeValue.attribute.hasPage" ui-sref="skill-{{attributeValue.attribute.id | lowercase}}">
+                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{getSkillImage(attributeValue.attribute.name)}}" ng-if="::!attributeValue.attribute.hasPage">
                             </div>
                         </div>
                     </div>
@@ -379,7 +382,8 @@
                     <div class="skill-entry-header">
                         <div class="skill-entry-icon-holder">
                             <div class="skill-entry-icon-inner-holder">
-                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{::getSkillImage(attributeValue.attribute.name)}}">
+                                <img class="skill-entry-icon skill-entry-icon-glow img-responsive img-circle" ng-src="{{::getSkillImage(attributeValue.attribute.name)}}" ng-if="::attributeValue.attribute.hasPage" ui-sref="skill-{{attributeValue.attribute.id | lowercase}}">
+                                <img class="skill-entry-icon img-responsive img-circle" ng-src="{{::getSkillImage(attributeValue.attribute.name)}}" ng-if="::!attributeValue.attribute.hasPage">
                             </div>
                         </div>
                     </div>

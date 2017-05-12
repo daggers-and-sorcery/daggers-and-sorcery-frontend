@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ($scope, $http, $sce, newslist) {
+module.exports = function ($scope, $http, newslist) {
     $scope.newslist = newslist.news;
 
     $scope.newsImage = function (icon) {

@@ -1,8 +1,8 @@
 <style>
     html, body {
-        background-color: rgb(80, 67, 59);
+		background-color: rgb(80, 67, 59);
         margin-bottom: 0;
-        color: wheat;
+		color: wheat;
     }
 
     .navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a, .navbar .dropdown-menu > li > a, .navbar .dropdown-header, .navbar-default .navbar-nav > .active > a {
@@ -214,6 +214,9 @@
 												<div ui-sref="market-list-sell">
 														<img class="menu-icon" src="../image/icon/menu/shop.png">
 														<button class="button-default max-width">Market</button>
+												</div>
+												<div ui-sref="witchhunters-guild-main" ng-if="$root.user.witchuntersGuildUnlocked">
+														<button class="button-default max-width">Witchhunter's guild</button>
 												</div>
 										</div>
 								</div>
