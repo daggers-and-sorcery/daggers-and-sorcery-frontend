@@ -34,7 +34,8 @@
                     <span ng-if="requirement.type === 'KILL'">
                                 {{::requirement.amount}} {{::requirement.monsterName}}
                             </span>
-                    <span class="pull-right" style="color: red;">X</span>
+                    <span ng-if="requirement.done < requirement.amount" class="pull-right" style="color: red;">({{::requirement.done}} / {{::requirement.amount}})</span>
+                    <span ng-if="requirement.done >= requirement.amount" class="pull-right" style="color: green;">(done)</span>
                 </li>
             </ul>
         </div>
