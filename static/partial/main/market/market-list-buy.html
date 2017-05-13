@@ -30,10 +30,7 @@
                                             <span class="badge text-center" ng-bind="item.amount"></span>
                                         </div>
                                         <div class="col-md-7 col-lg-7 shop-entry-text">
-                                            {{item.definition.name}}
-                                            <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon"
-                                                  popover-html-unsafe="{{inventoryPopover}}"
-                                                  popover-trigger="mouseenter" popover-placement="right"></span>
+                                            <item-definition-display item="item.definition"></item-definition-display>
                                         </div>
                                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center shop-entry-text">
                                             <display-price price="item.cheapestPrice"></display-price>

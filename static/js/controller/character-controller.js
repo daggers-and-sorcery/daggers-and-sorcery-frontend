@@ -4,7 +4,6 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
     $scope.user = characterData;
     $scope.attributeBonusNameMap = ATTRIBUTE_BONUS_MAP;
 
-    $scope.inventoryPopover = require('html/popover/inventory-popover.html');
     $scope.attributePopover = require('html/popover/attribute-popover.html');
     $scope.statusEffectPopover = require('html/popover/status-effect-popover.html');
     $scope.attributeDescriptionPopover = require('html/popover/attribute-description-popover.html');

@@ -62,7 +62,7 @@
                     <ul>
                         <li ng-repeat="requirement in ::questInfo.quest.requirements">
                             <span ng-if="requirement.type === 'ITEM'">
-                                {{::requirement.amount}} {{::requirement.item.name}}
+                                {{::requirement.amount}} <item-definition-display item="requirement.item"></item-definition-display>
                             </span>
                             <span ng-if="requirement.type === 'KILL'">
                                 {{::requirement.amount}} {{::requirement.monsterName}}

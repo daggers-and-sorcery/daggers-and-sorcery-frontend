@@ -32,6 +32,9 @@ require('./js/directive/unsafe-html-popover.js');
 require('./js/directive/display-price-directive.js');
 require('./js/directive/counter-directive.js');
 
+// Directive - definition
+require('./js/directive/definition/item-definition-display-directive.js');
+
 // Interceptors
 require('./js/interceptor/combat-update-interceptor.js');
 require('./js/interceptor/preload-interceptor.js');
@@ -102,5 +105,9 @@ require('./sass/common/component/right-menu.scss');
 require('./sass/common/flash/flash.scss');
 require('./sass/common/money.scss');
 require('./sass/common/common.scss');
+
+// Directive - definition scss
+require('./sass/common/definition/item-definition-popover.scss');
+require('./sass/common/definition/item-definition.scss');
 
 require('./sass/core.scss');
