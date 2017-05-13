@@ -1,0 +1,5 @@
+<div class="big-button" ui-sref="{{target}}" ng-mouseenter="enableGlow(true)" ng-mouseover="enableGlow(true)" ng-mouseleave="enableGlow(false)">
+    <img class="big-button-frame img-responsive" src="../../image/cf_main_frame.png">
+    <img class="big-button-icon" ng-src="{{::getImage(image)}}" ng-class="{'big-button-icon-glow': shouldGlow}"/>
+    <span class="big-button-text" ng-bind="::title"></span>
+</div>

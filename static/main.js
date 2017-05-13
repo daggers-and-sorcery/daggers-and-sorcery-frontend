@@ -31,6 +31,7 @@ require('./js/directive/bind-html-compile.js');
 require('./js/directive/unsafe-html-popover.js');
 require('./js/directive/display-price-directive.js');
 require('./js/directive/counter-directive.js');
+require('./js/directive/big-button-directive.js');
 
 // Directive - definition
 require('./js/directive/definition/item-definition-display-directive.js');
@@ -109,5 +110,7 @@ require('./sass/common/common.scss');
 // Directive - definition scss
 require('./sass/common/definition/item-definition-popover.scss');
 require('./sass/common/definition/item-definition.scss');
+
+require('./sass/common/directive/big-button-directive.scss');
 
 require('./sass/core.scss');
