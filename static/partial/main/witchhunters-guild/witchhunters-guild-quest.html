@@ -48,15 +48,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 col-lg-12" style="margin-bottom: 10px;">
+            <div class="col-md-6 col-lg-6" style="margin-bottom: 10px;padding-right: 5px;">
                 <div class="description-holder">
                     <p>Description:</p>
                     <p ng-bind="::questInfo.quest.description"></p>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 col-lg-12" style="margin-bottom: 10px;">
+            <div class="col-md-6 col-lg-6" style="margin-bottom: 10px;padding-left: 5px;">
                 <div class="description-holder">
                     <p>Requirements:</p>
                     <ul>
@@ -67,6 +65,7 @@
                             <span ng-if="requirement.type === 'KILL'">
                                 {{::requirement.amount}} {{::requirement.monsterName}}
                             </span>
+                            <span class="pull-right" style="color: red;">X</span>
                         </li>
                     </ul>
                 </div>
