@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-    name: 'witchhunters-guild-quest',
-    url: '/witchhunters-guild/quest',
+    name: 'witchhunters-guild.witchhunters-guild-quest',
+    url: 'quest',
     resolve: {
         questInfo: function ($http) {
             return $http.get('https://api.daggersandsorcery.com/witchhunters-guild/quest')

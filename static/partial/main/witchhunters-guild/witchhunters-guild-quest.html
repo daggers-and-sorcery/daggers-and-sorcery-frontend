@@ -1,70 +1,47 @@
-<div class="panel panel-default button-panel">
-    <div class="panel-heading">
-        <img class="panel-heading-icon-improved" src="../../../image/icon/extra/witchhunters-guild.png"/>
-        <img class="panel-heading-icon-improved-holder"
-             src="../../../image/panel/header/panel-header-icon-background.png"/>
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+        <h3 class="text-center">Quests</h3>
 
-        <h3 class="panel-title">Witchhunter's guild
-            <small>(Quests)</small>
-        </h3>
+        <div class="description-holder" style="margin-bottom: 10px;" hm-read-more hm-limit="300"
+             hm-text="Through a blackened corridor laid the Guild's infamous and beloved trophy room. It was an amusing display on five different surfaces. The walls to the left, front and right - as well as the floor and ceiling. Directly in front of you were the numerous skulls of demonic beasts, mythical lycanthropes that were believed to be long ago hunted into extinction, necklaces made of vampire fangs and the shrunken head of a brown furred, yeti-like beast. On the floor were numerous rugs made from the hides of werewolves, giant wolves, rats of unusually large size and a pair of boots made from the scaly skin of a Ork serial killer and demon worshiper who suffered from a rare skin condition. To the right, were numerous magical artifacts made to combat various evil sorceries and magical beings. Often swords of twisted designs and embedded with silver Runes, a few pieces of destroyed armour that once was magically enforced and used by a mad wizard named Griftlock as well as Griftlock's dreaded Urn. His ashes were said to be used to create powerful alchemiac powders and pastes, at the cost of cursing whoever looks directly into his final resting place. At the center of the artifacts, was a single mirror with a divine, golden Elven trim.<br><br>In its reflection, on the opposite wall - a statue of a Medusa beast. Perhaps it was the same mirror that had allowed the monster to turn itself into stone. The statue was engraved with Runic engravings that ensured it could never be broken down and repurposed into powerful weapons or alchemy ingredients by those who practiced the most dark of magics. Around the Medusa were framed pages from numerous forbidden books, incantations that were so evil that the glass that imprisoned them was often obscured by alchemy-paste - for even thinking of them could cause massive destruction in the wrong hands of an untrained pupil or non-magic user with a weak mind. Yet, of all things, this was the least strange section of the trophy room.<br><br>Above, on the ceiling, an ancient demon was mummified with tightly wrapped paper bindings that held him in place as if they were chains. The monstrous, horned form was basically imprisoned on the ceiling - the paper wrappings being covered in delicately painted runes that formed a spell which bound the consciousness of the beast outside of the physical plane. As a result, the heaviness of their soul turned its demonic body into a mere shell of its former self. It weighed virtually nothing, while its astral form was cut and placed individually into each sigil on the paper bindings. It was a cocoon, essentially - but no disastrous butterfly would emerge from it unless the powerful spell was intentionally broken by its creator. The astral form of the demon was weak, at most - one could see the angry face of the demon appear on the ceiling which its corpse was pressed against - drawn in soot. Said drawings were rather amateur and unimpressive. Years of having their astral form disconnected had forced the demon to revert to a child-like state. A lonely one, at that."></div>
     </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-xs-4">
-                <big-button title="Guild hall" image="witchhunters-guild-main" target="witchhunters-guild-main"></big-button>
-            </div>
-            <div class="col-xs-4">
-                <big-button title="Quests" image="witchhunters-guild-quest" target="witchhunters-guild-quest"></big-button>
-            </div>
-            <div class="col-xs-4">
-                <big-button title="Shop" image="witchhunters-guild-shop" target="witchhunters-guild-shop"></big-button>
-            </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-lg-6" style="padding-right: 5px;">
+        <div class="description-holder" style="margin-bottom: 10px;">Quest
+            name:<span class="pull-right" ng-bind="::questInfo.quest.name"></span></div>
+    </div>
+    <div class="col-md-6 col-lg-6" style="padding-left: 5px;">
+        <div class="description-holder" style="margin-bottom: 10px;">Reward:<span class="pull-right">{{::questInfo.quest.reward}} Reputation points</span>
         </div>
-        <div class="row">
-            <div class="col-md-12 col-lg-12">
-                <h3 class="text-center">Quests</h3>
-
-                <div class="description-holder" style="margin-bottom: 10px;" hm-read-more hm-limit="300"
-                     hm-text="Through a blackened corridor laid the Guild's infamous and beloved trophy room. It was an amusing display on five different surfaces. The walls to the left, front and right - as well as the floor and ceiling. Directly in front of you were the numerous skulls of demonic beasts, mythical lycanthropes that were believed to be long ago hunted into extinction, necklaces made of vampire fangs and the shrunken head of a brown furred, yeti-like beast. On the floor were numerous rugs made from the hides of werewolves, giant wolves, rats of unusually large size and a pair of boots made from the scaly skin of a Ork serial killer and demon worshiper who suffered from a rare skin condition. To the right, were numerous magical artifacts made to combat various evil sorceries and magical beings. Often swords of twisted designs and embedded with silver Runes, a few pieces of destroyed armour that once was magically enforced and used by a mad wizard named Griftlock as well as Griftlock's dreaded Urn. His ashes were said to be used to create powerful alchemiac powders and pastes, at the cost of cursing whoever looks directly into his final resting place. At the center of the artifacts, was a single mirror with a divine, golden Elven trim.<br><br>In its reflection, on the opposite wall - a statue of a Medusa beast. Perhaps it was the same mirror that had allowed the monster to turn itself into stone. The statue was engraved with Runic engravings that ensured it could never be broken down and repurposed into powerful weapons or alchemy ingredients by those who practiced the most dark of magics. Around the Medusa were framed pages from numerous forbidden books, incantations that were so evil that the glass that imprisoned them was often obscured by alchemy-paste - for even thinking of them could cause massive destruction in the wrong hands of an untrained pupil or non-magic user with a weak mind. Yet, of all things, this was the least strange section of the trophy room.<br><br>Above, on the ceiling, an ancient demon was mummified with tightly wrapped paper bindings that held him in place as if they were chains. The monstrous, horned form was basically imprisoned on the ceiling - the paper wrappings being covered in delicately painted runes that formed a spell which bound the consciousness of the beast outside of the physical plane. As a result, the heaviness of their soul turned its demonic body into a mere shell of its former self. It weighed virtually nothing, while its astral form was cut and placed individually into each sigil on the paper bindings. It was a cocoon, essentially - but no disastrous butterfly would emerge from it unless the powerful spell was intentionally broken by its creator. The astral form of the demon was weak, at most - one could see the angry face of the demon appear on the ceiling which its corpse was pressed against - drawn in soot. Said drawings were rather amateur and unimpressive. Years of having their astral form disconnected had forced the demon to revert to a child-like state. A lonely one, at that."></div>
-            </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-lg-6" style="margin-bottom: 10px;padding-right: 5px;">
+        <div class="description-holder">
+            <p>Description:</p>
+            <p ng-bind="::questInfo.quest.description"></p>
         </div>
-        <div class="row">
-            <div class="col-md-6 col-lg-6" style="padding-right: 5px;">
-                <div class="description-holder" style="margin-bottom: 10px;">Quest
-                    name:<span class="pull-right" ng-bind="::questInfo.quest.name"></span></div>
-            </div>
-            <div class="col-md-6 col-lg-6" style="padding-left: 5px;">
-                <div class="description-holder" style="margin-bottom: 10px;">Reward:<span class="pull-right">{{::questInfo.quest.reward}} Reputation points</span></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-lg-6" style="margin-bottom: 10px;padding-right: 5px;">
-                <div class="description-holder">
-                    <p>Description:</p>
-                    <p ng-bind="::questInfo.quest.description"></p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6" style="margin-bottom: 10px;padding-left: 5px;">
-                <div class="description-holder">
-                    <p>Requirements:</p>
-                    <ul>
-                        <li ng-repeat="requirement in ::questInfo.quest.requirements">
+    </div>
+    <div class="col-md-6 col-lg-6" style="margin-bottom: 10px;padding-left: 5px;">
+        <div class="description-holder">
+            <p>Requirements:</p>
+            <ul>
+                <li ng-repeat="requirement in ::questInfo.quest.requirements">
                             <span ng-if="requirement.type === 'ITEM'">
                                 {{::requirement.amount}} <item-definition-display item="requirement.item"></item-definition-display>
                             </span>
-                            <span ng-if="requirement.type === 'KILL'">
+                    <span ng-if="requirement.type === 'KILL'">
                                 {{::requirement.amount}} {{::requirement.monsterName}}
                             </span>
-                            <span class="pull-right" style="color: red;">X</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                    <span class="pull-right" style="color: red;">X</span>
+                </li>
+            </ul>
         </div>
-        <div class="row">
-            <div class="col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
-                <button class="button-default btn-block">Hand in</button>
-            </div>
-        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
+        <button class="button-default btn-block">Hand in</button>
     </div>
 </div>
