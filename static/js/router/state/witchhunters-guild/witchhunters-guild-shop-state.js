@@ -2,7 +2,7 @@
 
 module.exports = {
     name: 'witchhunters-guild-shop',
-    url: '/witchhunters-guild/',
+    url: '/witchhunters-guild/shop',
     template: require('partial/main/witchhunters-guild/witchhunters-guild-shop.html'),
     controller: require('js/controller/witchhunters-guild/witchhunters-guild-shop-controller.js')
 };

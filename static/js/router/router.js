@@ -35,7 +35,7 @@ module.exports = require('js/app.js').config(function ($stateProvider, $urlRoute
             .state(require('./state/ladder-state.js'))
             .state(require('./state/home-state.js'))
             .state(require('./state/knowledge-base-state.js'))
-            .state(require('./state/witchhunters-guild/witchhunters-guild-job-state.js'))
+            .state(require('./state/witchhunters-guild/witchhunters-guild-quest-state.js'))
             .state(require('./state/witchhunters-guild/witchhunters-guild-main-state.js'))
             .state(require('./state/witchhunters-guild/witchhunters-guild-shop-state.js'))
             .state(require('./state/forum/forum-category-list-state.js'))
