@@ -1,0 +1,15 @@
+<div class="panel panel-default button-panel">
+    <div class="panel-heading">
+        <img class="panel-heading-icon-improved" src="../../../../image/icon/extra/books.png">
+        <img class="panel-heading-icon-improved-holder" src="../../../../image/panel/header/panel-header-icon-background.png"/>
+        <h3 class="panel-title">Journal <small>({{type+'s'|capitalize}})</small></h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
+                <big-button title="Back" image="journal" target="journal.journal-{{type}}"></big-button>
+            </div>
+        </div>
+        <div ui-view></div>
+    </div>
+</div>

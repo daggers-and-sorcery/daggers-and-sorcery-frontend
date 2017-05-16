@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+        <h3 class="text-center" ng-bind="::entry.name"></h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+        <div class="description-holder" style="margin-bottom: 10px;"><i>No description yet...</i></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+        <div class="description-holder">
+            <div class="row">
+                <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                    <dl class="inventory-popup-definition-list">
+                        <dt>Level:</dt>
+                        <dd ng-bind="::entry.level"></dd>
+                        <dt>Attack type:</dt>
+                        <dd ng-bind="::entry.attackType | capitalize:'first'"></dd>
+                        <dt>Attack:</dt>
+                        <dd ng-bind="::entry.attack"></dd>
+                        <dt>Defense:</dt>
+                        <dd ng-bind="::entry.defense"></dd>
+                    </dl>
+                </div>
+                <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                    <dl class="inventory-popup-definition-list">
+                        <dt>Initiation:</dt>
+                        <dd ng-bind="::entry.initiation"></dd>
+                        <dt>Aiming:</dt>
+                        <dd ng-bind="::entry.aiming"></dd>
+                        <dt>Health:</dt>
+                        <dd ng-bind="::entry.health"></dd>
+                        <dt>Damage:</dt>
+                        <dd ng-bind="::entry.damage"></dd>
+                        <dt>Ranged damage:</dt>
+                        <dd ng-bind="::entry.rangedDamage"></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
