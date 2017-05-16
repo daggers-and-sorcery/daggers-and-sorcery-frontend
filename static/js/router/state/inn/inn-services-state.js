@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-    name: 'inn-services',
-    url: '/inn/services/',
+    name: 'inn.inn-services',
+    url: 'services',
     data: {
         visibleWhenNotLoggedIn: true
     },

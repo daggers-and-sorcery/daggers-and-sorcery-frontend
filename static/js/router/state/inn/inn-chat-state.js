@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-    name: 'inn-chat',
-    url: '/inn/chat/',
+    name: 'inn.inn-chat',
+    url: 'chat',
     data: {
         visibleWhenNotLoggedIn: true
     },

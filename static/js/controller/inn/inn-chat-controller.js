@@ -31,8 +31,4 @@ module.exports = function ($scope, $state, $interval, $http, chatList) {
 
         $scope.textToSend = "";
     };
-
-    $scope.showServices = function () {
-        $state.go('inn-services');
-    }
 };

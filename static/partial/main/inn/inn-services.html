@@ -1,61 +1,41 @@
-<div class="panel panel-default button-panel">
-    <div class="panel-heading">
-        <img class="panel-heading-icon-improved" src="../../../image/icon/extra/inn.png">
-        <img class="panel-heading-icon-improved-holder" src="../../../image/panel/header/panel-header-icon-background.png"/>
-        <h3 class="panel-title">Inn <small>(Drunken Dragoon)</small></h3>
+<div class="row inn-service-response-holder">
+    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+        <flash-message duration="5000" show-close="true"></flash-message>
     </div>
-    <div class="panel-body inn-service-holder">
-        <div class="row" style="margin-top: 2px;">
-            <div class="col-md-offset-2 col-md-4 col-lg-offset-2 col-lg-4 big-button" ng-click="showServices()">
-                <img src="../../../image/cf_main_frame.png" class="img-responsive">
-                <img class="big-button-icon" src="../../../image/icon/extra/beer.png"/>
-                <span class="big-button-text">Services</span>
+</div>
+<div class="row">
+    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+        <div class="description-holder" style="margin: 10px;">
+            <div ng-if="inn.showShortDescription">
+                <div marked="description.short[0]"></div>
+                <div class="text-right" style="margin-top: 5px;">
+                    <a ng-click="switchDescription()">Read more...</a>
+                </div>
             </div>
-            <div class="col-md-4 col-lg-4 big-button" ng-click="showChat()">
-                <img src="../../../image/cf_main_frame.png" class="img-responsive">
-                <img class="big-button-icon" src="../../../image/icon/extra/chat.png"/>
-                <span class="big-button-text">Chat</span>
-            </div>
-        </div>
-        <div class="row inn-service-response-holder">
-            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                <flash-message duration="5000" show-close="true"></flash-message>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                <div class="description-holder" style="margin: 10px;">
-                    <div ng-if="inn.showShortDescription">
-                        <div marked="description.short[0]"></div>
-                        <div class="text-right" style="margin-top: 5px;">
-                            <a ng-click="switchDescription()">Read more...</a>
-                        </div>
-                    </div>
-                    <div ng-if="!inn.showShortDescription">
-                        <div marked="description.long[0]"></div>
-                        <div class="text-right" style="margin-top: 5px;">
-                            <a ng-click="switchDescription()">Read less...</a>
-                        </div>
-                    </div>
+            <div ng-if="!inn.showShortDescription">
+                <div marked="description.long[0]"></div>
+                <div class="text-right" style="margin-top: 5px;">
+                    <a ng-click="switchDescription()">Read less...</a>
                 </div>
             </div>
         </div>
-        <img class="separator" src="../../../image/seperator_2.png"/>
-        <div class="row">
-            <div ng-repeat="service in inn.services" class="col-md-6 col-lg-6 inn-service" ng-class-odd="'fix-right'" ng-class-even="'fix-left'">
-                <div class="service-image-holder">
-                    <img class="img-responsive" ng-src="{{getServiceImage(service.id)}}" />
-                </div>
-                <div class="service-name-holder">
-                    <h3 ng-bind="service.name"></h3>
-                </div>
-                <div class="service-description-holder description-holder">
-                    <div ng-bind-html="getDetails(service.id)"></div>
-                </div>
-                <div class="service-buy-option-holder">
-                    <button ng-click="orderService(service.id)" class="button-default max-width">Buy</button>
-                </div>
-            </div>
+    </div>
+</div>
+<img class="separator" src="../../../image/seperator_2.png"/>
+<div class="row">
+    <div ng-repeat="service in inn.services" class="col-md-6 col-lg-6 inn-service" ng-class-odd="'fix-right'"
+         ng-class-even="'fix-left'">
+        <div class="service-image-holder">
+            <img class="img-responsive" ng-src="{{getServiceImage(service.id)}}"/>
+        </div>
+        <div class="service-name-holder">
+            <h3 ng-bind="service.name"></h3>
+        </div>
+        <div class="service-description-holder description-holder">
+            <div ng-bind-html="getDetails(service.id)"></div>
+        </div>
+        <div class="service-buy-option-holder">
+            <button ng-click="orderService(service.id)" class="button-default max-width">Buy</button>
         </div>
     </div>
 </div>

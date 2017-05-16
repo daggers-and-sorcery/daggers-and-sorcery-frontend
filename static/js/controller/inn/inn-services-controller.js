@@ -7,10 +7,6 @@ module.exports = function ($scope, $state, $http, $sce, marked, Flash, innInfo) 
         return require('image/inn/' + service.toLowerCase().replace(/_/g, "-") + '.jpg');
     };
 
-    $scope.showChat = function () {
-        $state.go('inn-chat');
-    };
-
     var descriptions = require('data/inn/sevgard/descriptions.xml').descriptions.description;
     $scope.description = descriptions[Math.floor(Math.random() * descriptions.length)];
     $scope.inn.showShortDescription = true;
