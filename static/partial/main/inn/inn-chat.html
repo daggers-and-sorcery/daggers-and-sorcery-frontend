@@ -1,32 +1,43 @@
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+        <h3 class="text-center">Chat</h3>
+    </div>
+</div>
 <div class="chat">
-		<form>
-				<div class="row" style="margin: 10px;margin-bottom: 0;">
-						<div class="col-md-10 col-lg-10 chat-input-container">
-								<input ng-model="textToSend" class="form-control inn-chat-input" maxlength="254"
-											 placeholder="Write a message...">
-						</div>
-						<div ng-click="writeMessage()" class="col-md-2 col-lg-2" style="padding: 0;">
-								<button class="button-default max-width">Send</button>
-						</div>
-				</div>
-		</form>
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+            <div class="description-holder" style="padding: 0; padding-left: 8px;">
+                <form>
+                    <div class="row" style="margin: 0;">
+                        <div class="col-md-10 col-lg-10 chat-input-container">
+                            <input ng-model="textToSend" class="form-control inn-chat-input" maxlength="254"
+                                   placeholder="Write a message...">
+                        </div>
+                        <div ng-click="writeMessage()" class="col-md-2 col-lg-2" style="padding: 0;">
+                            <button class="button-default max-width">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-		<div class="row">
-				<div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-						<div class="description-holder chat-container">
-								<div ng-repeat="message in messages" class="row chat-entry">
-										<div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-												<div class="chat-entry-holder">
-														<div class="row">
-																<div ng-bind="message.user" class="col-md-6 col-lg-6"></div>
-																<div ng-bind="message.writingTime | date:'EEEE, MMMM d, y HH:mm:ss'"
-																		 class="col-md-6 col-lg-6 chat-entry-posting-time"></div>
-														</div>
-														<p ng-bind="message.message" class="chat-entry-body"></p>
-												</div>
-										</div>
-								</div>
-						</div>
-				</div>
-		</div>
+    <div class="row">
+        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+            <div class="description-holder chat-container">
+                <div ng-repeat="message in messages" class="row chat-entry">
+                    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                        <div class="chat-entry-holder">
+                            <div class="row">
+                                <div ng-bind="message.user" class="col-md-6 col-lg-6"></div>
+                                <div ng-bind="message.writingTime | date:'EEEE, MMMM d, y HH:mm:ss'"
+                                     class="col-md-6 col-lg-6 chat-entry-posting-time"></div>
+                            </div>
+                            <p ng-bind="message.message" class="chat-entry-body"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

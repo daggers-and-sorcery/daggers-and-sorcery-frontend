@@ -5,66 +5,54 @@
         <h3 class="panel-title">Explore</h3>
     </div>
     <div class="panel-body">
-        <h4>Where do you want to explore?</h4>
-
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <table class="table exploration-table">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th class="text-center exploration-table-header-level">Level</th>
-                        <th class="text-center exploration-table-header-explore">Explore</th>
-                    </tr>
-                    </thead>
-                    <tbody ng-repeat="exploration in explorationData.location.exploration" ng-style="$first ? { 'border-width': '2px' } : { 'border-width': '0' }">
-                        <tr ng-if="exploration.image[0] === 'true'">
-                            <td colspan="3" style="padding: 0;">
+                <div ng-repeat="exploration in explorationData.location.exploration" ng-style="$first ? { 'border-width': '2px' } : { 'border-width': '0' }">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="description-holder" ng-if="exploration.image[0] === 'true'">
                                 <img class="img-responsive max-width" ng-src="{{getExplorationImage(exploration.id)}}" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="exploration-name-holder" ng-bind="exploration.name[0]"></td>
-                            <td class="exploration-level-holder">({{exploration.level[0].minimum[0]}} - {{exploration.level[0].maximum[0]}})</td>
-                            <td class="exploration-button-holder">
-                                <div class="visible-md-block visible-lg-block">
-                                    <div ng-if="exploration.enabled[0] === 'true'">
-                                        <button class="button-default" ng-click="explore(exploration.id, 0)">Explore</button>
-                                    </div>
-                                    <div ng-if="exploration.enabled[0] === 'false'" style="height:71px;line-height: 71px;">
-                                        This map is disabled!
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="visible-xs visible-sm">
-                            <td colspan="3" style="padding-left: 0;padding-right: 0;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="description-holder" style="padding: 0;">
+                        <div class="row">
+                            <div class="col-sm-8 col-md-8 col-lg-8" ng-bind="exploration.name[0]" style="padding-top: 14px; padding-bottom: 14px;padding-left: 24px;"></div>
+                            <div class="col-sm-2 col-md-2 col-lg-2 text-center" style="padding-top: 14px; padding-bottom: 14px;">({{exploration.level[0].minimum[0]}} - {{exploration.level[0].maximum[0]}})</div>
+                            <div class="col-sm-2 col-md-2 col-lg-2">
                                 <div ng-if="exploration.enabled[0] === 'true'">
-                                    <button class="button-default" ng-click="explore(exploration.id, 0)" style="width:100%;">Explore</button>
+                                    <button class="button-default btn-block" ng-click="explore(exploration.id, 0)">Explore</button>
                                 </div>
-                                <div ng-if="exploration.enabled[0] === 'false'" style="height: 31px;line-height: 31px;text-align: center;">
+                                <div ng-if="exploration.enabled[0] === 'false'" style="height:71px;line-height: 71px;text-align: center;">
                                     This map is disabled!
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="border: 0;padding: 0 0 15px;">
-                                <div ng-if="!exploration.showfull" class="description-holder">
-                                    <div marked="exploration.first[0]"></div>
-                                    <div class="text-right" style="margin-top: 5px;">
-                                        <a ng-click="switchDescription($index)">Read more...</a>
-                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div ng-if="!exploration.showfull" class="description-holder">
+                                <div marked="exploration.first[0]"></div>
+                                <div class="text-right" style="margin-top: 5px;">
+                                    <a ng-click="switchDescription($index)">Read more...</a>
                                 </div>
-                                <div ng-if="exploration.showfull" class="description-holder">
-                                    <div marked="exploration.description[0]"></div>
-                                    <div class="text-right" style="margin-top: 5px;">
-                                        <a ng-click="switchDescription($index)">Read less...</a>
-                                    </div>
+                            </div>
+                            <div ng-if="exploration.showfull" class="description-holder">
+                                <div marked="exploration.description[0]"></div>
+                                <div class="text-right" style="margin-top: 5px;">
+                                    <a ng-click="switchDescription($index)">Read less...</a>
                                 </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="news-entry-separator" ng-if="!$last">
+                                <img src="../../image/seperator_2.png"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
