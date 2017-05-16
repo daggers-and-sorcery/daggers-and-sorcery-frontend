@@ -6,8 +6,10 @@ module.exports = require('js/app.js').config(function ($stateProvider, $urlRoute
         $stateProvider
             .state(require('./state/index-state.js'))
             .state(require('./state/character-state.js'))
-            .state(require('./state/journal/item-journal-state.js'))
-            .state(require('./state/journal/monster-journal-state.js'))
+            .state(require('./state/journal/journal-state.js'))
+            .state(require('./state/journal/journal-item-state.js'))
+            .state(require('./state/journal/journal-monster-state.js'))
+            .state(require('./state/journal/journal-quest-state.js'))
             .state(require('./state/journal-entry-state.js'))
             .state(require('./state/map-state.js'))
             .state(require('./state/explore-state.js'))

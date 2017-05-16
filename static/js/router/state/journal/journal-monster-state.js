@@ -1,13 +1,13 @@
 'use strict';
 
 module.exports = {
-    name: 'monster-journal',
-    url: '/journal/monster',
-    template: require('partial/main/journal/monster-journal.html'),
+    name: 'journal.journal-monster',
+    url: 'monster',
+    template: require('partial/main/journal/journal-monster.html'),
     resolve: {
         journalInfo: function ($http, $stateParams) {
             return $http.get('https://api.daggersandsorcery.com/journal/list/monster');
         }
     },
-    controller: require('js/controller/journal/monster-journal-controller.js')
+    controller: require('js/controller/journal/journal-monster-controller.js')
 };
