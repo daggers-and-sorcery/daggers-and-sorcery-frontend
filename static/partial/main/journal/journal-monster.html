@@ -6,15 +6,13 @@
 <div class="row">
     <div class="col-md-12 col-lg-12">
         <div class="description-holder">
-            <div class="row">
-                <div ng-repeat="entry in list">
-                    <div class="col-md-11 col-lg-11">
-                        {{entry.entryName}}
-                    </div>
-                    <div class="col-md-1 col-lg-1">
-                        <a ui-sref="journal-entry.journal-entry-monster({type: 'monster', entryId: entry.entryId})"><span
-                                class="glyphicon glyphicon-zoom-in journal-item-watch cursor-zoom"></span></a>
-                    </div>
+            <div class="row" ng-repeat="entry in list">
+                <div class="col-md-11 col-lg-11">
+                    {{entry.entryName}}
+                </div>
+                <div class="col-md-1 col-lg-1">
+                    <a ui-sref="journal-entry.journal-entry-monster({type: 'monster', entryId: entry.entryId})"><span
+                            class="glyphicon glyphicon-zoom-in journal-item-watch cursor-zoom"></span></a>
                 </div>
             </div>
         </div>
