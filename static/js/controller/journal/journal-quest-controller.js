@@ -1,4 +1,5 @@
 'use strict';
 
-module.exports = function ($scope) {
+module.exports = function ($scope, journalInfo) {
+    $scope.journalInfo = journalInfo.journalInfo;
 };
