@@ -87,9 +87,6 @@ require('./sass/partial/knowledge-base/knowledge-base.scss');
 // Ladder
 require('./sass/partial/ladder/ladder.scss');
 
-// Skills
-require('./sass/partial/character/skills-page.scss');
-
 require('./sass/common/form/input.scss');
 require('./sass/common/form/button.scss');
 require('./sass/common/form/label.scss');
@@ -106,6 +103,7 @@ require('./sass/common/component/right-menu.scss');
 require('./sass/common/flash/flash.scss');
 require('./sass/common/money.scss');
 require('./sass/common/common.scss');
+require('./sass/common/navbar.scss');
 
 // Directive - definition scss
 require('./sass/common/definition/item-definition-popover.scss');

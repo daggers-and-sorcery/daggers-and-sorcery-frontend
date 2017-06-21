@@ -1,4 +1,11 @@
 .button-panel {
+    .big-button-container {
+        > div {
+            line-height: 0;
+            padding: 0;
+        }
+    }
+
     .big-button-text {
         position: absolute;
         z-index: 1;
@@ -10,9 +17,9 @@
     }
 
     .big-button-icon {
-        height: 52px;
-        top: 8px;
-        left: 22px;
+        height: 76.6%;
+        top: 11.2%;
+        left: 3%;
         border-radius: 50%;
         position: absolute;
     }
@@ -21,8 +28,8 @@
         filter: brightness(1.2);
     }
 
-    //TODO: Migrate these away from skill
     .big-button {
+        display: inline-block;
         cursor: url(../../../image/cursor/target.png), auto;
 
         user-select: none;
