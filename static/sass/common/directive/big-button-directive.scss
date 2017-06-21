@@ -1,25 +1,41 @@
+@import '../../viewport-info.scss';
+
 .button-panel {
     .big-button-container {
+        margin-left: 10px;
+        margin-right: 10px;
+
         > div {
             line-height: 0;
             padding: 0;
         }
     }
 
+    /*
+     * Percentages and vmax is used for responsiveness!
+     * Do not change or it will break in small (mobile) displays!
+     */
     .big-button-text {
         position: absolute;
         z-index: 1;
         text-align: center;
-        width: 170px;
-        top: 18px;
-        left: 80px;
+        top: 46%;
+        left: 40%;
         font-size: 20px;
+
+        @include when-mobile {
+            font-size: 3vmax;
+        }
+
+        @include when-tablet {
+            font-size: 3vmax;
+        }
     }
 
     .big-button-icon {
         height: 76.6%;
         top: 11.2%;
-        left: 3%;
+        left: 2.9%;
         border-radius: 50%;
         position: absolute;
     }
