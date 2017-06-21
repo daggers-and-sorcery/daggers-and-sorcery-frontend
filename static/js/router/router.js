@@ -47,6 +47,7 @@ module.exports = require('js/app.js').config(function ($stateProvider, $urlRoute
             .state(require('./state/witchhunters-guild/witchhunters-guild-shop-state.js'))
             .state(require('./state/forum/forum-category-list-state.js'))
             .state(require('./state/forum/forum-comment-list-state.js'))
-            .state(require('./state/forum/forum-topic-list-state.js'));
+            .state(require('./state/forum/forum-topic-list-state.js'))
+            .state(require('./state/quest/quest-explore-state.js'));
     }
 );

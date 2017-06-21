@@ -12,7 +12,12 @@
 <div ng-repeat="stage in entry.stages">
     <div class="row">
         <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-            <div class="description-holder" ng-class="(!$last || entry.state == 'COMPLETED') ? 'quest-stage-completed' : ''" ng-bind="::stage.description"></div>
+            <div class="description-holder" ng-class="(!$last || entry.state == 'COMPLETED') ? 'quest-stage-completed' : ''">
+                <div ng-bind="::stage.description"></div>
+                <div ng-if="($last && entry.state != 'COMPLETED')" class="text-center">
+                    <button ng-click="explore()" class="button-default">Proceed</button>
+                </div>
+            </div>
         </div>
     </div>
     <img class="separator" src="../../../../image/seperator_2.png" ng-if="!$last"/>
