@@ -111,10 +111,11 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
     };
 
     $scope.callOption = function (nextStage) {
-        $state.go('explore', {
-            'explorationId': $stateParams.explorationId,
-            'nextStage': nextStage,
-            'explorationInfo': null
+        console.log("quest");
+
+        $state.go('quest-explore', {
+            'questId': $stateParams.questId,
+            'nextStage': nextStage
         });
     };
 };
