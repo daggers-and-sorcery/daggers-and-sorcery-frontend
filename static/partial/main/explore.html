@@ -139,6 +139,25 @@
                     <img src="../../image/common/bulletin/bulletin.png"> <a ng-click="callOption(option.optionId)" ng-bind="option.text"></a>
                 </p>
             </div>
+
+            <!-- QUEST -->
+            <div ng-if="explorationEntry.eventType == 'QUEST'" class="description-holder">
+                <h3 ng-bind="::explorationEntry.name" style="    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 20px;"></h3>
+                <div ng-bind="::explorationEntry.description" style="    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;"></div>
+
+                <div class="row">
+                    <div class="col-lg-offset-2 col-lg-4">
+                        <button ng-click="callOption(explorationEntry.acceptQuestStage)" class="button-default btn-block">Accept</button>
+                    </div>
+                    <div class="col-lg-4">
+                        <button ng-click="callOption(explorationEntry.declineQuestStage)" class="button-default btn-block">Decline</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
