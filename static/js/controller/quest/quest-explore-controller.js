@@ -14,7 +14,8 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
         forest: ['forest-0', 'forest-1', 'forest-2', 'forest-3'],
         mountain: ['mountain-0', 'mountain-1', 'mountain-2', 'mountain-3'],
         forester: ['forester-0', 'forester-1'],
-        farm: ['farm-0', 'farm-1', 'farm-2', 'farm-3']
+        farm: ['farm-0', 'farm-1', 'farm-2', 'farm-3'],
+        city: ['city-0', 'city-1', 'city-2', 'city-3']
     };
 
     $scope.activeMapIcon = $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()][Math.floor(Math.random() * $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()].length)];
@@ -105,7 +106,7 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
     };
 
     $scope.getCombatIcon = function (icon) {
-        if (icon != undefined) {
+        if (icon !== undefined) {
             return require('image/icon/' + icon + '.png');
         }
     };
@@ -118,4 +119,8 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
             'nextStage': nextStage
         });
     };
+
+    $scope.explore = function(questId) {
+        $state.go('quest-explore', {'questId': questId});
+    }
 };
