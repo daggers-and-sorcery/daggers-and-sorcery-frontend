@@ -121,6 +121,6 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
     };
 
     $scope.explore = function(questId) {
-        $state.go('quest-explore', {'questId': questId});
+        $state.go('quest-explore', {'questId': questId}, {reload: true});
     }
 };
