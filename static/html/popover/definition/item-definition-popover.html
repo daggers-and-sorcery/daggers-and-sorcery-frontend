@@ -4,26 +4,26 @@
         <dd ng-bind="::data.item.name"></dd>
         <dt>Type:</dt>
         <dd ng-bind="::data.item.type"></dd>
-        <dt ng-if="data.item.subtype">Sub-type:</dt>
-        <dd ng-if="data.item.subtype" ng-bind="::data.item.subtype"></dd>
+        <dt ng-if="::data.item.subtype">Sub-type:</dt>
+        <dd ng-if="::data.item.subtype" ng-bind="::data.item.subtype"></dd>
         <dt>Weight:</dt>
         <dd ng-bind="::data.item.weight + ' kg'"></dd>
-        <dt ng-if="data.item.requirements.length > 0">Requirements:</dt>
-        <dd ng-repeat="requirement in data.item.requirements"
+        <dt ng-if="::data.item.requirements.length > 0">Requirements:</dt>
+        <dd ng-repeat="requirement in data.item.requirements track by requirement.attribute"
             ng-bind="::requirement.value + ' - ' + requirement.attribute"></dd>
         <dt ng-if="data.item.modifiers.length > 0">Modifiers:</dt>
         <dd ng-repeat="modifier in data.item.modifiers">
             <span ng-bind="::modifier.value">11</span>
-            <span ng-if="modifier.d2 != 0">{{modifier.d2}}d2</span>
-            <span ng-if="modifier.d4 != 0">{{modifier.d4}}d4</span>
-            <span ng-if="modifier.d6 != 0">{{modifier.d6}}d6</span>
-            <span ng-if="modifier.d8 != 0">{{modifier.d8}}d8</span>
-            <span ng-if="modifier.d10 != 0">{{modifier.d10}}d10</span>
-            <span> - {{modifier.attribute}}</span>
+            <span ng-if="::modifier.d2 != 0">{{::modifier.d2}}d2</span>
+            <span ng-if="::modifier.d4 != 0">{{::modifier.d4}}d4</span>
+            <span ng-if="::modifier.d6 != 0">{{::modifier.d6}}d6</span>
+            <span ng-if="::modifier.d8 != 0">{{::modifier.d8}}d8</span>
+            <span ng-if="::modifier.d10 != 0">{{::modifier.d10}}d10</span>
+            <span> - {{::modifier.attribute}}</span>
         </dd>
     </dl>
-    <p ng-if="data.item.description" ng-bind="::data.item.description" class="item-definition-popover-description"></p>
-    <p ng-if="data.item.flavour" class="item-definition-popover-flavor">
+    <p ng-if="::data.item.description" ng-bind="::data.item.description" class="item-definition-popover-description"></p>
+    <p ng-if="::data.item.flavour" class="item-definition-popover-flavor">
         <i ng-bind="::'“' + data.item.flavour + '”'"></i>
     </p>
 </div>

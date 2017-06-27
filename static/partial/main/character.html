@@ -193,7 +193,7 @@
                             <div class="clearfix" ng-if="$index % 3 == 0"></div>
                             <div class="inventory-entry">
                                 <span class="inventory-entry-item-amount badge pull-left" ng-bind="item.amount"></span>
-                                <item-definition-display item="item.definition"></item-definition-display>
+                                <item-definition-display item="::item.definition"></item-definition-display>
                                 <span class="glyphicon glyphicon-circle-arrow-up inventory-entry-equip-icon-holder inventory-entry-icon-holder" ng-click="equip(item.definition.id)" ng-if="item.definition.equipment" uib-tooltip="Equip" tooltip-placement="right"></span>
                                 <span class="glyphicon glyphicon-tint inventory-entry-use-icon-holder inventory-entry-icon-holder" ng-click="use(item.definition.id)" ng-if="item.definition.usable" uib-tooltip="Usable" tooltip-placement="right"></span>
                             </div>
