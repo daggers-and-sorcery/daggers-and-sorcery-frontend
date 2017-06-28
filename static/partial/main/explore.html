@@ -167,6 +167,27 @@
                     </div>
                 </div>
             </div>
+
+            <!-- FINISH QUEST -->
+            <div ng-if="explorationEntry.eventType == 'FINISH_QUEST'" class="description-holder">
+                <h3 style="    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 20px;">Congratulations!</h3>
+                <div style="    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;">
+                    You are successfully finished the quest!
+                </div>
+                <div style="    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;">
+                    Your rewards are the following:
+                </div>
+
+                <ul>
+                    <li ng-repeat="reward in explorationEntry.rewards" ng-bind="reward"></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

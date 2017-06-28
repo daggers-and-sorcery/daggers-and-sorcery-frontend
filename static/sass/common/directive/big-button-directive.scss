@@ -25,8 +25,9 @@
         z-index: 1;
         text-align: center;
         top: 46%;
-        left: 40%;
+        left: 30%;
         font-size: 20px;
+        width: 50%;
 
         @include when-mobile {
             font-size: 3vmax;
