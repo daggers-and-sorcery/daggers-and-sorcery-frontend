@@ -83,6 +83,12 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
             event.preventDefault();
             $state.go('home');
         }
+
+        $scope.stateIsLoading = true;
+    });
+
+    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+        $scope.stateIsLoading = false;
     });
 
     $scope.user = {};
