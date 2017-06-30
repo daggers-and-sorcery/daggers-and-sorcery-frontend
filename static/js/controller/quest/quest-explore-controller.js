@@ -1,11 +1,20 @@
 'use strict';
 
-module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, explorationResult) {
+module.exports = function ($scope, $rootScope, $http, $sce, $state, $stateParams, $log, explorationResult) {
     $scope.explorationResult = explorationResult;
     $scope.usableSpells = [];
     $scope.usableItems = [];
     $scope.spellToUse = {};
     $scope.itemToUse = {};
+
+    explorationResult.forEach(function(entry) {
+        if(entry.eventType === 'REFRESH_USER_DATA') {
+            $http.get('https://api.daggersandsorcery.com/user/info').then(function (infoResponse) {
+                $rootScope.user.loggedIn = infoResponse.data.data.loggedIn;
+                $rootScope.user.witchuntersGuildUnlocked = infoResponse.data.data.witchuntersGuildInfo.witchhuntersGuildUnlocked;
+            });
+        }
+    });
 
     //TODO: Somehow use the same as the main explore does!
     $scope.mapImageInfo = {

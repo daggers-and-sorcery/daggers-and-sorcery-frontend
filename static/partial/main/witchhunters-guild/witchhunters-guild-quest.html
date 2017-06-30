@@ -9,10 +9,10 @@
 <div class="row">
     <div class="col-md-6 col-lg-6" style="padding-right: 5px;">
         <div class="description-holder" style="margin-bottom: 10px;">Quest
-            name:<span class="pull-right" ng-bind="::questInfo.quest.name"></span></div>
+            name:<span class="pull-right" ng-bind="questInfo.quest.name"></span></div>
     </div>
     <div class="col-md-6 col-lg-6" style="padding-left: 5px;">
-        <div class="description-holder" style="margin-bottom: 10px;">Reward:<span class="pull-right">{{::questInfo.quest.reward}} Reputation points</span>
+        <div class="description-holder" style="margin-bottom: 10px;">Reward:<span class="pull-right">{{questInfo.quest.reward}} Reputation points</span>
         </div>
     </div>
 </div>
@@ -20,21 +20,21 @@
     <div class="col-md-6 col-lg-6" style="margin-bottom: 10px;padding-right: 5px;">
         <div class="description-holder">
             <p>Description:</p>
-            <p ng-bind="::questInfo.quest.description"></p>
+            <p ng-bind="questInfo.quest.description"></p>
         </div>
     </div>
     <div class="col-md-6 col-lg-6" style="margin-bottom: 10px;padding-left: 5px;">
         <div class="description-holder">
             <p>Requirements:</p>
             <ul>
-                <li ng-repeat="requirement in ::questInfo.quest.requirements">
+                <li ng-repeat="requirement in questInfo.quest.requirements">
                             <span ng-if="requirement.type === 'ITEM'">
-                                {{::requirement.amount}} <item-definition-display item="requirement.item"></item-definition-display>
+                                {{requirement.amount}} <item-definition-display item="requirement.item"></item-definition-display>
                             </span>
                     <span ng-if="requirement.type === 'KILL'">
-                                {{::requirement.amount}} {{::requirement.monsterName}}
+                                {{requirement.amount}} {{requirement.monsterName}}
                             </span>
-                    <span ng-if="requirement.done < requirement.amount" class="pull-right" style="color: red;">({{::requirement.done}} / {{::requirement.amount}})</span>
+                    <span ng-if="requirement.done < requirement.amount" class="pull-right" style="color: red;">({{requirement.done}} / {{requirement.amount}})</span>
                     <span ng-if="requirement.done >= requirement.amount" class="pull-right" style="color: green;">(done)</span>
                 </li>
             </ul>
@@ -43,6 +43,6 @@
 </div>
 <div class="row">
     <div class="col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
-        <button class="button-default btn-block">Hand in</button>
+        <button ng-click="handInQuest()" class="button-default btn-block">Hand in</button>
     </div>
 </div>

@@ -1,7 +1,12 @@
 'use strict';
 
-module.exports = function ($scope, questInfo) {
+module.exports = function ($scope, $http, questInfo) {
     $scope.questInfo = questInfo;
 
-    console.log(questInfo);
+    $scope.handInQuest = function() {
+        $http.get('https://api.daggersandsorcery.com/witchhunters-guild/quest/hand-in')
+            .then(function(response) {
+                $scope.questInfo = response.data.data;
+            });
+    }
 };
