@@ -7,7 +7,7 @@ module.exports = function ($scope, $rootScope, $http, $sce, $state, $stateParams
     $scope.spellToUse = {};
     $scope.itemToUse = {};
 
-    explorationResult.forEach(function(entry) {
+    $scope.explorationResult.events.forEach(function(entry) {
         if(entry.eventType === 'REFRESH_USER_DATA') {
             $http.get('https://api.daggersandsorcery.com/user/info').then(function (infoResponse) {
                 $rootScope.user.loggedIn = infoResponse.data.data.loggedIn;
