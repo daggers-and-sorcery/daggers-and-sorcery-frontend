@@ -9,7 +9,7 @@ pipelines:
           script:
             - apt-get update
             - apt-get install -y awscli
-            - apt-get install npm
+            - apt-get install -y npm
             - npm install
             - webpack
             - find ./static/bundle/ -type f ! -name '*.gz' -exec gzip -9 "{}" \;
