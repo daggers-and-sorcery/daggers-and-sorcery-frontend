@@ -94,11 +94,16 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
                 $log.debug('Successful login!');
 
                 $rootScope.previouslyLoggedIn = true;
+
                 $scope.error = false;
 
                 $http.get('https://api.daggersandsorcery.com/user/info').then(function (infoResponse) {
                     $rootScope.user.loggedIn = infoResponse.data.data.loggedIn;
                     $rootScope.user.witchuntersGuildUnlocked = infoResponse.data.data.witchuntersGuildInfo.witchhuntersGuildUnlocked;
+
+                    //Remove sensitive data from the login form
+                    $scope.user.username = '';
+                    $scope.user.password = '';
 
                     $state.go('home');
                 });

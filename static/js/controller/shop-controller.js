@@ -3,7 +3,6 @@
 module.exports = function ($scope, $http, shopData) {
     $scope.shopPage = 'shop';
     $scope.shopData = shopData;
-    $scope.inventoryPopover = require('html/popover/inventory-popover.html');
 
     $scope.floor = function(value) {
         return Math.floor(value);

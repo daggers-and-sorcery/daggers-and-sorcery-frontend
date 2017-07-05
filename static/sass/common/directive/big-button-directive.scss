@@ -1,0 +1,67 @@
+@import '../../viewport-info.scss';
+
+.button-panel {
+    .big-button-container {
+        margin-left: 10px;
+        margin-right: 10px;
+
+        > div {
+            line-height: 0;
+            padding: 0;
+        }
+
+        .big-button {
+            line-height: 0;
+            padding: 0;
+        }
+    }
+
+    /*
+     * Percentages and vmax is used for responsiveness!
+     * Do not change or it will break in small (mobile) displays!
+     */
+    .big-button-text {
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+        top: 46%;
+        left: 30%;
+        font-size: 20px;
+        width: 50%;
+
+        @include when-mobile {
+            font-size: 3vmax;
+        }
+
+        @include when-tablet {
+            font-size: 3vmax;
+        }
+    }
+
+    .big-button-icon {
+        height: 76.6%;
+        top: 11.2%;
+        left: 2.9%;
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    .big-button-icon-glow {
+        filter: brightness(1.2);
+    }
+
+    .big-button {
+        display: inline-block;
+        cursor: url(../../../image/cursor/target.png), auto;
+
+        user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+    }
+
+    .alert {
+        margin-bottom: 10px;
+    }
+}

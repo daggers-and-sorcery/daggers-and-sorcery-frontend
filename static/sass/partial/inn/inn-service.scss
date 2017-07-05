@@ -2,7 +2,7 @@
 
 .inn-service-holder {
   .fix-right {
-    padding-right: 0;
+    padding-right: 5px;
 
     @include when-tablet {
         padding-right: 15px;
@@ -10,7 +10,7 @@
   }
 
   .fix-left {
-    padding-left: 0;
+    padding-left: 5px;
 
     @include when-tablet {
         padding-left: 15px;
@@ -24,7 +24,7 @@
 
   .inn-service {
     .service-image-holder {
-      margin: 12px;
+      margin: 6px;
     }
 
     .service-image-holder img {
@@ -40,7 +40,7 @@
     }
 
     .service-description-holder {
-      margin: 10px;
+      //margin: 10px;
     }
 
     .service-description-holder dl {

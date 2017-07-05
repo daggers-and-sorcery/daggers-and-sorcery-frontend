@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+        <h3 class="text-center" ng-bind="::entry.name"></h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+        <div class="description-holder" style="margin-bottom: 10px;"><i>No description yet...</i></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+        <div class="description-holder">
+            <div class="row">
+                <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                    <dl class="inventory-popup-definition-list">
+                        <dt>Name:</dt>
+                        <dd ng-bind="::entry.name"></dd>
+                        <dt>Type:</dt>
+                        <dd ng-bind="::entry.type"></dd>
+                        <dt>Weight:</dt>
+                        <dd ng-bind="::entry.weight + ' kg'"></dd>
+                        <dt>Equipment:</dt>
+                        <dd ng-bind="entry.equipment ? 'Yes' : 'No'"></dd>
+                    </dl>
+                </div>
+                <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                    <dl class="inventory-popup-definition-list">
+                        <dt ng-if="entry.requirements.length > 0">Requirements:</dt>
+                        <dd ng-repeat="requirement in entry.requirements"
+                            ng-bind="::requirement.value + ' - ' + requirement.attribute"></dd>
+                        <dt ng-if="entry.modifiers.length > 0">Modifiers:</dt>
+                        <dd ng-repeat="modifier in entry.modifiers"
+                            ng-bind="::modifier.value + ' - ' + modifier.attribute"></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

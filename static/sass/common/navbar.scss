@@ -1,0 +1,14 @@
+.mobile-menu {
+    .menu-icon {
+        position: absolute;
+        width: 80px;
+        right: 26px;
+        margin-top: -14px;
+    }
+
+    .collapsing {
+        .menu-icon {
+            right: 11px;
+        }
+    }
+}

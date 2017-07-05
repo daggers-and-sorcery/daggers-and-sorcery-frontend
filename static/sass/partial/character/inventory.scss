@@ -21,6 +21,7 @@
     }
 }
 
+//TODO: Can't remove this because it's used by a lot of (not related) pages sadly however when we can we should remove it
 .inventory-popup-definition-list {
     margin-bottom: 0;
 }
@@ -41,16 +42,16 @@
         }
 
         .inventory-entry-equip-icon-holder, .inventory-entry-use-icon-holder {
-            width: 26px;
+            width: 16px;
             cursor: url(../../../image/cursor/hand.png), auto;
         }
 
         .inventory-entry-popup-icon, .inventory-entry-icon-holder {
             float: right;
-            padding-right: 10px;
+            margin-right: 10px;
         }
 
-        .inventory-entry-item-name {
+        .inventory-entry-item-name, item-definition-display {
             padding-left: 5px;
         }
     }

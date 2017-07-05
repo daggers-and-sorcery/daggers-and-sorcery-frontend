@@ -1,9 +1,4 @@
 .journal-panel.panel {
-    .panel-body {
-        padding-left: 6px;
-        padding-right: 6px;
-    }
-
     .journal-item-watch {
         padding: 5px;
         color: wheat;
@@ -11,5 +6,11 @@
 
     .journal-head-icon-container {
         margin-top: 2px;
+    }
+}
+
+.journal-entry-panel.panel {
+    .quest-stage-completed {
+        color: green;
     }
 }

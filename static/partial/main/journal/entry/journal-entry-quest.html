@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+        <h3 class="text-center" ng-bind="::entry.name"></h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+        <div class="description-holder" style="margin-bottom: 10px;" ng-bind="::entry.description"></div>
+    </div>
+</div>
+<h4 class="text-center">Stages</h4>
+<div ng-repeat="stage in entry.stages">
+    <div class="row">
+        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+            <div class="description-holder"
+                 ng-class="(!$last || entry.state == 'COMPLETED') ? 'quest-stage-completed' : ''">
+                <div ng-bind="::stage.description"></div>
+                <div ng-if="($last && entry.state != 'COMPLETED')" class="text-center">
+                    <div class="row">
+                        <div class="col-lg-offset-4 col-lg-4">
+                            <button ng-click="explore()" class="button-default btn-block">Proceed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="separator" src="../../../../image/seperator_2.png" ng-if="!$last"/>
+</div>

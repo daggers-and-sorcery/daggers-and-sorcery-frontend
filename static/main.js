@@ -14,6 +14,9 @@ require('./vendor/angular-readmore/js/angular-readmore.js');
 require('./vendor/angular-slider/js/rzslider.min.js');
 require('./vendor/angular-slider/css/rzslider.min.css');
 
+require('./vendor/angular-state-loader/js/angular-state-loader.js')
+require('./vendor/angular-state-loader/css/angular-state-loader.css')
+
 // Controllers
 require('./js/controller/main-controller.js');
 
@@ -31,6 +34,10 @@ require('./js/directive/bind-html-compile.js');
 require('./js/directive/unsafe-html-popover.js');
 require('./js/directive/display-price-directive.js');
 require('./js/directive/counter-directive.js');
+require('./js/directive/big-button-directive.js');
+
+// Directive - definition
+require('./js/directive/definition/item-definition-display-directive.js');
 
 // Interceptors
 require('./js/interceptor/combat-update-interceptor.js');
@@ -83,9 +90,6 @@ require('./sass/partial/knowledge-base/knowledge-base.scss');
 // Ladder
 require('./sass/partial/ladder/ladder.scss');
 
-// Skills
-require('./sass/partial/character/skills-page.scss');
-
 require('./sass/common/form/input.scss');
 require('./sass/common/form/button.scss');
 require('./sass/common/form/label.scss');
@@ -102,5 +106,12 @@ require('./sass/common/component/right-menu.scss');
 require('./sass/common/flash/flash.scss');
 require('./sass/common/money.scss');
 require('./sass/common/common.scss');
+require('./sass/common/navbar.scss');
+
+// Directive - definition scss
+require('./sass/common/definition/item-definition-popover.scss');
+require('./sass/common/definition/item-definition.scss');
+
+require('./sass/common/directive/big-button-directive.scss');
 
 require('./sass/core.scss');

@@ -7,7 +7,7 @@
     <div class="panel-body" style="padding: 6px;">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="row" style="    margin-top: 20px;">
+                <div class="row big-button-container" style="    margin-top: 20px;">
                     <div ng-include="'market-header'"></div>
                 </div>
                 <div class="shop-inner-container">
@@ -30,10 +30,7 @@
                                             <span class="badge text-center" ng-bind="item.amount"></span>
                                         </div>
                                         <div class="col-md-9 col-lg-9 shop-entry-text">
-                                            {{item.definition.name}}
-                                            <span class="glyphicon glyphicon-eye-open inventory-entry-popup-icon"
-                                                  popover-html-unsafe="{{inventoryPopover}}"
-                                                  popover-trigger="mouseenter" popover-placement="right"></span>
+                                            <item-definition-display item="item.definition"></item-definition-display>
                                         </div>
                                         <div class="col-lg-2 text-center">
                                             <button class="button-default shop-button" ui-sref="market-entry-sell({itemId: item.definition.id})">
