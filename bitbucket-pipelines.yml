@@ -11,7 +11,7 @@ pipelines:
             - apt-get install -y awscli
             - apt-get install -y npm
             - npm install
-            - webpack
+            - ./node_modules/.bin/webpack
             - find ./static/bundle/ -type f ! -name '*.gz' -exec gzip -9 "{}" \;
             - find ./static/bundle/ -name "*.gz" -exec rename 's/\.gz$//' '{}' \;
             - aws s3 cp ./static/bundle s3://swords-assets/ --recursive --content-encoding gzip --exclude "index.html" --cache-control "max-age=31104000"
