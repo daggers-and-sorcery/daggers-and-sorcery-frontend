@@ -1,0 +1,20 @@
+image: node:6.11
+
+pipelines:
+  branches:
+    master:
+      - step:
+          caches:
+            - node
+          script:
+            - apt-get update
+            - apt-get install -y awscli
+            - apt-get install -y npm
+            - npm install
+            - ./node_modules/.bin/webpack
+            - find ./static/bundle/ -type f ! -name '*.gz' -exec gzip -9 "{}" \;
+            - find ./static/bundle/ -name "*.gz" -exec rename 's/\.gz$//' '{}' \;
+            - aws s3 cp ./static/bundle s3://swords-assets/ --recursive --content-encoding gzip --exclude "index.html" --cache-control "max-age=31104000"
+            - aws s3 cp ./static/bundle/index.html s3://swords-assets/index.html --content-encoding gzip
+            - aws s3 cp ./favicon.png s3://swords-assets/favicon.png --cache-control "max-age=31104000"
+            - aws s3 cp ./fbicon.png s3://swords-assets/fbicon.png --cache-control "max-age=31104000"
