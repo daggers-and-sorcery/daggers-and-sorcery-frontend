@@ -122,6 +122,11 @@
                                     <img class="menu-icon" src="../image/icon/menu/shop.png">
                                     <button class="button-default btn-block">Market</button>
                                 </div>
+                                <div ui-sref="witchhunters-guild.witchhunters-guild-main" data-toggle="collapse"
+                                     data-target="#bs-example-navbar-collapse-1"
+                                     ng-if="$root.user.witchuntersGuildUnlocked">
+                                    <button class="button-default btn-block">Witchhunter's guild</button>
+                                </div>
                                 <hr style="    border-color: wheat;margin: 5px">
                                 <div ui-sref="character" data-toggle="collapse"
                                      data-target="#bs-example-navbar-collapse-1">
@@ -177,7 +182,7 @@
                         <form ng-submit="submit()" class="ng-pristine ng-valid">
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" class="form-control ng-pristine ng-valid ng-touched" id="username"
+                                <input class="form-control ng-pristine ng-valid ng-touched" id="username"
                                        placeholder="Username" ng-model="user.username" autocomplete="off">
                             </div>
                             <div class="password">
@@ -186,7 +191,7 @@
                                        id="password" placeholder="Password" ng-model="user.password">
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="button-default login-button">Submit</button>
+                                <button class="button-default login-button">Submit</button>
                             </div>
                         </form>
                     </div>
