@@ -1,5 +1,11 @@
 <attributes>
     <attribute>
+        <id>intelligence</id>
+        <description>
+            An education is important to anyone who wishes to strive, lest they become lost in the ever changing times. Even in banditry, a smart thief is a living thief. Mages require a keen intellect in order to cast spells that can cause physical harm to foes.
+        </description>
+    </attribute>
+    <attribute>
         <id>strength</id>
         <description>
             What is a warrior without his strength? This physical attribute determines your physical capability - making you a veteran adventurer or a beanpole of a struggler. Strength is what goes behind the swing of your weapon, altering just how effective your damage is. It also plains into receiving blows and your ability to withstand attacks in combat.
