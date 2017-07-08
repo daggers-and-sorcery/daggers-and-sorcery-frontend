@@ -10,7 +10,6 @@ pipelines:
             - apt-get update
             - apt-get install -y python python-pip libpython-dev
             - pip install awscli
-            - aws configure
             - apt-get install -y npm
             - npm install
             - ./node_modules/.bin/webpack
