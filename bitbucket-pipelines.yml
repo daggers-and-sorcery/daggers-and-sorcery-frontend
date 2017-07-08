@@ -21,4 +21,4 @@ pipelines:
             - aws s3 cp ./favicon.png s3://swords-assets/favicon.png --cache-control "max-age=31104000"
             - aws s3 cp ./fbicon.png s3://swords-assets/fbicon.png --cache-control "max-age=31104000"
             - aws configure set preview.cloudfront true
-            - aws cloudfront create-invalidation --distribution-id E3QA7FHJOI85IX --paths *
+            - aws cloudfront create-invalidation --distribution-id E3QA7FHJOI85IX --paths "/*"
