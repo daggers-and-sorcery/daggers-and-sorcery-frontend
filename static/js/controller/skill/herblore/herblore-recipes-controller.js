@@ -10,7 +10,7 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, recipesI
 
         $http.post('https://api.daggersandsorcery.com/skill/herblore/recipe/craft', payload).then(function (response) {
             Flash.clear();
-            Flash.create(getFletchingResultColor(response.data.data.result.result), getFletchingResultText(response.data.data.result.result));
+            Flash.create(getHerbloreResultColor(response.data.data.result.result), getHerbloreResultText(response.data.data.result.result));
 
             $scope.refresh();
         });
@@ -25,7 +25,7 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, recipesI
         });
     };
 
-    var getFletchingResultColor = function (result) {
+    var getHerbloreResultColor = function (result) {
         if (result === 'SUCCESSFUL') {
             return 'success';
         }
@@ -33,12 +33,12 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, recipesI
         return 'danger';
     };
 
-    var getFletchingResultText = function (result) {
+    var getHerbloreResultText = function (result) {
         switch (result) {
             case 'SUCCESSFUL':
-                return 'You successfully fletch that item.';
+                return 'You successfully created that item.';
             case 'UNSUCCESSFUL':
-                return 'You tried to fletch the item but were unsuccessful to do so.';
+                return 'You tried to create the item but were unsuccessful to do so.';
             case 'INVALID_EVENT':
                 return 'Something went wrong! Please report this to the administrator! (Missing recipe!)';
             case 'MISSING_REQUIREMENTS':

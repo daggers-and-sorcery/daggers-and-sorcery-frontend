@@ -58,7 +58,6 @@ angular.module('ec.stateloader', []).provider('stateLoader', function () {
                                     scope.forceShow === undefined;
                             };
                         scope.hideLoader = function (element, force) {
-                            console.log("a "+(!scope.forceShow || force));
                             if (!scope.forceShow || force) {
                                 if (timer) {
                                     $timeout.cancel(timer);
