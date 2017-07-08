@@ -8,7 +8,9 @@ pipelines:
             - node
           script:
             - apt-get update
-            - apt-get install -y awscli
+            - apt-get install -y python python-pip
+            - pip install awscli
+            - aws configure
             - apt-get install -y npm
             - npm install
             - ./node_modules/.bin/webpack
