@@ -30,6 +30,10 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
         $scope.type = newType;
     };
 
+    $scope.shouldShowSpecialAttributes = function () {
+        return Object.keys($scope.user.attribute.SPECIAL).length > 0;
+    };
+
     $scope.getSkillImage = function (skill) {
         return require('image/icon/skill/' + skill.replace(new RegExp('\\s', 'g'), '_') + '.png');
     };

@@ -238,6 +238,24 @@
             </div>
         </div>
 
+        <div ng-if="shouldShowSpecialAttributes()">
+            <h3>
+                <img class="character-list-header" src="../../image/btts_stats_button.png"> Special
+            </h3>
+            <div class="row combat-attribute-list">
+                <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="(attributeName, attributeValue) in user.attribute.SPECIAL">
+                    <div class="clearfix" ng-if="$index % 3 == 0"></div>
+
+                    <img class="img-circle combat-attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getCombatImage(attributeValue.attribute.id)}}">
+                    <img class="combat-attribute-icon-holder" src="../../image/common/frame/icon_frame.png">
+                    <span class="combat-attribute-name">{{attributeName}}</span>
+                    <span class="combat-attribute-value" popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        {{attributeValue.actual.value}}
+                    </span>
+                </div>
+            </div>
+        </div>
+
         <h3><img class="character-list-header" src="../../image/btts_stats_button.png"> Skills
             <small style="color: wheat;">(Trading skills)</small>
         </h3>
