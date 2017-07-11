@@ -1,16 +1,20 @@
 'use strict';
 
-module.exports = function ($scope, $http) {
+module.exports = function ($scope, $http, shopInfo) {
+    $scope.shopInfo = shopInfo;
+
+    $scope.isShopAvailable = function() {
+        return $scope.shopInfo.shop.shopId !== -1;
+    }
 
     $scope.buyItem = function (itemId) {
-        $http.get('https://api.daggersandsorcery.com/shop/' + $scope.shopData.definition.id + '/buy/' + itemId).then(function () {
+        $http.get('https://api.daggersandsorcery.com/shop/' + $scope.shopInfo.shop.shopId + '/buy/' + itemId).then(function () {
             $scope.refreshBuyShop();
         });
     };
 
     $scope.refreshBuyShop = function () {
-        //TODO: Shopid will come from guild rank
-        $http.get('https://api.daggersandsorcery.com/shop/buylist/2').then(function (response) {
+        $http.get('https://api.daggersandsorcery.com/shop/buylist/'+$scope.shopInfo.shop.shopId).then(function (response) {
             $scope.shopData = response.data.data;
         })
     };
