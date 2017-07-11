@@ -12,6 +12,21 @@ module.exports = {
         $scope.visibleRace = 0;
         $scope.errorList = [];
         $scope.successfulRegistration = false;
+
+        $scope.attributeDescriptionPopover = require('html/popover/registration-attribute-description-popover.html');
+        $scope.attributeDescribtionMap = {};
+        require('data/attribute/definition.xml').attributes.attribute.forEach(function (item, index) {
+            $scope.attributeDescribtionMap[item.id[0]] = item.description[0];
+        });
+
+        $scope.combatAttributeDescriptionMap = function (attribute) {
+            if ($scope.attributeDescribtionMap[attribute.toLowerCase()] != undefined) {
+                return $scope.attributeDescribtionMap[attribute.toLowerCase()];
+            }
+
+            return "No description ***(yet)***.";
+        };
+
         $scope.race = [
             {
                 id: 'HUMAN',

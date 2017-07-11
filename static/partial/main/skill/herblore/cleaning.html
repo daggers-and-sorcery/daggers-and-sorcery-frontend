@@ -1,7 +1,8 @@
 <div class="panel panel-default button-panel">
     <div class="panel-heading">
         <img class="panel-heading-icon-improved" src="../../../../image/icon/skill/Herblore.png"/>
-        <img class="panel-heading-icon-improved-holder" src="../../../../image/panel/header/panel-header-icon-background.png"/>
+        <img class="panel-heading-icon-improved-holder"
+             src="../../../../image/panel/header/panel-header-icon-background.png"/>
 
         <h3 class="panel-title">Herblore
             <small>(Level {{cleaningInfo.skill.level}})</small>
@@ -11,68 +12,66 @@
         <flash-message duration="5000" show-close="true"></flash-message>
         <div class="row">
             <div class="col-xs-12">
-                <div class="row">
-                    <div class="col-xs-4 big-button" ui-sref="skill-herblore-gathering">
-                        <img src="../../../../image/cf_main_frame.png" class="img-responsive">
-                        <img class="big-button-icon" src="../../../../image/icon/extra/gathering.png"/>
-                        <span class="big-button-text">Gathering</span>
+                <div class="row big-button-container">
+                    <div class="col-sm-4 col-md-4 col-lg-4 big-button">
+                        <big-button title="Gathering" image="gathering" target="skill-herblore-gathering"
+                        </big-button>
                     </div>
-                    <div class="col-xs-4 big-button" ui-sref="skill-herblore-cleaning">
-                        <img src="../../../../image/cf_main_frame.png" class="img-responsive">
-                        <img class="big-button-icon" src="../../../../image/icon/extra/cleaning.png"/>
-                        <span class="big-button-text">Cleaning</span>
+                    <div class="col-sm-4 col-md-4 col-lg-4 big-button">
+                        <big-button title="Cleaning" image="cleaning" target="skill-herblore-cleaning"></big-button>
                     </div>
-                    <div class="col-xs-4 big-button" ui-sref="skill-herblore-recipes">
-                        <img src="../../../../image/cf_main_frame.png" class="img-responsive">
-                        <img class="big-button-icon" src="../../../../image/icon/extra/recipe.png"/>
-                        <span class="big-button-text">Recipes</span>
+                    <div class="col-sm-4 col-md-4 col-lg-4 big-button">
+                        <big-button title="Recipes" image="recipe" target="skill-herblore-recipes"></big-button>
                     </div>
                 </div>
                 <div>
                     <h3 class="text-center">Cleaning</h3>
 
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th class="text-center">Requirements</th>
-                            <th class="text-center">Result</th>
-                            <th class="text-center">Create</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="recipe in cleaningInfo.recipes">
-                            <td>{{recipe.name}}
-                                <small ng-if="recipe.chance < 100" style="color: red;">({{recipe.chance}}% chance)
-                                </small>
-                            </td>
-                            <td>
-                                <ul style="list-style-type: none;">
-                                    <li ng-repeat="requirement in recipe.recipeRequirements">
-                                        <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
-                                        <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
-                                    </li>
-                                    <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} -
-                                        {{ingredient.name}}
-                                        <small style="color: lightgray;">(consumed)</small>
-                                    </li>
-                                </ul>
-                            </td>
-                            <td>
-                                <ul style="list-style-type: none;">
-                                    <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} - {{reward.name}}
-                                    </li>
-                                    <li ng-repeat="experience in recipe.recipeExperiences">{{experience.amount}} -
-                                        {{experience.skill}} experience
-                                    </li>
-                                </ul>
-                            </td>
-                            <td class="text-center" style="vertical-align: middle;">
-                                <a ng-click="create(recipe.id)" style="cursor:pointer;">Create</a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th class="text-center">Requirements</th>
+                                <th class="text-center">Result</th>
+                                <th class="text-center">Create</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="recipe in cleaningInfo.recipes">
+                                <td>{{recipe.name}}
+                                    <small ng-if="recipe.chance < 100" style="color: red;">({{recipe.chance}}% chance)
+                                    </small>
+                                </td>
+                                <td>
+                                    <ul style="list-style-type: none;">
+                                        <li ng-repeat="requirement in recipe.recipeRequirements">
+                                            <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
+                                            <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
+                                        </li>
+                                        <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} -
+                                            {{ingredient.name}}
+                                            <small style="color: lightgray;">(consumed)</small>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul style="list-style-type: none;">
+                                        <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} -
+                                            {{reward.name}}
+                                        </li>
+                                        <li ng-repeat="experience in recipe.recipeExperiences">{{experience.amount}} -
+                                            {{experience.skill}} experience
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="text-center" style="vertical-align: middle;">
+                                    <a ng-click="create(recipe.id)" style="cursor:pointer;">Create</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
