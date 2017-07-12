@@ -8,6 +8,10 @@ require('js/app.js').directive('itemDefinitionDisplay', function () {
         template: require('html/directive/definition/item-definition-display-directive.html'),
         link: function (scope, element, attrs) {
             scope.itemDefinitionPopover = require('html/popover/definition/item-definition-popover.html');
+
+            scope.getEquipmentImage = function (item) {
+                return require('image/inventory/item/' + item + '.png');
+            };
         }
     };
 });
