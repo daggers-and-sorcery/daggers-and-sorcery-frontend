@@ -1,11 +1,75 @@
-<div class="row">
-    <div class="col-md-12 col-lg-12">
-        <h3 class="text-center">Shop</h3>
+<div class="shop-panel">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <h3 class="text-center">Shop</h3>
 
-        <div class="description-holder" style="margin-bottom: 10px;" hm-read-more hm-limit="300"
-             hm-text="You approach one of the many shops in the hall. This one in particular is the most reliable, as it is commissioned directly by the guild itself. A handy Gnome lad is the first to greet you. He hopped up from a stool to the counter and leaned against the nearest shelf of items. You and him are utterly and completely surrounded by shelves of nothing but various, often magical goods. Sensational scrolls of both forbidden knowledge and wizardry, tattered books and some freshly bound in what may be mortal flesh, silver items for both protection and assassination, an intense and varied allotment of potions with numerous labels in several languages and weapons that had a supernatural glow or silver filled runic symbol. You lean over the counter to see that the little Gnome has an assortment of miniature staircases that reach to every level of all the shelves that box this mini-world of knowledge and items in. &quot;Hey, you - yeah you, daft one. You see that guy? Nolix over there? The one with the stupid hat?&quot; You shrug and look over your shoulder, indeed - Nolix is nearby, bartering his life away for what looked to be some enchanted coins at another vendor. &quot;Do me a favour and tell him to come by sometime and pick up his bombs.&quot; The Gnome kicked a small, velvet bag. A few small red bombs rolled out - which revealed their unique paint job and thick fuses.<br><br>&quot;The name is Nebuchadnectar. Some people just call me Chad for short, but if you call me that I will build a stairway to your ass so I can kick it!&quot; Nebuchadnectar stated with a firm fist, which he shook at you. You did not know whether to feel intimidated or bemused by the small Gnomish man. His clean shaven faced and amusing get up made him stand out from typical Gnomes. Surely, he was one that had lived among other species more than his own. His attitude was that of an angry, drunken dwarf and his skin had the complexion of an Ork alchemist. &quot;Piss off with any of your funny nicknames I know you are making in your head! I got work to do, you understand? You see this entire place around us? It is a big place, constantly moving, moaning, crying and finding something to be worried about. You got paranoia up to everyone's ear-hairs and you want to stand there with a flabber gasted look on your face?&quot; Nebuchadnectar presented to you his wares. Above his shop was a motto in Runes, carved deep into the wood. 'Choose Wisely (Or Not At All)'."></div>
-        <div class="text-center">
-            <i>The shop is unavailable at the moment...</i>
+            <div class="description-holder" style="margin-bottom: 10px;" hm-read-more hm-limit="300"
+                 hm-text="You approach one of the many shops in the hall. This one in particular is the most reliable, as it is commissioned directly by the guild itself. A handy Gnome lad is the first to greet you. He hopped up from a stool to the counter and leaned against the nearest shelf of items. You and him are utterly and completely surrounded by shelves of nothing but various, often magical goods. Sensational scrolls of both forbidden knowledge and wizardry, tattered books and some freshly bound in what may be mortal flesh, silver items for both protection and assassination, an intense and varied allotment of potions with numerous labels in several languages and weapons that had a supernatural glow or silver filled runic symbol. You lean over the counter to see that the little Gnome has an assortment of miniature staircases that reach to every level of all the shelves that box this mini-world of knowledge and items in. &quot;Hey, you - yeah you, daft one. You see that guy? Nolix over there? The one with the stupid hat?&quot; You shrug and look over your shoulder, indeed - Nolix is nearby, bartering his life away for what looked to be some enchanted coins at another vendor. &quot;Do me a favour and tell him to come by sometime and pick up his bombs.&quot; The Gnome kicked a small, velvet bag. A few small red bombs rolled out - which revealed their unique paint job and thick fuses.<br><br>&quot;The name is Nebuchadnectar. Some people just call me Chad for short, but if you call me that I will build a stairway to your ass so I can kick it!&quot; Nebuchadnectar stated with a firm fist, which he shook at you. You did not know whether to feel intimidated or bemused by the small Gnomish man. His clean shaven faced and amusing get up made him stand out from typical Gnomes. Surely, he was one that had lived among other species more than his own. His attitude was that of an angry, drunken dwarf and his skin had the complexion of an Ork alchemist. &quot;Piss off with any of your funny nicknames I know you are making in your head! I got work to do, you understand? You see this entire place around us? It is a big place, constantly moving, moaning, crying and finding something to be worried about. You got paranoia up to everyone's ear-hairs and you want to stand there with a flabber gasted look on your face?&quot; Nebuchadnectar presented to you his wares. Above his shop was a motto in Runes, carved deep into the wood. 'Choose Wisely (Or Not At All)'."></div>
+
+            <div class="text-center" ng-if="!isShopAvailable()">
+                <i>You need to increase your guild rank to access the shop.</i>
+            </div>
+
+            <div class="shop-inner-container" ng-if="isShopAvailable()">
+                <div class="text-center" style="padding-bottom: 10px;">
+                    <div class="row">
+                        <div class="col-lg-offset-3 col-lg-3">Your money:</div>
+                        <div class="col-lg-1">{{shopData.money.gold}}
+                            <img class="shop-money-icon" src="../../../image/icon/shop/gold.png">
+                        </div>
+                        <div class="col-lg-1">{{shopData.money.silver}}
+                            <img class="shop-money-icon" src="../../../image/icon/shop/silver.png">
+                        </div>
+                        <div class="col-lg-1">{{shopData.money.bronze}}
+                            <img class="shop-money-icon" src="../../../image/icon/shop/bronze.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="shop-search-container row">
+                    <div class="col-lg-12">
+                        <label for="item-name-for-buy">Item name</label>
+                        <div class="description-holder">
+                            <input class="form-control" id="item-name-for-buy" ng-model="item.definition.name"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 text-center" style="font-size: 18px;">
+                        Item
+                    </div>
+                    <div class="col-lg-2 text-center" style="font-size: 18px;">
+                        Price
+                    </div>
+                </div>
+                <div ng-repeat="type in shopData.items" ng-if="(type.items  | filter:item).length > 0">
+                    <h4 ng-bind="type.typeName"></h4>
+                    <div class="description-holder" style="padding: 5px;">
+                        <div class="row" ng-repeat="item in type.items | filter:item">
+                            <div class="col-sm-12 col-md-12 col-lg-12" style="line-height: 2.6;">
+                                <div class="row">
+                                    <div class="col-xs-3 col-sm-3 col-md-1 col-lg-1 text-center shop-entry-text">
+                                        <span class="badge text-center" ng-if="item.amount < 2147483647"
+                                              ng-bind="item.amount"></span>
+                                        <span class="badge text-center" ng-if="item.amount == 2147483647">∞</span>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 shop-entry-text">
+                                        <item-definition-display item="item.definition"></item-definition-display>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 text-center shop-entry-text">
+                                        <display-price price="item.price"></display-price>
+                                    </div>
+                                    <div class="col-lg-2 text-center">
+                                        <button class="button-default shop-button btn-left" style="margin-left: 0;"
+                                                ng-click="buyItem(item.definition.id)">
+                                            Buy
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

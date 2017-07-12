@@ -116,16 +116,13 @@
     padding-left: 15px;
     padding-right: 15px;">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0;" ng-click="unequip('RING')" ng-mouseenter="setType('RING')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        <img ng-if="!user.equipment.RING.empty" class="improved-equipment-slot-image-icon" ng-src="{{getEquipmentImage(user.equipment.RING.description.id)}}"/>
                         <img class="improved-equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_finger.png"/>
                         <img class="img-responsive" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0;" ng-click="unequip('BOOTS')" ng-mouseenter="setType('BOOTS')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
                         <img ng-if="!user.equipment.BOOTS.empty" class="improved-equipment-slot-image-icon" ng-src="{{getEquipmentImage(user.equipment.BOOTS.description.id)}}"/>
                         <img class="improved-equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_boots.png"/>
-                        <img class="img-responsive" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0;" ng-click="unequip('LEFT_RING')" ng-mouseenter="setType('LEFT_RING')" popover-html-unsafe="{{equipmentPopover}}" popover-trigger="mouseenter" popover-placement="right">
-                        <img class="improved-equipment-slot-image-overlay" src="../../image/inventory/icon/v2/cw_item_example_finger.png"/>
                         <img class="img-responsive" src="../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
                 </div>
@@ -235,6 +232,24 @@
                 <span class="combat-attribute-value" popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">
                     {{attributeValue.actual.value}}
                 </span>
+            </div>
+        </div>
+
+        <div ng-if="shouldShowSpecialAttributes()">
+            <h3>
+                <img class="character-list-header" src="../../image/btts_stats_button.png"> Special
+            </h3>
+            <div class="row combat-attribute-list">
+                <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="(attributeName, attributeValue) in user.attribute.SPECIAL">
+                    <div class="clearfix" ng-if="$index % 3 == 0"></div>
+
+                    <img class="img-circle combat-attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getCombatImage(attributeValue.attribute.id)}}">
+                    <img class="combat-attribute-icon-holder" src="../../image/common/frame/icon_frame.png">
+                    <span class="combat-attribute-name">{{attributeName}}</span>
+                    <span class="combat-attribute-value" popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        {{attributeValue.actual.value}}
+                    </span>
+                </div>
             </div>
         </div>
 

@@ -1,4 +1,7 @@
 <div class="item-definition-popover">
+    <div ng-if="::data.item.equipment" style="text-align: center;">
+        <img ng-src="{{data.getEquipmentImage(data.item.id)}}" style="height: 100px; margin: 10px; border: 1px solid rgba(245, 222, 179, 0.5);">
+    </div>
     <dl>
         <dt>Name:</dt>
         <dd ng-bind="::data.item.name"></dd>
