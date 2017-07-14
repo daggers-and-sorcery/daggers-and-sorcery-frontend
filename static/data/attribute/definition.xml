@@ -1,5 +1,71 @@
 <attributes>
     <attribute>
+        <id>intelligence</id>
+        <description>
+            An education is important to anyone who wishes to strive, lest they become lost in the ever changing times. Even in banditry, a smart thief is a living thief. Mages require a keen intellect in order to cast spells that can cause physical harm to foes.
+        </description>
+    </attribute>
+    <attribute>
+        <id>strength</id>
+        <description>
+            What is a warrior without his strength? This physical attribute determines your physical capability - making you a veteran adventurer or a beanpole of a struggler. Strength is what goes behind the swing of your weapon, altering just how effective your damage is. It also plains into receiving blows and your ability to withstand attacks in combat.
+        </description>
+    </attribute>
+    <attribute>
+        <id>dexterity</id>
+        <description>
+            The art of precision is lost among the blind and the incapable. Whether it is a leap or dodge, this attribute is the metaphorical bowman to your bow and arrow. Your ranged capabilities are largely dependent on this.
+        </description>
+    </attribute>
+    <attribute>
+        <id>vitality</id>
+        <description>
+            A healthy heart and body, while not always a healthy mind, is vital to surviving the tasks of the world awaiting you. Vitality gives you resistance toward invisible threats such as disease or infections, while also helping you take a punch.
+        </description>
+    </attribute>
+    <attribute>
+        <id>beauty</id>
+        <description>
+            Are you a beautiful, graceful prince of culture and sophistication - who can make even the dirtiest robes look flattering? Or are you a porcupine faced, bald head, baby-faced milk drinker?
+        </description>
+    </attribute>
+    <attribute>
+        <id>perception</id>
+        <description>
+            Every adventurer must be aware of his surroundings. However, not everyone is born with a keen attention to detail. An adventurer skilled in perception may find places and objects the average foot soldier and scout would over look. Not to mention, a stunning premonition which helps you discover incoming threats.
+        </description>
+    </attribute>
+    <attribute>
+        <id>swiftness</id>
+        <description>
+            A fast warrior can outlive a slow warrior, but in some ways - he is merely running to his inevitable doom at a faster rate. For the time being, speed assists only those who need it. For time waits for no one.
+        </description>
+    </attribute>
+    <attribute>
+        <id>endurance</id>
+        <description>
+            Have you walked many roads before, traveler? Suffered many blows, struggler? Are you a man raised in the mountains, born in a cave or are you a soft brat who has never had their nose close to the dirt?
+        </description>
+    </attribute>
+    <attribute>
+        <id>willpower</id>
+        <description>
+            Whether it be by faith or holy decree, the will of a living person is hard to bend with motivation. But all the same, the unprepared might snap like twigs in the face of monolithic challenges. Some can say - willpower is a key ingredient to the world of mages.
+        </description>
+    </attribute>
+    <attribute>
+        <id>wisdom</id>
+        <description>
+            Is it better to be a warrior in the garden or a poet in the battlefield? Priests know the answer of this question well and with all of their knowledge, one must anticipate the capabilities of an educated adventurer.
+        </description>
+    </attribute>
+    <attribute>
+        <id>charisma</id>
+        <description>
+            Natural born leaders are born everyday, in the same way ten suckers are born for each one of them to lead. Charisma gives you the capability to impose your will on others peacefully, bartering for better prices at shops and being charmingly persuasive when your actions' consequences back at you. Not to mention, people are more likely to trust you or believe what you have to say.
+        </description>
+    </attribute>
+    <attribute>
         <id>mana</id>
         <description>
             Mana points are used for spellcasting. A starting character's MP is 0 + half of the ***intelligence***, ***wisdom*** and ***willpower*** attributes.
