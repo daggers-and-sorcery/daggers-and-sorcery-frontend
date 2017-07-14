@@ -7,7 +7,7 @@ module.exports = require('js/app.js').factory('preloadInterceptor', function ($i
                 var $state = $injector.get('$state');
 
                 if (!response.data.charinfo.preludeShown) {
-                    $state.go('prelude');
+                    $state.go('prelude',{}, {reload: true});
                 }
             }
 
