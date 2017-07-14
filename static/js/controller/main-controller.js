@@ -65,7 +65,7 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
         if (toState.name === 'logout') {
             $http.get('https://api.daggersandsorcery.com/user/logout').then(function (response) {
                 $rootScope.user.loggedIn = false;
-                $state.go('index');
+                $state.go('index', {}, {reload: true});
             });
             event.preventDefault();
         }
@@ -73,7 +73,7 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
         //Always redirect to index if not logged in
         if (!(toState.hasOwnProperty('data') && toState.data.hasOwnProperty('visibleWhenNotLoggedIn') && toState.data.visibleWhenNotLoggedIn) && !$rootScope.user.loggedIn && toState.name !== 'index') {
             event.preventDefault();
-            $state.go('index');
+            $state.go('index', {}, {reload: true});
         }
 
         //If logged in redirect index to home
@@ -81,7 +81,7 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
             $rootScope.previouslyLoggedIn = true;
 
             event.preventDefault();
-            $state.go('home');
+            $state.go('home', {}, {reload: true});
         }
     });
 

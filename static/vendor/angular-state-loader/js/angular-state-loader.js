@@ -46,7 +46,6 @@ angular.module('ec.stateloader', []).provider('stateLoader', function () {
             replace: true,
             compile: function (elem, attrs, transcludeFn) {
                 var timer;
-                var first = true;
                 return {
                     pre: function preLink(scope) {
                         scope.shouldFire =
@@ -63,17 +62,14 @@ angular.module('ec.stateloader', []).provider('stateLoader', function () {
                                     $timeout.cancel(timer);
                                 }
                                 $rootScope.stateIsLoading = false;
+
                                 element.addClass('ng-hide');
                             }
                         };
                         scope.showLoader = function (element) {
                             if (scope.delay > 0) {
                                 timer = $timeout(function () {
-                                    if(!first) {
-                                        $rootScope.stateIsLoading = true;
-                                    } else {
-                                        first = false;
-                                    }
+                                    $rootScope.stateIsLoading = true;
 
                                     element.removeClass('ng-hide');
                                 }, scope.delay);
@@ -105,12 +101,6 @@ angular.module('ec.stateloader', []).provider('stateLoader', function () {
                         scope.hideLoader(element, true);
 
                         var show = $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-                            //HACK to fix the problems caused by event.preventDefault() in $stateChangeStart
-                            if(toState.name === 'home' || toState.name === 'index') {
-                                $rootScope.stateIsLoading = true;
-                                return;
-                            }
-
                             if (scope.shouldFire(fromState, toState)) {
                                 scope.showLoader(element);
                             }
