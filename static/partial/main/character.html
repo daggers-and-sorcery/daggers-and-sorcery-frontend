@@ -183,10 +183,10 @@
         <h3><img class="character-list-header" src="../../image/btts_stats_button.png"> Inventory</h3>
         <div class="row inventory-entry-list">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div ng-repeat="type in user.inventory.types">
+                <div ng-repeat="type in user.inventory.types | orderBy:'typeName'">
                     <h4 style="margin-left:-12px;" ng-bind="type.typeName"></h4>
                     <div class="row">
-                        <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="item in type.items" style="padding: 0;">
+                        <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="item in type.items | orderBy:'definition.name'" style="padding: 0;">
                             <div class="clearfix" ng-if="$index % 3 == 0"></div>
                             <div class="inventory-entry">
                                 <span class="inventory-entry-item-amount badge pull-left" ng-bind="item.amount"></span>
