@@ -115,7 +115,7 @@
                         Price
                     </div>
                 </div>
-                <div ng-repeat="type in shopData.items" ng-if="(type.items  | filter:item).length > 0">
+                <div ng-repeat="type in shopData.items" ng-if="(type.items | filter:item).length > 0">
                     <h4 ng-bind="type.typeName"></h4>
                     <div class="description-holder" style="padding: 5px;">
                     <div class="row" ng-repeat="item in type.items | filter:item">
