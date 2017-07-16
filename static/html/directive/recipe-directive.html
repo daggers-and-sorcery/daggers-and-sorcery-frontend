@@ -4,14 +4,14 @@
 <td>
     <ul style="list-style-type: none;">
         <li ng-repeat="requirement in recipe.recipeRequirements">
-            <span ng-if="requirement.itemName">{{requirement.requiredAmount}} - {{requirement.itemName}}
+            <span ng-if="requirement.item">{{requirement.requiredAmount}} - <item-definition-display item="requirement.item"></item-definition-display>
                 <small ng-if="requirement.existingAmount >= requirement.requiredAmount" style="color:green;">(in inventory)</small>
                 <small ng-if="requirement.existingAmount < requirement.requiredAmount" style="color:red;">({{requirement.requiredAmount - requirement.existingAmount}} missing)</small>
             </span>
             <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
         </li>
         <li ng-repeat="ingredient in recipe.recipeIngredients">
-            {{ingredient.requiredAmount}} - {{ingredient.name}}
+            {{ingredient.requiredAmount}} - <item-definition-display item="ingredient.item"></item-definition-display>
             <small ng-if="ingredient.existingAmount >= ingredient.requiredAmount" style="color:green;">(in inventory)</small>
             <small ng-if="ingredient.existingAmount < ingredient.requiredAmount" style="color:red;">({{ingredient.requiredAmount - ingredient.existingAmount}} missing)</small>
             <small style="color: lightgray;">(consumed)</small>
@@ -20,7 +20,7 @@
 </td>
 <td>
     <ul style="list-style-type: none;">
-        <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} - {{reward.name}}
+        <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} - <item-definition-display item="reward.item"></item-definition-display>
         </li>
         <li ng-repeat="experience in recipe.recipeExperiences">{{experience.amount}} -
             {{experience.skill}} experience
