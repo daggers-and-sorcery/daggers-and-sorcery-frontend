@@ -181,12 +181,25 @@
         </div>
 
         <h3><img class="character-list-header" src="../../image/btts_stats_button.png"> Inventory</h3>
-        <div class="row inventory-entry-list">
+        <div class="shop-search-container row">
+            <div class="col-lg-12">
+                <h4>Item name</h4>
+                <div class="description-holder">
+                    <input class="form-control" id="item-name-for-buy" ng-model="item.definition.name"/>
+                </div>
+            </div>
+        </div>
+        <div class="row inventory-entry-list" style="border: 0;">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div ng-repeat="type in user.inventory.types">
+                <div ng-repeat="type in user.inventory.types | orderBy:'typeName'" ng-if="(type.items | filter:item).length > 0">
                     <h4 style="margin-left:-12px;" ng-bind="type.typeName"></h4>
+                    <div class="description-holder" style="    padding: 5px;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin-left: -15px;
+    margin-right: -15px;">
                     <div class="row">
-                        <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="item in type.items" style="padding: 0;">
+                        <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="item in type.items | filter:item | orderBy:'definition.name'" style="padding: 0;">
                             <div class="clearfix" ng-if="$index % 3 == 0"></div>
                             <div class="inventory-entry">
                                 <span class="inventory-entry-item-amount badge pull-left" ng-bind="item.amount"></span>
@@ -195,6 +208,7 @@
                                 <span class="glyphicon glyphicon-tint inventory-entry-use-icon-holder inventory-entry-icon-holder" ng-click="use(item.definition.id)" ng-if="item.definition.usable" uib-tooltip="Usable" tooltip-placement="right"></span>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>

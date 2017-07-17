@@ -37,37 +37,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="recipe in recipesInfo.recipes">
-                                <td>{{recipe.name}}
-                                    <small ng-if="recipe.chance < 100" style="color: red;">({{recipe.chance}}% chance)
-                                    </small>
-                                </td>
-                                <td>
-                                    <ul style="list-style-type: none;">
-                                        <li ng-repeat="requirement in recipe.recipeRequirements">
-                                            <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
-                                            <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
-                                        </li>
-                                        <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} -
-                                            {{ingredient.name}}
-                                            <small style="color: lightgray;">(consumed)</small>
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul style="list-style-type: none;">
-                                        <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} -
-                                            {{reward.name}}
-                                        </li>
-                                        <li ng-repeat="experience in recipe.recipeExperiences">{{experience.amount}} -
-                                            {{experience.skill}} experience
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td class="text-center" style="vertical-align: middle;">
-                                    <a ng-click="create(recipe.id)" style="cursor:pointer;">Create</a>
-                                </td>
-                            </tr>
+                                <tr display-recipe recipe="recipe" create="create(id)" ng-repeat="recipe in recipesInfo.recipes | orderBy:['recipeRequirements[0].amount','recipeExperiences[0].amount']"></tr>
                             </tbody>
                         </table>
                     </div>

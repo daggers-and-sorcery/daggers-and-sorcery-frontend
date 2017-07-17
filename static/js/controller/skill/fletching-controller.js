@@ -4,6 +4,8 @@ module.exports = function ($scope, $http, Flash, fletchingInfo) {
     $scope.fletchingInfo = fletchingInfo;
 
     $scope.create = function (recipeId) {
+        console.log("CREATE!"+recipeId);
+
         var payload = {
             recipeId: recipeId
         };

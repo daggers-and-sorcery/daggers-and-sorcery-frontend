@@ -54,41 +54,15 @@
 
                     <table class="table">
                         <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th class="text-center">Requirements</th>
-                            <th class="text-center">Result</th>
-                            <th class="text-center">Create</th>
-                        </tr>
+                            <tr>
+                                <th>Name</th>
+                                <th class="text-center">Requirements</th>
+                                <th class="text-center">Result</th>
+                                <th class="text-center">Create</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="recipe in leatherworkingInfo.curing_recipes">
-                            <td ng-bind="::recipe.name"></td>
-                            <td>
-                                <ul style="list-style-type: none;">
-                                    <li ng-repeat="requirement in recipe.recipeRequirements">
-                                        <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
-                                        <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
-                                    </li>
-                                    <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} -
-                                        {{ingredient.name}}
-                                        <small style="color: lightgray;">(consumed)</small>
-                                    </li>
-                                </ul>
-                            </td>
-                            <td>
-                                <ul style="list-style-type: none;">
-                                    <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} - {{reward.name}}
-                                    </li>
-                                    <li ng-repeat="experience in recipe.recipeExperiences">{{experience.amount}} -
-                                        {{experience.skill}} experience
-                                    </li>
-                                </ul>
-                            </td>
-                            <td class="text-center" style="vertical-align: middle;">
-                                <a ng-click="create(recipe.id)">Create</a>
-                            </td>
-                        </tr>
+                            <tr display-recipe recipe="recipe" create="create(id)" ng-repeat="recipe in leatherworkingInfo.curing_recipes | orderBy:['recipeRequirements[0].amount','recipeExperiences[0].amount']"></tr>
                         </tbody>
                     </table>
                 </div>
@@ -99,41 +73,15 @@
 
                     <table class="table">
                         <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th class="text-center">Requirements</th>
-                            <th class="text-center">Result</th>
-                            <th class="text-center">Create</th>
-                        </tr>
+                            <tr>
+                                <th>Name</th>
+                                <th class="text-center">Requirements</th>
+                                <th class="text-center">Result</th>
+                                <th class="text-center">Create</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="recipe in leatherworkingInfo.tanning_recipes">
-                            <td ng-bind="::recipe.name"></td>
-                            <td>
-                                <ul style="list-style-type: none;">
-                                    <li ng-repeat="requirement in recipe.recipeRequirements">
-                                        <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
-                                        <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
-                                    </li>
-                                    <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} -
-                                        {{ingredient.name}}
-                                        <small style="color: lightgray;">(consumed)</small>
-                                    </li>
-                                </ul>
-                            </td>
-                            <td>
-                                <ul style="list-style-type: none;">
-                                    <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} - {{reward.name}}
-                                    </li>
-                                    <li ng-repeat="experience in recipe.recipeExperiences">{{experience.amount}} -
-                                        {{experience.skill}} experience
-                                    </li>
-                                </ul>
-                            </td>
-                            <td class="text-center" style="vertical-align: middle;">
-                                <a ng-click="create(recipe.id)">Create</a>
-                            </td>
-                        </tr>
+                            <tr display-recipe recipe="recipe" create="create(id)" ng-repeat="recipe in leatherworkingInfo.tanning_recipes | orderBy:['recipeRequirements[0].amount','recipeExperiences[0].amount']"></tr>
                         </tbody>
                     </table>
                 </div>
@@ -144,41 +92,15 @@
 
                     <table class="table">
                         <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th class="text-center">Requirements</th>
-                            <th class="text-center">Result</th>
-                            <th class="text-center">Create</th>
-                        </tr>
+                            <tr>
+                                <th>Name</th>
+                                <th class="text-center">Requirements</th>
+                                <th class="text-center">Result</th>
+                                <th class="text-center">Create</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="recipe in leatherworkingInfo.working_recipes">
-                            <td ng-bind="::recipe.name"></td>
-                            <td>
-                                <ul style="list-style-type: none;">
-                                    <li ng-repeat="requirement in recipe.recipeRequirements">
-                                        <span ng-if="requirement.itemName">{{requirement.amount}} - {{requirement.itemName}}</span>
-                                        <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
-                                    </li>
-                                    <li ng-repeat="ingredient in recipe.recipeIngredients">{{ingredient.amount}} -
-                                        {{ingredient.name}}
-                                        <small style="color: lightgray;">(consumed)</small>
-                                    </li>
-                                </ul>
-                            </td>
-                            <td>
-                                <ul style="list-style-type: none;">
-                                    <li ng-repeat="reward in recipe.recipeRewards">{{reward.amount}} - {{reward.name}}
-                                    </li>
-                                    <li ng-repeat="experience in recipe.recipeExperiences">{{experience.amount}} -
-                                        {{experience.skill}} experience
-                                    </li>
-                                </ul>
-                            </td>
-                            <td class="text-center" style="vertical-align: middle;">
-                                <a ng-click="create(recipe.id)">Create</a>
-                            </td>
-                        </tr>
+                            <tr display-recipe recipe="recipe" create="create(id)" ng-repeat="recipe in leatherworkingInfo.working_recipes | orderBy:['recipeRequirements[0].amount','recipeExperiences[0].amount']"></tr>
                         </tbody>
                     </table>
                 </div>

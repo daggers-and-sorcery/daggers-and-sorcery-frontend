@@ -33,6 +33,7 @@ require('./js/filter/capitalize-filter.js');
 require('./js/directive/bind-html-compile.js');
 require('./js/directive/unsafe-html-popover.js');
 require('./js/directive/display-price-directive.js');
+require('./js/directive/recipe-directive.js');
 require('./js/directive/counter-directive.js');
 require('./js/directive/big-button-directive.js');
 
