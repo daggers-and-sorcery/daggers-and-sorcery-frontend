@@ -12,7 +12,8 @@
         <div ng-if="!showGuild">
             <p>Etiam eget mauris in eros interdum finibus viverra vitae orci. Sed tristique tortor at dolor elementum pharetra. Praesent erat nisi, semper sit amet facilisis blandit, consectetur id arcu. Quisque maximus urna placerat ante facilisis viverra. Cras sit amet fermentum eros, sed commodo orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In bibendum elit tempus interdum venenatis. Vestibulum interdum congue maximus. Nulla eget sem ipsum. Integer at augue ut ipsum interdum maximus sed at tortor. Cras congue metus sit amet tellus posuere, id gravida magna feugiat. Aliquam aliquam feugiat turpis blandit faucibus. Praesent nunc nisi, finibus ut lacus ut, auctor tempor urna. Nullam nec facilisis nulla, vitae pulvinar urna.</p>
             <p>Sed feugiat odio vitae felis elementum lacinia. Donec a dui et eros feugiat luctus. Vivamus commodo quam sed erat porta ultricies. Cras quis lorem et leo sodales faucibus sit amet in ante. Vivamus aliquam eget orci in interdum. Nulla vehicula semper tortor, nec consectetur enim pulvinar id. Ut porta ex nunc, non dapibus massa sollicitudin vel.</p>
-            <div class="description-holder">
+
+            <div class="description-holder" ng-if="showQuest">
                 <h3 style="    margin-top: 10px;
     text-align: center;
     margin-bottom: 20px;">Curing the Thirsty</h3>
@@ -22,10 +23,11 @@
 
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-4">
-                        <button ng-click="callOption(explorationEntry.acceptQuestStage)" class="button-default btn-block">Accept</button>
+                        <!-- TODO!!! -->
+                        <button ng-click="asd()" class="button-default btn-block">Accept</button>
                     </div>
                     <div class="col-lg-4">
-                        <button ng-click="callOption(explorationEntry.declineQuestStage)" class="button-default btn-block">Decline</button>
+                        <button ng-click="hideQuest()" class="button-default btn-block">Decline</button>
                     </div>
                 </div>
             </div>

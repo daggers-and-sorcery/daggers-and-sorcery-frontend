@@ -2,6 +2,7 @@
 
 module.exports = function ($scope, $state, witchhuntersGuildInfo) {
     $scope.showGuild = witchhuntersGuildInfo.info.accessible;
+    $scope.showQuest = witchhuntersGuildInfo.info.questStarted;
 
     if ($scope.showGuild) {
         $scope.subtitle = 'Guild hall';
@@ -12,5 +13,9 @@ module.exports = function ($scope, $state, witchhuntersGuildInfo) {
 
     $scope.setSubtitle = function (subtitle) {
         $scope.subtitle = subtitle;
+    }
+
+    $scope.hideQuest = function() {
+        $scope.showQuest = false;
     }
 };
