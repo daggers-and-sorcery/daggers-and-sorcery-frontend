@@ -24,7 +24,8 @@ module.exports = function ($scope, $rootScope, $http, $sce, $state, $stateParams
         mountain: ['mountain-0', 'mountain-1', 'mountain-2', 'mountain-3'],
         forester: ['forester-0', 'forester-1'],
         farm: ['farm-0', 'farm-1', 'farm-2', 'farm-3'],
-        city: ['city-0', 'city-1', 'city-2', 'city-3']
+        city: ['city-0', 'city-1', 'city-2', 'city-3'],
+        swamp_castle: ['marsh-castle-1']
     };
 
     $scope.activeMapIcon = $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()][Math.floor(Math.random() * $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()].length)];
