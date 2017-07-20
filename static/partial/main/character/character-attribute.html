@@ -1,0 +1,65 @@
+<h3 style="margin-top: 0;"><img class="character-list-header" src="../../../image/btts_stats_button.png"> Active status effects</h3>
+<div class="row inventory-entry-list">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="row">
+            <div class="col-sm-2 col-md-2 col-lg-2 status-effect-icon-holder text-center" ng-repeat="statusEffect in user.statusEffect">
+                <img class="status-effect-icon" ng-src="{{getStatusEffectImage(statusEffect.id)}}" popover-html-unsafe="{{statusEffectPopover}}" popover-trigger="mouseenter" popover-placement="right">
+                <div countdown='' date='{{statusEffect.expirationTime}}'>&nbsp;</div>
+            </div>
+        </div>
+        <div class="text-center" ng-if="user.statusEffect.length == 0">You don't have any status effects active.</div>
+    </div>
+</div>
+
+<h3><img class="character-list-header" src="../../../image/btts_stats_button.png"> Combat</h3>
+<div class="row combat-attribute-list">
+    <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="(attributeName, attributeValue) in user.attribute.COMBAT">
+        <div class="clearfix" ng-if="$index % 3 == 0"></div>
+
+        <img class="img-circle combat-attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getCombatImage(attributeValue.attribute.id)}}">
+        <img class="combat-attribute-icon-holder" src="../../../image/common/frame/icon_frame.png">
+        <span class="combat-attribute-name">{{attributeName}}</span>
+        <span class="combat-attribute-value" popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">
+                    {{attributeValue.actual.value}}
+                    {{attributeValue.actual.d2 > 0 ? ' + '+attributeValue.actual.d2+'d2' : ''}}
+                    {{attributeValue.actual.d4 > 0 ? ' + '+attributeValue.actual.d4+'d4' : ''}}
+                    {{attributeValue.actual.d6 > 0 ? ' + '+attributeValue.actual.d6+'d6' : ''}}
+                    {{attributeValue.actual.d8 > 0 ? ' + '+attributeValue.actual.d8+'d8' : ''}}
+                    {{attributeValue.actual.d10 > 0 ? ' + '+attributeValue.actual.d10+'d10' : ''}}
+                </span>
+    </div>
+</div>
+
+<h3>
+    <img class="character-list-header" src="../../../image/btts_stats_button.png"> Basic
+</h3>
+<div class="row combat-attribute-list">
+    <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="(attributeName, attributeValue) in user.attribute.BASIC">
+        <div class="clearfix" ng-if="$index % 3 == 0"></div>
+
+        <img class="img-circle combat-attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getCombatImage(attributeValue.attribute.id)}}">
+        <img class="combat-attribute-icon-holder" src="../../../image/common/frame/icon_frame.png">
+        <span class="combat-attribute-name">{{attributeName}}</span>
+        <span class="combat-attribute-value" popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">
+                    {{attributeValue.actual.value}}
+                </span>
+    </div>
+</div>
+
+<div ng-if="shouldShowSpecialAttributes()">
+    <h3>
+        <img class="character-list-header" src="../../../image/btts_stats_button.png"> Special
+    </h3>
+    <div class="row combat-attribute-list">
+        <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="(attributeName, attributeValue) in user.attribute.SPECIAL">
+            <div class="clearfix" ng-if="$index % 3 == 0"></div>
+
+            <img class="img-circle combat-attribute-icon" popover-html-unsafe="{{attributeDescriptionPopover}}" popover-trigger="mouseenter" ng-src="{{getCombatImage(attributeValue.attribute.id)}}">
+            <img class="combat-attribute-icon-holder" src="../../../image/common/frame/icon_frame.png">
+            <span class="combat-attribute-name">{{attributeName}}</span>
+            <span class="combat-attribute-value" popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">
+                        {{attributeValue.actual.value}}
+                    </span>
+        </div>
+    </div>
+</div>
