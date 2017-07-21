@@ -1,6 +1,12 @@
 'use strict';
 
 module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, characterData, $rootScope, characterDataFormatter) {
+    $scope.subtitle = 'Inventory';
+
+    $scope.setSubtitle = function (subtitle) {
+        $scope.subtitle = subtitle;
+    }
+
     $scope.user = characterData;
     $scope.attributeBonusNameMap = ATTRIBUTE_BONUS_MAP;
 

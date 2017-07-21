@@ -3,26 +3,26 @@
         <img class="panel-heading-icon-improved" src="../../../image/icon/extra/character.png">
         <img class="panel-heading-icon-improved-holder"
              src="../../../image/panel/header/panel-header-icon-background.png"/>
-        <h3 class="panel-title">Character</h3>
+        <h3 class="panel-title">Character <small>({{subtitle}})</small></h3>
     </div>
     <div class="panel-body">
         <div class="row big-button-container" style="margin-bottom: 20px;">
             <div class="col-sm-4 col-md-4 col-lg-4">
-                <big-button title="Inventory" image="inventory" target="character.inventory"></big-button>
+                <big-button title="Inventory" image="inventory" target="character.inventory" ng-click="setSubtitle('Inventory')"></big-button>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4">
-                <big-button title="Attribute" image="attribute" target="character.attribute"></big-button>
+                <big-button title="Attributes" image="attribute" target="character.attribute" ng-click="setSubtitle('Attributes')"></big-button>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4">
-                <big-button title="Skills" image="skills" target="character.skill"></big-button>
+                <big-button title="Skills" image="skills" target="character.skill" ng-click="setSubtitle('Skills')"></big-button>
             </div>
         </div>
         <div class="row big-button-container" style="margin-bottom: 20px;">
             <div class="col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-sm-4 col-md-4 col-lg-4">
-                <big-button title="Spells" image="spells" target="character.spells"></big-button>
+                <big-button title="Spells" image="spells" target="character.spells" ng-click="setSubtitle('Spells')"></big-button>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4">
-                <big-button title="Other" image="other" target="character.other"></big-button>
+                <big-button title="Other" image="other" target="character.other" ng-click="setSubtitle('Other')"></big-button>
             </div>
         </div>
         <div class="row">
