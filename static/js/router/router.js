@@ -5,7 +5,6 @@ module.exports = require('js/app.js').config(function ($stateProvider, $urlRoute
 
         $stateProvider
             .state(require('./state/index-state.js'))
-            .state(require('./state/character-state.js'))
             .state(require('./state/character/character-state.js'))
             .state(require('./state/character/character-inventory-state.js'))
             .state(require('./state/character/character-attribute-state.js'))

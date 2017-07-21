@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-    name: 'character2',
-    url: '/character2/',
+    name: 'character',
+    url: '/character/',
     template: require('partial/main/character/character.html'),
     resolve: {
         characterData: function ($http, characterDataFormatter) {
