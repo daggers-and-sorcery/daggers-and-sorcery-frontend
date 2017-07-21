@@ -1,0 +1,173 @@
+
+<h3><img class="character-list-header" src="../../../image/btts_stats_button.png"> Skills
+    <small style="color: wheat;">(Trading skills)</small>
+</h3>
+
+<div class="row">
+    <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="attributeValue in ::user.skill.tradeSkills">
+        <div class="clearfix" ng-if="$index % 3 == 0"></div>
+        <div class="skill-entry">
+            <div class="skill-entry-header">
+                <div class="skill-entry-icon-holder">
+                    <div class="skill-entry-icon-inner-holder">
+                        <img class="skill-entry-icon skill-entry-icon-glow img-responsive img-circle" ng-src="{{::getSkillImage(attributeValue.attribute.name)}}" ng-if="::attributeValue.attribute.hasPage" ui-sref="skill-{{attributeValue.attribute.id | lowercase}}">
+                        <img class="skill-entry-icon img-responsive img-circle" ng-src="{{::getSkillImage(attributeValue.attribute.name)}}" ng-if="::!attributeValue.attribute.hasPage">
+                    </div>
+                </div>
+            </div>
+            <div class="skill-entry-body">
+                <h4 class="skill-entry-title">{{::attributeValue.attribute.name}}</h4>
+                <h5 class="skill-entry-level">
+                    <span popover-html-unsafe="{{::attributePopover}}" popover-trigger="mouseenter" popover-placement="right">Level: {{::attributeValue.baseValue}} <span class="skill-entry-level-bonus" ng-if="attributeValue.bonusValue > 0">+ ({{attributeValue.bonusValue}})</span></span>
+                </h5>
+                <div class="skill-entry-incremented-attribute" >
+                    <img class="img-circle skill-entry-incremented-attribute-icon"  popover-html-unsafe="{{::incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
+                    <img class="skill-entry-incremented-attribute-icon-holder" src="../../../image/common/frame/icon_frame.png">
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;">
+                        <span class="progress-info ng-binding">{{::attributeValue.actualXp}} / {{::attributeValue.nextLevelXp}}</span>
+                    </div>
+                </div>
+                <div ng-if="::attributeValue.attribute.hasPage">
+                    <a ui-sref="skill-{{attributeValue.attribute.id | lowercase}}" class="skill-info-text">
+                        <div class="text-center" style="margin-top: -8px;color: wheat;font-size: 14px;">(Skill
+                            info)
+                        </div>
+                        <img class="skill-entry-info-down-arrow" src="../../../image/fw_char_status_arrow.png">
+                        <img class="skill-entry-info-link" src="../../../image/cc_small_window_bot_arrow.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3><img class="character-list-header" src="../../../image/btts_stats_button.png"> Skills
+    <small style="color: wheat;">(Shadow skills)</small>
+</h3>
+
+<div class="row">
+    <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="attributeValue in user.skill.shadowSkills">
+        <div class="clearfix" ng-if="$index % 3 == 0"></div>
+        <div class="skill-entry">
+            <div class="skill-entry-header">
+                <div class="skill-entry-icon-holder">
+                    <div class="skill-entry-icon-inner-holder">
+                        <img class="skill-entry-icon skill-entry-icon-glow img-responsive img-circle" ng-src="{{getSkillImage(attributeValue.attribute.name)}}" ng-if="::attributeValue.attribute.hasPage" ui-sref="skill-{{attributeValue.attribute.id | lowercase}}">
+                        <img class="skill-entry-icon img-responsive img-circle" ng-src="{{getSkillImage(attributeValue.attribute.name)}}" ng-if="::!attributeValue.attribute.hasPage">
+                    </div>
+                </div>
+            </div>
+            <div class="skill-entry-body">
+                <h4 class="skill-entry-title">{{attributeValue.attribute.name}}</h4>
+                <h5 class="skill-entry-level">
+                    <span popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">Level: {{attributeValue.baseValue}} <span class="skill-entry-level-bonus" ng-if="attributeValue.bonusValue > 0">+ ({{attributeValue.bonusValue}})</span></span>
+                </h5>
+                <div class="skill-entry-incremented-attribute">
+                    <img class="img-circle skill-entry-incremented-attribute-icon" popover-html-unsafe="{{incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
+                    <img class="skill-entry-incremented-attribute-icon-holder" src="../../../image/common/frame/icon_frame.png">
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;">
+                        <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>
+                    </div>
+                </div>
+                <div ng-if="attributeValue.attribute.hasPage">
+                    <a ui-sref="skill-{{attributeValue.attribute.id | lowercase}}" class="skill-info-text">
+                        <div class="text-center" style="margin-top: -8px;color: wheat;font-size: 14px;">(Skill
+                            info)
+                        </div>
+                        <img class="skill-entry-info-down-arrow" src="../../../image/fw_char_status_arrow.png">
+                        <img class="skill-entry-info-link" src="../../../image/cc_small_window_bot_arrow.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3><img class="character-list-header" src="../../../image/btts_stats_button.png"> Skills
+    <small style="color: wheat;">(Magic skills)</small>
+</h3>
+
+<div class="row">
+    <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="attributeValue in user.skill.magicSkills">
+        <div class="clearfix" ng-if="$index % 3 == 0"></div>
+        <div class="skill-entry">
+            <div class="skill-entry-header">
+                <div class="skill-entry-icon-holder">
+                    <div class="skill-entry-icon-inner-holder">
+                        <img class="skill-entry-icon skill-entry-icon-glow img-responsive img-circle" ng-src="{{getSkillImage(attributeValue.attribute.name)}}" ng-if="::attributeValue.attribute.hasPage" ui-sref="skill-{{attributeValue.attribute.id | lowercase}}">
+                        <img class="skill-entry-icon img-responsive img-circle" ng-src="{{getSkillImage(attributeValue.attribute.name)}}" ng-if="::!attributeValue.attribute.hasPage">
+                    </div>
+                </div>
+            </div>
+            <div class="skill-entry-body">
+                <h4 class="skill-entry-title">{{attributeValue.attribute.name}}</h4>
+                <h5 class="skill-entry-level">
+                    <span popover-html-unsafe="{{attributePopover}}" popover-trigger="mouseenter" popover-placement="right">Level: {{attributeValue.baseValue}} <span class="skill-entry-level-bonus" ng-if="attributeValue.bonusValue > 0">+ ({{attributeValue.bonusValue}})</span></span>
+                </h5>
+                <div class="skill-entry-incremented-attribute">
+                    <img class="img-circle skill-entry-incremented-attribute-icon" popover-html-unsafe="{{incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
+                    <img class="skill-entry-incremented-attribute-icon-holder" src="../../../image/common/frame/icon_frame.png">
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;">
+                        <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>
+                    </div>
+                </div>
+                <div ng-if="attributeValue.attribute.hasPage">
+                    <a ui-sref="skill-{{attributeValue.attribute.id | lowercase}}" class="skill-info-text">
+                        <div class="text-center" style="margin-top: -8px;color: wheat;font-size: 14px;">(Skill
+                            info)
+                        </div>
+                        <img class="skill-entry-info-down-arrow" src="../../../image/fw_char_status_arrow.png">
+                        <img class="skill-entry-info-link" src="../../../image/cc_small_window_bot_arrow.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3><img class="character-list-header" src="../../../image/btts_stats_button.png"> Skills
+    <small style="color: wheat;">(Combat skills)</small>
+</h3>
+
+<div class="row">
+    <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="attributeValue in ::user.skill.combatSkills">
+        <div class="clearfix" ng-if="$index % 3 == 0"></div>
+        <div class="skill-entry">
+            <div class="skill-entry-header">
+                <div class="skill-entry-icon-holder">
+                    <div class="skill-entry-icon-inner-holder">
+                        <img class="skill-entry-icon skill-entry-icon-glow img-responsive img-circle" ng-src="{{::getSkillImage(attributeValue.attribute.name)}}" ng-if="::attributeValue.attribute.hasPage" ui-sref="skill-{{attributeValue.attribute.id | lowercase}}">
+                        <img class="skill-entry-icon img-responsive img-circle" ng-src="{{::getSkillImage(attributeValue.attribute.name)}}" ng-if="::!attributeValue.attribute.hasPage">
+                    </div>
+                </div>
+            </div>
+            <div class="skill-entry-body">
+                <h4 class="skill-entry-title">{{::attributeValue.attribute.name}}</h4>
+                <h5 class="skill-entry-level">
+                    <span popover-html-unsafe="{{::attributePopover}}" popover-trigger="mouseenter" popover-placement="right">Level: {{::attributeValue.baseValue}} <span class="skill-entry-level-bonus" ng-if="attributeValue.bonusValue > 0">+ ({{::attributeValue.bonusValue}})</span></span>
+                </h5>
+                <div class="skill-entry-incremented-attribute">
+                    <img class="img-circle skill-entry-incremented-attribute-icon" popover-html-unsafe="{{incrementedAttributePopover}}" popover-trigger="mouseenter" ng-src="{{getAttributeImage(attributeValue.attribute.incrementedAttribute)}}">
+                    <img class="skill-entry-incremented-attribute-icon-holder" src="../../../image/common/frame/icon_frame.png">
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" style="width: {{100 - (attributeValue.nextLevelXp - attributeValue.actualXp) / (attributeValue.xpBetweenLevels / 100)}}%;">
+                        <span class="progress-info ng-binding">{{attributeValue.actualXp}} / {{attributeValue.nextLevelXp}}</span>
+                    </div>
+                </div>
+                <div ng-if="::attributeValue.attribute.hasPage">
+                    <a ui-sref="skill-{{attributeValue.attribute.id | lowercase}}">
+                        <img class="skill-entry-info-down-arrow" src="../../../image/fw_char_status_arrow.png">
+                        <img class="skill-entry-info-link" src="../../../image/cc_small_window_bot_arrow.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
