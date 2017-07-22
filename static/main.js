@@ -116,3 +116,4 @@ require('./sass/common/definition/item-definition.scss');
 require('./sass/common/directive/big-button-directive.scss');
 
 require('./sass/core.scss');
+require('./sass/landing-page.scss');

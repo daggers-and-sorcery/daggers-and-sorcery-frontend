@@ -5,6 +5,10 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
         return require('html/main-content.html');
     };
 
+    $scope.loadLanding = function () {
+        return require('html/landing-content.html');
+    };
+
     //TODO: move this to server side
     $scope.getHealthPercent = function () {
         return $rootScope.user.life / ($rootScope.user.max_life / 100);
