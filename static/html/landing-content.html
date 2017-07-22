@@ -8,13 +8,19 @@
         </div>
         <div class="row description-holder landing-page-images">
             <div class="col-lg-4 col-md-4 col-sm-4">
-                <img class="img-responsive" src="../image/landing/landing-image-1.png">
+                <a ng-click="openLightboxModal(0)">
+                    <img class="img-responsive" ng-src="{{getImage(1)}}">
+                </a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4">
-                <img class="img-responsive" src="../image/landing/landing-image-2.png">
+                <a ng-click="openLightboxModal(1)">
+                    <img class="img-responsive" ng-src="{{getImage(2)}}">
+                </a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4">
-                <img class="img-responsive" src="../image/landing/landing-image-3.png">
+                <a ng-click="openLightboxModal(2)">
+                    <img class="img-responsive" ng-src="{{getImage(3)}}">
+                </a>
             </div>
         </div>
         <div class="row">

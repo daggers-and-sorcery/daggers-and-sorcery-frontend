@@ -35,12 +35,18 @@
 
         <!-- Markdown -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js" integrity="sha256-mJAzKDq6kSoKqZKnA6UNLtPaIj8zT2mFnWu/GSouhgQ=" crossorigin="anonymous"></script>
+
+        <!-- Angular Lightbox -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-bootstrap-lightbox/0.12.0/angular-bootstrap-lightbox.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-bootstrap-lightbox/0.12.0/angular-bootstrap-lightbox.min.js"></script>
     </head>
-    <body class="cursor-default" ng-controller="MainController" ondragstart="return false" draggable="false"
+    <body class="cursor-default" ondragstart="return false" draggable="false"
           ondragenter="event.dataTransfer.dropEffect='none'; event.stopPropagation(); event.preventDefault();"
           ondragover="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();"
           ondrop="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();">
-        <div bind-html-compile="loadContent()" ng-if="landingPageShown"></div>
-        <div bind-html-compile="loadLanding()" ng-if="!landingPageShown"></div>
+        <div ng-controller="MainController">
+            <div bind-html-compile="loadContent()" ng-if="landingPageShown"></div>
+            <div bind-html-compile="loadLanding()" ng-if="!landingPageShown"></div>
+        </div>
     </body>
 </html>

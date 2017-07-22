@@ -1,12 +1,31 @@
 'use strict';
 
-module.exports = require('js/app.js').controller('MainController', function ($scope, $rootScope, $state, $http, $timeout, $interval, $log) {
+module.exports = require('js/app.js').controller('MainController', function ($scope, $rootScope, $state, $http, $timeout, $interval, $log, Lightbox) {
     $scope.loadContent = function () {
         return require('html/main-content.html');
     };
 
     $scope.loadLanding = function () {
         return require('html/landing-content.html');
+    };
+
+    $scope.getImage = function (id) {
+        return require('image/landing/landing-image-' + id + '.png');
+    };
+
+    $scope.images = [
+        {
+            'url': $scope.getImage(1)
+        },
+        {
+            'url': $scope.getImage(2)
+        },
+        {
+            'url': $scope.getImage(3)
+        }
+    ];
+    $scope.openLightboxModal = function (index) {
+        Lightbox.openModal($scope.images, index);
     };
 
     //TODO: move this to server side
