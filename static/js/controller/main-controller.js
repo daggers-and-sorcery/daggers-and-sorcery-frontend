@@ -1,6 +1,20 @@
 'use strict';
 
-module.exports = require('js/app.js').controller('MainController', function ($scope, $rootScope, $state, $http, $timeout, $interval, $log, Lightbox) {
+module.exports = require('js/app.js').controller('MainController', function ($scope, $rootScope, $state, $http, $timeout, $interval, $log, Lightbox, webStorage) {
+    $scope.landingPageShown = webStorage.get('landingShown');
+
+    $scope.goToRegistration = function() {
+        $scope.landingPageShown = true;
+        webStorage.set('landingShown', true);
+        $state.go('registration');
+    };
+
+    $scope.goToLogin = function() {
+        $scope.landingPageShown = true;
+        webStorage.set('landingShown', true);
+        $state.go('index');
+    };
+
     $scope.loadContent = function () {
         return require('html/main-content.html');
     };

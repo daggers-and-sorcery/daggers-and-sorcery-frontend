@@ -14,8 +14,10 @@ require('./vendor/angular-readmore/js/angular-readmore.js');
 require('./vendor/angular-slider/js/rzslider.min.js');
 require('./vendor/angular-slider/css/rzslider.min.css');
 
-require('./vendor/angular-state-loader/js/angular-state-loader.js')
-require('./vendor/angular-state-loader/css/angular-state-loader.css')
+require('./vendor/angular-webstorage/js/angular-webstorage.js');
+
+require('./vendor/angular-state-loader/js/angular-state-loader.js');
+require('./vendor/angular-state-loader/css/angular-state-loader.css');
 
 // Controllers
 require('./js/controller/main-controller.js');
