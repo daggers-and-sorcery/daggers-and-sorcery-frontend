@@ -30,7 +30,7 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
         $rootScope.user.loggedIn = response.data.data.loggedIn;
         $rootScope.previouslyLoggedIn = $rootScope.user.loggedIn;
         $rootScope.user.witchuntersGuildUnlocked = response.data.data.witchuntersGuildInfo.witchhuntersGuildUnlocked;
-        $state.go('home');
+        $state.go('home', {}, {reload: true});
     });
 
     $interval(function () {
@@ -39,7 +39,7 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
 
             $rootScope.user.loggedIn = response.data.data.loggedIn;
             if (!$rootScope.user.loggedIn && $rootScope.previouslyLoggedIn) {
-                $state.go('home');
+                $state.go('home', {}, {reload: true});
             }
 
             $rootScope.previouslyLoggedIn = $rootScope.user.loggedIn;
@@ -105,7 +105,7 @@ module.exports = require('js/app.js').controller('MainController', function ($sc
                     $scope.user.username = '';
                     $scope.user.password = '';
 
-                    $state.go('home');
+                    $state.go('home', {}, {reload: true});
                 });
             } else {
                 $scope.error = true;

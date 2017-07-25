@@ -9,17 +9,41 @@
         </h3>
     </div>
     <div class="panel-body">
-        <div class="row big-button-container">
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <big-button title="Guild hall" image="witchhunters-guild-main" target="witchhunters-guild.witchhunters-guild-main" ng-click="setSubtitle('Guild hall')"></big-button>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <big-button title="Quests" image="witchhunters-guild-quest" target="witchhunters-guild.witchhunters-guild-quest" ng-click="setSubtitle('Quest')"></big-button>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <big-button title="Shop" image="witchhunters-guild-shop" target="witchhunters-guild.witchhunters-guild-shop" ng-click="setSubtitle('Shop')"></big-button>
+        <div ng-if="!showGuild">
+            <p>Etiam eget mauris in eros interdum finibus viverra vitae orci. Sed tristique tortor at dolor elementum pharetra. Praesent erat nisi, semper sit amet facilisis blandit, consectetur id arcu. Quisque maximus urna placerat ante facilisis viverra. Cras sit amet fermentum eros, sed commodo orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In bibendum elit tempus interdum venenatis. Vestibulum interdum congue maximus. Nulla eget sem ipsum. Integer at augue ut ipsum interdum maximus sed at tortor. Cras congue metus sit amet tellus posuere, id gravida magna feugiat. Aliquam aliquam feugiat turpis blandit faucibus. Praesent nunc nisi, finibus ut lacus ut, auctor tempor urna. Nullam nec facilisis nulla, vitae pulvinar urna.</p>
+            <p>Sed feugiat odio vitae felis elementum lacinia. Donec a dui et eros feugiat luctus. Vivamus commodo quam sed erat porta ultricies. Cras quis lorem et leo sodales faucibus sit amet in ante. Vivamus aliquam eget orci in interdum. Nulla vehicula semper tortor, nec consectetur enim pulvinar id. Ut porta ex nunc, non dapibus massa sollicitudin vel.</p>
+
+            <div class="description-holder" ng-if="showQuest">
+                <h3 style="    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 20px;">Curing the Thirsty</h3>
+                <div style="    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;">Vampirism certainly does not work out for everyone. More often than not, it is a curse and some could say only a fool would willingly seek it out. After another sleepless night, you have grown weary of this disease in your body that makes you thirst for the blood of others. Your Guild-Brothers, however - are always willing to help out. Lest they see you on their contract board, one day. To spare you of this fate - they have told you to seek out a witch, who holds the cure for your condition. This was a path previously taken by a member of their guild, Yip was his name. He, much like yourself, was a vampire haunted by their afflictions. You must follow in his footsteps to achieve a life beyond the terror that has overtaken your current existence. This task, however, is much easier said than done.</div>
+
+                <div class="row">
+                    <div class="col-lg-offset-2 col-lg-4">
+                        <button ng-click="acceptVampireQuest()" class="button-default btn-block">Accept</button>
+                    </div>
+                    <div class="col-lg-4">
+                        <button ng-click="hideQuest()" class="button-default btn-block">Decline</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div ui-view></div>
+        <div ng-if="showGuild">
+            <div class="row big-button-container">
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <big-button title="Guild hall" image="witchhunters-guild-main" target="witchhunters-guild.witchhunters-guild-main" ng-click="setSubtitle('Guild hall')"></big-button>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <big-button title="Quests" image="witchhunters-guild-quest" target="witchhunters-guild.witchhunters-guild-quest" ng-click="setSubtitle('Quest')"></big-button>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <big-button title="Shop" image="witchhunters-guild-shop" target="witchhunters-guild.witchhunters-guild-shop" ng-click="setSubtitle('Shop')"></big-button>
+                </div>
+            </div>
+            <div ui-view></div>
+        </div>
     </div>
 </div>
