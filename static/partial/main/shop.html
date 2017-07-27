@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div ng-repeat="type in shopData.items" ng-if="(type.items  | filter:item).length > 0">
-                    <h4 ng-bind="type.typeName"></h4>
+                    <h4><img style="width: 40px;filter: drop-shadow(0px 0px 6px rgba(0,0,0,0.8));" ng-src="{{getItemTypeImage(type.typeName)}}"> {{type.typeName}}</h4>
                     <div class="description-holder" style="padding: 5px;">
                         <div class="row" ng-repeat="item in type.items | filter:item">
                             <div class="col-sm-12 col-md-12 col-lg-12" style="line-height: 2.6;">
@@ -116,7 +116,7 @@
                     </div>
                 </div>
                 <div ng-repeat="type in shopData.items" ng-if="(type.items | filter:item).length > 0">
-                    <h4 ng-bind="type.typeName"></h4>
+                    <h4><img style="width: 40px;filter: drop-shadow(0px 0px 6px rgba(0,0,0,0.8));" ng-src="{{getItemTypeImage(type.typeName)}}"> {{type.typeName}}</h4>
                     <div class="description-holder" style="padding: 5px;">
                     <div class="row" ng-repeat="item in type.items | filter:item">
                         <div class="col-sm-12 col-md-12 col-lg-12" style="line-height: 2.6;">
