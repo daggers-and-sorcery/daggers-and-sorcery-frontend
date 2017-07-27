@@ -1,8 +1,7 @@
 'use strict';
 
-module.exports = function ($scope, $http, $rootScope, cookingInfo) {
+module.exports = function ($scope, $http, $rootScope, cookingInfo, Notification) {
     $scope.cookingInfo = cookingInfo.data.data;
-    $scope.success = null;
 
     $scope.create = function (recipeId) {
         var payload = {
@@ -10,7 +9,11 @@ module.exports = function ($scope, $http, $rootScope, cookingInfo) {
         };
 
         $http.post('https://api.daggersandsorcery.com/skill/cooking/create', payload).then(function (response) {
-            $scope.success = response.data.data.success.success;
+            if(response.data.data.success.success) {
+                Notification.success({message: 'You successfully cooked the food!', title: 'Cooking'});
+            } else {
+                Notification.error({message: 'Something went wrong while tried to cook!', title: 'Cooking'});
+            }
         });
     }
 };

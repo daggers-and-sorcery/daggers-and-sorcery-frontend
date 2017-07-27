@@ -150,3 +150,32 @@ img, a {
 .table-responsive {
     border-color: wheat !important;
 }
+
+//Notification
+.ui-notification.error {
+    color: wheat;
+    border: 5px;
+    border-image-source: url(../image/select_dropdown_container.png);
+    border-image-slice: 20 fill;
+    border-image-repeat: repeat;
+    border-style: solid;
+    background: transparent;
+
+    .message {
+        color: red;
+    }
+}
+
+.ui-notification.success {
+    color: wheat;
+    border: 5px;
+    border-image-source: url(../image/select_dropdown_container.png);
+    border-image-slice: 20 fill;
+    border-image-repeat: repeat;
+    border-style: solid;
+    background: transparent;
+
+    .message {
+        color: green;
+    }
+}
