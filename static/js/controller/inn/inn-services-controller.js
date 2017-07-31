@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ($scope, $state, $http, $sce, marked, Flash, innInfo) {
+module.exports = function ($scope, $state, $http, $sce, marked, Notification, innInfo) {
     $scope.inn = innInfo;
 
     $scope.getServiceImage = function (service) {
@@ -17,12 +17,21 @@ module.exports = function ($scope, $state, $http, $sce, marked, Flash, innInfo) 
 
     $scope.orderService = function (serviceId) {
         $http.get('https://api.daggersandsorcery.com/inn/service/' + serviceId).then(function (response) {
-            Flash.clear();
 
             if (response.data.data.result.successful) {
-                Flash.create('success', 'You successfully paid for the service and enjoy it\'s benefits.');
+                Notification.success({
+                    message: 'You successfully paid for the service and enjoy it\'s benefits.',
+                    icon: 'inn',
+                    title: 'Inn',
+                    templateUrl: require('html/popup/popup-with-image.html')
+                });
             } else {
-                Flash.create('danger', 'Something went wrong! Maybe you don\'t have enough coins or movement points?');
+                Notification.error({
+                    message: 'Something went wrong! Maybe you don\'t have enough coins or movement points?',
+                    icon: 'inn',
+                    title: 'Inn',
+                    templateUrl: require('html/popup/popup-with-image.html')
+                });
             }
         });
     };

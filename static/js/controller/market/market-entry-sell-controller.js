@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ($scope, $http, $log, Flash, marketData) {
+module.exports = function ($scope, $http, $log, Notification, marketData) {
     $scope.marketData = marketData;
 
     $scope.item = {
@@ -50,8 +50,21 @@ module.exports = function ($scope, $http, $log, Flash, marketData) {
                     }
                 }
 
-                Flash.clear();
-                Flash.create($scope.getFlashColorFromResponse(sellingResult), $scope.getFlashMessageFromResponse(sellingResult));
+                if ($scope.successfulResult(sellingResult)) {
+                    Notification.success({
+                        message: $scope.getFlashMessageFromResponse(response.data.data.result.sellingResult),
+                        icon: 'sell',
+                        title: 'Market <small>(sell)</small>',
+                        templateUrl: require('html/popup/popup-with-image.html')
+                    });
+                } else {
+                    Notification.error({
+                        message: $scope.getFlashMessageFromResponse(response.data.data.result.sellingResult),
+                        icon: 'sell',
+                        title: 'Market <small>(sell)</small>',
+                        templateUrl: require('html/popup/popup-with-image.html')
+                    });
+                }
             });
         }
     };
@@ -66,14 +79,6 @@ module.exports = function ($scope, $http, $log, Flash, marketData) {
         }
 
         return "Unknown result!";
-    };
-
-    $scope.getFlashColorFromResponse = function (result) {
-        if ($scope.successfulResult(result)) {
-            return 'success';
-        }
-
-        return 'danger';
     };
 
     $scope.successfulResult = function (result) {

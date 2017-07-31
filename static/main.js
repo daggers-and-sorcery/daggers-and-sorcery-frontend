@@ -6,8 +6,6 @@ require('./vendor/angular-messages/js/angular-messages.min.js');
 
 require('./vendor/angular-marked/js/angular-marked.min.js');
 
-require('./vendor/angular-flash/js/angular-flash.js');
-
 require('./vendor/angular-sanitize/js/angular-sanitize.js');
 require('./vendor/angular-readmore/js/angular-readmore.js');
 
@@ -109,7 +107,6 @@ require('./sass/common/holder/description-holder.scss');
 require('./sass/common/component/popover.scss');
 require('./sass/common/component/right-menu.scss');
 
-require('./sass/common/flash/flash.scss');
 require('./sass/common/money.scss');
 require('./sass/common/common.scss');
 require('./sass/common/navbar.scss');

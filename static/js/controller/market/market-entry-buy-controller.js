@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ($scope, $http, $log, Flash, marketData) {
+module.exports = function ($scope, $http, $log, Notification, marketData) {
     $scope.marketData = marketData;
 
     $scope.floor = function (value) {
@@ -19,8 +19,21 @@ module.exports = function ($scope, $http, $log, Flash, marketData) {
 
             $log.debug("Got response for buying attempt!");
 
-            Flash.clear();
-            Flash.create($scope.getFlashColorFromResponse(buyingResult), $scope.getFlashMessageFromResponse(buyingResult));
+            if ($scope.successfulResult(buyingResult)) {
+                Notification.success({
+                    message: $scope.getFlashMessageFromResponse(buyingResult),
+                    icon: 'buy',
+                    title: 'Market <small>(buy)</small>',
+                    templateUrl: require('html/popup/popup-with-image.html')
+                });
+            } else {
+                Notification.error({
+                    message: $scope.getFlashMessageFromResponse(buyingResult),
+                    icon: 'buy',
+                    title: 'Market <small>(buy)</small>',
+                    templateUrl: require('html/popup/popup-with-image.html')
+                });
+            }
 
             $scope.refreshMarketData();
         });
@@ -44,14 +57,6 @@ module.exports = function ($scope, $http, $log, Flash, marketData) {
         }
 
         return "Unknown result!";
-    };
-
-    $scope.getFlashColorFromResponse = function (result) {
-        if ($scope.successfulResult(result)) {
-            return 'success';
-        }
-
-        return 'danger';
     };
 
     $scope.successfulResult = function (result) {
