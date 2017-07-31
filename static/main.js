@@ -100,6 +100,8 @@ require('./sass/common/form/label.scss');
 
 require('./sass/common/cursor.scss');
 
+require('./sass/common/notification.scss');
+
 require('./sass/common/panel/panel.scss');
 
 require('./sass/common/holder/description-holder.scss');
