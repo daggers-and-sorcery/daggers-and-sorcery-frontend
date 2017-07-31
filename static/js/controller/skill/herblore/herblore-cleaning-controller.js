@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ($scope, $http, $rootScope, $interval, Flash, cleaningInfo) {
+module.exports = function ($scope, $http, $rootScope, $interval, cleaningInfo, Notification) {
     $scope.cleaningInfo = cleaningInfo;
 
     $scope.create = function (recipeId) {
@@ -9,8 +9,21 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, cleaning
         };
 
         $http.post('https://api.daggersandsorcery.com/skill/herblore/cleaning/craft', payload).then(function (response) {
-            Flash.clear();
-            Flash.create(getHerbloreResultColor(response.data.data.result.result), getHerbloreResultText(response.data.data.result.result));
+            if (response.data.data.result.result === 'SUCCESSFUL') {
+                Notification.success({
+                    message: getHerbloreResultText(response.data.data.result.result),
+                    icon: 'cleaning',
+                    title: 'Herblore <small>(cleaning)</small>',
+                    templateUrl: require('html/popup/popup-with-image.html')
+                });
+            } else {
+                Notification.error({
+                    message: getHerbloreResultText(response.data.data.result.result),
+                    icon: 'cleaning',
+                    title: 'Herblore <small>(cleaning)</small>',
+                    templateUrl: require('html/popup/popup-with-image.html')
+                });
+            }
 
             $scope.refresh();
         });
@@ -23,14 +36,6 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, cleaning
         }).then(function (response) {
             $scope.cleaningInfo = response.data.data;
         });
-    };
-
-    var getHerbloreResultColor = function (result) {
-        if (result === 'SUCCESSFUL') {
-            return 'success';
-        }
-
-        return 'danger';
     };
 
     var getHerbloreResultText = function (result) {
