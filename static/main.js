@@ -11,7 +11,7 @@ require('./vendor/angular-flash/js/angular-flash.js');
 require('./vendor/angular-sanitize/js/angular-sanitize.js');
 require('./vendor/angular-readmore/js/angular-readmore.js');
 
-require('./vendor/angular-ui-notification/js/angular-ui-notification.min.js');
+require('./vendor/angular-ui-notification/js/angular-ui-notification.js');
 require('./vendor/angular-ui-notification/css/angular-ui-notification.min.css');
 
 require('./vendor/angular-slider/js/rzslider.min.js');

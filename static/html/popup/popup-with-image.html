@@ -1,0 +1,14 @@
+<div class="ui-notification row" style="margin: 0;width:350px;">
+    <div class="col-sm-4" style="padding: 2px;">
+        <img class="img-responsive" ng-src="{{icon}}">
+    </div>
+    <div class="col-sm-8" style="
+    padding-left: 5px;
+    padding-right: 5px;">
+        <h3 ng-show="title" ng-bind-html="title" style="    font-size: 20px;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 5px;"></h3>
+        <div class="message" ng-bind-html="message"></div>
+    </div>
+</div>

@@ -12,7 +12,8 @@ module.exports = function ($scope, $http, $rootScope, cookingInfo, Notification)
             if(response.data.data.success.success) {
                 Notification.success({message: 'You successfully cooked the food!', title: 'Cooking'});
             } else {
-                Notification.error({message: 'Something went wrong while tried to cook!', title: 'Cooking'});
+                Notification.error({message: 'Something went wrong while tried to cook!', icon: 'cooking', title: 'Cooking',
+                    templateUrl: require('html/popup/popup-with-image.html')});
             }
         });
     }
