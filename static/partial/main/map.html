@@ -2,26 +2,61 @@
     <div class="panel-heading">
         <img class="panel-heading-icon-improved" src="../../image/icon/extra/map.png">
         <img class="panel-heading-icon-improved-holder" src="../../image/panel/header/panel-header-icon-background.png"/>
-        <h3 class="panel-title">Explore</h3>
+        <h3 class="panel-title">Explore <small>(Sevgard)</small></h3>
     </div>
     <div class="panel-body">
+        <div class="row" ng-if="hasLast()">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="description-holder" style="padding: 2px; padding-left: 10px;">
+                            <div class="row">
+                                <div class="col-sm-3 col-md-3 col-lg-3" style="line-height: 3.3;">
+                                    Last visited region:
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-lg-4" style="line-height: 3.3;">
+                                    {{dataForLast().name[0]}}
+                                </div>
+                                <div class="col-sm-2 col-md-2 col-lg-2" style="line-height: 3.3;">
+                                    ({{dataForLast().level[0].minimum[0]}} - {{dataForLast().level[0].maximum[0]}})
+                                </div>
+                                <div class="col-sm-3 col-md-3 col-lg-3">
+                                    <button class="button-default btn-block" ng-click="exploreLast()">Explore again</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="news-entry-separator">
+                            <img src="../../image/seperator_2.png"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <div ng-repeat="exploration in explorationData.location.exploration" ng-style="$first ? { 'border-width': '2px' } : { 'border-width': '0' }">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="description-holder" ng-if="exploration.image[0] === 'true'">
-                                <img class="img-responsive max-width" ng-src="{{getExplorationImage(exploration.id)}}" />
+                                <img class="img-responsive max-width" ng-src="{{getExplorationImage(exploration.id)}}"/>
                             </div>
                         </div>
                     </div>
                     <div style="padding: 0;">
                         <div class="row">
                             <div class="col-sm-8 col-md-8 col-lg-8" ng-bind="exploration.name[0]" style="padding-top: 14px; padding-bottom: 14px;padding-left: 24px;"></div>
-                            <div class="col-sm-2 col-md-2 col-lg-2 text-center" style="padding-top: 14px; padding-bottom: 14px;">({{exploration.level[0].minimum[0]}} - {{exploration.level[0].maximum[0]}})</div>
+                            <div class="col-sm-2 col-md-2 col-lg-2 text-center" style="padding-top: 14px; padding-bottom: 14px;">
+                                ({{exploration.level[0].minimum[0]}} - {{exploration.level[0].maximum[0]}})
+                            </div>
                             <div class="col-sm-2 col-md-2 col-lg-2">
                                 <div ng-if="exploration.enabled[0] === 'true'">
-                                    <button class="button-default btn-block" ng-click="explore(exploration.id, 0)">Explore</button>
+                                    <button class="button-default btn-block" ng-click="explore(exploration.id, 0)">
+                                        Explore
+                                    </button>
                                 </div>
                                 <div ng-if="exploration.enabled[0] === 'false'" style="height:71px;line-height: 71px;text-align: center;">
                                     This map is disabled!
