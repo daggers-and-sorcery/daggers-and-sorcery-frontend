@@ -19,6 +19,9 @@ require('./vendor/angular-webstorage/js/angular-webstorage.js');
 require('./vendor/angular-state-loader/js/angular-state-loader.js');
 require('./vendor/angular-state-loader/css/angular-state-loader.css');
 
+require('./vendor/angular-bootstrap-lightbox/js/angular-bootstrap-lightbox.js');
+require('./vendor/angular-bootstrap-lightbox/css/angular-bootstrap-lightbox.css');
+
 // Controllers
 require('./js/controller/main-controller.js');
 
