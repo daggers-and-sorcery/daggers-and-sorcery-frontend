@@ -15,8 +15,13 @@ require('./vendor/angular-ui-notification/css/angular-ui-notification.min.css');
 require('./vendor/angular-slider/js/rzslider.min.js');
 require('./vendor/angular-slider/css/rzslider.min.css');
 
-require('./vendor/angular-state-loader/js/angular-state-loader.js')
-require('./vendor/angular-state-loader/css/angular-state-loader.css')
+require('./vendor/angular-webstorage/js/angular-webstorage.js');
+
+require('./vendor/angular-state-loader/js/angular-state-loader.js');
+require('./vendor/angular-state-loader/css/angular-state-loader.css');
+
+require('./vendor/angular-bootstrap-lightbox/js/angular-bootstrap-lightbox.js');
+require('./vendor/angular-bootstrap-lightbox/css/angular-bootstrap-lightbox.css');
 
 // Controllers
 require('./js/controller/main-controller.js');
@@ -118,3 +123,4 @@ require('./sass/common/definition/item-definition.scss');
 require('./sass/common/directive/big-button-directive.scss');
 
 require('./sass/core.scss');
+require('./sass/landing-page.scss');

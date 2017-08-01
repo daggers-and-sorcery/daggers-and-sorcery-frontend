@@ -1,0 +1,46 @@
+.landing-page {
+    background: url("../image/dragon.png");
+    background-position: center;
+    min-height: 100%;
+    height: 100%;
+
+    .landing-page-title {
+        margin-top: 20px;
+
+        h1 {
+            margin: 4px;
+            font-size: 48px;
+            text-shadow: 2px 2px black;
+        }
+    }
+
+    .landing-page-images {
+        margin-top: 20px;
+
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 15px;
+        padding-top: 15px;
+
+        img {
+            box-shadow: black 1px 1px 12px;
+            border-radius: 4px;
+            border: 1px solid black;
+        }
+    }
+
+    .landing-page-buttons {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        .register-button {
+            font-size: 30px;
+            height: 70px;
+        }
+
+        .login-button {
+            font-size: 18px;
+            height: 56px;
+        }
+    }
+}
