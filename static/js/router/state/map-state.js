@@ -11,7 +11,7 @@ module.exports = {
             });
         }
     },
-    controller: function ($scope, $state, explorationInfo) {
+    controller: function ($scope, $state, explorationInfo, webStorage) {
         if (explorationInfo.events.length > 0) {
             $state.go('explore', {'explorationInfo': explorationInfo});
         }
@@ -20,7 +20,33 @@ module.exports = {
             return require('image/exploration/' + imageId + '.png');
         };
 
+        $scope.exploreLast = function () {
+            $state.go('explore', {
+                'explorationId': 0,
+                'nextStage': 0,
+                'nextLocation': webStorage.get('lastExplorationTarget')
+            });
+        };
+
+        $scope.hasLast = function () {
+            return webStorage.get('lastExplorationTarget') != undefined;
+        };
+
+        $scope.dataForLast = function () {
+            var result = undefined;
+
+            $scope.explorationData.location.exploration.forEach(function(entry) {
+                if(entry.id[0] === webStorage.get('lastExplorationTarget')[0]) {
+                    result = entry;
+                }
+            });
+
+            return result;
+        };
+
         $scope.explore = function (explorationLocation, explorationId) {
+            webStorage.set('lastExplorationTarget', explorationLocation);
+
             $state.go('explore', {'explorationId': explorationId, 'nextStage': 0, 'nextLocation': explorationLocation});
         };
 
@@ -29,5 +55,7 @@ module.exports = {
         };
 
         $scope.explorationData = require('data/explore/sevgard.xml');
+
+        console.log($scope.explorationData);
     }
 };

@@ -1,7 +1,7 @@
 'use strict';
 
 //TODO: Use 3 separate html and controller!
-module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRecipeList) {
+module.exports = function ($scope, $http, $rootScope, $interval, curingRecipeList, Notification) {
     $scope.leatherworkingInfo = curingRecipeList;
     $scope.state = 'curing';
 
@@ -28,24 +28,63 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRe
             recipeId: recipeId
         };
 
-        if($scope.state == 'curing') {
+        if ($scope.state == 'curing') {
             $http.post('https://api.daggersandsorcery.com/skill/leatherworking/curing/start', payload).then(function (response) {
-                Flash.clear();
-                Flash.create(getCuringResultColor(response.data.data.result.result), getCuringResultText(response.data.data.result.result));
+                if (response.data.data.result.result === 'SUCCESSFUL') {
+                    Notification.success({
+                        message: getCuringResultText(response.data.data.result.result),
+                        icon: 'curing',
+                        title: 'Leaterworking <small>(curing)</small>',
+                        templateUrl: require('html/popup/popup-with-image.html')
+                    });
+                } else {
+                    Notification.error({
+                        message: getCuringResultText(response.data.data.result.result),
+                        icon: 'curing',
+                        title: 'Leaterworking <small>(curing)</small>',
+                        templateUrl: require('html/popup/popup-with-image.html')
+                    });
+                }
 
                 $scope.refresh();
             });
-        } else if($scope.state == 'tanning') {
+        } else if ($scope.state == 'tanning') {
             $http.post('https://api.daggersandsorcery.com/skill/leatherworking/tanning/start', payload).then(function (response) {
-                Flash.clear();
-                Flash.create(getTanningResultColor(response.data.data.result.result), getTanningResultText(response.data.data.result.result));
+                if (response.data.data.result.result === 'SUCCESSFUL') {
+                    Notification.success({
+                        message: getTanningResultText(response.data.data.result.result),
+                        icon: 'tanning',
+                        title: 'Leaterworking <small>(tanning)</small>',
+                        templateUrl: require('html/popup/popup-with-image.html')
+                    });
+                } else {
+                    Notification.error({
+                        message: getTanningResultText(response.data.data.result.result),
+                        icon: 'tanning',
+                        title: 'Leaterworking <small>(tanning)</small>',
+                        templateUrl: require('html/popup/popup-with-image.html')
+                    });
+                }
 
                 $scope.refresh();
             });
-        } else if($scope.state == 'working') {
+        } else if ($scope.state == 'working') {
             $http.post('https://api.daggersandsorcery.com/skill/leatherworking/working/start', payload).then(function (response) {
-                Flash.clear();
-                Flash.create(getTanningResultColor(response.data.data.result.result), getTanningResultText(response.data.data.result.result));
+                if (response.data.data.result.result === 'SUCCESSFUL') {
+                    Notification.success({
+                        message: getTanningResultText(response.data.data.result.result),
+                        icon: 'leatherworking',
+                        title: 'Leaterworking',
+                        templateUrl: require('html/popup/popup-with-image.html')
+                    });
+                } else {
+                    Notification.error({
+                        message: getTanningResultText(response.data.data.result.result),
+                        icon: 'leatherworking',
+                        title: 'Leaterworking',
+                        templateUrl: require('html/popup/popup-with-image.html')
+                    });
+                }
 
                 $scope.refresh();
             });
@@ -53,21 +92,21 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRe
     };
 
     $scope.refresh = function () {
-        if($scope.state == 'curing') {
+        if ($scope.state == 'curing') {
             $http({
                 method: 'GET',
                 url: 'https://api.daggersandsorcery.com/skill/leatherworking/curing/info'
             }).then(function (response) {
                 $scope.leatherworkingInfo = response.data.data;
             });
-        } else if($scope.state == 'tanning') {
+        } else if ($scope.state == 'tanning') {
             $http({
                 method: 'GET',
                 url: 'https://api.daggersandsorcery.com/skill/leatherworking/tanning/info'
             }).then(function (response) {
                 $scope.leatherworkingInfo = response.data.data;
             });
-        } else if($scope.state == 'working') {
+        } else if ($scope.state == 'working') {
             $http({
                 method: 'GET',
                 url: 'https://api.daggersandsorcery.com/skill/leatherworking/working/info'
@@ -81,7 +120,7 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRe
         angular.forEach($scope.leatherworkingInfo.curing_list, function (value, key) {
             $scope.leatherworkingInfo.curing_list[key].timeLeft -= 1000;
 
-            if($scope.leatherworkingInfo.curing_list[key].timeLeft < 1000) {
+            if ($scope.leatherworkingInfo.curing_list[key].timeLeft < 1000) {
                 $scope.refresh();
             }
         });
@@ -93,16 +132,8 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRe
         }
     });
 
-    var getCuringResultColor = function(result) {
-        if (result === 'SUCCESSFUL') {
-            return 'success';
-        }
-
-        return 'danger';
-    };
-
-    var getCuringResultText = function(result) {
-        switch(result) {
+    var getCuringResultText = function (result) {
+        switch (result) {
             case 'SUCCESSFUL':
                 return 'You started to work on that item.';
             case 'QUEUE_FULL':
@@ -118,16 +149,8 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, curingRe
         }
     };
 
-    var getTanningResultColor = function(result) {
-        if (result === 'SUCCESSFUL') {
-            return 'success';
-        }
-
-        return 'danger';
-    };
-
-    var getTanningResultText = function(result) {
-        switch(result) {
+    var getTanningResultText = function (result) {
+        switch (result) {
             case 'SUCCESSFUL':
                 return 'You successfully tanned that item.';
             case 'INVALID_EVENT':

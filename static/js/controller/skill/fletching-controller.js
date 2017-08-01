@@ -1,18 +1,29 @@
 'use strict';
 
-module.exports = function ($scope, $http, Flash, fletchingInfo) {
+module.exports = function ($scope, $http, fletchingInfo, Notification) {
     $scope.fletchingInfo = fletchingInfo;
 
     $scope.create = function (recipeId) {
-        console.log("CREATE!"+recipeId);
-
         var payload = {
             recipeId: recipeId
         };
 
         $http.post('https://api.daggersandsorcery.com/skill/fletching/create', payload).then(function (response) {
-            Flash.clear();
-            Flash.create(getFletchingResultColor(response.data.data.result.result), getFletchingResultText(response.data.data.result.result));
+            if (response.data.data.result.result === 'SUCCESSFUL') {
+                Notification.success({
+                    message: getFletchingResultText(response.data.data.result.result),
+                    icon: 'fletching',
+                    title: 'Fletching',
+                    templateUrl: require('html/popup/popup-with-image.html')
+                });
+            } else {
+                Notification.error({
+                    message: getFletchingResultText(response.data.data.result.result),
+                    icon: 'fletching',
+                    title: 'Fletching',
+                    templateUrl: require('html/popup/popup-with-image.html')
+                });
+            }
 
             $scope.refresh();
         });

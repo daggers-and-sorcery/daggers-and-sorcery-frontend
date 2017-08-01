@@ -1,12 +1,25 @@
 'use strict';
 
-module.exports = function ($scope, $http, $rootScope, $interval, Flash, gatheringInfo) {
+module.exports = function ($scope, $http, $rootScope, $interval, gatheringInfo, Notification) {
     $scope.gatheringInfo = gatheringInfo;
 
     $scope.startGathering = function () {
         $http.post('https://api.daggersandsorcery.com/skill/herblore/gathering/start').then(function (response) {
-            Flash.clear();
-            Flash.create(getGatheringResultColor(response.data.data.result.result), getGatheringResultText(response.data.data.result.result));
+            if (response.data.data.result.result === 'SUCCESSFUL') {
+                Notification.success({
+                    message: getGatheringResultText(response.data.data.result.result),
+                    icon: 'gathering',
+                    title: 'Herblore <small>(gathering)</small>',
+                    templateUrl: require('html/popup/popup-with-image.html')
+                });
+            } else {
+                Notification.error({
+                    message: getGatheringResultText(response.data.data.result.result),
+                    icon: 'gathering',
+                    title: 'Herblore <small>(gathering)</small>',
+                    templateUrl: require('html/popup/popup-with-image.html')
+                });
+            }
 
             $scope.refresh();
         });
@@ -40,7 +53,7 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, gatherin
     var getGatheringResultText = function (result) {
         switch (result) {
             case 'SUCCESSFUL':
-                return 'You started to work on that item.';
+                return 'You started to gather herbs.';
             case 'QUEUE_FULL':
                 return 'You don\'t have enough place to cure that!';
             case 'INVALID_EVENT':
@@ -52,13 +65,5 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, gatherin
             case 'NOT_ENOUGH_MOVEMENT':
                 return 'You don\'t have enough movement points to do this task.';
         }
-    };
-
-    var getGatheringResultColor = function (result) {
-        if (result === 'SUCCESSFUL') {
-            return 'success';
-        }
-
-        return 'danger';
     };
 };

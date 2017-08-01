@@ -1,7 +1,7 @@
 'use strict';
 
 //TODO: Use 2 separate html and controller!
-module.exports = function ($scope, $http, Flash, smithingRecipeList) {
+module.exports = function ($scope, $http, smithingRecipeList, Notification) {
     $scope.smithingInfo = smithingRecipeList;
     $scope.state = 'smelting';
 
@@ -24,15 +24,41 @@ module.exports = function ($scope, $http, Flash, smithingRecipeList) {
 
         if($scope.state == 'smelting') {
             $http.post('https://api.daggersandsorcery.com/skill/smithing/smelting/start', payload).then(function (response) {
-                Flash.clear();
-                Flash.create(getSmeltingResultColor(response.data.data.result.result), getSmeltingResultText(response.data.data.result.result));
+                if (response.data.data.result.result === 'SUCCESSFUL') {
+                    Notification.success({
+                        message: getSmeltingResultText(response.data.data.result.result),
+                        icon: 'smelting',
+                        title: 'Smithing <small>(smelting)</small>',
+                        templateUrl: require('html/popup/popup-with-image.html')
+                    });
+                } else {
+                    Notification.error({
+                        message: getSmeltingResultText(response.data.data.result.result),
+                        icon: 'smelting',
+                        title: 'Smithing <small>(smelting)</small>',
+                        templateUrl: require('html/popup/popup-with-image.html')
+                    });
+                }
 
                 $scope.refresh();
             });
         } else if($scope.state == 'working') {
             $http.post('https://api.daggersandsorcery.com/skill/smithing/working/start', payload).then(function (response) {
-                Flash.clear();
-                Flash.create(getSmeltingResultColor(response.data.data.result.result), getSmithingResultText(response.data.data.result.result));
+                if (response.data.data.result.result === 'SUCCESSFUL') {
+                    Notification.success({
+                        message: getSmithingResultText(response.data.data.result.result),
+                        icon: 'smithing',
+                        title: 'Smithing',
+                        templateUrl: require('html/popup/popup-with-image.html')
+                    });
+                } else {
+                    Notification.error({
+                        message: getSmithingResultText(response.data.data.result.result),
+                        icon: 'smithing',
+                        title: 'Smithing',
+                        templateUrl: require('html/popup/popup-with-image.html')
+                    });
+                }
 
                 $scope.refresh();
             });
@@ -49,14 +75,6 @@ module.exports = function ($scope, $http, Flash, smithingRecipeList) {
                 $scope.smithingInfo = response.data.data;
             });
         }
-    };
-
-    var getSmeltingResultColor = function(result) {
-        if (result === 'SUCCESSFUL') {
-            return 'success';
-        }
-
-        return 'danger';
     };
 
     var getSmeltingResultText = function(result) {

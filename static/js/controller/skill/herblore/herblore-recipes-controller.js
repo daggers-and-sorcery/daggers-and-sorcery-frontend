@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ($scope, $http, $rootScope, $interval, Flash, recipesInfo) {
+module.exports = function ($scope, $http, $rootScope, $interval, recipesInfo, Notification) {
     $scope.recipesInfo = recipesInfo;
 
     $scope.create = function (recipeId) {
@@ -9,8 +9,21 @@ module.exports = function ($scope, $http, $rootScope, $interval, Flash, recipesI
         };
 
         $http.post('https://api.daggersandsorcery.com/skill/herblore/recipe/craft', payload).then(function (response) {
-            Flash.clear();
-            Flash.create(getHerbloreResultColor(response.data.data.result.result), getHerbloreResultText(response.data.data.result.result));
+            if (response.data.data.result.result === 'SUCCESSFUL') {
+                Notification.success({
+                    message: getHerbloreResultText(response.data.data.result.result),
+                    icon: 'herblore',
+                    title: 'Herblore',
+                    templateUrl: require('html/popup/popup-with-image.html')
+                });
+            } else {
+                Notification.error({
+                    message: getHerbloreResultText(response.data.data.result.result),
+                    icon: 'herblore',
+                    title: 'Herblore',
+                    templateUrl: require('html/popup/popup-with-image.html')
+                });
+            }
 
             $scope.refresh();
         });

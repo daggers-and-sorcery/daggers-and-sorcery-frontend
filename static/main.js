@@ -6,16 +6,22 @@ require('./vendor/angular-messages/js/angular-messages.min.js');
 
 require('./vendor/angular-marked/js/angular-marked.min.js');
 
-require('./vendor/angular-flash/js/angular-flash.js');
-
 require('./vendor/angular-sanitize/js/angular-sanitize.js');
 require('./vendor/angular-readmore/js/angular-readmore.js');
+
+require('./vendor/angular-ui-notification/js/angular-ui-notification.js');
+require('./vendor/angular-ui-notification/css/angular-ui-notification.min.css');
 
 require('./vendor/angular-slider/js/rzslider.min.js');
 require('./vendor/angular-slider/css/rzslider.min.css');
 
-require('./vendor/angular-state-loader/js/angular-state-loader.js')
-require('./vendor/angular-state-loader/css/angular-state-loader.css')
+require('./vendor/angular-webstorage/js/angular-webstorage.js');
+
+require('./vendor/angular-state-loader/js/angular-state-loader.js');
+require('./vendor/angular-state-loader/css/angular-state-loader.css');
+
+require('./vendor/angular-bootstrap-lightbox/js/angular-bootstrap-lightbox.js');
+require('./vendor/angular-bootstrap-lightbox/css/angular-bootstrap-lightbox.css');
 
 // Controllers
 require('./js/controller/main-controller.js');
@@ -97,6 +103,8 @@ require('./sass/common/form/label.scss');
 
 require('./sass/common/cursor.scss');
 
+require('./sass/common/notification.scss');
+
 require('./sass/common/panel/panel.scss');
 
 require('./sass/common/holder/description-holder.scss');
@@ -104,7 +112,6 @@ require('./sass/common/holder/description-holder.scss');
 require('./sass/common/component/popover.scss');
 require('./sass/common/component/right-menu.scss');
 
-require('./sass/common/flash/flash.scss');
 require('./sass/common/money.scss');
 require('./sass/common/common.scss');
 require('./sass/common/navbar.scss');
@@ -116,3 +123,4 @@ require('./sass/common/definition/item-definition.scss');
 require('./sass/common/directive/big-button-directive.scss');
 
 require('./sass/core.scss');
+require('./sass/landing-page.scss');

@@ -1,0 +1,52 @@
+.ui-notification {
+    color: wheat;
+    border: 5px;
+    border-image-source: url(../../image/select_dropdown_container.png);
+    border-image-slice: 20 fill;
+    border-image-repeat: repeat;
+    border-style: solid;
+    margin: 0;
+    width:300px;
+    animation: 50ms fadeIn;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+
+    .title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: wheat;
+
+        small {
+            color: wheat;
+        }
+    }
+
+    &.ui-notification-with-image {
+        .image-container {
+            padding: 2px;
+        }
+
+        .text-container {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+
+    &.error {
+        background: transparent;
+
+        .message {
+            color: red;
+        }
+    }
+
+    &.success {
+        background: transparent;
+
+        .message {
+            color: green;
+        }
+    }
+}

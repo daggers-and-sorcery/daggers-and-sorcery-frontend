@@ -41,4 +41,8 @@ module.exports = function ($scope, $http, shopData) {
             $scope.shopData = response.data.data;
         })
     };
+
+    $scope.getItemTypeImage = function (itemType) {
+        return require('image/icon/inventory/' + itemType.toLowerCase() + '.png');
+    };
 };
