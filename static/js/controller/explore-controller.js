@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, explorationResult) {
-    console.log(explorationResult);
     $scope.explorationResult = explorationResult;
     $scope.usableSpells = [];
     $scope.usableItems = [];
