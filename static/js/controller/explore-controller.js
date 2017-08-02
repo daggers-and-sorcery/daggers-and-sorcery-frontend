@@ -16,7 +16,11 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
         farm: ['farm-0', 'farm-1', 'farm-2', 'farm-3']
     };
 
-    $scope.activeMapIcon = $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()][Math.floor(Math.random() * $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()].length)];
+    if($scope.explorationResult.info.terrain != undefined) {
+        $scope.activeMapIcon = $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()][Math.floor(Math.random() * $scope.mapImageInfo[$scope.explorationResult.info.terrain.toLowerCase()].length)];
+    } else {
+        $scope.failedExploration = true;
+    }
 
     $scope.getTerrainImage = function () {
         return require('image/icon/map/' + $scope.activeMapIcon + '.png');
