@@ -30,10 +30,8 @@
                     </div>
                 </div>
                 <div ng-if="::attributeValue.attribute.hasPage">
-                    <a ui-sref="skill-{{attributeValue.attribute.id | lowercase}}" class="skill-info-text">
-                        <div class="text-center" style="margin-top: -8px;color: wheat;font-size: 14px;">(Skill
-                            info)
-                        </div>
+                    <a ui-sref="{{calculateSkillStateId(attributeValue.attribute.id)}}" class="skill-info-text">
+                        <div class="text-center" style="margin-top: -8px;color: wheat;font-size: 14px;">(Skill info)</div>
                         <img class="skill-entry-info-down-arrow" src="../../../image/fw_char_status_arrow.png">
                         <img class="skill-entry-info-link" src="../../../image/cc_small_window_bot_arrow.png">
                     </a>
@@ -162,7 +160,7 @@
                     </div>
                 </div>
                 <div ng-if="::attributeValue.attribute.hasPage">
-                    <a ui-sref="skill-{{attributeValue.attribute.id | lowercase}}">
+                    <a ui-sref="{{calculateSkillStateId(attributeValue.attribute.id)}}">
                         <img class="skill-entry-info-down-arrow" src="../../../image/fw_char_status_arrow.png">
                         <img class="skill-entry-info-link" src="../../../image/cc_small_window_bot_arrow.png">
                     </a>

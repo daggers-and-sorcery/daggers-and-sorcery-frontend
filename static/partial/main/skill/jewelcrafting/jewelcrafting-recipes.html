@@ -1,0 +1,19 @@
+<div>
+    <h3 class="text-center">Recipes</h3>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th class="text-center">Requirements</th>
+                    <th class="text-center">Result</th>
+                    <th class="text-center">Create</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr display-recipe recipe="recipe" create="create(id)" ng-repeat="recipe in recipesInfo.recipes | orderBy:['recipeRequirements[0].amount','recipeExperiences[0].amount']"></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
