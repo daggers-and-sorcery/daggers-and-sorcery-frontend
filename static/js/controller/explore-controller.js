@@ -119,4 +119,8 @@ module.exports = function ($scope, $http, $sce, $state, $stateParams, $log, expl
             'explorationInfo': null
         });
     };
+
+    $scope.isQuest = function() {
+        return false;
+    }
 };
