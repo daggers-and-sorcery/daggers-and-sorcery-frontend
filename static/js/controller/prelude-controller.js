@@ -26,7 +26,7 @@ module.exports = function ($scope, $state, $http) {
         };
 
         $http.post('https://api.daggersandsorcery.com/user/starter-path', payload).then(function (response) {
-            $state.go('character');
+            $state.go('character.inventory');
         });
     };
 };

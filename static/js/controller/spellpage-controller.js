@@ -4,7 +4,7 @@ module.exports = function ($scope, $state, $http, $stateParams, pagedata) {
     $scope.pagedata = pagedata;
 
     $scope.goBack = function () {
-        $state.go('character');
+        $state.go('character.spells');
     };
 
     $scope.unidentify = function (itemId) {
