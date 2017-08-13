@@ -8,6 +8,19 @@
             </div>
         </div>
     </div>
+    <dl class="definition-list">
+        <dt ng-if="::data.spell.castingCost.length > 0">Casting cost:</dt>
+        <dd ng-repeat="cost in data.spell.castingCost">
+            <span ng-if="cost.costType === 'MANA'">{{cost.amount}} - Mana points</span>
+            <span ng-if="cost.costType === 'ITEM'">
+                {{cost.amount}} - {{cost.itemName}}
+
+                <small ng-if="cost.existingAmount < cost.amount" style="color:red;" class="ng-binding ng-scope">({{cost.amount - cost.existingAmount}} missing)</small>
+                <small ng-if="cost.existingAmount >= cost.amount" style="color:green;" class="ng-scope">(in inventory)</small>
+                <small style="color: lightgray;">(consumed)</small>
+            </span>
+        </dd>
+    </dl>
     <p ng-if="::data.spell.description" class="definition-description">
         <span ng-bind="::data.spell.description"></span>
     </p>
