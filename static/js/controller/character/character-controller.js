@@ -5,7 +5,7 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
 
     $scope.setSubtitle = function (subtitle) {
         $scope.subtitle = subtitle;
-    }
+    };
 
     $scope.user = characterData;
     $scope.attributeBonusNameMap = ATTRIBUTE_BONUS_MAP;
@@ -88,7 +88,7 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
 
     $scope.use = function (item) {
         $http.get('https://api.daggersandsorcery.com/item/use/' + item).then(function (response) {
-            if (response.data.data.success) {
+            if (response.data.data.result.successful) {
                 $rootScope.$broadcast('profile-update-needed');
             }
         });
