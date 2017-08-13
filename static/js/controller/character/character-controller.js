@@ -15,7 +15,6 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
     $scope.attributeDescriptionPopover = require('html/popover/attribute-description-popover.html');
     $scope.incrementedAttributePopover = require('html/popover/incremented-attribute-popover.html');
     $scope.equipmentPopover = require('html/popover/equipment-popover.html');
-    $scope.spellPopover = require('html/popover/spell-popover.html');
 
     $scope.attributeDescribtionMap = {};
 

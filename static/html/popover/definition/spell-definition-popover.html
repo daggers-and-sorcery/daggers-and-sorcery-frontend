@@ -1,0 +1,14 @@
+<div class="definition-popover">
+    <h4 ng-bind="::data.spell.name" class="definition-title"></h4>
+    <div class="row definition-detail-line">
+        <div class="col-lg-12">
+            <div class="pull-left">
+                <span ng-if="data.spell.combatSpell">Combat spell</span>
+                <span ng-if="!data.spell.combatSpell">Non-combat spell</span>
+            </div>
+        </div>
+    </div>
+    <p ng-if="::data.spell.description" class="definition-description">
+        <span ng-bind="::data.spell.description"></span>
+    </p>
+</div>

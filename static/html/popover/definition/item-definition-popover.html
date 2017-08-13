@@ -1,28 +1,23 @@
-<div class="item-definition-popover">
-    <h4 ng-bind="::data.item.name" class="text-center" style="    font-family: 'Palatino Linotype', Times, serif;
-     margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: 20px;"></h4>
-    <div>
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="pull-left">
-                    <span ng-bind="::data.item.type"></span>
-                    <span ng-if="::data.item.subtype">-</span>
-                    <span ng-if="::data.item.subtype" ng-bind="::data.item.subtype"></span>
-                </div>
+<div class="definition-popover item-definition-popover">
+    <h4 ng-bind="::data.item.name" class="definition-title"></h4>
+    <div class="row definition-detail-line">
+        <div class="col-lg-8">
+            <div class="pull-left">
+                <span ng-bind="::data.item.type"></span>
+                <span ng-if="::data.item.subtype">-</span>
+                <span ng-if="::data.item.subtype" ng-bind="::data.item.subtype"></span>
             </div>
-            <div class="col-lg-4">
-                <div class="pull-right">
-                    <span ng-bind="::data.item.weight + ' kg'"></span>
-                </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="pull-right">
+                <span ng-bind="::data.item.weight + ' kg'"></span>
             </div>
         </div>
     </div>
-    <div ng-if="::data.hasImage()" style="text-align: center;">
-        <img ng-src="{{data.getItemImage()}}" style="height: 100px; margin: 10px; border: 1px solid rgba(245, 222, 179, 0.5);">
+    <div ng-if="::data.hasImage()" class="definition-image-holder">
+        <img ng-src="{{data.getItemImage()}}" class="definition-image">
     </div>
-    <dl style="margin-top: 5px;">
+    <dl class="definition-list">
         <dt ng-if="::data.item.requirements.length > 0">Requirements:</dt>
         <dd ng-repeat="requirement in data.item.requirements track by requirement.attribute"
             ng-bind="::requirement.value + ' - ' + requirement.attribute"></dd>
@@ -37,8 +32,10 @@
             <span> - {{::modifier.attribute}}</span>
         </dd>
     </dl>
-    <p ng-if="::data.item.description" ng-bind="::data.item.description" class="item-definition-popover-description" style="margin-top: 5px;"></p>
-    <p ng-if="::data.item.flavour" class="item-definition-popover-flavor" style="margin-top: 5px;">
+    <p ng-if="::data.item.description" class="definition-description">
+        <span ng-bind="::data.item.description"></span>
+    </p>
+    <p ng-if="::data.item.flavour" class="definition-flavor">
         <i ng-bind="::'“' + data.item.flavour + '”'"></i>
     </p>
 </div>

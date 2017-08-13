@@ -1,11 +1,27 @@
 <h3><img class="character-list-header" src="../../../image/btts_stats_button.png"> Spells</h3>
 
-<div class="row combat-attribute-list">
-    <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="spell in user.spell">
-        <div class="clearfix" ng-if="$index % 3 == 0"></div>
-        <span ng-bind="spell.name"></span>
-        <span class="glyphicon glyphicon-asterisk pull-right inventory-item-watch" ng-click="cast(spell.id)" ng-if="!spell.combatSpell && !spell.openPage" style="padding-left: 5px;"></span>
-        <span class="glyphicon glyphicon-book pull-right inventory-item-watch" ng-click="openPage(spell.id)" ng-if="spell.openPage" style="padding-left: 5px;"></span>
-        <span class="glyphicon glyphicon-eye-open cursor-examine pull-right" popover-html-unsafe="{{spellPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="description-holder" style="    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4" ng-repeat="spell in user.spell">
+                    <div class="clearfix" ng-if="$index % 3 == 0"></div>
+                    <div style="padding: 5px;">
+                        <span ng-bind="spell.name"></span>
+                        <span class="glyphicon glyphicon-asterisk pull-right inventory-item-watch"
+                              ng-click="cast(spell.id)"
+                              ng-if="!spell.combatSpell && !spell.openPage" style="padding-left: 5px;"></span>
+                        <span class="glyphicon glyphicon-book pull-right inventory-item-watch"
+                              ng-click="openPage(spell.id)"
+                              ng-if="spell.openPage" style="padding-left: 5px;"></span>
+                        <span class="glyphicon glyphicon-eye-open cursor-examine pull-right"
+                              popover-html-unsafe="{{spellPopover}}" popover-trigger="mouseenter"
+                              popover-placement="right"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

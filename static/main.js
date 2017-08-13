@@ -117,7 +117,7 @@ require('./sass/common/common.scss');
 require('./sass/common/navbar.scss');
 
 // Directive - definition scss
-require('./sass/common/definition/item-definition-popover.scss');
+require('./sass/common/definition/definition.scss');
 require('./sass/common/definition/item-definition.scss');
 
 require('./sass/common/directive/big-button-directive.scss');

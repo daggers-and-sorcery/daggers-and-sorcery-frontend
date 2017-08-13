@@ -1,0 +1,33 @@
+.definition-popover {
+    .definition-title {
+        text-align: center;
+        font-family: 'Palatino Linotype', Times, serif;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+
+    .definition-image-holder {
+        text-align: center;
+
+        .definition-image {
+            height: 100px;
+            margin: 10px;
+            border: 1px solid rgba(245, 222, 179, 0.5);
+        }
+    }
+
+    .definition-list {
+        margin-bottom: 0;
+        margin-top: 5px;
+    }
+
+    .definition-detail-line + .definition-description {
+        margin-top: 4px;
+    }
+
+    .definition-flavor, .definition-description {
+        text-align: center;
+        margin: 5px 10px 10px;
+    }
+}
