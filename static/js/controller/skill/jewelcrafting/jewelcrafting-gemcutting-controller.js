@@ -10,7 +10,7 @@ module.exports = function ($scope, $http, $rootScope, $interval, gemcuttingInfo,
         };
 
         $http.post('https://api.daggersandsorcery.com/skill/jewelcrafting/gemcutting/craft', payload).then(function (response) {
-            if (response.data.data.result.result === 'SUCCESSFUL') {
+            if (response.data.data.result.gemcuttingResult === 'SUCCESSFUL') {
                 Notification.success({
                     message: getJewelcraftingResultText(response.data.data.result.gemcuttingResult),
                     icon: 'gemcutting',
