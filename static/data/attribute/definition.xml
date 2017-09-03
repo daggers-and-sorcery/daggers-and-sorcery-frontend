@@ -111,4 +111,8 @@
         <id>spell_resistance</id>
         <description>The spell resistance attribute determines the chance of avoiding or decreasing the opponents magical attacks or damage in combat. The starting spell resistance is 10 + half of the ***willpower*** and ***intelligence***.</description>
     </attribute>
+    <attribute>
+        <id>life_steal</id>
+        <description>Life Steal will heal you after every successful damage in combat. If the damage is lower than your Life Steal attribute then you will be healed only for the damage caused otherwise the full amount of your Life Steal attribute.</description>
+    </attribute>
 </attributes>
