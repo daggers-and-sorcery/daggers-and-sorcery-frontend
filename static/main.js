@@ -115,6 +115,7 @@ require('./sass/common/component/right-menu.scss');
 require('./sass/common/money.scss');
 require('./sass/common/common.scss');
 require('./sass/common/navbar.scss');
+require('./sass/common/extras.scss');
 
 // Directive - definition scss
 require('./sass/common/definition/definition.scss');
