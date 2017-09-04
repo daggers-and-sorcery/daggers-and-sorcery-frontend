@@ -41,7 +41,7 @@
                 <div ng-repeat="exploration in explorationData.location.exploration" ng-style="$first ? { 'border-width': '2px' } : { 'border-width': '0' }">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <div class="description-holder" ng-if="exploration.image[0] === 'true'">
+                            <div class="description-holder" ng-if="hasExplorationImage(exploration.id)">
                                 <img class="img-responsive max-width" ng-src="{{getExplorationImage(exploration.id)}}"/>
                             </div>
                         </div>

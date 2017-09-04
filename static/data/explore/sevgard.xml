@@ -4,7 +4,6 @@
         <id>farmfields</id>
         <name>Farmfields</name>
         <enabled>true</enabled>
-        <image>true</image>
         <first>
             <![CDATA[
 Farmfields is a large, fertile vale nestled outside Sevgard's stone walls. Sevgard operates under a form of feudalism and provides farmers with land, supplies, and protection in exchange for fresh produce and meat. This relationship has thrived for centuries and has allowed Sevgard to become a prosperous city.
@@ -30,7 +29,6 @@ By nightfall, lanterns are lit on posts to prevent weary travelers from drifting
         <id>whispering_woods</id>
         <name>Whispering woods</name>
         <enabled>true</enabled>
-        <image>true</image>
         <first>
             <![CDATA[
 The Whispering Wood is an ancient forest lying on the edge of Farmfields. For generations, the ash and oaks have supplied Sevgard with thick, durable lumber and inspired many artists by their vibrant colors. When the harvest moon arrives, the woodcutters chop trees mercilessly, yet they regrow by the snow's thaw.
@@ -56,7 +54,6 @@ For instance, goblins reside deep within the forest beneath the roots of a sickl
         <id>woodland_cemetery</id>
         <name>Woodland cemetery</name>
         <enabled>true</enabled>
-        <image>false</image>
         <first>
             <![CDATA[
 Beyond Sevgard’s mighty walls, in the darkest corners of the Whispering Woods lies the fabled place of undeath – known amongst the locals as the Woodland Cemetery. Story goes that it was once a peaceful cemetery, which became cursed due to, many believed, spirits who became angry due to all the grave looting.

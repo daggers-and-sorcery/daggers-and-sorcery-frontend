@@ -20,6 +20,14 @@ module.exports = {
             return require('image/exploration/' + imageId + '.png');
         };
 
+        $scope.hasExplorationImage = function (imageId) {
+            try {
+                return __webpack_modules__[require.resolveWeak('image/exploration/' + imageId + '.png')];
+            } catch (err) {
+                return false;
+            }
+        }
+
         $scope.exploreLast = function () {
             $state.go('explore', {
                 'explorationId': 0,
