@@ -21,6 +21,36 @@
         </div>
     </div>
 </div>
+<div ng-if="inn.quest.shouldShowSmugglersHeavenQuest">
+    <img class="separator" src="../../../image/seperator_2.png"/>
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+            <p>A strange man approached you, in these parts he is known by many names but in this inn - he goes by only one: Alderz. With his roguish appearance, you are offset by his intimidating attitude and confrontational nature. "Even from a distance, I can see something very unique about you. Something only others could dream about." The nerve of this stranger! "I want to know more about your... afflictions."</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+            <div class="quest-definition" ng-if="showQuestDialog">
+                <h3 class="quest-title">Smuggler's Heaven</h3>
+                <div class="quest-description">Quest description...</div>
+
+                <div class="row">
+                    <div class="col-lg-offset-2 col-lg-4">
+                        <button ng-click="acceptQuest()" class="button-default btn-block">Accept</button>
+                    </div>
+                    <div class="col-lg-4">
+                        <button ng-click="hideQuest()" class="button-default btn-block">Decline</button>
+                    </div>
+                </div>
+            </div>
+            <div  ng-if="questAccepted">
+                <p>Alderz was not persuaded by your attempts to curve his curiosity. Indeed, the roguish man was more a gentleman than you thought. "I will not cast your secrets out in the open at this inn. I know of some great opportunities for 'strange folks', is there another place we can speak?" Clearly, this man already knew what curse you carry.</p>
+                <p>"Meet me in the Whispering Forest," you muttered. "Do not bring uninvited guests."</p>
+            </div>
+        </div>
+    </div>
+</div>
 <img class="separator" src="../../../image/seperator_2.png"/>
 <div class="row">
     <div ng-repeat="service in inn.services" class="col-md-6 col-lg-6 inn-service" ng-class-odd="'fix-right'"

@@ -2,6 +2,23 @@
 
 module.exports = function ($scope, $state, $http, $sce, marked, Notification, innInfo) {
     $scope.inn = innInfo;
+    $scope.showQuestDialog = true;
+    $scope.questAccepted = false;
+
+    $scope.acceptQuest = function () {
+        var payload = {
+            questId: 3
+        };
+
+        $http.post('https://api.daggersandsorcery.com/quest/accept', payload).then(function (response) {
+            $scope.showQuestDialog = false;
+            $scope.questAccepted = true;
+        });
+    };
+
+    $scope.hideQuest = function () {
+        $scope.showQuestDialog = false;
+    }
 
     $scope.getServiceImage = function (service) {
         return require('image/inn/' + service.toLowerCase().replace(/_/g, "-") + '.jpg');
