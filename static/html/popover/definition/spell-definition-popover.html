@@ -1,18 +1,21 @@
 <div class="definition-popover">
     <h4 ng-bind="::data.spell.name" class="definition-title"></h4>
     <div class="row definition-detail-line">
-        <div class="col-lg-5">
+        <div class="col-lg-6" style="padding-right: 0;">
             <div class="pull-left">
                 <span ng-if="data.spell.combatSpell">Combat spell</span>
                 <span ng-if="!data.spell.combatSpell">Non-combat spell</span>
             </div>
         </div>
-        <div class="col-lg-7">
+        <div class="col-lg-6" style="padding-left: 0;">
             <div class="pull-right">
                 <span ng-bind="::data.spell.type"></span>
                 <img ng-src="{{data.getSpellTypeIcon(data.spell.type)}}" style="padding-left: 2px;"/>
             </div>
         </div>
+    </div>
+    <div ng-if="data.hasSpellIcon(data.spell.id)" class="definition-image-holder">
+        <img ng-src="{{data.getSpellIcon(data.spell.id)}}" class="definition-image">
     </div>
     <dl class="definition-list">
         <dt ng-if="::data.spell.castingCost.length > 0">Casting cost:</dt>
