@@ -1,2 +1,4 @@
-<span class="item-definition" ng-bind="::item.name"></span>
-<span class="item-definition-examine-icon glyphicon glyphicon-eye-open cursor-examine" popover-html-unsafe="{{itemDefinitionPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
+<span ng-if="display === 'text'" class="item-definition" ng-bind="::item.name"></span>
+<span ng-if="display === 'text'" class="item-definition-examine-icon glyphicon glyphicon-eye-open cursor-examine" popover-html-unsafe="{{itemDefinitionPopover}}" popover-trigger="mouseenter" popover-placement="right"></span>
+
+<img  ng-if="display === 'image'" ng-src="{{getItemImage(item.id)}}" popover-html-unsafe="{{itemDefinitionPopover}}" popover-trigger="mouseenter" popover-placement="right"/>
