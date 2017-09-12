@@ -9,19 +9,19 @@ module.exports = function ($scope, $http, $rootScope, $interval, recipesInfo, No
             recipeId: recipeId
         };
 
-        $http.post('https://api.daggersandsorcery.com/skill/jewelcrafting/recipe/craft', payload).then(function (response) {
-            if (response.data.data.result.result === 'SUCCESSFUL') {
+        $http.post('https://api.daggersandsorcery.com/skill/crafting/recipe/craft', payload).then(function (response) {
+            if (response.data.data.result.successful) {
                 Notification.success({
-                    message: getJewelcraftingResultText(response.data.data.result.result),
-                    icon: 'jewelcrafting',
-                    title: 'Jewelcrafting',
+                    message: response.data.data.result.result,
+                    icon: 'crafting',
+                    title: 'Crafting',
                     templateUrl: require('html/popup/popup-with-image.html')
                 });
             } else {
                 Notification.error({
-                    message: getJewelcraftingResultText(response.data.data.result.result),
-                    icon: 'jewelcrafting',
-                    title: 'Jewelcrafting',
+                    message: response.data.data.result.result,
+                    icon: 'crafting',
+                    title: 'Crafting',
                     templateUrl: require('html/popup/popup-with-image.html')
                 });
             }
@@ -33,13 +33,13 @@ module.exports = function ($scope, $http, $rootScope, $interval, recipesInfo, No
     $scope.refresh = function () {
         $http({
             method: 'GET',
-            url: 'https://api.daggersandsorcery.com/skill/jewelcrafting/recipe/info'
+            url: 'https://api.daggersandsorcery.com/skill/crafting/recipe/info'
         }).then(function (response) {
             $scope.recipesInfo = response.data.data;
         });
     };
 
-    var getJewelcraftingResultText = function (result) {
+    var getCraftingResultText = function (result) {
         switch (result) {
             case 'SUCCESSFUL':
                 return 'You successfully created that item.';

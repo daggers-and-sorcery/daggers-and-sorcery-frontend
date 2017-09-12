@@ -38,14 +38,6 @@ module.exports = function ($scope, $http, $rootScope, $interval, recipesInfo, No
         });
     };
 
-    var getHerbloreResultColor = function (result) {
-        if (result === 'SUCCESSFUL') {
-            return 'success';
-        }
-
-        return 'danger';
-    };
-
     var getHerbloreResultText = function (result) {
         switch (result) {
             case 'SUCCESSFUL':
