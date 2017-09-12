@@ -36,6 +36,7 @@ module.exports = function ($scope, $http, $rootScope, $interval, resourceInfo, N
             url: 'https://api.daggersandsorcery.com/skill/crafting/resource/info'
         }).then(function (response) {
             $scope.resourceInfo = response.data.data;
+            $scope.$parent.skillLevel = response.data.data.skill.level;
         });
     };
 };
