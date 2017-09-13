@@ -40,6 +40,7 @@ module.exports = require('js/app.js').config(function ($stateProvider, $urlRoute
             .state(require('./state/skill/herblore/herblore-gathering-state.js'))
             .state(require('./state/skill/herblore/herblore-cleaning-state.js'))
             .state(require('./state/skill/herblore/herblore-recipes-state.js'))
+            .state(require('./state/skill/imbuing/imbuing-state.js'))
             .state(require('./state/skill/jewelcrafting/jewelcrafting-gemcutting-state.js'))
             .state(require('./state/skill/jewelcrafting/jewelcrafting-recipes-state.js'))
             .state(require('./state/skill/jewelcrafting/jewelcrafting-state.js'))
