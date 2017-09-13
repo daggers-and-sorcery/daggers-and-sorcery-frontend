@@ -46,7 +46,7 @@
                         <img class="img-responsive" src="../../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding: 0;" ng-click="unequip('QUIVER')" ng-mouseenter="setType('QUIVER')"  ng-style="!equipment.QUIVER.empty ? {'margin-top': '-22px'}:{}">
-                        <div class="equipment-slot-quiver-amount badge" ng-bind="equipment.QUIVER.amount"></div>
+                        <div class="equipment-slot-quiver-amount badge" ng-bind="equipment.QUIVER.amount" ng-if="equipment.QUIVER.amount > 0"></div>
                         <item-definition-display ng-if="!equipment.QUIVER.empty" class="improved-equipment-slot-image-icon" item="::equipment.QUIVER.itemDefinition" display="image"></item-definition-display>
                         <img class="img-responsive" src="../../../image/inventory/icon/v2/cw_item_slot.png"/>
                     </div>

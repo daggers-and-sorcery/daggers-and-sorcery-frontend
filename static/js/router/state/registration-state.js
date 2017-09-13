@@ -7,11 +7,10 @@ module.exports = {
         visibleWhenNotLoggedIn: true
     },
     template: require('partial/main/registration.html'),
-    controller: function ($scope, $http) {
+    controller: function ($scope, $http, $log, $rootScope, $state) {
         $scope.user = {};
         $scope.visibleRace = 0;
         $scope.errorList = [];
-        $scope.successfulRegistration = false;
 
         $scope.attributeDescriptionPopover = require('html/popover/registration-attribute-description-popover.html');
         $scope.attributeDescribtionMap = {};
@@ -309,7 +308,27 @@ module.exports = {
 
                 $http.post('https://api.daggersandsorcery.com/user/register', dataToSend).then(function (response) {
                     $scope.errorList = [];
-                    $scope.successfulRegistration = true;
+
+                    var loginData = {
+                        username: $scope.user.username,
+                        password: $scope.user.passwordFirst
+                    };
+                    $http.post('https://api.daggersandsorcery.com/user/login', loginData).then(function (response) {
+                        if (response.data.data.result.successful === true) {
+                            $log.debug('Successful login!');
+
+                            $rootScope.previouslyLoggedIn = true;
+
+                            $http.get('https://api.daggersandsorcery.com/user/info').then(function (infoResponse) {
+                                $rootScope.user.loggedIn = infoResponse.data.data.loggedIn;
+                                $rootScope.user.witchuntersGuildUnlocked = infoResponse.data.data.witchuntersGuildInfo.witchhuntersGuildUnlocked;
+
+                                $state.go('home', {}, {reload: true});
+                            });
+                        } else {
+                            $scope.error = true;
+                        }
+                    });
                 }).catch(function (response) {
                     $scope.errorList = response.data;
                 });
