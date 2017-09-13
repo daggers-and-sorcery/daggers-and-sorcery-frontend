@@ -65,26 +65,6 @@ module.exports = function ($scope, $http, $state, $sce, ATTRIBUTE_BONUS_MAP, cha
         });
     });
 
-    $scope.unequip = function (slot) {
-        $http.get('https://api.daggersandsorcery.com/unequip/' + slot).then(function (response) {
-            if (response.data.data.success) {
-                $rootScope.$broadcast('profile-update-needed');
-            } else {
-                //TODO: error happened
-            }
-        });
-    };
-
-    $scope.equip = function (itemId) {
-        $http.get('https://api.daggersandsorcery.com/equip/' + itemId).then(function (response) {
-            if (response.data.data.success) {
-                $rootScope.$broadcast('profile-update-needed');
-            } else {
-                $rootScope.$broadcast('error', {message: 'You can\'t equip that item!'});
-            }
-        });
-    };
-
     $scope.use = function (item) {
         $http.get('https://api.daggersandsorcery.com/item/use/' + item).then(function (response) {
             if (response.data.data.result.successful) {

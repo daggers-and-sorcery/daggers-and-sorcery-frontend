@@ -9,6 +9,7 @@
                 <small ng-if="requirement.existingAmount < requirement.requiredAmount" style="color:red;">({{requirement.requiredAmount - requirement.existingAmount}} missing)</small>
             </span>
             <span ng-if="requirement.skill">{{requirement.amount}} - {{requirement.skill}} level</span>
+            <span ng-if="requirement.resource">{{requirement.amount}} - {{requirement.resource}}</span>
         </li>
         <li ng-repeat="ingredient in recipe.recipeIngredients">
             {{ingredient.requiredAmount}} - <item-definition-display item="ingredient.item"></item-definition-display>

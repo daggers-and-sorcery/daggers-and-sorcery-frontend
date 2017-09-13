@@ -3,10 +3,15 @@ require('js/app.js').directive('itemDefinitionDisplay', function () {
         restrict: 'E',
         transclude: true,
         scope: {
-            item: "=item"
+            item: "=item",
+            display: "@"
         },
         template: require('html/directive/definition/item-definition-display-directive.html'),
         link: function (scope, element, attrs) {
+            if(scope.display === undefined) {
+                scope.display = 'text';
+            }
+
             scope.itemDefinitionPopover = require('html/popover/definition/item-definition-popover.html');
 
             scope.hasImage = function () {

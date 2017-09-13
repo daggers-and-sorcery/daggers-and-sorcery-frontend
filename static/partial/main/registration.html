@@ -8,9 +8,6 @@
         <div class="alert alert-danger" role="alert" ng-show="errorList.length > 0">
             <div ng-repeat="error in errorList" ng-bind="error"></div>
         </div>
-        <div class="alert alert-success" role="alert" ng-show="successfulRegistration">
-            Congratulations, your registration is successful!
-        </div>
         <form class="form-horizontal" autocomplete="off" name="registration_form"  ng-submit="submit(registration_form.$valid)" novalidate>
             <div class="form-group has-feedback" ng-class="{ 'has-error' : registration_form.email.$invalid && (registration_form.email.$touched || registration_form.$submitted), 'has-success': registration_form.email.$valid && registration_form.email.$touched}">
                 <label for="email" class="col-sm-2 control-label">Email</label>

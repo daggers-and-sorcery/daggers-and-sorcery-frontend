@@ -117,6 +117,7 @@ require('./sass/common/common.scss');
 require('./sass/common/navbar.scss');
 require('./sass/common/extras.scss');
 require('./sass/common/quest.scss');
+require('./sass/common/item.scss');
 
 // Directive - definition scss
 require('./sass/common/definition/definition.scss');
