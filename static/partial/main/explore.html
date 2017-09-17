@@ -2,16 +2,19 @@
     <div class="panel-heading">
         <img class="panel-heading-icon-improved" src="../../image/icon/extra/map.png">
         <img class="panel-heading-icon-improved-holder" src="../../image/panel/header/panel-header-icon-background.png"/>
-        <h3 class="panel-title">Explore <small ng-if="!failedExploration">({{explorationResult.info.name}})</small></h3>
-        <div  class="pull-right" ng-if="!failedExploration">
+        <h3 class="panel-title">Explore
+            <small ng-if="!failedExploration">({{explorationResult.info.name}})</small>
+        </h3>
+        <div class="pull-right" ng-if="!failedExploration">
             <img ng-src="{{getRarityIcon()}}" style="    width: 32px;
     position: absolute;
-    right: 26px;
+    right: 42px;
     border-radius: 26px;
-    z-index: 1;" tooltip-placement="bottom" uib-tooltip-html="getRarityText()" />
+    margin-top: 2px;
+    z-index: 1;" tooltip-placement="bottom" uib-tooltip-html="getRarityText()"/>
             <img ng-src="{{getTerrainImage()}}" style="    width: 70px;
     margin-top: -76px;
-    margin-right: -20px;
+    margin-right: -6px;
     -webkit-filter: drop-shadow(0px 0px 6px rgba(0,0,0,0.8));"/>
         </div>
     </div>
@@ -19,15 +22,17 @@
         <div class="exploration-entry-container" ng-repeat="explorationEntry in explorationResult.events">
             <!-- COMBAT -->
             <div class="race-info-text" ng-if="explorationEntry.eventType == 'COMBAT'">
-                <div class="media" ng-repeat="message in explorationEntry.combatMessages">
-                    <div class="media-left" ng-if="message.icon">
-                        <img class="icon media-object" style="width: 40px;margin-left: 4px;margin-top: 4px;position: absolute;"
-                             ng-src="{{getCombatIcon(message.icon)}}"/>
-                        <img class="icon media-object" style="width: 48px;" src="../../image/icon/tgb_avatar_frame.png"/>
+                <div class="combat-message-list">
+                    <div class="combat-message" ng-repeat="message in explorationEntry.combatMessages">
+                        <div class="combat-message-icon" ng-if="message.icon">
+                            <img class="combat-message-icon-image" ng-src="{{getCombatIcon(message.icon)}}"/>
+                            <img class="combat-message-icon-frame" src="../../image/icon/tgb_avatar_frame.png"/>
+                        </div>
+                        <div class="combat-message-continue" ng-if="!message.icon" ng-bind-html="convertCombatMessage(message.message)"></div>
+                        <div class="combat-message-text" ng-if="message.icon">
+                            <span ng-bind-html="convertCombatMessage(message.message)"></span>
+                        </div>
                     </div>
-                    <div class="media-body text-center" style="font-weight:700;height: 48px;vertical-align: middle;" ng-if="!message.icon"
-                         ng-bind-html="convertCombatMessage(message.message)"></div>
-                    <div class="media-body" ng-if="message.icon" style="vertical-align: middle;" ng-bind-html="convertCombatMessage(message.message)"></div>
                 </div>
                 <div ng-if="!explorationEntry.status.playerDead">
                     <div class="row" ng-if="!explorationEntry.status.combatEnded && !explorationEntry.status.continued">
@@ -171,7 +176,8 @@
             <!-- OPTION -->
             <div ng-if="explorationEntry.eventType == 'OPTION'" class="description-holder">
                 <p ng-repeat="option in explorationEntry.eventOptions">
-                    <img src="../../image/common/bulletin/bulletin.png"> <a ng-click="callOption(option.optionId)" ng-bind="option.text"></a>
+                    <img src="../../image/common/bulletin/bulletin.png">
+                    <a ng-click="callOption(option.optionId)" ng-bind="option.text"></a>
                 </p>
             </div>
 

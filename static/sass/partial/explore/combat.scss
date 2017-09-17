@@ -1,0 +1,39 @@
+.combat-message-list {
+
+    .combat-message {
+        margin-top: 10px;
+
+        .combat-message-icon {
+            float: left;
+
+            .combat-message-icon-image {
+                width: 40px;
+                margin-left: 4px;
+                margin-top: 4px;
+                position: absolute;
+            }
+
+            .combat-message-icon-frame {
+                width: 48px;
+            }
+        }
+
+        .combat-message-text {
+            height: 48px;
+            line-height: 48px;
+            padding-left: 56px;
+
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                line-height: normal;
+            }
+        }
+
+        .combat-message-continue {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+    }
+}

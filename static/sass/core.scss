@@ -5,6 +5,7 @@ body {
     height: 100%;
     color: wheat;
     background: url(../image/background.png);
+    line-height: 1.5;
 
     .outter-container {
         border: 26px solid;
@@ -143,7 +144,7 @@ img, a {
     border-image-source: url(../image/c_full.png);
     border-image-slice: 30 fill;
     border-image-repeat: repeat;
-    border-style:solid;
+    border-style: solid;
     margin: 0;
 }
 

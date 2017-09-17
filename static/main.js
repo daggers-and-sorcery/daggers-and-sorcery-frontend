@@ -85,6 +85,7 @@ require('./sass/partial/inn/inn-service.scss');
 require('./sass/partial/shop/shop.scss');
 
 // Explore scss
+require('./sass/partial/explore/combat.scss');
 require('./sass/partial/explore/explore.scss');
 require('./sass/partial/explore/explore-page.scss');
 
