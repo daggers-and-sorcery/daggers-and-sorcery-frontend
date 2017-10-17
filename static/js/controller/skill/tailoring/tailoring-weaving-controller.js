@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ($scope, $http, $rootScope, $interval, gemcuttingInfo, Notification) {
+module.exports = function ($scope, $http, $rootScope, $interval, weavingInfo, Notification) {
     $scope.weavingInfo = weavingInfo;
     $scope.$parent.skillLevel = $scope.weavingInfo.skill.level;
 
@@ -9,19 +9,19 @@ module.exports = function ($scope, $http, $rootScope, $interval, gemcuttingInfo,
             recipeId: recipeId
         };
 
-        $http.post('https://api.daggersandsorcery.com/skill/jewelcrafting/gemcutting/craft', payload).then(function (response) {
-            if (response.data.data.result.gemcuttingResult === 'SUCCESSFUL') {
+        $http.post('https://api.daggersandsorcery.com/skill/tailoring/weaving/craft', payload).then(function (response) {
+            if (response.data.data.result.weavingResult === 'SUCCESSFUL') {
                 Notification.success({
-                    message: getJewelcraftingResultText(response.data.data.result.gemcuttingResult),
-                    icon: 'gemcutting',
-                    title: 'Jewelcrafting <small>(gemcutting)</small>',
+                    message: getWeavingResultText(response.data.data.result.weavingResult),
+                    icon: 'weaving',
+                    title: 'Tailoring <small>(weaving)</small>',
                     templateUrl: require('html/popup/popup-with-image.html')
                 });
             } else {
                 Notification.error({
-                    message: getJewelcraftingResultText(response.data.data.result.gemcuttingResult),
-                    icon: 'gemcutting',
-                    title: 'Jewelcrafting <small>(gemcutting)</small>',
+                    message: getWeavingResultText(response.data.data.result.weavingResult),
+                    icon: 'weaving',
+                    title: 'Tailoring <small>(weaving)</small>',
                     templateUrl: require('html/popup/popup-with-image.html')
                 });
             }
@@ -33,13 +33,13 @@ module.exports = function ($scope, $http, $rootScope, $interval, gemcuttingInfo,
     $scope.refresh = function () {
         $http({
             method: 'GET',
-            url: 'https://api.daggersandsorcery.com/skill/jewelcrafting/gemcutting/info'
+            url: 'https://api.daggersandsorcery.com/skill/tailoring/weaving/info'
         }).then(function (response) {
             $scope.weavingInfo = response.data.data;
         });
     };
 
-    var getJewelcraftingResultText = function (result) {
+    var getWeavingResultText = function (result) {
         switch (result) {
             case 'SUCCESSFUL':
                 return 'You successfully cut that gem.';
