@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    name: 'skill-tailoring.gemcutting',
+    name: 'skill-tailoring.weaving',
     url: 'skill/tailoring/weaving',
     template: require('partial/main/skill/tailoring/tailoring-weaving.html'),
     resolve: {
@@ -11,5 +11,5 @@ module.exports = {
             });
         }
     },
-    controller: require('js/controller/skill/tailoring/jewelcrafting-tailoring-controller.js')
+    controller: require('js/controller/skill/tailoring/tailoring-weaving-controller.js')
 };
