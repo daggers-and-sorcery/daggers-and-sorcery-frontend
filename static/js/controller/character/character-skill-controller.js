@@ -7,6 +7,8 @@ module.exports = function ($scope) {
             return 'skill-jewelcrafting.gemcutting';
         } else if (skill === 'CRAFTING') {
             return 'skill-crafting.resource';
+        } else if (skill === 'TAILORING') {
+            return 'skill-tailoring.weaving';
         }
 
         return 'skill-' + skill.toLowerCase();
