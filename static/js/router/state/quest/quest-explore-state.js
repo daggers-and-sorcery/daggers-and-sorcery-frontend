@@ -10,12 +10,12 @@ module.exports = {
     template: require('partial/main/explore.html'),
     resolve: {
         explorationResult: function ($http, $stateParams) {
-            if($stateParams.nextStage === null) {
+            if ($stateParams.nextStage === null) {
                 return $http.get('https://api.daggersandsorcery.com/explore/quest/info/' + $stateParams.questId).then(function (response) {
                     return response.data.data;
                 });
             } else {
-                return $http.get('https://api.daggersandsorcery.com/explore/quest/' + $stateParams.questId+'/'+$stateParams.nextStage).then(function (response) {
+                return $http.get('https://api.daggersandsorcery.com/explore/quest/' + $stateParams.questId + '/' + $stateParams.nextStage).then(function (response) {
                     return response.data.data;
                 });
             }

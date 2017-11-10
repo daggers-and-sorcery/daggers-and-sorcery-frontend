@@ -5,7 +5,7 @@ module.exports = {
     url: 'skill/jewelcrafting/gemcutting',
     template: require('partial/main/skill/jewelcrafting/jewelcrafting-gemcutting.html'),
     resolve: {
-        gemcuttingInfo: function ($http) {
+        weavingInfo: function ($http) {
             return $http({method: 'GET', url: 'https://api.daggersandsorcery.com/skill/jewelcrafting/gemcutting/info'}).then(function(response) {
                 return response.data.data;
             });
